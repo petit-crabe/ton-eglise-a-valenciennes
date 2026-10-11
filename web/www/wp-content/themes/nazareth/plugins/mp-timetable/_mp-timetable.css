@@ -1,0 +1,73 @@
+/* MP Timetable styles
+----------------------------------------------------------------- */
+/* Table */
+.mptt-shortcode-wrapper .mptt-shortcode-table tbody .mptt-event-container .mptt-inner-event-content {
+  max-width: 100%;
+  -webkit-hyphens: auto;
+  -ms-hyphens: auto;
+  hyphens: auto; }
+
+.mptt-shortcode-wrapper .mptt-shortcode-table tbody .mptt-event-container,
+.mptt-shortcode-wrapper .mptt-shortcode-table tbody .mptt-event-container .mptt-inner-event-content {
+  -webkit-transition: color 0.3s ease, background-color 0.3s ease, border-color 0.3s ease;
+  -ms-transition: color 0.3s ease, background-color 0.3s ease, border-color 0.3s ease;
+  -o-transition: color 0.3s ease, background-color 0.3s ease, border-color 0.3s ease;
+  transition: color 0.3s ease, background-color 0.3s ease, border-color 0.3s ease; }
+
+.mptt-shortcode-wrapper .mptt-shortcode-table tbody .mptt-event-container .event-title {
+  font-size: 1em;
+  line-height: 1.25em; }
+
+.mptt-shortcode-wrapper .mptt-shortcode-table tbody .mptt-event-container:hover .event-title {
+  text-decoration: none; }
+
+.mptt-shortcode-wrapper .mptt-shortcode-table tbody .mptt-event-container .event-title,
+.mptt-shortcode-wrapper .mptt-shortcode-table tbody .mptt-event-container .event-description {
+  margin: 0;
+  padding: 4px;
+  max-width: 100%;
+  -webkit-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box; }
+
+/* Slots in the single event */
+.post_type_mp-event .timeslot {
+  -webkit-transition: color 0.3s ease, background-color 0.3s ease, border-color 0.3s ease;
+  -ms-transition: color 0.3s ease, background-color 0.3s ease, border-color 0.3s ease;
+  -o-transition: color 0.3s ease, background-color 0.3s ease, border-color 0.3s ease;
+  transition: color 0.3s ease, background-color 0.3s ease, border-color 0.3s ease; }
+
+/* Services Page */
+/* Calendar */
+.mptt-shortcode-wrapper .mptt-shortcode-table tr td,
+.mptt-shortcode-wrapper .mptt-shortcode-table tr th {
+  border: 1px solid;
+  border-collapse: collapse; }
+
+.mptt-shortcode-wrapper .mptt-shortcode-table tr th {
+  height: 4rem; }
+
+.mptt-shortcode-wrapper .mptt-shortcode-table tr td {
+  width: 12.5%;
+  height: 9rem !important; }
+
+.mptt-shortcode-wrapper .mptt-shortcode-table tbody .mptt-event-container {
+  outline: none; }
+
+.mptt-shortcode-wrapper .mptt-shortcode-table tr td .mptt-event-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center; }
+
+.mptt-shortcode-wrapper .mptt-shortcode-table tbody .mptt-shortcode-hours,
+.mptt-shortcode-wrapper .mptt-shortcode-table tbody .mptt-event-container .event-title {
+  font-size: 1.143rem; }
+
+.mptt-shortcode-wrapper .mptt-shortcode-table tbody .mptt-shortcode-hours {
+  font-weight: 700; }
+
+.mptt-shortcode-wrapper .mptt-shortcode-table tbody .mptt-event-container:hover .event-title {
+  text-decoration: none; }

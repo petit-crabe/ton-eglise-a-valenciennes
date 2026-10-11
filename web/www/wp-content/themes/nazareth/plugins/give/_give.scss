@@ -1,0 +1,43 @@
+/* Give styles
+----------------------------------------------------------------- */
+
+form[id*="give-form"] .give-donation-amount .give-currency-symbol,
+form[id*="give-form"] .give-donation-amount #give-amount,
+form[id*="give-form"] .give-donation-amount #give-amount-text,
+form[id*="give-form"] #give-final-total-wrap .give-donation-total-label,
+form[id*="give-form"] #give-final-total-wrap .give-final-total-amount {
+	height: auto;
+}
+
+/* Donate Give */
+.wp-widget-give_forms_widget .give-form-info-wrapper {
+	display: flex;
+}
+div.mfp-content fieldset ol, div.mfp-content fieldset p, div.mfp-content fieldset ul {
+	margin: 0.5em 0;
+	font-size: 1.143rem;
+	line-height: 1.1em!important; 
+}
+div.mfp-content fieldset ol li, div.mfp-content fieldset ul li {
+	line-height: 1.1em!important; 
+}
+#give-recurring-form .form-row:last-child, form.give-form .form-row:last-child, form[id*=give-form] .form-row:last-child {
+	margin-bottom: 10px;
+}
+.mfp-container {
+	height: unset;
+}
+@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) { 
+	.give-modal {
+		overflow: hidden!important;
+	}
+}
+.mfp-wrap.give-modal .give-form .give-form-title {
+	font-size: 2rem;
+}
+.page_wrap .give-form .give-form-title {
+	display: none;
+}
+table.give-table thead th:first-child {
+	border-left: 1px solid #0f3f49;
+}

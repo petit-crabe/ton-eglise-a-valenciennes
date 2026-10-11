@@ -1,0 +1,93 @@
+/* Blog layout: Classic 
+------------------------- */
+.posts_container.columns_wrap {
+	display:flex;
+	flex-wrap:wrap;
+}
+.posts_container.columns_wrap .post_layout_classic {
+	display:inline-block;
+	vertical-align:top;
+	@include box(100%, 100%);
+	@include border-box;
+}
+
+.post_layout_classic {
+	position:relative;
+}
+.post_layout_classic .post_featured img {
+	width: 100%;
+}
+.post_layout_classic .post_header {
+	padding-top:0.01px;	  // Incapsulate margins inside the block without 'overflow: hidden'
+}
+.post_layout_classic .post_title {
+	@include font(1.5em, 1.3em);
+	margin: 0;
+}
+.post_layout_classic .post_title+.post_meta {
+	margin-top:0.5em;
+}
+.post_layout_classic blockquote {
+	margin:0 0 1.4em;
+}
+.post_layout_classic .post_header + .post_content {
+	padding-top: 1em;
+}
+.post_layout_classic.format-aside .post_content_inner + .post_meta,
+.post_layout_classic.format-link .post_content_inner + .post_meta,
+.post_layout_classic.format-status .post_content_inner + .post_meta {
+	margin-top:1em;
+}
+.post_layout_classic blockquote  {
+	padding: 2.65rem;
+}
+.post_layout_classic blockquote p {
+	font-size: 1.5rem;
+}
+.post_layout_classic.format-audio .post_featured.without_thumb .post_audio:not(.with_iframe) {
+	padding: 1rem 0;
+}
+.post_layout_classic.format-audio .mejs-horizontal-volume-slider {
+	display: none!important;
+}
+/* Post Meta */
+.post_layout_classic .post_meta {
+	padding: 3rem 0 0;
+}
+.post_layout_classic_3,
+.post_layout_classic_2 {
+	& .mejs-controls .mejs-time {
+		display: none;
+	}
+}
+.mejs-controls .mejs-time
+.post_layout_classic_3 .post_meta,
+.post_layout_classic_2 .post_meta {
+	& .post_author, .post_counters_views, .post_counters_likes, .post_edit, .post_share {
+		display: none;
+	}
+}
+
+.post_layout_classic.format-audio {
+	padding-top: 11rem;
+
+	& .post_meta_custom {
+		top: -9.5rem;
+	}
+
+	& .mejs-horizontal-volume-current {
+		max-width: 80%;
+	}
+	    
+}
+
+body.scheme_dark .post_layout_classic.format-audio .post_featured{
+	border-top: 2px solid;
+    border-bottom: 2px solid;
+    background-color: #ffffff40;
+    padding-left: 6px;
+
+    & .mejs-time-rail {
+    	margin-right: 0;
+    }
+}

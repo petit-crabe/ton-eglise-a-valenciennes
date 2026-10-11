@@ -1,0 +1,71 @@
+/* MP Timetable styles
+----------------------------------------------------------------- */
+@import "../../css/_mixins.scss";
+/* Table */
+.mptt-shortcode-wrapper .mptt-shortcode-table tbody .mptt-event-container .mptt-inner-event-content {
+	max-width: 100%;
+	hyphens: auto;
+}
+.mptt-shortcode-wrapper .mptt-shortcode-table tbody .mptt-event-container,
+.mptt-shortcode-wrapper .mptt-shortcode-table tbody .mptt-event-container .mptt-inner-event-content {
+	@include transition-colors;
+}
+.mptt-shortcode-wrapper .mptt-shortcode-table tbody .mptt-event-container .event-title {
+	@include font(1em, 1.25em);
+}
+.mptt-shortcode-wrapper .mptt-shortcode-table tbody .mptt-event-container .event-title,
+.mptt-shortcode-wrapper .mptt-shortcode-table tbody .mptt-event-container .event-description {
+	margin: 0;
+	padding: 4px;
+	max-width: 100%;
+	@include border-box;
+}
+
+
+/* Slots in the single event */
+.post_type_mp-event .timeslot {
+	@include transition-colors;
+}
+
+/* Services Page */
+/* Calendar */
+.mptt-shortcode-wrapper .mptt-shortcode-table tr td,
+.mptt-shortcode-wrapper .mptt-shortcode-table tr th {
+	border: 1px solid;
+	border-collapse: collapse;
+}
+.mptt-shortcode-wrapper .mptt-shortcode-table tr th {
+	height: 4rem;
+}
+.mptt-shortcode-wrapper .mptt-shortcode-table tr td {
+	width: 12.5%;
+	height: 9rem!important;
+}
+.mptt-shortcode-wrapper .mptt-shortcode-table tbody .mptt-event-container {
+	outline: none;
+}
+.mptt-shortcode-wrapper .mptt-shortcode-table tr td .mptt-event-container {
+	display: flex;
+	justify-content: center;
+}
+.mptt-shortcode-wrapper .mptt-shortcode-table tbody .mptt-shortcode-hours,
+.mptt-shortcode-wrapper .mptt-shortcode-table tbody .mptt-event-container .event-title {
+	font-size: 1.143rem;
+}
+.mptt-shortcode-wrapper .mptt-shortcode-table tbody .mptt-shortcode-hours {
+	font-weight: 700;
+}
+.mptt-shortcode-wrapper .mptt-shortcode-table tbody .mptt-event-container:hover .event-title {
+	text-decoration: none;
+}
+.mptt-shortcode-wrapper .mptt-shortcode-table tbody .mptt-event-container,
+.mptt-shortcode-wrapper .mptt-shortcode-table tbody .mptt-event-container .mptt-inner-event-content {
+	transition: all 0.3s;
+}
+.mptt-shortcode-wrapper .mptt-shortcode-table {
+	@include box-shadow(0 0 25px 25px rgba(220, 220, 209, 0.11));
+}
+/*Single Page TimeTable*/
+.single-mp-column .related_wrap .post_title {
+	padding: 2rem;
+}

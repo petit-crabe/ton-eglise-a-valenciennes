@@ -1,0 +1,33 @@
+/* Gutenberg
+----------------------------------------------------------------- */
+body.sidebar_hide .alignfull {
+  width: 100vw;
+  max-width: none;
+  margin-left: 50%;
+  -webkit-transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
+  transform: translateX(-50%); }
+
+body.sidebar_hide .alignwide {
+  position: relative;
+  left: calc( -44vw + 50%);
+  width: 88vw;
+  max-width: none; }
+
+.alignfull > img,
+.alignwide > img {
+  max-width: none;
+  width: 100%; }
+
+.editor-block-list__block,
+.editor-post-title__block,
+.editor-default-block-appender {
+  max-width: 840px !important; }
+
+.editor-post-title__block .editor-post-title__input {
+  min-height: 1em; }
+
+/* Cover image */
+.wp-block-cover-image .wp-block-cover__inner-container a,
+.wp-block-cover .wp-block-cover__inner-container a {
+  color: inherit; }
