@@ -1,0 +1,16 @@
+# WordPress: secrets
+web/www/wp-config.php
+
+# WordPress: backups
+web/www/wp-content/ai1wm-backups/
+web/www/wp-content/updraft/
+web/www/wp-content/aiowps_backups/
+web/www/wp-content/upgrade-temp-backup/
+
+# WordPress: media library
+web/www/wp-content/uploads/
+
+# WordPress: cache and temporary files
+web/www/wp-content/cache/
+web/www/wp-content/temp-write-test-*
+web/www/.htaccess.bk

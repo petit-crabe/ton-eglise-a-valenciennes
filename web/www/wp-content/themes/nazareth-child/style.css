@@ -1,0 +1,228 @@
+/*
+Theme Name: Nazareth Child
+Template: nazareth
+Theme URI: http://nazareth.axiomthemes.com
+Description: Nazareth is a Premium WordPress theme that has built-in support for popular Page Builders, slider with swipe gestures, and is SEO- and Retina-ready. The unique system of inheritance and override options allows setting up individual parameters for different sections of your site and supported plugins.
+Author: AncoraThemes
+Author URI: http://axiomthemes.com
+Version: 1.0
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+*/
+
+
+/* =Theme customization starts here
+-------------------------------------------------------------- */
+
+
+/* HEADER */
+
+.scheme_default .sc_layouts_title_breadcrumbs, .scheme_default .sc_layouts_title_breadcrumbs a {
+  color: white !important;
+}
+.scheme_default .sc_layouts_title_breadcrumbs .breadcrumbs {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 400;
+  text-transform: uppercase;
+  font-size: 1em;
+}
+
+header .sc_button.sc_button_default.color_style_link3:hover {
+    background: #F5F5F5 !important;
+    color: #272727 !important;
+}
+.scheme_dark .menu_mobile_inner a, .scheme_dark .menu_mobile_inner .menu_mobile_nav_area li::before {
+  color: #272727 !important;
+}
+.scheme_dark .menu_mobile_close::before, .scheme_dark .menu_mobile_close::after {
+  border-color: #272727 !important;
+}
+
+.menu_mobile.scheme_dark .menu_mobile_inner {
+  background-color: #fff;
+  color: #272727;
+}
+.menu_mobile.scheme_dark .menu_mobile_inner .socials_mobile {
+  text-align: left;
+}
+.menu_mobile.scheme_dark .menu_mobile_inner .socials_mobile .social_item .social_icon {
+  color: #272727;
+  font-size: 2em;
+  margin: 14px;
+}
+
+@media screen and (max-width:479px) {
+  .mobile_layout .menu_mobile .menu_mobile_inner .menu_mobile_nav_area {
+    margin-top: 4em;
+  }
+  .mobile_layout .menu_mobile .menu_mobile_inner .menu_mobile_nav_area li > a {
+    width: 90%;
+    padding: 10px 5px;
+    color: #272727;
+    text-transform: initial;
+    letter-spacing: 0;
+    font-weight: bold;
+  }
+  .mobile_layout .menu_mobile .menu_mobile_inner .menu_mobile_nav_area .sub-menu li > a {
+    width: 80%;
+    font-weight: normal;
+  }
+  .scheme_dark .menu_mobile_inner a:hover, .scheme_dark .menu_mobile_inner .current-menu-ancestor > a, .scheme_dark .menu_mobile_inner .current-menu-item > a, .scheme_dark .menu_mobile_inner .menu_mobile_nav_area li:hover::before, .scheme_dark .menu_mobile_inner .menu_mobile_nav_area li.current-menu-ancestor::before, .scheme_dark .menu_mobile_inner .menu_mobile_nav_area li.current-menu-item::before {
+    color: #f26837 !important;
+  }
+}
+
+/** FOOTER **/
+
+footer .wp-widget-nav_menu li {
+  margin: 0;
+}
+footer .wp-widget-nav_menu li:before {
+  display: none;
+}
+
+footer .elementor-section p a {
+  color: #ffbd11 !important;
+}
+footer p a:hover {
+  text-decoration: underline;
+}
+
+footer .socials_wrap .social_item span {
+  background: none !important;
+  border: none !important;
+  box-shadow: none !important;
+  width: 2em !important;
+  font-size: 1.1em;
+}
+footer .socials_wrap .social_item span:before {
+  color: #272727 !important;
+}
+footer .socials_wrap .social_item:hover span:before {
+  color: #ffbd11 !important;
+}
+
+
+/* EVENTS SECTION */
+.section__events .sc_blogger_item_title.entry-title {
+  font-size: 1.2em;
+}
+
+.single-tribe_events .tribe-events-single-section {
+  float: none;
+  clear: both;
+}
+
+.tribe-events-meta-group.tribe-events-meta-group-gmap {
+  display: none !important;
+}
+
+#tribe-events-footer .tribe-events-sub-nav li a {
+  background: none;
+  color: #272727;
+}
+
+
+.facebook-share-btn {
+  display: inline-block;
+  background-color: #3b5998;
+  font-weight: bold;
+  padding: 10px 24px;
+  color: white !important;
+  margin: 14px;
+  font-size: .9em;
+}
+.whatsapp-share-btn {
+  display: inline-block;
+  background-color: #25d366;
+  font-weight: bold;
+  padding: 10px 24px;
+  color: white !important;
+  margin: 14px;
+  font-size: .9em;
+}
+.facebook-share-btn i {
+  margin-right: 6px;
+}
+.whatsapp-share-btn i {
+  margin-right: 6px;
+}
+
+.section__events .post_meta_item .post_date {
+  background: #ff9000;
+  color: white;
+  padding: 0px 8px;
+  margin-top: 14px;
+  font-size: 10px;
+}
+
+/** LOCATION SECTION **/
+
+.section__location .sc_icons_item_details .sc_icons_item_title {
+  color: white !important;
+}
+.section__location .sc_icons_item_details .sc_icons_item_description {
+  color: white !important;
+}
+
+/** HEADER BUTTON **/
+
+header .header__button a.sc_button.sc_button_default.color_style_link3:hover {
+  background: none !important;
+  border: 2px solid white !important;
+  color: white !important;
+}
+
+.white-btn--outline a:hover {
+  background: none !important;
+  border: 2px solid white !important;
+  color: white !important;
+}
+
+header .sc_layouts_menu_nav > li > ul {
+  top: 5em !important;
+}
+header ul.sub-menu {
+  border-radius: 0 !important;
+  padding: 12px 0 !important;
+}
+header ul.sub-menu li a {
+  padding: 10px 22px !important;
+  font-size: 0.9em !important;
+}
+
+
+/** AUDIO PLAYER **/
+
+.mejs-container.wp-audio-shortcode.mejs-audio {
+
+}
+
+
+.section__predications--home .nazareth_post_info_container .post_meta_custom {
+  width: auto;
+  height: auto;
+  padding: 4px 8px;
+  position: relative;
+  transform: none;
+  display: inline-block;
+  margin: 0;
+  border-radius: 0;
+  margin: 14px auto;
+}
+
+.section__predications--home .nazareth_post_info_container .post_meta_custom div {
+  display: inline-block;
+  font-size: 11px;
+}
+.section__predications--home .nazareth_post_info_container .post_meta_custom div a {
+  font-size: 11px;
+}
+
+.section__predications--home .nazareth_post_info_container .post_title {
+  padding-top: 0;
+  display: block;
+  margin-top: 0;
+  font-size: 1.2em;
+}
+

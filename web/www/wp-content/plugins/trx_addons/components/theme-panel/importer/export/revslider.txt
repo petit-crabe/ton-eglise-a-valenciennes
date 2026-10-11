@@ -1,0 +1,4 @@
+revslider/home1.zip
+revslider/home-boxed.zip
+revslider/home2.zip
+revslider/home3.zip
