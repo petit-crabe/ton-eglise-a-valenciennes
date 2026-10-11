@@ -19,10 +19,10 @@ These rules apply to every BMad agent and workflow in this repository.
 Changes travel in one direction: task branch -> `develop` -> `preprod` -> `main`.
 
 - Before starting any story or task, create a dedicated branch from `develop`.
-- When the task is done, commit it on that branch, then merge the branch into `develop`.
+- When the task is done, commit it on that branch, push the branch and open a pull request to `develop`.
 - `preprod` is the staging branch. It only receives `develop`, through a pull request opened when the user asks for it. Never open a pull request to `preprod` from any other branch.
 - `main` is production. It only receives `preprod`, once the user has validated preprod and asks for it.
-- Never commit or push directly to `main` or `preprod`.
+- Never commit or push directly to `develop`, `preprod` or `main`.
 
 ## Framing questions
 
