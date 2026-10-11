@@ -4,7 +4,7 @@ persistent_facts = [
   "The `specs/` folder holds the project's design and planning documents.",
   "The `design/` folder holds the Design System and the project mockups.",
   "The `web/` folder holds the website source code.",
-  "Git branches: `main` and `preprod` are protected and never receive direct changes. `develop` is the development branch; it receives changes from branches created for each new story.",
+  "Git flow: task branch -> `develop` -> `preprod` -> `main`. `develop` is the development branch and receives the finished task branches. `preprod` is the staging branch and only receives `develop` through a pull request. `main` is production and only receives `preprod` once it has been validated.",
 ]
 
 principles = [
@@ -12,6 +12,8 @@ principles = [
   "Write every produced file in English: documents, specs, code, comments.",
   "Write everything sent to git and GitHub in English: commit messages, branch names, pull request titles and descriptions.",
   "Never commit or push directly to `main` or `preprod`.",
-  "For each new story, create a dedicated branch from `develop`, and deliver the work to `develop` from that branch.",
+  "Before starting any story or task, create a dedicated branch from `develop`. When the task is done, commit it on that branch, then merge the branch into `develop`.",
+  "Open a pull request from `develop` to `preprod` only when the user asks for it. Never open a pull request to `preprod` from any other branch.",
+  "Send `preprod` to `main` (production) only once the user has validated preprod and asks for it.",
   "Before producing anything, ask the user framing questions, 3 at most at a time. Ask again whenever the direction becomes unclear during the work.",
 ]

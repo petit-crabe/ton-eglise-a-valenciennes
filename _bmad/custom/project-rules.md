@@ -14,11 +14,15 @@ These rules apply to every BMad agent and workflow in this repository.
 - Write every produced file in English: documents, specs, code, comments.
 - Write everything sent to git and GitHub in English: commit messages, branch names, pull request titles and descriptions.
 
-## Git branches
+## Git flow
 
-- `main` and `preprod` are protected and never receive direct changes. Never commit or push directly to them.
-- `develop` is the development branch; it receives changes from branches created for each new story.
-- For each new story, create a dedicated branch from `develop`, and deliver the work to `develop` from that branch.
+Changes travel in one direction: task branch -> `develop` -> `preprod` -> `main`.
+
+- Before starting any story or task, create a dedicated branch from `develop`.
+- When the task is done, commit it on that branch, then merge the branch into `develop`.
+- `preprod` is the staging branch. It only receives `develop`, through a pull request opened when the user asks for it. Never open a pull request to `preprod` from any other branch.
+- `main` is production. It only receives `preprod`, once the user has validated preprod and asks for it.
+- Never commit or push directly to `main` or `preprod`.
 
 ## Framing questions
 
