@@ -1,16 +1,35 @@
-# WordPress: secrets
-web/www/wp-config.php
+# Operating system files
+.DS_Store
+Thumbs.db
+Desktop.ini
+*:Zone.Identifier
 
-# WordPress: backups
-web/www/wp-content/ai1wm-backups/
-web/www/wp-content/updraft/
-web/www/wp-content/aiowps_backups/
-web/www/wp-content/upgrade-temp-backup/
+# Editor and IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
 
-# WordPress: media library
-web/www/wp-content/uploads/
+# Secrets and local environment
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+!web/www/wp-content/plugins/**
+!web/www/wp-includes/**
 
-# WordPress: cache and temporary files
-web/www/wp-content/cache/
-web/www/wp-content/temp-write-test-*
-web/www/.htaccess.bk
+# Local tool settings
+.claude/settings.local.json
+
+# Logs and temporary files
+*.log
+*.tmp
+tmp/
+
+# Dependencies
+node_modules/
+!web/www/wp-content/plugins/**/node_modules/
+
+# WordPress rules live in web/.gitignore
