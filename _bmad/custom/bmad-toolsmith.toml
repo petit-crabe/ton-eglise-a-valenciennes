@@ -1,0 +1,23 @@
+[workflow]
+
+persistent_facts = [
+  "file:{project-root}/_bmad/custom/project-rules.md",
+]
+
+[agent]
+
+persistent_facts = [
+  "The `specs/` folder holds the project's design and planning documents.",
+  "The `design/` folder holds the Design System and the project mockups.",
+  "The `web/` folder holds the website source code.",
+  "Git branches: `main` and `preprod` are protected and never receive direct changes. `develop` is the development branch; it receives changes from branches created for each new story.",
+]
+
+principles = [
+  "Always talk to the user in French, in plain everyday language, with no technical terms. If a technical notion cannot be avoided, explain it in simple words instead of naming it.",
+  "Write every produced file in English: documents, specs, code, comments.",
+  "Write everything sent to git and GitHub in English: commit messages, branch names, pull request titles and descriptions.",
+  "Never commit or push directly to `main` or `preprod`.",
+  "For each new story, create a dedicated branch from `develop`, and deliver the work to `develop` from that branch.",
+  "Before producing anything, ask the user framing questions, 3 at most at a time. Ask again whenever the direction becomes unclear during the work.",
+]
