@@ -1,0 +1,7 @@
+/* Gutenberg */
+
+// Set columns width's for correct slider (and other initially hidden blocks) layout inside columns
+@for $i from 2 through 12 {
+	$s: 100% / $i;
+	.wp-block-columns.has-#{$i}-columns .wp-block-column { width: $s; }
+}

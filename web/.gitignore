@@ -1,0 +1,47 @@
+# WordPress files that must never be tracked.
+# Paths are relative to this folder.
+
+# Configuration with credentials and security keys
+www/wp-config.php
+www/wp-config-*.php
+!www/wp-config-sample.php
+www/.htpasswd
+www/.user.ini
+www/php.ini
+
+# Server rules written by WordPress and its plugins
+www/.htaccess
+www/.htaccess.*
+www/wp-content/.htaccess
+
+# Media library
+www/wp-content/uploads/
+
+# Backups and database dumps
+www/wp-content/ai1wm-backups/
+www/wp-content/updraft/
+www/wp-content/aiowps_backups/
+www/wp-content/backups/
+www/wp-content/backup-db/
+www/wp-content/upgrade-temp-backup/
+www/*.sql
+www/*.sql.gz
+www/wp-content/*.sql
+www/wp-content/*.sql.gz
+*.wpress
+
+# Cache
+www/wp-content/cache/
+www/wp-content/advanced-cache.php
+www/wp-content/object-cache.php
+www/wp-content/wp-cache-config.php
+
+# Update and temporary files
+www/wp-content/upgrade/
+www/wp-content/temp-write-test-*
+www/.maintenance
+
+# Logs
+www/error_log
+www/wp-content/debug.log
+www/wp-content/*.log

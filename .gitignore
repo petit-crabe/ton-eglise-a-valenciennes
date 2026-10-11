@@ -1,0 +1,35 @@
+# Operating system files
+.DS_Store
+Thumbs.db
+Desktop.ini
+*:Zone.Identifier
+
+# Editor and IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Secrets and local environment
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+!web/www/wp-content/plugins/**
+!web/www/wp-includes/**
+
+# Local tool settings
+.claude/settings.local.json
+
+# Logs and temporary files
+*.log
+*.tmp
+tmp/
+
+# Dependencies
+node_modules/
+!web/www/wp-content/plugins/**/node_modules/
+
+# WordPress rules live in web/.gitignore
