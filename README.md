@@ -1,4 +1,3 @@
----
 # ton-eglise-a-valenciennes
 
 ## Infos générales
@@ -18,5 +17,3 @@
 |      |        |       |
 
 ## Notes libres
-
----
