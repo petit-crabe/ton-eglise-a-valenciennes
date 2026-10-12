@@ -8,7 +8,7 @@ Date: 2026-10-12 · Target: the custom code of the site and the way the site is 
 - **Three independent reviewers** read the same two files without seeing each other's notes or this report's draft; their findings were checked one by one and are merged below. Rejected ones are listed at the end with the reason.
 - **Assembly**: targeted reading of the purchased theme (`nazareth` 1.0.5) and of `trx_addons` where the custom code depends on them, a search of the purchased theme for hand edits, the non-secret switches of `wp-config.php`, and the ignore rules.
 - **Checked while running**: the local copy (March 2026 content, PHP 8.3) for the home, contact and events pages; production with three ordinary visitor requests (home page, the parent stylesheet, the child `functions.php` address) and one on a leftover file name.
-- **Not done**: no event exists in the local copy, so the single-event template (C3, C5) was read but never seen rendered. Mobile menu behaviour between 480 and 767 px (C6) was read from the stylesheets, not viewed in a browser. Third-party plugins were not reviewed line by line; their versions and known weaknesses are in [01-security.md](01-security.md) S3. Nothing under `web/` was changed.
+- **Not done**: no event exists in the local copy, so the single-event template (C3, C4) was read but never seen rendered. Mobile menu behaviour between 480 and 767 px (C6) was read from the stylesheets, not viewed in a browser. Third-party plugins were not reviewed line by line; their versions and known weaknesses are in [01-security.md](01-security.md) S3. Nothing under `web/` was changed.
 
 ## Answer to the open note in the UI review
 
@@ -52,7 +52,7 @@ Proposed change: rewrite the header and the two docblocks to say what is true no
 - **The page address is printed without escaping**, into an `href` and into the query of two third-party links: `'...sharer.php?u=' .$current_url. '"'`. The value comes from `$wp->request`, which is the path part of the address, on a template that only renders for an existing event, so no working attack was demonstrated. It is still the standard mistake `esc_url()` and `rawurlencode()` exist for, and an address with an accent or a space yields a broken share link.
 - It uses `<center>` and an inline style, and the links open a new tab without `rel="noopener"`.
 
-Proposed change: copy the template to `nazareth-child/tribe-events/single-event.php`, restore the vendor's version in the parent, and write the block with `esc_url()` around each full link and `rawurlencode()` around the shared address. Needs one test event on the local copy to see it render. If The Events Calendar is not in use (open question in the README), remove the block instead.
+Proposed change: copy the template to `nazareth-child/tribe-events/single-event.php`, restore the vendor's version in the parent, and write the block with `esc_url()` around each full link and `rawurlencode()` around the shared address. The owner confirmed on 2026-10-12 that the events calendar is unused today but is to be relaunched, so the buttons are kept and this move is to be done before the first event is published. It needs one test event on the local copy to see it render.
 
 ### C4 — Contrast of text styled by the child theme
 
@@ -68,7 +68,7 @@ Measured from the colours in `style.css` (WCAG 2.1 needs 4.5:1 for normal text).
 
 The footer links are also underlined only on hover, so colour is their only cue. Every interactive state in the file is `:hover`; none has a `:focus` counterpart (see A10).
 
-Proposed change: the footer link colour is one line and is visible on every page; a dark blue from the logo with a permanent underline fixes it. The others matter only if events come back.
+Proposed change: the footer link colour is one line and is visible on every page; a dark blue from the logo with a permanent underline fixes it. The WhatsApp button and the event date badge will be visible again once events are relaunched (see C3); correct them in the same edit as C3.
 
 ### C5 — "Home" to "Accueil" filter
 
@@ -116,7 +116,7 @@ Loading a few pages of the local copy on PHP 8.3 logged warnings in `tube-video-
 
 1. C1 and C2 together: one small edit to `functions.php`, tested on the local copy.
 2. C4, footer link colour only: one line of `style.css`, with the version raised (C7).
-3. C3 once the church says whether events are used.
+3. C3, with the event colours of C4, before the events calendar is relaunched.
 4. C5, C6, C7 only if the files are opened for another reason.
 
 ## Reviewer findings not kept
