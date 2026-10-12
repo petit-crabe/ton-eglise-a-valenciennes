@@ -9,6 +9,7 @@ Full review of https://tonegliseavalenciennes.fr/ before the redesign, carried o
 | [03-ui.md](03-ui.md) | Visual design, with screenshots in `screenshots/` |
 | [04-content.md](04-content.md) | Page inventory, accuracy, legal pages, voice, search engines |
 | [05-accessibility.md](05-accessibility.md) | First-pass WCAG 2.1 AA check |
+| [06-code.md](06-code.md) | Custom code of the child theme and how the site is assembled |
 
 ## How it was done
 
@@ -46,7 +47,7 @@ These do not wait for the redesign.
 ## Open questions for the church
 
 - Which Sunday time and which contact e-mail are correct?
-- Is The Events Calendar in use? Who would maintain events?
+- The Events Calendar is unused today but is to be relaunched (owner, 2026-10-12). Who will maintain events?
 - Who set up the automatic YouTube import of sermons (Tube Video Curator), and does anyone still have its settings?
 - Is there written image-rights consent for the photographs, especially of children?
 - What happens today to a prayer request or interview request after it is sent, and how long is it kept?
