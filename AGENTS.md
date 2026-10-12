@@ -24,7 +24,10 @@ Website of a church in Valenciennes: an existing WordPress 6.9 site (purchased N
 
 ## Running and verifying
 
-- There is no local site, build, test suite or CI. Do not invent a command; say plainly that a change was not executed.
-- Review the live production site at https://tonegliseavalenciennes.fr/, not only this checkout: the database, media library and server rules are not in the repository, so content and settings are only visible online.
+- There is no build, test suite or CI. Do not invent a command; say plainly that a change was not executed.
+- A local copy of the site lives outside this repository, in `../ton-eglise-a-valenciennes-local/www`. Start it with `sudo service mariadb start` (the user types the password), then `php -S localhost:8080 -t ../ton-eglise-a-valenciennes-local/www`, and open http://localhost:8080.
+- Never start a server on `web/www` itself: its `wp-config.php` points at the production database.
+- The local copy is not production. Its content is the backup of 18 March 2026, it runs on PHP 8.3 with one line patched in the `trx_addons` plugin so the home page renders, and `wp-fastest-cache` and WP-Cron are switched off. Do not submit its forms; they may still reach the real third-party services.
+- Review the live production site at https://tonegliseavalenciennes.fr/, not only this checkout or the local copy: the current database, media library and server rules are not in the repository, so up-to-date content and settings are only visible online.
 
 <!-- /bmad:context -->
