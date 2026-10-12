@@ -41,7 +41,7 @@ Proposed actions, in order:
 
 1. ~~Copy the archives off the server if they are still wanted, then delete them from the server.~~ Done.
 2. Check the OVH access logs for past downloads.
-3. Whatever the logs say, change the database password, regenerate the secret keys in `wp-config.php`, and reset the passwords of all WordPress accounts. The archives have been reachable for up to three years.
+3. ~~Whatever the logs say, change the database password, regenerate the secret keys in `wp-config.php`, and reset the passwords of all WordPress accounts. The archives have been reachable for up to three years.~~ Done on 2026-10-12: database password changed, secret keys regenerated, one unused account deleted, the owner's password changed. Still open: a new password for the `admin` account, and for any other remaining account.
 4. If the logs show a download by a third party, this is a personal-data breach: the church, as data controller, has 72 hours to assess notifying the CNIL.
 5. Stop storing backups under the web root. Remove All-in-One WP Migration once the redesign no longer needs it (see S11).
 
