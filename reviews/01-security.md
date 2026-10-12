@@ -27,7 +27,9 @@ Date: 2026-10-12 · Target: https://tonegliseavalenciennes.fr/ (production) and 
 
 ## S1 — Public full-site backups (critical)
 
-`wp-content/ai1wm-backups/` on production holds five All-in-One WP Migration archives (`.wpress`), dated December 2023 (two) and March 2026 (three), 520 MB to 1.1 GB each. A HEAD request on each exact file name returns `200`, `application/octet-stream` and the full `Content-Length`. A made-up name returns `404`, so the responses are real.
+**Status, 2026-10-12, later the same day: the owner deleted the archives. All five addresses now return `404`. Steps 2 to 5 below remain open.**
+
+At the time of the review, `wp-content/ai1wm-backups/` on production held five All-in-One WP Migration archives (`.wpress`), dated December 2023 (two) and March 2026 (three), 520 MB to 1.1 GB each. A HEAD request on each exact file name returns `200`, `application/octet-stream` and the full `Content-Length`. A made-up name returns `404`, so the responses are real.
 
 The folder's own `.htaccess` only disables the file listing; it does not deny access. The only barrier is the six random characters at the end of each file name. File names are deliberately not written in this report.
 
@@ -37,7 +39,7 @@ Whether anyone has downloaded them is unknown. The OVH access logs can answer th
 
 Proposed actions, in order:
 
-1. Copy the archives off the server if they are still wanted, then delete them from the server.
+1. ~~Copy the archives off the server if they are still wanted, then delete them from the server.~~ Done.
 2. Check the OVH access logs for past downloads.
 3. Whatever the logs say, change the database password, regenerate the secret keys in `wp-config.php`, and reset the passwords of all WordPress accounts. The archives have been reachable for up to three years.
 4. If the logs show a download by a third party, this is a personal-data breach: the church, as data controller, has 72 hours to assess notifying the CNIL.
