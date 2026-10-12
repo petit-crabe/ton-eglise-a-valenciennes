@@ -88,9 +88,11 @@ Proposed actions: publish under a dedicated editor-role account, not an administ
 
 `/wp-login.php` answers normally and `/wp-admin/` redirects to it. No CAPTCHA, no renamed address, no visible lockout plugin in the installed list (traces of WP Defender and All-In-One WP Security exist on disk but neither plugin is installed any more). Lockout behaviour was not tested.
 
-Good points: public registration is disabled; `xmlrpc.php` answers `405`, so that route for mass password guessing is closed.
+Good point: public registration is disabled.
 
-Proposed actions: two-factor authentication for administrators, login attempt limiting, and confirm that every administrator account is still needed.
+Correction after reading one day of server logs (see "Evidence from the access log" below): `xmlrpc.php` answers `405` to a GET, which is normal, but it accepts POST requests. That route for mass password guessing is **open**.
+
+Proposed actions: two-factor authentication for administrators, login attempt limiting, block `xmlrpc.php` unless something needs it, and confirm that every administrator account is still needed.
 
 ## S7 — Headers and version disclosure
 
@@ -138,12 +140,27 @@ Production's REST index shows no route for The Events Calendar or Tube Video Cur
 
 Candidates for removal after confirmation: Tube Video Curator (abandoned), The Events Calendar (if inactive; the events page is empty), All-in-One WP Migration (source of S1), one of the two backup tools, Complianz Terms & Conditions (generates an ill-fitting text, see the content review).
 
+## Evidence from the access log
+
+The owner supplied the OVH web access log for one day, 10 October 2026 (6,635 requests, all domains of the hosting). OVH keeps 14 months of logs; the other days have not been read yet, so nothing here clears the period before or after that day.
+
+- **Backups**: no request to `ai1wm-backups` and no request for any `.wpress`, `.sql` or `.zip` file that day.
+- **Password guessing is continuous**: 172 login attempts (`POST /wp-login.php`) from 124 different addresses, two or three each, spread evenly over the 24 hours. This is the signature of a botnet working around per-address limits. None was answered with the redirect that follows a successful login.
+- **`xmlrpc.php`**: 33 POST requests from a single address, all answered `200`.
+- **Account-name harvesting**: 32 requests to the users endpoint or `?author=`, plus probes for the member lists of plugins the site does not have.
+- **Backdoor probing**: requests for a randomly named plugin file (`/wp-content/plugins/wp_…/wp_….php`), answered `404`. Robots check whether a known malicious plugin is installed; it is not.
+- **Second domain**: `www.add-valenciennes.fr` reaches the same WordPress, and 105 of its 143 requests were for the login page. Decide whether that domain should serve the site at all.
+- **No administrator session** appears in the log that day.
+- For the UX review: seven requests hit the 404 at `/je-suis-nouveau/` that day, and several robots looked for `/mentions-legales`.
+
+This turns S5 and S6 from theoretical to observed: the account names are being collected and the login page is under daily attack. Two-factor login and an attempt limiter are the answer; a strong password alone is the only protection today.
+
 ## What is already right
 
 - `wp-config.php`, media, backups and caches are git-ignored; no credential is tracked.
 - The database table prefix is not the default.
 - Theme and plugin file editing from the admin is disabled.
-- Public registration is off; `xmlrpc.php` is blocked.
+- Public registration is off.
 - HTTPS everywhere with a valid certificate.
 - Analytics and video embeds wait for consent.
 - The child theme's own code (`functions.php`, 50 lines) contains nothing risky.
