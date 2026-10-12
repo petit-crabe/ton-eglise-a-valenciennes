@@ -41,7 +41,7 @@ Proposed actions, in order:
 
 1. ~~Copy the archives off the server if they are still wanted, then delete them from the server.~~ Done.
 2. Check the OVH access logs for past downloads.
-3. ~~Whatever the logs say, change the database password, regenerate the secret keys in `wp-config.php`, and reset the passwords of all WordPress accounts. The archives have been reachable for up to three years.~~ Done on 2026-10-12: database password changed, secret keys regenerated, one unused account deleted, the owner's password changed. Still open: a new password for the `admin` account, and for any other remaining account.
+3. ~~Whatever the logs say, change the database password, regenerate the secret keys in `wp-config.php`, and reset the passwords of all WordPress accounts. The archives have been reachable for up to three years.~~ Done on 2026-10-12: database password changed, secret keys regenerated, the `admin` account deleted, the password of the single remaining administrator account changed.
 4. If the logs show a download by a third party, this is a personal-data breach: the church, as data controller, has 72 hours to assess notifying the CNIL.
 5. Stop storing backups under the web root. Remove All-in-One WP Migration once the redesign no longer needs it (see S11).
 
@@ -74,6 +74,8 @@ Proposed action: do not attempt a big-bang update of Elementor/Essential Grid/tr
 Proposed action: add `Options -Indexes` to the root `.htaccess`. Then review the library for files that should not be public.
 
 ## S5 — Public account names
+
+**Status, 2026-10-12: the `admin` account was deleted. The site now shows a single account. The remaining points below still apply: that account is an administrator, its name is public, and sermons are now attributed to it. Check that the automatic sermon import still publishes on the following Sunday, in case it was set to publish as `admin`.**
 
 - `/wp-json/wp/v2/users` lists two accounts: `admin` and `fdesmet` (with display name).
 - `/?author=1` redirects to `/author/admin/`.
