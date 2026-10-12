@@ -31,7 +31,7 @@ These do not wait for the redesign.
 8. Publish a legal notice and a real privacy policy; retire the generated "Conditions générales".
 9. Stop publishing as `admin`; add two-factor login for administrators.
 10. Add basic security headers and stop advertising versions.
-11. Remove unused or abandoned plugins after confirming their state in the admin.
+11. Remove unused plugins after confirming their state in the admin. Keep Tube Video Curator: it publishes the weekly sermons.
 12. Allow zoom on phones (one attribute in the theme).
 
 ## Carry into the redesign
