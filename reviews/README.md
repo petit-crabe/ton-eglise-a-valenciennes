@@ -18,7 +18,7 @@ Production was visited as an ordinary visitor: one request per public page (35 p
 
 These do not wait for the redesign.
 
-1. **Five full-site backups were downloadable from the public backup folder.** They were deleted on 2026-10-12 and no longer answer. Still to do, from security S1: check the OVH logs for past downloads, change the database password and secret keys, reset account passwords.
+1. **Five full-site backups were downloadable from the public backup folder.** They were deleted on 2026-10-12 and no longer answer. Twelve months of OVH logs show no download by a third party; earlier logs no longer exist. Still to do, from security S1: change the database password and secret keys, reset account passwords.
 2. **Unpublish the two filler-text pages** (`/decouvrir-la-foi/`, `/la-technique/`).
 3. **Fix the "Je suis nouveau" button** on the home page, which leads to a 404: point it to the contact page or remove it until a newcomer page exists.
 4. **Settle and correct the practical facts everywhere**: Sunday time (10h00 or 09h30), postcode (59300, not 59000), street spelling, the single contact e-mail, the current pastor on "Notre histoire".
@@ -46,6 +46,7 @@ These do not wait for the redesign.
 ## Open questions for the church
 
 - Which Sunday time and which contact e-mail are correct?
-- Are The Events Calendar and Tube Video Curator in use? Who would maintain events?
+- Is The Events Calendar in use? Who would maintain events?
+- Who set up the automatic YouTube import of sermons (Tube Video Curator), and does anyone still have its settings?
 - Is there written image-rights consent for the photographs, especially of children?
 - What happens today to a prayer request or interview request after it is sent, and how long is it kept?

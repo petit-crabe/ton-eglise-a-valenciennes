@@ -60,7 +60,7 @@ Versions read from the checkout and confirmed in production page source where th
 | Essential Grid | 2.3.6 | Below 3.1.2, the fix for CVE-2024-3235 (visitors without an account can read private and password-protected posts through the public `Essential_Grid_Front_request_ajax` action, which this copy registers). Also below 3.0.19 (CVE-2023-47771, needs an account). |
 | ThemeREX Addons (`trx_addons`) | 1.6.52.2 | Bundled with the theme, only updatable through the theme vendor. Recent critical advisories (unauthenticated file upload CVE-2026-1969 fixed in 2.38.5; object injection CVE-2026-62105 reported fixed in 2.45.0) target the 2.x line. The upload function named in the advisory is not present in this 1.6 copy, so exposure to those two is **not confirmed**. The 2020 takeover flaw (CVE-2020-10257) used a REST route that production does not expose. The copy does register public login and registration actions (`trx_addons_login_user`, `trx_addons_registration_user`) and uses `unserialize()` in nine files; these deserve a proper code audit if the plugin stays. |
 | Nazareth theme | 1.0.5 | Purchased theme, no update channel visible in the code. |
-| Tube Video Curator | 1.1.9 ("tested up to WP 5.2.2") | Abandoned since 2019. |
+| Tube Video Curator | 1.1.9 ("tested up to WP 5.2.2") | Abandoned since 2019, yet very likely the tool that publishes the weekly sermons. |
 | Contact Form 7 6.1.5, Complianz 7.5.5, MC4WP 4.12.0, The Events Calendar 6.15.17.1, UpdraftPlus 1.26.2, WP Fastest Cache 1.4.6, AIO WP Migration 7.103 | recent | Check each against the current release in the admin. |
 
 `DISALLOW_FILE_MODS` is off, so updates from the admin are possible. Elementor is the blocker: jumping five years of versions under a 2019 theme is a migration, not an update.
@@ -90,7 +90,7 @@ Proposed actions: publish under a dedicated editor-role account, not an administ
 
 Good point: public registration is disabled.
 
-Correction after reading one day of server logs (see "Evidence from the access log" below): `xmlrpc.php` answers `405` to a GET, which is normal, but it accepts POST requests. That route for mass password guessing is **open**.
+Correction after reading one day of server logs (see "Evidence from the access logs" below): `xmlrpc.php` answers `405` to a GET, which is normal, but it accepts POST requests. That route for mass password guessing is **open**.
 
 Proposed actions: two-factor authentication for administrators, login attempt limiting, block `xmlrpc.php` unless something needs it, and confirm that every administrator account is still needed.
 
@@ -136,24 +136,44 @@ Proposed action: delete all of them during the clean-up of S1.
 
 ## S11 — Plugins to remove
 
-Production's REST index shows no route for The Events Calendar or Tube Video Curator, which suggests they are inactive there; confirm in the admin. An inactive plugin can still be attacked through its files.
+Production's REST index shows no route for The Events Calendar, which suggests it is inactive there; confirm in the admin. An inactive plugin can still be attacked through its files. Tube Video Curator is **not** a candidate: the access logs indicate it publishes the weekly sermons (see "Evidence from the access logs").
 
-Candidates for removal after confirmation: Tube Video Curator (abandoned), The Events Calendar (if inactive; the events page is empty), All-in-One WP Migration (source of S1), one of the two backup tools, Complianz Terms & Conditions (generates an ill-fitting text, see the content review).
+Candidates for removal after confirmation: The Events Calendar (if inactive; the events page is empty), All-in-One WP Migration (source of S1), one of the two backup tools, Complianz Terms & Conditions (generates an ill-fitting text, see the content review).
 
-## Evidence from the access log
+## Evidence from the access logs
 
-The owner supplied the OVH web access log for one day, 10 October 2026 (6,635 requests, all domains of the hosting). OVH keeps 14 months of logs; the other days have not been read yet, so nothing here clears the period before or after that day.
+The owner supplied the OVH web access logs for 1 October 2025 to 11 October 2026 (376 daily files, 3.16 million requests, all domains of the hosting). OVH keeps nothing older, so the period from December 2023 to September 2025 cannot be checked.
 
-- **Backups**: no request to `ai1wm-backups` and no request for any `.wpress`, `.sql` or `.zip` file that day.
-- **Password guessing is continuous**: 172 login attempts (`POST /wp-login.php`) from 124 different addresses, two or three each, spread evenly over the 24 hours. This is the signature of a botnet working around per-address limits. None was answered with the redirect that follows a successful login.
-- **`xmlrpc.php`**: 33 POST requests from a single address, all answered `200`.
-- **Account-name harvesting**: 32 requests to the users endpoint or `?author=`, plus probes for the member lists of plugins the site does not have.
-- **Backdoor probing**: requests for a randomly named plugin file (`/wp-content/plugins/wp_…/wp_….php`), answered `404`. Robots check whether a known malicious plugin is installed; it is not.
-- **Second domain**: `www.add-valenciennes.fr` reaches the same WordPress, and 105 of its 143 requests were for the login page. Decide whether that domain should serve the site at all.
-- **No administrator session** appears in the log that day.
-- For the UX review: seven requests hit the 404 at `/je-suis-nouveau/` that day, and several robots looked for `/mentions-legales`.
+**Backups (S1)**
 
-This turns S5 and S6 from theoretical to observed: the account names are being collected and the login page is under daily attack. Two-factor login and an attempt limiter are the answer; a strong password alone is the only protection today.
+- Three `.wpress` downloads in the whole period, on 11, 17 and 18 March 2026, each a few minutes after the archive was created, each from the same address and with the WordPress admin export page as referrer. That address is the one that does almost all the admin work on the site. These are the administrator's own downloads; the owner should confirm the address is theirs.
+- No other successful request in the backup folder. Eight robot probes there (guessing script names and `wp-config.php.bak`) were answered `404` or `403`.
+- The two December 2023 archives were never requested in the period.
+- Conclusion: no sign of a third-party download in the last twelve months. The 22 months before that are unknown, and the archives of that time held the same credentials, so rotating passwords and keys (S1, step 3) still stands. On this evidence there is no breach to notify.
+
+**Personal-data export**
+
+- One GDPR export file (`uploads/wp-personal-data-exports/…zip`) was created and downloaded from the admin on 9 March 2026, by the same administrator address. Nobody else requested it. Check that the file has been removed from the server.
+
+**Login attacks (S5, S6)**
+
+- 29,589 password attempts on `wp-login.php` from 9,834 different addresses: about 80 a day, a few per address, which defeats per-address limits.
+- 57,304 POST requests to `xmlrpc.php`, from many unrelated addresses.
+- Account-name harvesting (users endpoint, `?author=`) precedes many attempts.
+- No sign of success: apart from the administrator address, only one other address ever received an admin page (the users list, once, on 20 October 2025, from a French access provider; the owner should confirm who that was). The `302` answers many robots received on the login page are the HTTP-to-HTTPS redirect, not a successful login; none of those addresses reached an admin page afterwards.
+- `www.add-valenciennes.fr` reaches the same WordPress, and most of its traffic is robots on the login page. Decide whether that domain should serve the site at all.
+
+**How sermons are published (corrects S11)**
+
+- The weekly sermon posts are not created by a person in the admin, nor through `xmlrpc.php` or the REST API. They appear during WP-Cron runs, where the site calls itself. That matches an automatic YouTube import, which is what Tube Video Curator does.
+- So Tube Video Curator is very likely **active and essential**, and must not be removed before the redesign replaces it. It is also abandoned since 2019, which makes the site's most-used feature depend on unmaintained code.
+- `xmlrpc.php` is not part of that mechanism; nothing legitimate was seen using it, so blocking it should be safe. Test on the local copy first.
+- `wp-cron.php` must stay reachable.
+
+**Other observations**
+
+- Robots regularly probe for randomly named plugin files, a check for known backdoors. All answered `404`.
+- For the UX review: on 10 October 2026 alone, seven requests ended on the 404 at `/je-suis-nouveau/`.
 
 ## What is already right
 
