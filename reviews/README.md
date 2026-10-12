@@ -15,6 +15,8 @@ Full review of https://tonegliseavalenciennes.fr/ before the redesign, carried o
 
 Production was visited as an ordinary visitor: one request per public page (35 pages), single requests on well-known WordPress addresses, screenshots at desktop and phone width with cookies refused. The tracked code and the local copy of the server files were read. No form was submitted, no login attempted, no file downloaded from the backup folder, no scanner run. Each report lists what it could not cover.
 
+The UX and UI reports then received a second, full pass the same day: 35 addresses opened in a browser at computer and phone size, menus, lists, video player and cookie choices operated, text sizes and contrast measured. Still no form submitted. Its screenshots are prefixed `p2-`.
+
 ## Do now, on the live site
 
 These do not wait for the redesign.
