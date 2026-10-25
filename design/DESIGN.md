@@ -89,4 +89,11 @@ Rules:
 |---|---|---|
 | Accueil | Validated 2026-10-25 | [maquettes/home/](maquettes/home/): `home-desktop.html`, `home-mobile.html`, and full-page captures `home-desktop.png`, `home-mobile.png` |
 
-The HTML files open in any browser without the canvas; images are in `maquettes/home/images/`. Facts still to be confirmed by the church: Sunday service time (10h00 on the home page, 09h30 in sermon posts) and the street spelling (Google Maps writes "rue du Chauffour").
+The HTML files open in any browser without the canvas; images are in `maquettes/home/images/`.
+
+## Confirmed facts
+
+Confirmed by a church member on 2026-10-25; use these everywhere, including sermon posts:
+
+- Sunday service: **10h00** (the "09h30" in sermon posts is wrong).
+- Address: **75, rue du Chauffour, 59300 Valenciennes** (double f; postcode 59300, not 59000).
