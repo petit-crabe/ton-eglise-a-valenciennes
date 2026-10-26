@@ -103,6 +103,18 @@ Rules:
 
 The HTML files open in any browser without the canvas, and link to each other; each folder has its own `images/`.
 
+## Target screens
+
+The validated pages are also built as clickable, scrollable prototypes (page "Validés" of the canvas) on the most common screen sizes. Test the site on these before release:
+
+| Device | Sizes (CSS px) | Header |
+|---|---|---|
+| Computer | 1920 × 1080, 1536 × 864, 1366 × 768 | Full menu, "L'église" opens a drop-down |
+| Tablet | 1280 × 800 (landscape), 820 × 1180, 768 × 1024 | Full menu at 1280; "Menu" button and full-screen menu below |
+| Phone | 412 × 915, 390 × 844, 360 × 800 | "Menu" button and full-screen menu |
+
+On the home page the department tiles and "Découvrir les départements" lead to "L'équipe", since the departments have no page of their own yet.
+
 ## Site structure
 
 Changes to the live site's structure, decided by the owner:
