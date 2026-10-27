@@ -11,6 +11,7 @@
   --color-surface-sky: #e9f3fb;
   --color-surface-sun: #fff1cc;
   --color-border: #e4e7ec;
+  --color-border-tint: rgba(19, 36, 59, 0.14);
   --overlay-hero: rgba(19, 36, 59, 0.74);
   --font-heading: 'Outfit', system-ui, sans-serif;
   --font-body: 'Source Sans 3', system-ui, sans-serif;
@@ -23,7 +24,11 @@
   --font-size-page-title-mobile: 36px;
   --font-size-section-title: 44px;
   --font-size-section-title-mobile: 30px;
+  --font-size-block-title: 28px;
+  --font-size-block-title-mobile: 24px;
   --font-size-card-title: 24px;
+  --font-size-card-title-mobile: 20px;
+  --font-size-small-title: 18px;
   --font-size-lead: 20px;
   --font-size-body: 18px;
   --font-size-body-mobile: 17px;
@@ -49,4 +54,8 @@
   --size-button-height: 52px;
   --size-touch-target: 44px;
   --size-focus-ring: 3px;
+  --size-accent-bar-width: 96px;
+  --size-accent-bar-width-mobile: 64px;
+  --size-accent-bar-height: 6px;
+  --size-accent-bar-height-mobile: 4px;
 }
