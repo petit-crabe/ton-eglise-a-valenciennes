@@ -1,6 +1,6 @@
 # Design system — tonegliseavalenciennes.fr
 
-The visual rules of the redesigned site, validated with the home page on 2026-10-25, the three "L'église" pages on 2026-10-26, and the events, sermons, contact and donation pages and the three footer forms on 2026-10-27. The values live in [tokens.json](tokens.json) (W3C Design Tokens format, 2025.10) and in [tokens.css](tokens.css) as CSS custom properties; this file says how to use them. Change a value in `tokens.json`, never only in a page.
+The visual rules of the redesigned site, validated with the home page on 2026-10-25, the three "L'église" pages on 2026-10-26, and the events, sermons, contact and donation pages, the three footer forms and the legal pages on 2026-10-27. The values live in [tokens.json](tokens.json) (W3C Design Tokens format, 2025.10) and in [tokens.css](tokens.css) as CSS custom properties; this file says how to use them. Change a value in `tokens.json`, never only in a page.
 
 Working canvas (drafts, comments, history): https://claude.ai/artifact/UbLoYdhe5z2A3no2cDeo5u. Only validated pages are copied into [maquettes/](maquettes/).
 
@@ -90,6 +90,9 @@ Rules:
 | Timeline | 2 px primary line, white dots with a primary ring, year as an h3 in primary (left column on computer, above the text on phone); the last dot is filled with the accent. | "Notre histoire". |
 | Placeholder card | White with a 1 px `color.border` outline, name as h3, one muted bracketed line per missing fact. No link until the content exists. | Departments, until their leaders provide the content. |
 | Partner link card | White, 24 px padding, name in the heading font, domain in muted text, external-link icon. | "Nos partenaires". |
+| Table of contents | Legal and other long text pages: on a computer a sand panel (6 px corners, 24 px padding) in a 300 px column, sticky at the top while reading, small uppercase "Sommaire" label and one link per numbered section (36 px rows, the one place below 44 px, mouse use only); text column max 760 px. On a phone a closed sand `details` "Sommaire" (52 px) above the text, 44 px links. | Protection des données, Conditions générales, Mentions légales. |
+| Data table | Inside a bordered card (6 px corners): sand header with the h3 and a small white category tag, then a full-width table with a grey header row and hairline rows (8 × 12 px cells, 16 px text, codes in monospace). | Cookie list ("Cookies placés"). |
+| To-complete marker | Text the church must supply is written in square brackets on a sun background: `[à compléter]`. Never fill it with invented content. | Mentions légales, cookie list notice. |
 | Section links | "Dans la rubrique « … »" block before the footer: one tile per page of the section; the current page is a night-blue tile marked "Vous êtes ici". | Every page of a menu section. |
 
 ## Imagery
@@ -120,6 +123,7 @@ Rules:
 | Nous contacter | Validated 2026-10-27 | [maquettes/contact/](maquettes/contact/): `contact-desktop.html`, `contact-mobile.html` and their `.png` captures |
 | Faire un don | Validated 2026-10-27 | [maquettes/donate/](maquettes/donate/): `donate-desktop.html`, `donate-mobile.html` and their `.png` captures |
 | Demande d'entretien, Demande de prière, Servir à l'église | Validated 2026-10-27 | [maquettes/forms/](maquettes/forms/): `interview-*.html`, `prayer-*.html`, `serve-*.html` (desktop and mobile) and their `.png` captures |
+| Protection des données, Conditions générales, Mentions légales | Validated 2026-10-27 | [maquettes/legal/](maquettes/legal/): `privacy-*.html`, `terms-*.html`, `legal-notice-*.html` (desktop and mobile) and their `.png` captures |
 | Prédications › one sermon | Validated 2026-10-27 | [maquettes/sermons/](maquettes/sermons/): `sermon-desktop.html`, `sermon-mobile.html` and their `.png` captures |
 
 The HTML files open in any browser without the canvas, and link to each other; each folder has its own `images/`.
@@ -150,6 +154,7 @@ Changes to the live site's structure, decided by the owner:
 - **Contact page (2026-10-27).** Same content as the live page: address, meeting times, e-mail, phone, and the form (name, e-mail, message, privacy sentence). It becomes "Nos coordonnées" with the map beside the form "Écrivez-nous" (labels always visible above the fields), then "Une autre demande ?" with contact cards to Servir à l'église, Demande de prière and Demande d'entretien. The headings, "Tous les champs sont obligatoires." and "Envoyer le message" were written for the mockup.
 - **Donation page (2026-10-27).** Same content as the live page: "Soutenir l'église" (the live text), the tax reduction in a side panel (the live sentence plus the example "un don de 100 € ne vous coûte réellement que 34 €", computed from it; the owner asked for no large "66 %"), then "Comment faire un don ?" with two cards: bank transfer (a "Télécharger le RIB (PDF)" button pointing to the live RIB file, no account number on the page) and cheque (payee and postal address, postcode 59300). No online giving until the church sets one up. The transfer sentence was written for the mockup.
 - **Footer forms (2026-10-27).** The three pages share one layout (owner's request: form under the text, full width, same look on all three). Texts, field labels and the 21 serving teams come from the live pages. Changes: the interview day is picked in a calendar; the serving teams become checkboxes (several allowed) in five groups written for the mockup (Communication, Culte, Enfants et jeunes, Accueil et vie de l'église, Organisation); the attendance choice is no longer pre-checked; the prayer request text is required (it is optional on the live form). Written for the mockup: "Votre demande", the required-fields sentence, "Vous pouvez cocher plusieurs pôles.", "Autre pôle" and "Envoyer ma demande".
+- **Legal pages (2026-10-27).** "Protection des données" and "Conditions générales" keep the full live text, with a table of contents. Changes on "Protection des données": the cookie list (generated by a WordPress plugin, half in English) becomes one table per service, translated into French, without the WordPress-only "Divers" cookies, under a "[Liste à mettre à jour avec le nouveau site]" marker; the broken no-JavaScript sentence in 7.1 becomes a "Gérer mes choix de cookies" button; postcode 59300; contact e-mail secretariat@add-valenciennes.fr instead of the live addvalenciennes.web@gmail.com (owner's choice, to confirm with the church if the Gmail address is someone's working inbox). "Conditions générales" only gets the "évanglique" typo fixed and its links; it is a generic template written for an online shop ("produits", "panier", "inscription") and should be reviewed. **Mentions légales is new** (required in France, missing on the live site): publisher details are confirmed facts; legal form, RNA or SIREN number, publication director and host are `[à compléter]`. Every footer now links the three pages and credits Florian Desmet (linking to https://floriandesmet.dev) instead of Artception.
 - **Pastor.** The current pastor couple is Nicolas and Mélanie Tessier; the live history page's sentence about Pastor Timothée Mele (2019) is dropped.
 
 ## Confirmed facts
@@ -160,3 +165,4 @@ Confirmed by a church member on 2026-10-25; use these everywhere, including serm
 - Prayer meeting: **Tuesday, 19h00** (confirmed 2026-10-26).
 - Address: **75, rue du Chauffour, 59300 Valenciennes** (double f; postcode 59300, not 59000).
 - Phone: **03 61 25 80 62** (given 2026-10-27; the live site's 03 61 25 89 19 is outdated).
+- Site author: **Florian Desmet**, https://floriandesmet.dev (given 2026-10-27; no longer Artception).
