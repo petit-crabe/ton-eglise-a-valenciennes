@@ -1,6 +1,6 @@
 # Design system — tonegliseavalenciennes.fr
 
-The visual rules of the redesigned site, validated with the home page on 2026-10-25, the three "L'église" pages on 2026-10-26 and the events pages on 2026-10-27. The values live in [tokens.json](tokens.json) (W3C Design Tokens format, 2025.10) and in [tokens.css](tokens.css) as CSS custom properties; this file says how to use them. Change a value in `tokens.json`, never only in a page.
+The visual rules of the redesigned site, validated with the home page on 2026-10-25, the three "L'église" pages on 2026-10-26 the events pages and the sermons pages on 2026-10-27. The values live in [tokens.json](tokens.json) (W3C Design Tokens format, 2025.10) and in [tokens.css](tokens.css) as CSS custom properties; this file says how to use them. Change a value in `tokens.json`, never only in a page.
 
 Working canvas (drafts, comments, history): https://claude.ai/artifact/UbLoYdhe5z2A3no2cDeo5u. Only validated pages are copied into [maquettes/](maquettes/).
 
@@ -70,8 +70,12 @@ Rules:
 | Event card | White; 16:10 image slot (sand placeholder until a real image exists), night-blue date badge overlapping the image, title, time and place, short text, "En savoir plus". On the events page (computer) the image sits on the left (400 px) with the badge in its top-left corner. | Home page, events page. |
 | Weekly meeting card | Sky, 32 px padding (16 px phone); night-blue square with the short day and the time, then the meeting name (h3), "Jour à HHhMM" in bold and the address as a link. | "Chaque semaine". |
 | Month heading | Muted h3 in the heading font with a 1 px line under it; events of that month follow. | Events list. |
-| Practical info panel | Sand, 6 px corners; a definition list (Date, Heure, Lieu), each with a primary icon, muted label and bold value; "Voir le plan" under the place. On a computer it sits in a 360 px column beside the text; on a phone right under the image. | Single event. |
-| Share buttons | Secondary buttons, full width of the panel: "Partager sur Facebook", "Partager sur WhatsApp". | Single event. |
+| Practical info panel | Sand, 6 px corners; a definition list (Date, Heure, Lieu), each with a primary icon, muted label and bold value; "Voir le plan" under the place. On a computer it sits in a 360 px column beside the text; on a phone right under the image. | Single event; on the single sermon it lists Date, Orateur, Passage biblique and Série with "Toute la série". |
+| Share buttons | Secondary buttons, full width of the panel: "Partager sur Facebook", "Partager sur WhatsApp". | Single event, single sermon. |
+| Video slot | 16:9, 6 px corners, night blue with a round white play button; holds the YouTube player. | Latest sermon, single sermon. |
+| Sermon card | White, 6 px corners, the whole card is the link; 16:9 thumbnail (sky placeholder with a night-blue play button), series in small primary capitals, title (h3), "date · speaker" in muted text. Three per row on a computer, one per row on a phone. | Sermons list, "Dans la même série". |
+| Filter menu | Native `<select>` with a visible bold label above, 48 px high, 1 px grey outline, chevron on the right; 280 px wide on a computer, full width on a phone. The result count sits beside or under the menus. | Sermons list (Série, Orateur). |
+| Pagination | 48 px squares, current page in night blue, then "Suivante". On a phone: "Page 1 sur N" and a secondary "Plus anciennes" button. | Sermons list. |
 | Tile | Sand, 64 px high (52 px phone), bold label, blue arrow; the whole tile is the link. | Departments. |
 | Info card | Sand, 24 px padding, muted label above a bold value. | "Où sommes-nous ?". |
 | Page banner | The home hero's blurred photo and overlay, 64 px vertical padding (48 px phone); breadcrumb in white, then the page title. | Top of every inner page. |
@@ -106,6 +110,8 @@ Rules:
 | L'église › Notre histoire | Validated 2026-10-26 | [maquettes/church/](maquettes/church/): `history-desktop.html`, `history-mobile.html` and their `.png` captures |
 | Évènements (list) | Validated 2026-10-27 | [maquettes/events/](maquettes/events/): `events-desktop.html`, `events-mobile.html` and their `.png` captures |
 | Évènements › one event | Validated 2026-10-27 | [maquettes/events/](maquettes/events/): `event-desktop.html`, `event-mobile.html` and their `.png` captures |
+| Prédications (list) | Validated 2026-10-27 | [maquettes/sermons/](maquettes/sermons/): `sermons-desktop.html`, `sermons-mobile.html` and their `.png` captures |
+| Prédications › one sermon | Validated 2026-10-27 | [maquettes/sermons/](maquettes/sermons/): `sermon-desktop.html`, `sermon-mobile.html` and their `.png` captures |
 
 The HTML files open in any browser without the canvas, and link to each other; each folder has its own `images/`.
 
@@ -131,6 +137,7 @@ Changes to the live site's structure, decided by the owner:
   - **Notre histoire** — the timeline (dates taken only from the live text), the partners and the mission statement.
 - **Departments.** No department page and no department text until the owner has gathered the content from each department's leader. The nine names stay: Génération Kids, Punch Group, ConneXion, Ainé'rgie, Femmes, LSV – Louange Sono Vidéos, Mission, Une prière pour toi, Entraide.
 - **Events page (2026-10-27).** The live page is empty. It becomes: "Chaque semaine" (the regular meetings), then "Les prochains évènements", listed by date, nearest first, grouped by month. Each event gets its own page (image, date, time, place, text) with the Facebook and WhatsApp share buttons the live single-event template already has. Event content is placeholders until the church provides it. Other weekly meetings (ConneXion on Saturdays, Entraide on Wednesdays) are added only once the church confirms they still run.
+- **Sermons page (2026-10-27).** The live page is a paged list of YouTube videos. It becomes: the latest sermon large (video, title, date, speaker, Bible passage, series, short summary), then "Toutes les prédications" as cards with two filters, series and speaker, and page numbers, then a link to the church's YouTube channel. Each sermon page has the video, a summary, a panel with date, speaker, Bible passage and series, the share buttons, and three sermons from the same series. Titles, dates and speakers stay placeholders in the mockups. The passage and summary fields are dropped if the church does not plan to fill them; the sentence "Abonnez-vous à la chaîne de l'église pour ne manquer aucune prédication." is interface copy written for the mockup.
 - **Pastor.** The current pastor couple is Nicolas and Mélanie Tessier; the live history page's sentence about Pastor Timothée Mele (2019) is dropped.
 
 ## Confirmed facts
