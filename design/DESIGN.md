@@ -1,6 +1,6 @@
 # Design system — tonegliseavalenciennes.fr
 
-The visual rules of the redesigned site, validated with the home page on 2026-10-25, the three "L'église" pages on 2026-10-26, and the events, sermons, contact and donation pages, the three footer forms and the legal pages on 2026-10-27. The values live in [tokens.json](tokens.json) (W3C Design Tokens format, 2025.10) and in [tokens.css](tokens.css) as CSS custom properties; this file says how to use them. Change a value in `tokens.json`, never only in a page.
+The visual rules of the redesigned site, validated with the home page on 2026-10-25, the three "L'église" pages on 2026-10-26, and the events, sermons, contact and donation pages, the three footer forms and the legal pages on 2026-10-27, then harmonised across all pages the same day (see [Harmonisation](#harmonisation-2026-10-27)). The values live in [tokens.json](tokens.json) (W3C Design Tokens format, 2025.10) and in [tokens.css](tokens.css) as CSS custom properties; this file says how to use them. Change a value in `tokens.json`, never only in a page.
 
 Working canvas (drafts, comments, history): https://claude.ai/artifact/UbLoYdhe5z2A3no2cDeo5u. Only validated pages are copied into [maquettes/](maquettes/).
 
@@ -19,7 +19,7 @@ Working canvas (drafts, comments, history): https://claude.ai/artifact/UbLoYdhe5
 |---|---|---|---|
 | Primary | `color.primary` | `#3a64aa` | Every button, links, icons, the first contact card. |
 | Secondary | `color.secondary` | `#13243b` | Headings, hero overlay, footer, date badges, current menu item. |
-| Accent | `color.accent` | `#ffaf00` | Underline of the hero keyword, play button, quote marks. Nothing else. |
+| Accent | `color.accent` | `#ffaf00` | A small signature on every page: underline of the hero keyword (home), bar under the banner title (inner pages), every play button, the dot before "Vous êtes ici", quote marks, the last timeline dot. Nothing else. |
 | Text | `color.text` / `color.text-muted` | `#2d3b4e` / `#556275` | Body text / dates, labels, captions. |
 | Surfaces | `color.surface-*` | white, sand `#f7f3ee`, sky `#e9f3fb`, sun `#fff1cc` | Section and card backgrounds. |
 
@@ -27,7 +27,9 @@ Rules:
 
 - **All buttons are blue.** Filled `color.primary` with white text for the main action; white with a 2 px `color.primary` border and blue text for a secondary action. There is no yellow, grey or dark button.
 - **Yellow is never text and never a button.** It has no meaning; it only adds warmth.
-- Sections alternate surfaces (white, sky, sand) so that two neighbours never share a background.
+- **Every page shows some yellow**, at least the bar under the banner title. The menu never uses yellow: the current item stays night blue.
+- **Every page shows the soft surfaces.** Sections alternate surfaces (white, sky, sand) so that two neighbours never share a background, on every page with no exception. Sections are never separated by a grey line on the same background; hairlines (`color.border`, or `color.border-tint` on sky and sand) only split rows inside a section.
+- **No page goes straight from white content to the night-blue footer**: inner pages end with the [closing block](#components).
 - Do not add colours. If a new need appears, add a token first.
 
 ## Typography
@@ -37,23 +39,42 @@ Rules:
 | Hero title (h1), home | `font.size.display` | 72 px | 42 px |
 | Page title (h1), inner pages | `font.size.page-title` | 56 px | 36 px |
 | Section title (h2) | `font.size.section-title` | 44 px | 30 px |
-| Card title (h3) | `font.size.card-title` | 24 px | 19–24 px |
+| Block title (h2 or h3) | `font.size.block-title` | 28 px | 24 px |
+| Card title (h3) | `font.size.card-title` | 24 px | 20 px |
+| Small title | `font.size.small-title` | 18 px | 18 px |
 | Lead paragraph | `font.size.lead` | 20 px | 17 px |
 | Body | `font.size.body` | 18 px | 17 px |
 | Meta, footer | `font.size.small` | 16 px | 16 px |
 | Dates, labels | `font.size.caption` | 15 px | 15 px |
 
 - Headings: **Outfit** 600–700. Body: **Source Sans 3** 400 and 700. Both from Google Fonts; self-host them on the final site so no request reaches Google before consent.
-- One size per role: every section title is 44 px, whatever the section.
+- One size per role, whatever the page: every section title is 44 px. A block title is the heading of a block inside a section (form panel, "Présentation", side panel, numbered heading of a legal page). A small title heads a footer column, "Partager l'évènement" or "Dans la rubrique". The timeline years and the "Nos valeurs" accordion rows keep their own sizes.
 - Nothing below 15 px; running text never below 16 px on a phone.
 - Line height 1.1 for headings, 1.6 for text. No headings in capitals.
 
 ## Spacing and layout
 
-- Spacing scale (`space.*`): **8, 16, 24, 32, 48, 64, 96 px**. Every gap, padding and margin uses one of these.
+- Spacing scale (`space.*`): **8, 16, 24, 32, 48, 64, 96 px**. Every gap, padding and margin uses one of these; the only exception is the inside of form fields (12 × 16 px).
 - Every section, header included, centres its content in a **1200 px** container with 24 px side padding (16 px on a phone), so left edges line up down the page.
 - Sections have **96 px** vertical padding on a computer, **48 px** on a phone.
-- Two-column blocks (hero, welcome, cards with a photo) split **50/50** and stack when the window is narrower than about 980 px.
+
+The same gap for the same situation, on every page:
+
+| Between | Computer | Phone |
+|---|---|---|
+| Section title and a paragraph | 24 px | 24 px |
+| Section title and cards, a list, a form or an accordion | 32 px | 32 px |
+| Block or card title and what follows | 16 px | 16 px |
+| Card title and its date or place line | 8 px | 8 px |
+| Two paragraphs | 16 px | 16 px |
+| Two blocks of the same section | 48 px | 32 px |
+| Top and bottom of a section | 96 px | 48 px |
+
+Two-column blocks, all **top-aligned**, stack when the window is narrower than about 980 px:
+
+- **Photo and text: 50/50** (home hero and welcome, Qui sommes-nous, L'équipe, Notre histoire).
+- **Text and a panel: 7/5**, the text wider (Faire un don, latest sermon). Exception: on Nous contacter the form is the wider column (5/7).
+- **Fixed column** only for the practical info panel (360 px: single event, single sermon) and the table of contents (300 px: legal pages).
 
 ## Shape
 
@@ -73,32 +94,35 @@ Rules:
 | Side panel | Sky, 6 px corners, 48 px padding (24 px × 16 px on a phone); small heading (h3), text, and an optional key line in bold on a white inset (4 px corners). Beside the text on a computer (7/5 columns), under it on a phone. No oversized figures. | Donation page ("Réduction d'impôt"). |
 | Way-to-give card | White, 6 px corners, 48 px padding (24 px × 16 px phone); icon in a 48 px sky circle, h3, then either a short text and a primary button (download) or a definition list. Two per row on a computer. | Donation page ("Par virement", "Par chèque"). |
 | Content card | White, 6 px corners; image on one side or on top, text block with 48 px padding. | Latest sermon, newcomer block. |
-| Event card | White; 16:10 image slot (sand placeholder until a real image exists), night-blue date badge overlapping the image, title, time and place, short text, "En savoir plus". On the events page (computer) the image sits on the left (400 px) with the badge in its top-left corner. | Home page, events page. |
+| Event card | White; 16:10 image slot (placeholder until a real image exists, in the soft surface that stands out from its section: sand on sky, sky on white or sand), night-blue date badge overlapping the image, title, time and place, short text, "En savoir plus". On the events page (computer) the image sits on the left (400 px) with the badge in its top-left corner. | Home page, events page. |
 | Weekly meeting card | Sky, 32 px padding (16 px phone); night-blue square with the short day and the time, then the meeting name (h3), "Jour à HHhMM" in bold and the address as a link. | "Chaque semaine". |
 | Month heading | Muted h3 in the heading font with a 1 px line under it; events of that month follow. | Events list. |
 | Practical info panel | Sand, 6 px corners; a definition list (Date, Heure, Lieu), each with a primary icon, muted label and bold value; "Voir le plan" under the place. On a computer it sits in a 360 px column beside the text; on a phone right under the image. | Single event; on the single sermon it lists Date, Orateur, Passage biblique and Série with "Toute la série". |
 | Share buttons | Secondary buttons, full width of the panel: "Partager sur Facebook", "Partager sur WhatsApp". | Single event, single sermon. |
-| Video slot | 16:9, 6 px corners, night blue with a round white play button; holds the YouTube player. | Latest sermon, single sermon. |
-| Sermon card | White, 6 px corners, the whole card is the link; 16:9 thumbnail (sky placeholder with a night-blue play button), series in small primary capitals, title (h3), "date · speaker" in muted text. Three per row on a computer, one per row on a phone. | Sermons list, "Dans la même série". |
+| Video slot | 16:9, 6 px corners, night blue with a round accent play button (night-blue triangle); holds the YouTube player. | Latest sermon, single sermon. |
+| Sermon card | White, 6 px corners, the whole card is the link; 16:9 thumbnail (sky placeholder with a round accent play button, night-blue triangle), series in small primary capitals, title (h3), "date · speaker" in muted text. Three per row on a computer, one per row on a phone. | Sermons list, "Dans la même série". |
 | Filter menu | Native `<select>` with a visible bold label above, 48 px high, 1 px grey outline, chevron on the right; 280 px wide on a computer, full width on a phone. The result count sits beside or under the menus. | Sermons list (Série, Orateur). |
 | Pagination | 48 px squares, current page in night blue, then "Suivante". On a phone: "Page 1 sur N" and a secondary "Plus anciennes" button. | Sermons list. |
 | Tile | Sand, 64 px high (52 px phone), bold label, blue arrow; the whole tile is the link. | Departments. |
 | Info card | Sand, 24 px padding, muted label above a bold value. | "Où sommes-nous ?". |
-| Page banner | The home hero's blurred photo and overlay, 64 px vertical padding (48 px phone); breadcrumb in white, then the page title. | Top of every inner page. |
+| Page banner | A blurred photo of the section under `overlay.hero` (see [Imagery](#imagery)), 64 px vertical padding (48 px phone); breadcrumb in white, the page title, then an accent bar 24 px under it (`size.accent-bar-*`: 96 × 6 px, 64 × 4 px on a phone). | Top of every inner page. |
 | Breadcrumb | 16 px white text, `›` separators, current page in bold; a menu heading without its own page ("L'église") is plain text, not a link. | Page banner. |
-| Accordion | Native `<details>`/`<summary>`: number in primary, short title in the heading font, chevron; rows split by 1 px `color.border` lines, 64 px high (56 px phone). The first row starts open. | "Nos valeurs". |
+| Accordion | Native `<details>`/`<summary>`: number in primary, short title in the heading font, chevron; rows split by 1 px lines (`color.border-tint`, since the section is sky), 64 px high (56 px phone). The first row starts open. | "Nos valeurs", in a sky section. |
 | Timeline | 2 px primary line, white dots with a primary ring, year as an h3 in primary (left column on computer, above the text on phone); the last dot is filled with the accent. | "Notre histoire". |
 | Placeholder card | White with a 1 px `color.border` outline, name as h3, one muted bracketed line per missing fact. No link until the content exists. | Departments, until their leaders provide the content. |
 | Partner link card | White, 24 px padding, name in the heading font, domain in muted text, external-link icon. | "Nos partenaires". |
 | Table of contents | Legal and other long text pages: on a computer a sand panel (6 px corners, 24 px padding) in a 300 px column, sticky at the top while reading, small uppercase "Sommaire" label and one link per numbered section (36 px rows, the one place below 44 px, mouse use only); text column max 760 px. On a phone a closed sand `details` "Sommaire" (52 px) above the text, 44 px links. | Protection des données, Conditions générales, Mentions légales. |
 | Data table | Inside a bordered card (6 px corners): sand header with the h3 and a small white category tag, then a full-width table with a grey header row and hairline rows (8 × 12 px cells, 16 px text, codes in monospace). | Cookie list ("Cookies placés"). |
 | To-complete marker | Text the church must supply is written in square brackets on a sun background: `[à compléter]`. Never fill it with invented content. | Mentions légales, cookie list notice. |
-| Section links | "Dans la rubrique « … »" block before the footer: one tile per page of the section; the current page is a night-blue tile marked "Vous êtes ici". | Every page of a menu section. |
+| Section links | "Dans la rubrique « … »" block before the footer: one tile per page of the section; the current page is a night-blue tile marked "Vous êtes ici" after a 10 px accent dot. | Every page of a menu section. |
+| Closing block | Sand section before the footer: section title "Une autre demande ?" and the contact cards in the hero order, four in a row (primary, sky, sun, then white for Demande d'entretien, since sand would vanish on sand). On a footer-form page the card of that page is left out (three cards). On a phone the cards become 80 px rows. | Every inner page except Nous contacter, which keeps its own "Une autre demande ?" block. On pages with "Dans la rubrique", it comes after that block. |
+| Footer | Night blue. Computer: logo, address and e-mail, then "Notre église", "Aller plus loin", "Nous suivre"; a bottom line with ©, the three legal links and "Réalisé par Florian Desmet". Phone (compact): logo with the three social links as 44 px icon buttons (each with an `aria-label`), the two link lists side by side, then ©, the legal links on one wrapping line and the credit. | Every page. |
 
 ## Imagery
 
 - Real photographs of the church only, cropped with `object-fit: cover` to fixed ratios (16:9, 4:3, 16:10).
-- **No text directly on a photo.** The hero photo is blurred (3 px) under a `overlay.hero` layer (night blue at 74 %), which keeps white text at 6.7:1 or more.
+- **One banner photo per menu section**: the church front for L'église, the hall for Évènements, the congregation for the other pages until the church provides photos for them (Prédications, Faire un don and the others).
+- **No text directly on a photo.** The hero and banner photos are blurred (3 px) under a `overlay.hero` layer (night blue at 74 %), which keeps white text at 6.7:1 or more.
 - Map: a static image of the Google Maps view that links to Google Maps. An embedded interactive map would load Google before the visitor consents.
 
 ## Accessibility
@@ -127,6 +151,20 @@ Rules:
 | Prédications › one sermon | Validated 2026-10-27 | [maquettes/sermons/](maquettes/sermons/): `sermon-desktop.html`, `sermon-mobile.html` and their `.png` captures |
 
 The HTML files open in any browser without the canvas, and link to each other; each folder has its own `images/`.
+
+### Harmonisation (2026-10-27)
+
+A review of all validated pages found inner pages mostly night blue and white (yellow on the home page only, primary under 1 % of most pages), sections split by grey lines instead of alternating backgrounds, two-column blocks in five different ratios, and seven heading sizes with uneven gaps. The owner compared before/after proposals on the canvas (page "En cours", board `Fiche-harmonisation.dc.html`) and approved the rules now written above:
+
+- yellow on every page (banner bar, play buttons, "Vous êtes ici" dot); the proposed yellow line under the current menu item was rejected;
+- the closing block before the footer;
+- alternating backgrounds on every page ("Nos valeurs" on sky, departments on sand);
+- the two-column ratios and top alignment;
+- the heading sizes and spacing table;
+- the compact phone footer;
+- one banner photo per menu section.
+
+**The mockups in [maquettes/](maquettes/) and the canvas prototypes predate these rules** and are still to be reworked. Two fixes come with that pass: the home page footer still links the five former "L'église" pages, and the phone footers lack the "Réalisé par Florian Desmet" credit.
 
 ## Target screens
 
