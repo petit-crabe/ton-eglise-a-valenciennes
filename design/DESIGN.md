@@ -1,6 +1,6 @@
 # Design system — tonegliseavalenciennes.fr
 
-The visual rules of the redesigned site, validated with the home page on 2026-10-25, the three "L'église" pages on 2026-10-26 the events pages and the sermons pages on 2026-10-27. The values live in [tokens.json](tokens.json) (W3C Design Tokens format, 2025.10) and in [tokens.css](tokens.css) as CSS custom properties; this file says how to use them. Change a value in `tokens.json`, never only in a page.
+The visual rules of the redesigned site, validated with the home page on 2026-10-25, the three "L'église" pages on 2026-10-26, and the events, sermons and contact pages on 2026-10-27. The values live in [tokens.json](tokens.json) (W3C Design Tokens format, 2025.10) and in [tokens.css](tokens.css) as CSS custom properties; this file says how to use them. Change a value in `tokens.json`, never only in a page.
 
 Working canvas (drafts, comments, history): https://claude.ai/artifact/UbLoYdhe5z2A3no2cDeo5u. Only validated pages are copied into [maquettes/](maquettes/).
 
@@ -65,7 +65,9 @@ Rules:
 | Component | Look | Where |
 |---|---|---|
 | Button | 52 px high, 24 px side padding, 4 px corners, bold label; primary or secondary as above. | Everywhere. |
-| Contact card | Whole card is the link. 176 px min height (144 px phone), icon in a 48 px white circle, label in the heading font with an arrow. Backgrounds in order: primary, sky, sun, sand. | Hero: Servir à l'église, Demande de prière, Nous contacter, Demande d'entretien. |
+| Contact card | Whole card is the link. 176 px min height (144 px phone), icon in a 48 px white circle, label in the heading font with an arrow. Backgrounds in order: primary, sky, sun, sand. On the contact page the three other requests sit three in a row (primary, sky, sun); on a phone they become 80 px rows, icon on the left, arrow on the right. | Hero: Servir à l'église, Demande de prière, Nous contacter, Demande d'entretien. Contact page: "Une autre demande ?". |
+| Contact details | Definition list: primary icon, muted label, bold value; address, e-mail and phone are links (`tel:` on the phone number), each at least 44 px high. | Contact page. |
+| Form field | Bold label always visible above the field; 48 px high, 1 px grey outline, 4 px corners, 17 px text; the message box is 6–7 rows and can be resized. The form sits in a sand panel (48 px padding, 24 px × 16 px on a phone); the submit button is primary, full width on a phone. | Contact form. |
 | Content card | White, 6 px corners; image on one side or on top, text block with 48 px padding. | Latest sermon, newcomer block. |
 | Event card | White; 16:10 image slot (sand placeholder until a real image exists), night-blue date badge overlapping the image, title, time and place, short text, "En savoir plus". On the events page (computer) the image sits on the left (400 px) with the badge in its top-left corner. | Home page, events page. |
 | Weekly meeting card | Sky, 32 px padding (16 px phone); night-blue square with the short day and the time, then the meeting name (h3), "Jour à HHhMM" in bold and the address as a link. | "Chaque semaine". |
@@ -111,6 +113,7 @@ Rules:
 | Évènements (list) | Validated 2026-10-27 | [maquettes/events/](maquettes/events/): `events-desktop.html`, `events-mobile.html` and their `.png` captures |
 | Évènements › one event | Validated 2026-10-27 | [maquettes/events/](maquettes/events/): `event-desktop.html`, `event-mobile.html` and their `.png` captures |
 | Prédications (list) | Validated 2026-10-27 | [maquettes/sermons/](maquettes/sermons/): `sermons-desktop.html`, `sermons-mobile.html` and their `.png` captures |
+| Nous contacter | Validated 2026-10-27 | [maquettes/contact/](maquettes/contact/): `contact-desktop.html`, `contact-mobile.html` and their `.png` captures |
 | Prédications › one sermon | Validated 2026-10-27 | [maquettes/sermons/](maquettes/sermons/): `sermon-desktop.html`, `sermon-mobile.html` and their `.png` captures |
 
 The HTML files open in any browser without the canvas, and link to each other; each folder has its own `images/`.
@@ -138,6 +141,7 @@ Changes to the live site's structure, decided by the owner:
 - **Departments.** No department page and no department text until the owner has gathered the content from each department's leader. The nine names stay: Génération Kids, Punch Group, ConneXion, Ainé'rgie, Femmes, LSV – Louange Sono Vidéos, Mission, Une prière pour toi, Entraide.
 - **Events page (2026-10-27).** The live page is empty. It becomes: "Chaque semaine" (the regular meetings), then "Les prochains évènements", listed by date, nearest first, grouped by month. Each event gets its own page (image, date, time, place, text) with the Facebook and WhatsApp share buttons the live single-event template already has. Event content is placeholders until the church provides it. Other weekly meetings (ConneXion on Saturdays, Entraide on Wednesdays) are added only once the church confirms they still run.
 - **Sermons page (2026-10-27).** The live page is a paged list of YouTube videos. It becomes: the latest sermon large (video, title, date, speaker, Bible passage, series, short summary), then "Toutes les prédications" as cards with two filters, series and speaker, and page numbers, then a link to the church's YouTube channel. Each sermon page has the video, a summary, a panel with date, speaker, Bible passage and series, the share buttons, and three sermons from the same series. Titles, dates and speakers stay placeholders in the mockups. The passage and summary fields are dropped if the church does not plan to fill them; the sentence "Abonnez-vous à la chaîne de l'église pour ne manquer aucune prédication." is interface copy written for the mockup.
+- **Contact page (2026-10-27).** Same content as the live page: address, meeting times, e-mail, phone, and the form (name, e-mail, message, privacy sentence). It becomes "Nos coordonnées" with the map beside the form "Écrivez-nous" (labels always visible above the fields), then "Une autre demande ?" with contact cards to Servir à l'église, Demande de prière and Demande d'entretien. The headings, "Tous les champs sont obligatoires." and "Envoyer le message" were written for the mockup.
 - **Pastor.** The current pastor couple is Nicolas and Mélanie Tessier; the live history page's sentence about Pastor Timothée Mele (2019) is dropped.
 
 ## Confirmed facts
@@ -147,3 +151,4 @@ Confirmed by a church member on 2026-10-25; use these everywhere, including serm
 - Sunday service: **10h00** (the "09h30" in sermon posts is wrong).
 - Prayer meeting: **Tuesday, 19h00** (confirmed 2026-10-26).
 - Address: **75, rue du Chauffour, 59300 Valenciennes** (double f; postcode 59300, not 59000).
+- Phone: **03 61 25 80 62** (given 2026-10-27; the live site's 03 61 25 89 19 is outdated).
