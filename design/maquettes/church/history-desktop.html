@@ -1,6 +1,6 @@
 <!doctype html>
-<!-- Validated "L'église" page mockup (computer, 1440 px), exported from the Claude Design canvas
-     https://claude.ai/artifact/UbLoYdhe5z2A3no2cDeo5u on 2026-10-26.
+<!-- Validated "Notre histoire" mockup (computer, 1440 px), new charter, exported from the Claude Design canvas
+     https://claude.ai/artifact/UbLoYdhe5z2A3no2cDeo5u on 2026-10-29.
      Values come from ../../tokens.json; see ../../DESIGN.md for the rules. -->
 <html lang="fr">
 <head>
@@ -11,53 +11,53 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@600;700&amp;family=Source+Sans+3:ital,wght@0,400;0,700;1,400&amp;display=swap">
 <style>
-body{margin:0;background:#f7f3ee}
+body{margin:0;background:#ffffff}
 a{color:#3a64aa}a:hover{color:#2b4d86}
-a:focus-visible,button:focus-visible{outline:3px solid #13243b;outline-offset:3px;border-radius:4px}
+a:focus-visible,button:focus-visible,summary:focus-visible{outline:3px solid #13243b;outline-offset:3px;border-radius:4px}
 .on-dark a:focus-visible,.on-dark button:focus-visible{outline-color:#ffffff}
 summary{list-style:none;cursor:pointer}summary::-webkit-details-marker{display:none}details[open] .chevron{transform:rotate(180deg)}
 </style>
 </head>
 <body>
-<div style="font-family: 'Source Sans 3', system-ui, sans-serif; color: #2d3b4e; font-size: 18px; line-height: 1.6; background: #f7f3ee; min-height: 100vh">
+<div style="font-family: 'Source Sans 3', system-ui, sans-serif; color: #2d3b4e; font-size: 18px; line-height: 1.6; background: #ffffff; min-height: 100vh">
 
-  <!-- Header -->
   <header style="background: #f7f3ee">
     <div style="max-width: 1200px; margin: 0 auto; padding: 16px 24px; display: flex; flex-wrap: wrap; gap: 16px 32px; align-items: center; justify-content: space-between">
       <a href="../home/home-desktop.html" aria-label="Accueil" style="display: block; line-height: 0"><img src="images/logo-color.png" alt="Église Évangélique de Valenciennes" style="height: 56px; width: auto"></a>
       <nav aria-label="Menu principal" style="display: flex; flex-wrap: wrap; gap: 8px; align-items: center; background: #ffffff; border-radius: 6px; padding: 8px">
         <a href="../home/home-desktop.html" style="display: inline-flex; align-items: center; min-height: 44px; padding: 0 16px; border-radius: 4px; color: #13243b; text-decoration: none">Accueil</a>
-        <a href="#" aria-current="true" style="display: inline-flex; align-items: center; gap: 8px; min-height: 44px; padding: 0 16px; border-radius: 4px; background: #13243b; color: #ffffff; font-weight: 700; text-decoration: none">L'église<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"></polyline></svg></a>
-        <a href="#" style="display: inline-flex; align-items: center; min-height: 44px; padding: 0 16px; border-radius: 4px; color: #13243b; text-decoration: none">Évènements</a>
-        <a href="#" style="display: inline-flex; align-items: center; min-height: 44px; padding: 0 16px; border-radius: 4px; color: #13243b; text-decoration: none">Prédications</a>
-        <a href="#" style="display: inline-flex; align-items: center; min-height: 44px; padding: 0 16px; border-radius: 4px; color: #13243b; text-decoration: none">Nous contacter</a>
-        <a href="#" style="display: inline-flex; align-items: center; min-height: 44px; padding: 0 16px; border-radius: 4px; background: #3a64aa; color: #ffffff; font-weight: 700; text-decoration: none">Faire un don</a>
+        <a href="who-we-are-desktop.html" aria-current="true" style="display: inline-flex; align-items: center; gap: 8px; min-height: 44px; padding: 0 16px; border-radius: 4px; background: #13243b; color: #ffffff; font-weight: 700; text-decoration: none">L'église<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"></polyline></svg></a>
+        <a href="../events/events-desktop.html" style="display: inline-flex; align-items: center; min-height: 44px; padding: 0 16px; border-radius: 4px; color: #13243b; text-decoration: none">Évènements</a>
+        <a href="../sermons/sermons-desktop.html" style="display: inline-flex; align-items: center; min-height: 44px; padding: 0 16px; border-radius: 4px; color: #13243b; text-decoration: none">Prédications</a>
+        <a href="../contact/contact-desktop.html" style="display: inline-flex; align-items: center; min-height: 44px; padding: 0 16px; border-radius: 4px; color: #13243b; text-decoration: none">Nous contacter</a>
+        <a href="../donate/donate-desktop.html" style="display: inline-flex; align-items: center; min-height: 44px; padding: 0 16px; border-radius: 4px; background: #3a64aa; color: #ffffff; font-weight: 700; text-decoration: none">Faire un don</a>
       </nav>
     </div>
   </header>
 
-  <!-- Page banner -->
+  <!-- Page banner: church front, yellow bar under the title -->
   <section class="on-dark" style="position: relative; overflow: hidden; background: #13243b">
-    <img src="images/congregation.jpg" alt="" aria-hidden="true" style="position: absolute; top: -32px; left: -32px; width: calc(100% + 64px); height: calc(100% + 64px); object-fit: cover; filter: blur(3px)">
+    <img src="images/church-front.jpg" alt="" aria-hidden="true" style="position: absolute; top: -32px; left: -32px; width: calc(100% + 64px); height: calc(100% + 64px); object-fit: cover; filter: blur(3px)">
     <div aria-hidden="true" style="position: absolute; inset: 0; background: rgba(19, 36, 59, 0.74)"></div>
     <div style="position: relative; max-width: 1200px; margin: 0 auto; padding: 64px 24px">
-      <nav aria-label="Fil d'Ariane" style="margin-bottom: 16px; font-size: 16px; color: #ffffff">
+      <nav aria-label="Fil d'Ariane" style="margin-bottom: 8px; font-size: 16px; color: #ffffff">
         <a href="../home/home-desktop.html" style="display: inline-flex; align-items: center; min-height: 44px; color: #ffffff; text-underline-offset: 4px">Accueil</a>
         <span aria-hidden="true" style="margin: 0 8px">›</span>
         <span>L'église</span>
         <span aria-hidden="true" style="margin: 0 8px">›</span>
         <span aria-current="page" style="font-weight: 700">Notre histoire</span>
       </nav>
-      <h1 style="margin: 0; font-family: 'Outfit', system-ui, sans-serif; font-size: 56px; line-height: 1.05; color: #ffffff; letter-spacing: -0.02em">Notre histoire</h1>
+      <h1 style="margin: 0; font-family: 'Outfit', system-ui, sans-serif; font-size: 56px; line-height: 1.1; color: #ffffff; letter-spacing: -0.02em">Notre histoire</h1>
+      <span aria-hidden="true" style="display: block; margin-top: 24px; width: 96px; height: 6px; border-radius: 2px; background: #ffaf00"></span>
     </div>
   </section>
 
-  <!-- Our church: timeline -->
+  <!-- Timeline -->
   <section style="background: #ffffff">
     <div style="max-width: 1200px; margin: 0 auto; padding: 96px 24px">
       <div style="max-width: 880px">
         <h2 style="margin: 0 0 24px; font-family: 'Outfit', system-ui, sans-serif; font-size: 44px; line-height: 1.1; color: #13243b">Notre église</h2>
-        <p style="margin: 0 0 64px; font-size: 20px">Tout au long de ces années, l'Église Évangélique de Valenciennes n'a cessé de croître et de lever des ministères qui exercent encore aujourd'hui dans d'autres régions de France.</p>
+        <p style="margin: 0 0 48px; font-size: 20px">Tout au long de ces années, l'Église Évangélique de Valenciennes n'a cessé de croître et de lever des ministères qui exercent encore aujourd'hui dans d'autres régions de France.</p>
         <ol style="list-style: none; margin: 0; padding: 0">
           <li style="display: grid; grid-template-columns: 136px minmax(0, 1fr); column-gap: 32px">
             <h3 style="margin: 0; text-align: right; font-family: 'Outfit', system-ui, sans-serif; font-size: 32px; line-height: 1.1; color: #3a64aa">1936</h3>
@@ -104,9 +104,9 @@ summary{list-style:none;cursor:pointer}summary::-webkit-details-marker{display:n
           <li style="display: grid; grid-template-columns: 136px minmax(0, 1fr); column-gap: 32px">
             <h3 style="margin: 0; text-align: right; font-family: 'Outfit', system-ui, sans-serif; font-size: 24px; line-height: 1.35; color: #3a64aa">Aujourd'hui</h3>
             <div style="position: relative; padding: 0 0 0 34px">
-              <span aria-hidden="true" style="position: absolute; left: -7px; top: 8px; width: 16px; height: 16px; box-sizing: border-box; border-radius: 999px; background: #ffaf00; border: 3px solid #ffaf00"></span>
+              <span aria-hidden="true" style="position: absolute; left: -7px; top: 8px; width: 16px; height: 16px; border-radius: 999px; background: #ffaf00"></span>
               <p style="margin: 0 0 16px">Le couple pastoral, Nicolas et Mélanie Tessier, a la responsabilité pastorale de l'Église.</p>
-              <a href="team-desktop.html" style="display: inline-flex; align-items: center; gap: 8px; min-height: 44px; font-weight: 700; text-underline-offset: 4px">Découvrir le couple pastoral<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></a>
+              <a href="team-desktop.html" style="display: inline-flex; align-items: center; gap: 8px; min-height: 44px; font-weight: 700; text-underline-offset: 4px">Découvrir le couple pastoral<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex: none"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></a>
             </div>
           </li>
         </ol>
@@ -115,28 +115,24 @@ summary{list-style:none;cursor:pointer}summary::-webkit-details-marker{display:n
   </section>
 
   <!-- Partners -->
-  <section style="background: #f7f3ee">
-    <div style="max-width: 1200px; margin: 0 auto; padding: 96px 24px; display: flex; flex-wrap: wrap; gap: 48px; align-items: center">
-      <div style="flex: 1 1 440px; min-width: 0">
+  <section style="background: #e9f3fb">
+    <div style="max-width: 1200px; margin: 0 auto; padding: 96px 24px">
+      <div style="display: flex; flex-wrap: wrap; gap: 48px; align-items: flex-start">
+        <div style="flex: 1 1 440px; min-width: 0">
         <h2 style="margin: 0 0 24px; font-family: 'Outfit', system-ui, sans-serif; font-size: 44px; line-height: 1.1; color: #13243b">Nos partenaires</h2>
         <p style="margin: 0 0 32px">L'Église Évangélique de Valenciennes est rattachée au mouvement des Assemblées de Dieu de France. Nous sommes également affiliés au Conseil National des Évangéliques de France, reconnu par le ministère de l'Intérieur.</p>
         <div style="display: flex; flex-direction: column; gap: 16px">
-          <a href="https://assemblees-de-dieu.org/" style="display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 24px; border-radius: 6px; background: #ffffff; color: #13243b; text-decoration: none">
-            <span><strong style="display: block; font-family: 'Outfit', system-ui, sans-serif; font-size: 22px; line-height: 1.25">Assemblées de Dieu de France</strong><span style="font-size: 16px; color: #556275">assemblees-de-dieu.org</span></span>
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#3a64aa" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex: none"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
-          </a>
-          <a href="https://www.lecnef.org/page/170867-le-cnef" style="display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 24px; border-radius: 6px; background: #ffffff; color: #13243b; text-decoration: none">
-            <span><strong style="display: block; font-family: 'Outfit', system-ui, sans-serif; font-size: 22px; line-height: 1.25">Conseil National des Évangéliques de France (CNEF)</strong><span style="font-size: 16px; color: #556275">lecnef.org</span></span>
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#3a64aa" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex: none"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
-          </a>
+          <a href="https://assemblees-de-dieu.org/" style="display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 24px; border-radius: 6px; background: #ffffff; color: #13243b; text-decoration: none"><span><strong style="display: block; font-family: 'Outfit', system-ui, sans-serif; font-size: 24px; line-height: 1.25">Assemblées de Dieu de France</strong><span style="font-size: 16px; color: #556275">assemblees-de-dieu.org</span></span><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#3a64aa" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex: none"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg></a>
+          <a href="https://www.lecnef.org/page/170867-le-cnef" style="display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 24px; border-radius: 6px; background: #ffffff; color: #13243b; text-decoration: none"><span><strong style="display: block; font-family: 'Outfit', system-ui, sans-serif; font-size: 24px; line-height: 1.25">Conseil National des Évangéliques de France (CNEF)</strong><span style="font-size: 16px; color: #556275">lecnef.org</span></span><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#3a64aa" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex: none"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg></a>
         </div>
+        </div>
+        <img src="images/church-front.jpg" alt="La façade de l'église, 75 rue du Chauffour, avec l'inscription « Église évangélique »" style="flex: 1 1 440px; min-width: 0; aspect-ratio: 4 / 3; object-fit: cover; border-radius: 6px">
       </div>
-      <img src="images/church-front.jpg" alt="La façade de l'église, 75 rue du Chauffour, avec l'inscription « Église évangélique »" style="flex: 1 1 440px; min-width: 0; aspect-ratio: 4 / 3; object-fit: cover; border-radius: 6px">
     </div>
   </section>
 
   <!-- Mission statement -->
-  <section style="background: #e9f3fb">
+  <section style="background: #ffffff">
     <div style="max-width: 1200px; margin: 0 auto; padding: 96px 24px">
       <figure style="max-width: 880px; margin: 0 auto; text-align: center">
         <svg width="48" height="40" viewBox="0 0 44 36" fill="#ffaf00" aria-hidden="true"><path d="M0 36V20C0 8 6 1 18 0v8c-6 1-9 5-9 12h9v16zm26 0V20C26 8 32 1 44 0v8c-6 1-9 5-9 12h9v16z"></path></svg>
@@ -145,44 +141,44 @@ summary{list-style:none;cursor:pointer}summary::-webkit-details-marker{display:n
     </div>
   </section>
 
-  <!-- Related pages -->
-  <nav aria-label="Dans la rubrique L'église" style="background: #ffffff; border-top: 1px solid #e4e7ec">
+  <!-- Section links -->
+  <nav aria-label="Dans la rubrique L'église" style="background: #e2f5ec">
     <div style="max-width: 1200px; margin: 0 auto; padding: 64px 24px">
-      <h2 style="margin: 0 0 24px; font-family: 'Outfit', system-ui, sans-serif; font-size: 24px; color: #13243b">Dans la rubrique « L'église »</h2>
+      <h2 style="margin: 0 0 16px; font-family: 'Outfit', system-ui, sans-serif; font-size: 18px; line-height: 1.25; color: #13243b">Dans la rubrique « L'église »</h2>
       <div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px">
-        <a href="who-we-are-desktop.html" style="display: flex; align-items: center; justify-content: space-between; gap: 16px; min-height: 64px; padding: 0 24px; border-radius: 6px; background: #f7f3ee; color: #13243b; font-weight: 700; text-decoration: none">Qui sommes-nous ?<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#3a64aa" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex: none"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></a>
-        <a href="team-desktop.html" style="display: flex; align-items: center; justify-content: space-between; gap: 16px; min-height: 64px; padding: 0 24px; border-radius: 6px; background: #f7f3ee; color: #13243b; font-weight: 700; text-decoration: none">L'équipe<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#3a64aa" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex: none"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></a>
-        <a href="history-desktop.html" aria-current="page" style="display: flex; align-items: center; justify-content: space-between; gap: 16px; min-height: 64px; padding: 0 24px; border-radius: 6px; background: #13243b; color: #ffffff; font-weight: 700; text-decoration: none">Notre histoire<span style="font-size: 15px; font-weight: 400">Vous êtes ici</span></a>
+        <a href="who-we-are-desktop.html" style="display: flex; align-items: center; justify-content: space-between; gap: 16px; min-height: 64px; padding: 0 24px; border-radius: 6px; background: #ffffff; color: #13243b; font-weight: 700; text-decoration: none">Qui sommes-nous ?<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#3a64aa" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex: none"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></a>
+        <a href="team-desktop.html" style="display: flex; align-items: center; justify-content: space-between; gap: 16px; min-height: 64px; padding: 0 24px; border-radius: 6px; background: #ffffff; color: #13243b; font-weight: 700; text-decoration: none">L'équipe<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#3a64aa" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex: none"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></a>
+        <a href="history-desktop.html" aria-current="page" style="display: flex; align-items: center; justify-content: space-between; gap: 16px; min-height: 64px; padding: 0 24px; border-radius: 6px; background: #13243b; color: #ffffff; font-weight: 700; text-decoration: none">Notre histoire<span style="display: inline-flex; align-items: center; gap: 8px; font-size: 15px; font-weight: 400"><span aria-hidden="true" style="width: 10px; height: 10px; border-radius: 999px; background: #ffaf00"></span>Vous êtes ici</span></a>
       </div>
     </div>
   </nav>
 
   <!-- Footer -->
   <footer class="on-dark" style="background: #13243b; color: #ffffff; font-size: 16px">
-    <div style="max-width: 1200px; margin: 0 auto; padding: 64px 24px 32px; display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 48px">
+    <div style="max-width: 1200px; margin: 0 auto; padding: 64px 24px 32px; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 48px">
       <div style="display: flex; flex-direction: column; gap: 16px">
         <img src="images/logo-white.png" alt="Église Évangélique de Valenciennes" style="width: 200px; height: auto">
-        <a href="#" style="color: #ffffff">75, rue du Chauffour<br>59300 Valenciennes</a>
+        <a href="https://maps.google.com/?q=75+rue+du+Chauffour+59300+Valenciennes" style="color: #ffffff">75, rue du Chauffour<br>59300 Valenciennes</a>
         <a href="mailto:secretariat@add-valenciennes.fr" style="color: #ffffff">secretariat@add-valenciennes.fr</a>
       </div>
       <div>
         <h2 style="margin: 0 0 8px; font-family: 'Outfit', system-ui, sans-serif; font-size: 18px; color: #ffffff">Notre église</h2>
         <ul style="list-style: none; margin: 0; padding: 0">
           <li><a href="who-we-are-desktop.html" style="display: flex; align-items: center; min-height: 44px; color: #ffffff">Qui sommes-nous ?</a></li>
-                    <li><a href="team-desktop.html" style="display: flex; align-items: center; min-height: 44px; color: #ffffff">L'équipe</a></li>
+          <li><a href="team-desktop.html" style="display: flex; align-items: center; min-height: 44px; color: #ffffff">L'équipe</a></li>
           <li><a href="history-desktop.html" style="display: flex; align-items: center; min-height: 44px; color: #ffffff">Notre histoire</a></li>
-          <li><a href="#" style="display: flex; align-items: center; min-height: 44px; color: #ffffff">Les prédications</a></li>
-          <li><a href="#" style="display: flex; align-items: center; min-height: 44px; color: #ffffff">Évènements</a></li>
+          <li><a href="../sermons/sermons-desktop.html" style="display: flex; align-items: center; min-height: 44px; color: #ffffff">Les prédications</a></li>
+          <li><a href="../events/events-desktop.html" style="display: flex; align-items: center; min-height: 44px; color: #ffffff">Évènements</a></li>
         </ul>
       </div>
       <div>
         <h2 style="margin: 0 0 8px; font-family: 'Outfit', system-ui, sans-serif; font-size: 18px; color: #ffffff">Aller plus loin</h2>
         <ul style="list-style: none; margin: 0; padding: 0">
-          <li><a href="#" style="display: flex; align-items: center; min-height: 44px; color: #ffffff">Nous contacter</a></li>
-          <li><a href="#" style="display: flex; align-items: center; min-height: 44px; color: #ffffff">Demande d'entretien</a></li>
-          <li><a href="#" style="display: flex; align-items: center; min-height: 44px; color: #ffffff">Demande de prière</a></li>
-          <li><a href="#" style="display: flex; align-items: center; min-height: 44px; color: #ffffff">Servir à l'église</a></li>
-          <li><a href="#" style="display: flex; align-items: center; min-height: 44px; color: #ffffff">Faire un don</a></li>
+          <li><a href="../contact/contact-desktop.html" style="display: flex; align-items: center; min-height: 44px; color: #ffffff">Nous contacter</a></li>
+          <li><a href="../forms/interview-desktop.html" style="display: flex; align-items: center; min-height: 44px; color: #ffffff">Demande d'entretien</a></li>
+          <li><a href="../forms/prayer-desktop.html" style="display: flex; align-items: center; min-height: 44px; color: #ffffff">Demande de prière</a></li>
+          <li><a href="../forms/serve-desktop.html" style="display: flex; align-items: center; min-height: 44px; color: #ffffff">Servir à l'église</a></li>
+          <li><a href="../donate/donate-desktop.html" style="display: flex; align-items: center; min-height: 44px; color: #ffffff">Faire un don</a></li>
         </ul>
       </div>
       <div>
@@ -196,9 +192,9 @@ summary{list-style:none;cursor:pointer}summary::-webkit-details-marker{display:n
     </div>
     <div style="max-width: 1200px; margin: 0 auto; padding: 24px; border-top: 1px solid rgba(255, 255, 255, 0.2); display: flex; flex-wrap: wrap; align-items: center; gap: 8px 24px; font-size: 15px">
       <span>© Église évangélique de Valenciennes. Membre des <a href="#" style="color: #ffffff">Assemblées de Dieu</a> et du <a href="#" style="color: #ffffff">CNEF</a>.</span>
-      <a href="../legal/privacy-desktop.html" style="display: inline-flex; align-items: center; min-height: 44px; color: #ffffff">Protection des données</a>
-      <a href="../legal/terms-desktop.html" style="display: inline-flex; align-items: center; min-height: 44px; color: #ffffff">Conditions générales</a>
-      <a href="../legal/legal-notice-desktop.html" style="display: inline-flex; align-items: center; min-height: 44px; color: #ffffff">Mentions légales</a>
+        <a href="../legal/privacy-desktop.html" style="display: inline-flex; align-items: center; min-height: 44px; color: #ffffff">Protection des données</a>
+        <a href="../legal/terms-desktop.html" style="display: inline-flex; align-items: center; min-height: 44px; color: #ffffff">Conditions générales</a>
+        <a href="../legal/legal-notice-desktop.html" style="display: inline-flex; align-items: center; min-height: 44px; color: #ffffff">Mentions légales</a>
       <span>Réalisé par <a href="https://floriandesmet.dev" style="color: #ffffff">Florian Desmet</a></span>
     </div>
   </footer>

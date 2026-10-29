@@ -1,6 +1,6 @@
 <!doctype html>
-<!-- Validated "L'église" page mockup (phone, 390 px), exported from the Claude Design canvas
-     https://claude.ai/artifact/UbLoYdhe5z2A3no2cDeo5u on 2026-10-26.
+<!-- Validated "Notre histoire" mockup (phone, 390 px), new charter, exported from the Claude Design canvas
+     https://claude.ai/artifact/UbLoYdhe5z2A3no2cDeo5u on 2026-10-29.
      Values come from ../../tokens.json; see ../../DESIGN.md for the rules. -->
 <html lang="fr">
 <head>
@@ -11,25 +11,26 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@600;700&amp;family=Source+Sans+3:ital,wght@0,400;0,700;1,400&amp;display=swap">
 <style>
-body{margin:0;background:#f7f3ee}
+body{margin:0;background:#ffffff}
 a{color:#3a64aa}a:hover{color:#2b4d86}
-a:focus-visible,button:focus-visible{outline:3px solid #13243b;outline-offset:3px;border-radius:4px}
+a:focus-visible,button:focus-visible,summary:focus-visible{outline:3px solid #13243b;outline-offset:3px;border-radius:4px}
 .on-dark a:focus-visible,.on-dark button:focus-visible{outline-color:#ffffff}
 summary{list-style:none;cursor:pointer}summary::-webkit-details-marker{display:none}details[open] .chevron{transform:rotate(180deg)}
 </style>
 </head>
 <body>
-<div style="max-width: 390px; margin: 0 auto; box-sizing: border-box; display: flex; flex-direction: column; font-family: 'Source Sans 3', system-ui, sans-serif; color: #2d3b4e; font-size: 17px; line-height: 1.6; background: #f7f3ee">
+<div style="max-width: 390px; margin: 0 auto; box-sizing: border-box; display: flex; flex-direction: column; font-family: 'Source Sans 3', system-ui, sans-serif; color: #2d3b4e; font-size: 17px; line-height: 1.6; background: #ffffff">
 
-  <header style="padding: 8px 16px; display: flex; align-items: center; justify-content: space-between; gap: 16px">
+  <header style="background: #f7f3ee; padding: 8px 16px; display: flex; align-items: center; justify-content: space-between; gap: 16px">
     <a href="../home/home-mobile.html" aria-label="Accueil" style="display: block; line-height: 0"><img src="images/logo-color.png" alt="Église Évangélique de Valenciennes" style="height: 44px; width: auto"></a>
     <button type="button" aria-label="Ouvrir le menu" style="display: inline-flex; align-items: center; gap: 8px; min-height: 48px; padding: 0 16px; border: 0; border-radius: 4px; background: #13243b; color: #ffffff; font-family: inherit; font-size: 16px; font-weight: 700"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>Menu</button>
   </header>
 
+  <!-- Page banner: church front, yellow bar under the title -->
   <section class="on-dark" style="position: relative; overflow: hidden; background: #13243b">
-    <img src="images/congregation.jpg" alt="" aria-hidden="true" style="position: absolute; top: -32px; left: -32px; width: calc(100% + 64px); height: calc(100% + 64px); object-fit: cover; filter: blur(3px)">
+    <img src="images/church-front.jpg" alt="" aria-hidden="true" style="position: absolute; top: -32px; left: -32px; width: calc(100% + 64px); height: calc(100% + 64px); object-fit: cover; filter: blur(3px)">
     <div aria-hidden="true" style="position: absolute; inset: 0; background: rgba(19, 36, 59, 0.74)"></div>
-    <div style="position: relative; padding: 32px 16px 48px">
+    <div style="position: relative; padding: 48px 16px">
       <nav aria-label="Fil d'Ariane" style="margin-bottom: 8px; font-size: 16px; color: #ffffff">
         <a href="../home/home-mobile.html" style="display: inline-flex; align-items: center; min-height: 44px; color: #ffffff; text-underline-offset: 4px">Accueil</a>
         <span aria-hidden="true" style="margin: 0 8px">›</span>
@@ -37,117 +38,123 @@ summary{list-style:none;cursor:pointer}summary::-webkit-details-marker{display:n
         <span aria-hidden="true" style="margin: 0 8px">›</span>
         <span aria-current="page" style="font-weight: 700">Notre histoire</span>
       </nav>
-      <h1 style="margin: 0; font-family: 'Outfit', system-ui, sans-serif; font-size: 36px; line-height: 1.05; color: #ffffff; letter-spacing: -0.02em">Notre histoire</h1>
+      <h1 style="margin: 0; font-family: 'Outfit', system-ui, sans-serif; font-size: 36px; line-height: 1.1; color: #ffffff; letter-spacing: -0.02em">Notre histoire</h1>
+      <span aria-hidden="true" style="display: block; margin-top: 24px; width: 64px; height: 4px; border-radius: 2px; background: #ffaf00"></span>
     </div>
   </section>
 
+  <!-- Timeline -->
   <section style="background: #ffffff; padding: 48px 16px">
-    <h2 style="margin: 0 0 16px; font-family: 'Outfit', system-ui, sans-serif; font-size: 30px; line-height: 1.1; color: #13243b">Notre église</h2>
+    <h2 style="margin: 0 0 24px; font-family: 'Outfit', system-ui, sans-serif; font-size: 30px; line-height: 1.1; color: #13243b">Notre église</h2>
     <p style="margin: 0 0 32px">Tout au long de ces années, l'Église Évangélique de Valenciennes n'a cessé de croître et de lever des ministères qui exercent encore aujourd'hui dans d'autres régions de France.</p>
-    <ol style="list-style: none; margin: 0 0 0 8px; padding: 0">
-      <li style="position: relative; border-left: 2px solid #3a64aa; padding: 0 0 32px 24px">
-        <span aria-hidden="true" style="position: absolute; left: -9px; top: 6px; width: 16px; height: 16px; box-sizing: border-box; border-radius: 999px; background: #ffffff; border: 3px solid #3a64aa"></span>
-        <h3 style="margin: 0 0 8px; font-family: 'Outfit', system-ui, sans-serif; font-size: 24px; line-height: 1.1; color: #3a64aa">1936</h3>
-        <p style="margin: 0">Un couple part en vacances aux Andelys, chez des amis, et assiste à des réunions évangéliques. De retour chez eux, ils en parlent à leurs voisins et prennent contact avec le pasteur Falq, qui assurait des réunions à Lille.</p>
-      </li>
-      <li style="position: relative; border-left: 2px solid #3a64aa; padding: 0 0 32px 24px">
-        <span aria-hidden="true" style="position: absolute; left: -9px; top: 6px; width: 16px; height: 16px; box-sizing: border-box; border-radius: 999px; background: #ffffff; border: 3px solid #3a64aa"></span>
-        <h3 style="margin: 0 0 8px; font-family: 'Outfit', system-ui, sans-serif; font-size: 24px; line-height: 1.1; color: #3a64aa">1940</h3>
-        <p style="margin: 0">Ove Falq commence à animer des réunions au n° 1 de la rue Louis Bracq, à Valenciennes.</p>
-      </li>
-      <li style="position: relative; border-left: 2px solid #3a64aa; padding: 0 0 32px 24px">
-        <span aria-hidden="true" style="position: absolute; left: -9px; top: 6px; width: 16px; height: 16px; box-sizing: border-box; border-radius: 999px; background: #ffffff; border: 3px solid #3a64aa"></span>
-        <h3 style="margin: 0 0 8px; font-family: 'Outfit', system-ui, sans-serif; font-size: 24px; line-height: 1.1; color: #3a64aa">1941</h3>
-        <p style="margin: 0">Une année plus tard, l'église déménage rue Malplaquet.</p>
-      </li>
-      <li style="position: relative; border-left: 2px solid #3a64aa; padding: 0 0 32px 24px">
-        <span aria-hidden="true" style="position: absolute; left: -9px; top: 6px; width: 16px; height: 16px; box-sizing: border-box; border-radius: 999px; background: #ffffff; border: 3px solid #3a64aa"></span>
-        <h3 style="margin: 0 0 8px; font-family: 'Outfit', system-ui, sans-serif; font-size: 24px; line-height: 1.1; color: #3a64aa">1960</h3>
-        <p style="margin: 0">Avec le pasteur Marcel Valot, l'église déménage au 73 rue Saint-Géry.</p>
-      </li>
-      <li style="position: relative; border-left: 2px solid #3a64aa; padding: 0 0 32px 24px">
-        <span aria-hidden="true" style="position: absolute; left: -9px; top: 6px; width: 16px; height: 16px; box-sizing: border-box; border-radius: 999px; background: #ffffff; border: 3px solid #3a64aa"></span>
-        <h3 style="margin: 0 0 8px; font-family: 'Outfit', system-ui, sans-serif; font-size: 24px; line-height: 1.1; color: #3a64aa">1973</h3>
-        <p style="margin: 0">Le pasteur Marcel Goffin lui succède.</p>
-      </li>
-      <li style="position: relative; border-left: 2px solid #3a64aa; padding: 0 0 32px 24px">
-        <span aria-hidden="true" style="position: absolute; left: -9px; top: 6px; width: 16px; height: 16px; box-sizing: border-box; border-radius: 999px; background: #ffffff; border: 3px solid #3a64aa"></span>
-        <h3 style="margin: 0 0 8px; font-family: 'Outfit', system-ui, sans-serif; font-size: 24px; line-height: 1.1; color: #3a64aa">Plus tard</h3>
-        <p style="margin: 0">Sous le pastorat de Bernard Vinckevleugel, l'église déménage et tient sa première assemblée générale à l'adresse qu'elle occupe aujourd'hui, au 75 rue du Chauffour. Les pasteurs Patrice Robin, Elias Dos Reis Silva et Laurent Demol se succèdent ensuite à la présidence et à la conduite de l'Église.</p>
-      </li>
-      <li style="position: relative; padding: 0 0 0 26px">
-        <span aria-hidden="true" style="position: absolute; left: -7px; top: 6px; width: 16px; height: 16px; box-sizing: border-box; border-radius: 999px; background: #ffaf00; border: 3px solid #ffaf00"></span>
-        <h3 style="margin: 0 0 8px; font-family: 'Outfit', system-ui, sans-serif; font-size: 24px; line-height: 1.1; color: #3a64aa">Aujourd'hui</h3>
-        <p style="margin: 0 0 8px">Le couple pastoral, Nicolas et Mélanie Tessier, a la responsabilité pastorale de l'Église.</p>
-        <a href="team-mobile.html" style="display: inline-flex; align-items: center; gap: 8px; min-height: 44px; font-weight: 700; text-underline-offset: 4px">Découvrir le couple pastoral<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></a>
-      </li>
+    <ol style="list-style: none; margin: 0; padding: 0 0 0 8px">
+        <li style="position: relative; border-left: 2px solid #3a64aa; padding: 0 0 32px 24px">
+          <span aria-hidden="true" style="position: absolute; left: -9px; top: 6px; width: 16px; height: 16px; box-sizing: border-box; border-radius: 999px; background: #ffffff; border: 3px solid #3a64aa"></span>
+          <h3 style="margin: 0 0 8px; font-family: 'Outfit', system-ui, sans-serif; font-size: 24px; line-height: 1.1; color: #3a64aa">1936</h3>
+          <p style="margin: 0">Un couple part en vacances aux Andelys, chez des amis, et assiste à des réunions évangéliques. De retour chez eux, ils en parlent à leurs voisins et prennent contact avec le pasteur Falq, qui assurait des réunions à Lille.</p>
+        </li>
+        <li style="position: relative; border-left: 2px solid #3a64aa; padding: 0 0 32px 24px">
+          <span aria-hidden="true" style="position: absolute; left: -9px; top: 6px; width: 16px; height: 16px; box-sizing: border-box; border-radius: 999px; background: #ffffff; border: 3px solid #3a64aa"></span>
+          <h3 style="margin: 0 0 8px; font-family: 'Outfit', system-ui, sans-serif; font-size: 24px; line-height: 1.1; color: #3a64aa">1940</h3>
+          <p style="margin: 0">Ove Falq commence à animer des réunions au n° 1 de la rue Louis Bracq, à Valenciennes.</p>
+        </li>
+        <li style="position: relative; border-left: 2px solid #3a64aa; padding: 0 0 32px 24px">
+          <span aria-hidden="true" style="position: absolute; left: -9px; top: 6px; width: 16px; height: 16px; box-sizing: border-box; border-radius: 999px; background: #ffffff; border: 3px solid #3a64aa"></span>
+          <h3 style="margin: 0 0 8px; font-family: 'Outfit', system-ui, sans-serif; font-size: 24px; line-height: 1.1; color: #3a64aa">1941</h3>
+          <p style="margin: 0">Une année plus tard, l'église déménage rue Malplaquet.</p>
+        </li>
+        <li style="position: relative; border-left: 2px solid #3a64aa; padding: 0 0 32px 24px">
+          <span aria-hidden="true" style="position: absolute; left: -9px; top: 6px; width: 16px; height: 16px; box-sizing: border-box; border-radius: 999px; background: #ffffff; border: 3px solid #3a64aa"></span>
+          <h3 style="margin: 0 0 8px; font-family: 'Outfit', system-ui, sans-serif; font-size: 24px; line-height: 1.1; color: #3a64aa">1960</h3>
+          <p style="margin: 0">Avec le pasteur Marcel Valot, l'église déménage au 73 rue Saint-Géry.</p>
+        </li>
+        <li style="position: relative; border-left: 2px solid #3a64aa; padding: 0 0 32px 24px">
+          <span aria-hidden="true" style="position: absolute; left: -9px; top: 6px; width: 16px; height: 16px; box-sizing: border-box; border-radius: 999px; background: #ffffff; border: 3px solid #3a64aa"></span>
+          <h3 style="margin: 0 0 8px; font-family: 'Outfit', system-ui, sans-serif; font-size: 24px; line-height: 1.1; color: #3a64aa">1973</h3>
+          <p style="margin: 0">Le pasteur Marcel Goffin lui succède.</p>
+        </li>
+        <li style="position: relative; border-left: 2px solid #3a64aa; padding: 0 0 32px 24px">
+          <span aria-hidden="true" style="position: absolute; left: -9px; top: 6px; width: 16px; height: 16px; box-sizing: border-box; border-radius: 999px; background: #ffffff; border: 3px solid #3a64aa"></span>
+          <h3 style="margin: 0 0 8px; font-family: 'Outfit', system-ui, sans-serif; font-size: 20px; line-height: 1.1; color: #3a64aa">Plus tard</h3>
+          <p style="margin: 0">Sous le pastorat de Bernard Vinckevleugel, l'église déménage et tient sa première assemblée générale à l'adresse qu'elle occupe aujourd'hui, au 75 rue du Chauffour. Les pasteurs Patrice Robin, Elias Dos Reis Silva et Laurent Demol se succèdent ensuite à la présidence et à la conduite de l'Église.</p>
+        </li>
+        <li style="position: relative; padding: 0 0 0 26px">
+          <span aria-hidden="true" style="position: absolute; left: -7px; top: 6px; width: 16px; height: 16px; border-radius: 999px; background: #ffaf00"></span>
+          <h3 style="margin: 0 0 8px; font-family: 'Outfit', system-ui, sans-serif; font-size: 20px; line-height: 1.1; color: #3a64aa">Aujourd'hui</h3>
+          <p style="margin: 0 0 8px">Le couple pastoral, Nicolas et Mélanie Tessier, a la responsabilité pastorale de l'Église.</p>
+          <a href="team-mobile.html" style="display: inline-flex; align-items: center; gap: 8px; min-height: 44px; font-weight: 700; text-underline-offset: 4px">Découvrir le couple pastoral<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex: none"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></a>
+        </li>
     </ol>
   </section>
 
-  <section style="padding: 48px 16px">
-    <h2 style="margin: 0 0 16px; font-family: 'Outfit', system-ui, sans-serif; font-size: 30px; line-height: 1.1; color: #13243b">Nos partenaires</h2>
-    <p style="margin: 0 0 24px">L'Église Évangélique de Valenciennes est rattachée au mouvement des Assemblées de Dieu de France. Nous sommes également affiliés au Conseil National des Évangéliques de France, reconnu par le ministère de l'Intérieur.</p>
-    <div style="display: flex; flex-direction: column; gap: 16px; margin-bottom: 24px">
-      <a href="https://assemblees-de-dieu.org/" style="display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 16px; border-radius: 6px; background: #ffffff; color: #13243b; text-decoration: none">
-        <span><strong style="display: block; font-family: 'Outfit', system-ui, sans-serif; font-size: 19px; line-height: 1.25">Assemblées de Dieu de France</strong><span style="font-size: 15px; color: #556275">assemblees-de-dieu.org</span></span>
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#3a64aa" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex: none"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
-      </a>
-      <a href="https://www.lecnef.org/page/170867-le-cnef" style="display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 16px; border-radius: 6px; background: #ffffff; color: #13243b; text-decoration: none">
-        <span><strong style="display: block; font-family: 'Outfit', system-ui, sans-serif; font-size: 19px; line-height: 1.25">Conseil National des Évangéliques de France (CNEF)</strong><span style="font-size: 15px; color: #556275">lecnef.org</span></span>
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#3a64aa" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex: none"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
-      </a>
-    </div>
-    <img src="images/church-front.jpg" alt="La façade de l'église, 75 rue du Chauffour, avec l'inscription « Église évangélique »" style="display: block; width: 100%; aspect-ratio: 4 / 3; object-fit: cover; border-radius: 6px">
+  <!-- Partners -->
+  <section style="background: #e9f3fb; padding: 48px 16px">
+    <h2 style="margin: 0 0 24px; font-family: 'Outfit', system-ui, sans-serif; font-size: 30px; line-height: 1.1; color: #13243b">Nos partenaires</h2>
+    <p style="margin: 0 0 32px">L'Église Évangélique de Valenciennes est rattachée au mouvement des Assemblées de Dieu de France. Nous sommes également affiliés au Conseil National des Évangéliques de France, reconnu par le ministère de l'Intérieur.</p>
+    <div style="display: flex; flex-direction: column; gap: 16px">
+          <a href="https://assemblees-de-dieu.org/" style="display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 16px; border-radius: 6px; background: #ffffff; color: #13243b; text-decoration: none"><span><strong style="display: block; font-family: 'Outfit', system-ui, sans-serif; font-size: 20px; line-height: 1.25">Assemblées de Dieu de France</strong><span style="font-size: 16px; color: #556275">assemblees-de-dieu.org</span></span><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#3a64aa" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex: none"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg></a>
+          <a href="https://www.lecnef.org/page/170867-le-cnef" style="display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 16px; border-radius: 6px; background: #ffffff; color: #13243b; text-decoration: none"><span><strong style="display: block; font-family: 'Outfit', system-ui, sans-serif; font-size: 20px; line-height: 1.25">Conseil National des Évangéliques de France (CNEF)</strong><span style="font-size: 16px; color: #556275">lecnef.org</span></span><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#3a64aa" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex: none"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg></a>
+        </div>
+    <img src="images/church-front.jpg" alt="La façade de l'église, 75 rue du Chauffour, avec l'inscription « Église évangélique »" style="display: block; width: 100%; aspect-ratio: 4 / 3; object-fit: cover; border-radius: 6px; margin-top: 32px">
   </section>
 
-  <section style="background: #e9f3fb; padding: 48px 16px">
+  <!-- Mission statement -->
+  <section style="background: #ffffff; padding: 48px 16px">
     <figure style="margin: 0; text-align: center">
-      <svg width="36" height="30" viewBox="0 0 44 36" fill="#ffaf00" aria-hidden="true"><path d="M0 36V20C0 8 6 1 18 0v8c-6 1-9 5-9 12h9v16zm26 0V20C26 8 32 1 44 0v8c-6 1-9 5-9 12h9v16z"></path></svg>
-      <blockquote style="margin: 16px 0 0; font-family: 'Outfit', system-ui, sans-serif; font-size: 28px; line-height: 1.2; font-weight: 700; color: #13243b">Nous voulons aider chaque personne à grandir dans sa relation personnelle avec Jésus.</blockquote>
+      <svg width="40" height="32" viewBox="0 0 44 36" fill="#ffaf00" aria-hidden="true"><path d="M0 36V20C0 8 6 1 18 0v8c-6 1-9 5-9 12h9v16zm26 0V20C26 8 32 1 44 0v8c-6 1-9 5-9 12h9v16z"></path></svg>
+      <blockquote style="margin: 16px 0 0; font-family: 'Outfit', system-ui, sans-serif; font-size: 30px; line-height: 1.15; font-weight: 700; color: #13243b">Nous voulons aider chaque personne à grandir dans sa relation personnelle avec Jésus.</blockquote>
     </figure>
   </section>
 
-  <nav aria-label="Dans la rubrique L'église" style="background: #ffffff; padding: 48px 16px; border-top: 1px solid #e4e7ec">
-    <h2 style="margin: 0 0 16px; font-family: 'Outfit', system-ui, sans-serif; font-size: 21px; color: #13243b">Dans la rubrique « L'église »</h2>
+  <nav aria-label="Dans la rubrique L'église" style="background: #e2f5ec; padding: 48px 16px">
+    <h2 style="margin: 0 0 16px; font-family: 'Outfit', system-ui, sans-serif; font-size: 18px; line-height: 1.25; color: #13243b">Dans la rubrique « L'église »</h2>
     <div style="display: flex; flex-direction: column; gap: 8px">
-      <a href="who-we-are-mobile.html" style="display: flex; align-items: center; justify-content: space-between; gap: 16px; min-height: 64px; padding: 0 24px; border-radius: 6px; background: #f7f3ee; color: #13243b; font-weight: 700; text-decoration: none">Qui sommes-nous ?<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#3a64aa" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex: none"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></a>
-      <a href="team-mobile.html" style="display: flex; align-items: center; justify-content: space-between; gap: 16px; min-height: 64px; padding: 0 24px; border-radius: 6px; background: #f7f3ee; color: #13243b; font-weight: 700; text-decoration: none">L'équipe<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#3a64aa" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex: none"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></a>
-      <a href="history-mobile.html" aria-current="page" style="display: flex; align-items: center; justify-content: space-between; gap: 16px; min-height: 64px; padding: 0 24px; border-radius: 6px; background: #13243b; color: #ffffff; font-weight: 700; text-decoration: none">Notre histoire<span style="font-size: 15px; font-weight: 400">Vous êtes ici</span></a>
+        <a href="who-we-are-mobile.html" style="display: flex; align-items: center; justify-content: space-between; gap: 16px; min-height: 64px; padding: 0 24px; border-radius: 6px; background: #ffffff; color: #13243b; font-weight: 700; text-decoration: none">Qui sommes-nous ?<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#3a64aa" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex: none"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></a>
+        <a href="team-mobile.html" style="display: flex; align-items: center; justify-content: space-between; gap: 16px; min-height: 64px; padding: 0 24px; border-radius: 6px; background: #ffffff; color: #13243b; font-weight: 700; text-decoration: none">L'équipe<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#3a64aa" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex: none"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></a>
+        <a href="history-mobile.html" aria-current="page" style="display: flex; align-items: center; justify-content: space-between; gap: 16px; min-height: 64px; padding: 0 24px; border-radius: 6px; background: #13243b; color: #ffffff; font-weight: 700; text-decoration: none">Notre histoire<span style="display: inline-flex; align-items: center; gap: 8px; font-size: 15px; font-weight: 400"><span aria-hidden="true" style="width: 10px; height: 10px; border-radius: 999px; background: #ffaf00"></span>Vous êtes ici</span></a>
     </div>
   </nav>
 
+  <!-- Compact phone footer -->
   <footer class="on-dark" style="flex: 1; background: #13243b; color: #ffffff; font-size: 16px; padding: 48px 16px 32px; display: flex; flex-direction: column; gap: 32px">
-    <img src="images/logo-white.png" alt="Église Évangélique de Valenciennes" style="width: 176px; height: auto">
-    <div>
-      <h2 style="margin: 0 0 8px; font-family: 'Outfit', system-ui, sans-serif; font-size: 18px; color: #ffffff">Notre église</h2>
-      <ul style="list-style: none; margin: 0; padding: 0">
-        <li><a href="who-we-are-mobile.html" style="display: flex; align-items: center; min-height: 44px; color: #ffffff">Qui sommes-nous ?</a></li>
-                <li><a href="team-mobile.html" style="display: flex; align-items: center; min-height: 44px; color: #ffffff">L'équipe</a></li>
-        <li><a href="history-mobile.html" style="display: flex; align-items: center; min-height: 44px; color: #ffffff">Notre histoire</a></li>
-        <li><a href="#" style="display: flex; align-items: center; min-height: 44px; color: #ffffff">Les prédications</a></li>
-        <li><a href="#" style="display: flex; align-items: center; min-height: 44px; color: #ffffff">Évènements</a></li>
-      </ul>
+    <div style="display: flex; align-items: center; justify-content: space-between; gap: 16px">
+      <img src="images/logo-white.png" alt="Église Évangélique de Valenciennes" style="width: 152px; height: auto">
+      <div style="display: flex; gap: 8px">
+        <a href="#" aria-label="Facebook" style="display: inline-flex; align-items: center; justify-content: center; width: 44px; height: 44px; box-sizing: border-box; border: 1px solid rgba(255, 255, 255, 0.4); border-radius: 4px; color: #ffffff"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg></a>
+        <a href="#" aria-label="Instagram" style="display: inline-flex; align-items: center; justify-content: center; width: 44px; height: 44px; box-sizing: border-box; border: 1px solid rgba(255, 255, 255, 0.4); border-radius: 4px; color: #ffffff"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5"></rect><circle cx="12" cy="12" r="4"></circle><line x1="17.5" y1="6.5" x2="17.5" y2="6.5"></line></svg></a>
+        <a href="#" aria-label="YouTube" style="display: inline-flex; align-items: center; justify-content: center; width: 44px; height: 44px; box-sizing: border-box; border: 1px solid rgba(255, 255, 255, 0.4); border-radius: 4px; color: #ffffff"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="5" width="20" height="14" rx="4"></rect><polygon points="10 9 15 12 10 15"></polygon></svg></a>
+      </div>
     </div>
-    <div>
-      <h2 style="margin: 0 0 8px; font-family: 'Outfit', system-ui, sans-serif; font-size: 18px; color: #ffffff">Aller plus loin</h2>
-      <ul style="list-style: none; margin: 0; padding: 0">
-        <li><a href="#" style="display: flex; align-items: center; min-height: 44px; color: #ffffff">Nous contacter</a></li>
-        <li><a href="#" style="display: flex; align-items: center; min-height: 44px; color: #ffffff">Demande d'entretien</a></li>
-        <li><a href="#" style="display: flex; align-items: center; min-height: 44px; color: #ffffff">Demande de prière</a></li>
-        <li><a href="#" style="display: flex; align-items: center; min-height: 44px; color: #ffffff">Servir à l'église</a></li>
-        <li><a href="#" style="display: flex; align-items: center; min-height: 44px; color: #ffffff">Faire un don</a></li>
-      </ul>
+    <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px">
+      <div>
+        <h2 style="margin: 0 0 8px; font-family: 'Outfit', system-ui, sans-serif; font-size: 18px; color: #ffffff">Notre église</h2>
+        <ul style="list-style: none; margin: 0; padding: 0">
+          <li><a href="who-we-are-mobile.html" style="display: flex; align-items: center; min-height: 44px; color: #ffffff">Qui sommes-nous ?</a></li>
+          <li><a href="team-mobile.html" style="display: flex; align-items: center; min-height: 44px; color: #ffffff">L'équipe</a></li>
+          <li><a href="history-mobile.html" style="display: flex; align-items: center; min-height: 44px; color: #ffffff">Notre histoire</a></li>
+          <li><a href="../sermons/sermons-mobile.html" style="display: flex; align-items: center; min-height: 44px; color: #ffffff">Les prédications</a></li>
+          <li><a href="../events/events-mobile.html" style="display: flex; align-items: center; min-height: 44px; color: #ffffff">Évènements</a></li>
+        </ul>
+      </div>
+      <div>
+        <h2 style="margin: 0 0 8px; font-family: 'Outfit', system-ui, sans-serif; font-size: 18px; color: #ffffff">Aller plus loin</h2>
+        <ul style="list-style: none; margin: 0; padding: 0">
+          <li><a href="../contact/contact-mobile.html" style="display: flex; align-items: center; min-height: 44px; color: #ffffff">Nous contacter</a></li>
+          <li><a href="../forms/interview-mobile.html" style="display: flex; align-items: center; min-height: 44px; color: #ffffff">Demande d'entretien</a></li>
+          <li><a href="../forms/prayer-mobile.html" style="display: flex; align-items: center; min-height: 44px; color: #ffffff">Demande de prière</a></li>
+          <li><a href="../forms/serve-mobile.html" style="display: flex; align-items: center; min-height: 44px; color: #ffffff">Servir à l'église</a></li>
+          <li><a href="../donate/donate-mobile.html" style="display: flex; align-items: center; min-height: 44px; color: #ffffff">Faire un don</a></li>
+        </ul>
+      </div>
     </div>
-    <div style="display: flex; flex-wrap: wrap; gap: 8px">
-      <a href="#" style="display: inline-flex; align-items: center; min-height: 44px; padding: 0 16px; border: 1px solid rgba(255, 255, 255, 0.4); border-radius: 4px; color: #ffffff; text-decoration: none">Facebook</a>
-      <a href="#" style="display: inline-flex; align-items: center; min-height: 44px; padding: 0 16px; border: 1px solid rgba(255, 255, 255, 0.4); border-radius: 4px; color: #ffffff; text-decoration: none">Instagram</a>
-      <a href="#" style="display: inline-flex; align-items: center; min-height: 44px; padding: 0 16px; border: 1px solid rgba(255, 255, 255, 0.4); border-radius: 4px; color: #ffffff; text-decoration: none">YouTube</a>
-    </div>
-    <div style="padding-top: 24px; border-top: 1px solid rgba(255, 255, 255, 0.2); font-size: 15px">
+    <div style="padding-top: 24px; border-top: 1px solid rgba(255, 255, 255, 0.2)">
       <p style="margin: 0 0 8px">© Église évangélique de Valenciennes. Membre des Assemblées de Dieu et du CNEF.</p>
-      <a href="../legal/privacy-mobile.html" style="display: flex; align-items: center; min-height: 44px; color: #ffffff">Protection des données</a>
-      <a href="../legal/terms-mobile.html" style="display: flex; align-items: center; min-height: 44px; color: #ffffff">Conditions générales</a>
-      <a href="../legal/legal-notice-mobile.html" style="display: flex; align-items: center; min-height: 44px; color: #ffffff">Mentions légales</a>
+      <div style="display: flex; flex-wrap: wrap; column-gap: 24px">
+        <a href="../legal/privacy-mobile.html" style="display: inline-flex; align-items: center; min-height: 44px; color: #ffffff">Protection des données</a>
+        <a href="../legal/terms-mobile.html" style="display: inline-flex; align-items: center; min-height: 44px; color: #ffffff">Conditions générales</a>
+        <a href="../legal/legal-notice-mobile.html" style="display: inline-flex; align-items: center; min-height: 44px; color: #ffffff">Mentions légales</a>
+      </div>
+      <p style="margin: 8px 0 0">Réalisé par <a href="https://floriandesmet.dev" style="color: #ffffff">Florian Desmet</a></p>
     </div>
   </footer>
 </div>
