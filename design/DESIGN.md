@@ -6,6 +6,7 @@ Working canvas (drafts, comments, history): https://claude.ai/artifact/UbLoYdhe5
 
 ## Principles
 
+- **Members first, visitors second.** The site speaks first to church members (upcoming events, the Sunday live stream, sermons), then to visitors passing through the area who look for a place of worship (students, holidaymakers). People seeking faith are welcome, but the site does not address them first. When a block does not serve one of these two audiences, it goes.
 - **Keep the brand, modernise the rest.** The logo and its two blues stay; typography, spacing and components are new.
 - **Warm and communal, not childish.** Real photographs of the congregation, soft surfaces, nearly square corners.
 - **Modernise, don't redesign.** Pages, menus and section order follow the live site; no section is invented. Bigger changes are proposed as options and only kept once the owner chooses them (see [Site structure](#site-structure)).
@@ -89,7 +90,7 @@ Two-column blocks, all **top-aligned**, stack when the window is narrower than a
 | Component | Look | Where |
 |---|---|---|
 | Button | 52 px high, 24 px side padding, 4 px corners, bold label; primary or secondary as above. | Everywhere. |
-| Contact card | Whole card is the link. 176 px min height (144 px phone), icon in a 48 px white circle, label in the heading font with an arrow. Backgrounds in order: primary, sky, sun, sand. On the contact page the three other requests sit three in a row (primary, sky, sun); on a phone they become 80 px rows, icon on the left, arrow on the right. | Hero: Servir à l'église, Demande de prière, Nous contacter, Demande d'entretien. Contact page: "Une autre demande ?". |
+| Contact card | Whole card is the link. 176 px min height (144 px phone), icon in a 48 px white circle, label in the heading font with an arrow. Backgrounds in order: primary, sky, sun, sand. On the contact page the three other requests sit three in a row (primary, sky, sun). On a phone they always become 80 px rows, icon on the left, arrow on the right, home hero included, so the hero does not fill a whole phone screen. | Hero: Servir à l'église, Demande de prière, Nous contacter, Demande d'entretien. Contact page: "Une autre demande ?". |
 | Contact details | Definition list: primary icon, muted label, bold value; address, e-mail and phone are links (`tel:` on the phone number), each at least 44 px high. | Contact page. |
 | Form field | Bold label always visible above the field; 48 px high, 1 px grey outline, 4 px corners, 17 px text; the message box is 6–7 rows and can be resized. The form sits in a sand panel (48 px padding, 24 px × 16 px on a phone); the submit button is primary, full width on a phone. Optional fields say "(facultatif)" in grey after the label; everything else is required. Date fields open a calendar (44 px sky button with a calendar icon) instead of free typing. | Contact form, footer forms. |
 | Choice list | Radio buttons or checkboxes, 22 px, one per 44 px row, primary accent; grouped in a `fieldset` with a bold legend. Long lists are split into sub-groups with a small uppercase grey legend and a key line above; 4 columns on a computer, 1 on a phone. Nothing is pre-checked. | "Servir à l'église" (attendance, serving teams). |
@@ -97,7 +98,7 @@ Two-column blocks, all **top-aligned**, stack when the window is narrower than a
 | Side panel | Mint, 6 px corners, 48 px padding (24 px × 16 px on a phone); small heading (h3), text, and an optional key line in bold on a white inset (4 px corners). Beside the text on a computer (7/5 columns), under it on a phone. No oversized figures. | Donation page ("Réduction d'impôt"), in the white section; "Comment faire un don ?" below it is sky. |
 | Signal tag | Coral fill, 4 px corners, 4 × 12 px padding, 15 px bold uppercase night-blue label; "En direct" adds a 10 px night-blue dot before the label. | "En direct" above the title of the live sermon; "Nouveau" on a recently added event card, above its title. |
 | Way-to-give card | White, 6 px corners, 48 px padding (24 px × 16 px phone); icon in a 48 px sky circle, h3, then either a short text and a primary button (download) or a definition list. Two per row on a computer. | Donation page ("Par virement", "Par chèque"). |
-| Content card | White, 6 px corners; image on one side or on top, text block with 48 px padding. | Latest sermon, newcomer block. |
+| Content card | White, 6 px corners; image on one side or on top, text block with 48 px padding. | Latest sermon. |
 | Event card | White; 16:10 image slot (placeholder until a real image exists, in the soft surface that stands out from its section: sand on sky, sky on white or sand), night-blue date badge overlapping the image, title, time and place, short text, "En savoir plus". On the events page (computer) the image sits on the left (400 px) with the badge in its top-left corner. On a white section the card gets a 1 px `color.border` outline. | Home page, events page ("Les prochains évènements" on white). |
 | Weekly meeting card | Sky, or white on a mint section; 32 px padding (16 px phone); night-blue square with the short day and the time, then the meeting name (h3), "Jour à HHhMM" in bold and the address as a link. | "Chaque semaine". |
 | Month heading | Muted h3 in the heading font with a 1 px line under it; events of that month follow. | Events list. |
@@ -107,8 +108,8 @@ Two-column blocks, all **top-aligned**, stack when the window is narrower than a
 | Sermon card | White, 6 px corners, the whole card is the link; 16:9 thumbnail (sky placeholder with a round accent play button, night-blue triangle), series in small primary capitals, title (h3), "date · speaker" in muted text. Three per row on a computer, one per row on a phone. | Sermons list, "Dans la même série". |
 | Filter menu | Native `<select>` with a visible bold label above, 48 px high, 1 px grey outline, chevron on the right; 280 px wide on a computer, full width on a phone. The result count sits beside or under the menus. | Sermons list (Série, Orateur). |
 | Pagination | 48 px squares, current page in night blue, then "Suivante". On a phone: "Page 1 sur N" and a secondary "Plus anciennes" button. | Sermons list. |
-| Tile | Sand, 64 px high (52 px phone), bold label, blue arrow; the whole tile is the link. | Departments. |
-| Info card | Sand, 24 px padding, muted label above a bold value. | "Où sommes-nous ?". |
+| Tile | Sand, 64 px high (52 px phone), bold label, blue arrow; the whole tile is the link. | Unused since the home page lost its department block (2026-10-27); kept for department links once their pages exist. |
+| Info card | Sand, 24 px padding, muted label above a bold value. | Unused since the home page lost "Où sommes-nous ?" (2026-10-27). |
 | Page banner | A blurred photo of the section under `overlay.hero` (see [Imagery](#imagery)), 64 px vertical padding (48 px phone); breadcrumb in white, the page title, then an accent bar 24 px under it (`size.accent-bar-*`: 96 × 6 px, 64 × 4 px on a phone). | Top of every inner page. |
 | Breadcrumb | 16 px white text, `›` separators, current page in bold; a menu heading without its own page ("L'église") is plain text, not a link. | Page banner. |
 | Accordion | Native `<details>`/`<summary>`: number in primary, short title in the heading font, chevron; rows split by 1 px lines (`color.border-tint`, since the section is sky), 64 px high (56 px phone). The first row starts open. | "Nos valeurs", in a sky section. |
@@ -141,7 +142,7 @@ Two-column blocks, all **top-aligned**, stack when the window is narrower than a
 
 | Page | Status | Files |
 |---|---|---|
-| Accueil | Validated 2026-10-25 | [maquettes/home/](maquettes/home/): `home-desktop.html`, `home-mobile.html`, and full-page captures `home-desktop.png`, `home-mobile.png` |
+| Accueil | Validated 2026-10-25; to rework for the four-block home page (see [Site structure](#site-structure)) | [maquettes/home/](maquettes/home/): `home-desktop.html`, `home-mobile.html`, and full-page captures `home-desktop.png`, `home-mobile.png` |
 | L'église › Qui sommes-nous ? | Validated 2026-10-26 | [maquettes/church/](maquettes/church/): `who-we-are-desktop.html`, `who-we-are-mobile.html` and their `.png` captures |
 | L'église › L'équipe | Validated 2026-10-26 | [maquettes/church/](maquettes/church/): `team-desktop.html`, `team-mobile.html` and their `.png` captures |
 | L'église › Notre histoire | Validated 2026-10-26 | [maquettes/church/](maquettes/church/): `history-desktop.html`, `history-mobile.html` and their `.png` captures |
@@ -191,12 +192,17 @@ The validated pages are also built as clickable, scrollable prototypes (page "Va
 | Tablet | 1280 × 800 (landscape), 820 × 1180, 768 × 1024 | Full menu at 1280; "Menu" button and full-screen menu below |
 | Phone | 412 × 915, 390 × 844, 360 × 800 | "Menu" button and full-screen menu |
 
-On the home page the department tiles and "Découvrir les départements" lead to "L'équipe", since the departments have no page of their own yet.
-
 ## Site structure
 
 Changes to the live site's structure, decided by the owner:
 
+- **Home page (2026-10-27).** The validated home page ran to about 16 phone screens, against the short-pages rule. It keeps four blocks, in this order:
+  1. **Hero**: title, service times, address, the four contact cards (80 px rows on a phone).
+  2. **"Une église pour toi"**: the welcome text and the Bible verse.
+  3. **"Les évènements"**: the next three events. With no upcoming event the block is never empty: it says there is no special event at the moment and shows the weekly meetings instead (Culte, Sunday 10h00; Réunion de prière, Tuesday 19h00) as weekly meeting cards. The same sentence sits under "Les prochains évènements" on the events page, whose "Chaque semaine" block is already above it.
+  4. **"La dernière prédication"**. On Sunday between 10h00 and 12h00, the site asks YouTube whether the service is streaming live. If it is, the block becomes "En direct maintenant": the live player, one "En direct" signal tag above the title, and the button "Suivre le culte en direct". If not, or outside that window, it stays the latest sermon. Nobody has to switch anything by hand.
+
+  Removed: "Une église où tu trouveras ta place" (department tiles; the departments have no page), "Vous cherchez une église où grandir et vivre votre foi ?" (its "Je suis nouveau" button led nowhere: no newcomer page exists) and "Où sommes-nous ?" with the map (the hero already gives the address, linked to Google Maps, and the times). The no-event sentence and "Suivre le culte en direct" are interface copy, written with the mockup.
 - **"L'église" menu (2026-10-26).** The five pages Notre histoire, Notre vision, Nos valeurs, Les départements and Le couple pastoral become three:
   - **Qui sommes-nous ?** — vision, then the nine values as an accordion. The short value titles were written for the accordion and approved; the full texts are the live site's.
   - **L'équipe** — the pastor couple's welcome, then one placeholder card per department.
