@@ -1,6 +1,6 @@
 # Design system — tonegliseavalenciennes.fr
 
-The visual rules of the redesigned site, validated with the home page on 2026-10-25, the three "L'église" pages on 2026-10-26, and the events, sermons, contact and donation pages, the three footer forms and the legal pages on 2026-10-27, then harmonised across all pages the same day (see [Harmonisation](#harmonisation-2026-10-27)). The values live in [tokens.json](tokens.json) (W3C Design Tokens format, 2025.10) and in [tokens.css](tokens.css) as CSS custom properties; this file says how to use them. Change a value in `tokens.json`, never only in a page.
+The visual rules of the redesigned site, validated with the home page on 2026-10-25, the three "L'église" pages on 2026-10-26, and the events, sermons, contact and donation pages, the three footer forms and the legal pages on 2026-10-27, then harmonised across all pages the same day (see [Harmonisation](#harmonisation-2026-10-27)); the signal and mint colours were added on 2026-10-29 (see [Signal and mint](#signal-and-mint-2026-10-29)). The values live in [tokens.json](tokens.json) (W3C Design Tokens format, 2025.10) and in [tokens.css](tokens.css) as CSS custom properties; this file says how to use them. Change a value in `tokens.json`, never only in a page.
 
 Working canvas (drafts, comments, history): https://claude.ai/artifact/UbLoYdhe5z2A3no2cDeo5u. Only validated pages are copied into [maquettes/](maquettes/).
 
@@ -20,17 +20,20 @@ Working canvas (drafts, comments, history): https://claude.ai/artifact/UbLoYdhe5
 | Primary | `color.primary` | `#3a64aa` | Every button, links, icons, the first contact card. |
 | Secondary | `color.secondary` | `#13243b` | Headings, hero overlay, footer, date badges, current menu item. |
 | Accent | `color.accent` | `#ffaf00` | A small signature on every page: underline of the hero keyword (home), bar under the banner title (inner pages), every play button, the dot before "Vous êtes ici", quote marks, the last timeline dot. Nothing else. |
+| Signal | `color.signal` | `#ff6b4a` | Coral. Only what is happening now or has just been added: the "En direct" tag of the Sunday live stream, the "Nouveau" tag on an event. |
 | Text | `color.text` / `color.text-muted` | `#2d3b4e` / `#556275` | Body text / dates, labels, captions. |
-| Surfaces | `color.surface-*` | white, sand `#f7f3ee`, sky `#e9f3fb`, sun `#fff1cc` | Section and card backgrounds. |
+| Surfaces | `color.surface-*` | white, sand `#f7f3ee`, sky `#e9f3fb`, sun `#fff1cc`, mint `#e2f5ec` | Section, panel and card backgrounds. |
 
 Rules:
 
 - **All buttons are blue.** Filled `color.primary` with white text for the main action; white with a 2 px `color.primary` border and blue text for a secondary action. There is no yellow, grey or dark button.
 - **Yellow is never text and never a button.** It has no meaning; it only adds warmth.
 - **Every page shows some yellow**, at least the bar under the banner title. The menu never uses yellow: the current item stays night blue.
-- **Every page shows the soft surfaces.** Sections alternate surfaces (white, sky, sand) so that two neighbours never share a background, on every page with no exception. Sections are never separated by a grey line on the same background; hairlines (`color.border`, or `color.border-tint` on sky and sand) only split rows inside a section.
+- **Yellow warms, coral signals.** Yellow means nothing; coral always means "now" or "new". Coral is always a filled tag with night-blue text on it (5.5:1), never text (2.8:1 on white), never a button, never a section background. It stays rare, once or twice per page at most, and never sits in the same spot as yellow: on the live sermon the tag goes above the title, away from the yellow play button.
+- **Every page shows the soft surfaces.** Sections alternate surfaces (white, sky, sand, mint) so that two neighbours never share a background, on every page with no exception.
+- **Mint is never next to sand.** Mint is a section background ("Chaque semaine") or a panel background ("Réduction d'impôt"). Since the closing block is sand, the last section of an inner page is never mint. Mint stays occasional; a page does not need it. Sections are never separated by a grey line on the same background; hairlines (`color.border`, or `color.border-tint` on sky and sand) only split rows inside a section.
 - **No page goes straight from white content to the night-blue footer**: inner pages end with the [closing block](#components).
-- Do not add colours. If a new need appears, add a token first.
+- No colour outside this charter. If a new need appears, add a token first. Departments get no colour of their own until their content exists; this will be decided then.
 
 ## Typography
 
@@ -91,11 +94,12 @@ Two-column blocks, all **top-aligned**, stack when the window is narrower than a
 | Form field | Bold label always visible above the field; 48 px high, 1 px grey outline, 4 px corners, 17 px text; the message box is 6–7 rows and can be resized. The form sits in a sand panel (48 px padding, 24 px × 16 px on a phone); the submit button is primary, full width on a phone. Optional fields say "(facultatif)" in grey after the label; everything else is required. Date fields open a calendar (44 px sky button with a calendar icon) instead of free typing. | Contact form, footer forms. |
 | Choice list | Radio buttons or checkboxes, 22 px, one per 44 px row, primary accent; grouped in a `fieldset` with a bold legend. Long lists are split into sub-groups with a small uppercase grey legend and a key line above; 4 columns on a computer, 1 on a phone. Nothing is pre-checked. | "Servir à l'église" (attendance, serving teams). |
 | Full-width form page | Heading (h2) and one or two paragraphs (max 800 px), then the form panel across the whole container; on a computer short fields go two per row (name and e-mail always together). Same order on a phone, one field per row. | Demande d'entretien, Demande de prière, Servir à l'église. |
-| Side panel | Sky, 6 px corners, 48 px padding (24 px × 16 px on a phone); small heading (h3), text, and an optional key line in bold on a white inset (4 px corners). Beside the text on a computer (7/5 columns), under it on a phone. No oversized figures. | Donation page ("Réduction d'impôt"). |
+| Side panel | Mint, 6 px corners, 48 px padding (24 px × 16 px on a phone); small heading (h3), text, and an optional key line in bold on a white inset (4 px corners). Beside the text on a computer (7/5 columns), under it on a phone. No oversized figures. | Donation page ("Réduction d'impôt"), in the white section; "Comment faire un don ?" below it is sky. |
+| Signal tag | Coral fill, 4 px corners, 4 × 12 px padding, 15 px bold uppercase night-blue label; "En direct" adds a 10 px night-blue dot before the label. | "En direct" above the title of the live sermon; "Nouveau" on a recently added event card, above its title. |
 | Way-to-give card | White, 6 px corners, 48 px padding (24 px × 16 px phone); icon in a 48 px sky circle, h3, then either a short text and a primary button (download) or a definition list. Two per row on a computer. | Donation page ("Par virement", "Par chèque"). |
 | Content card | White, 6 px corners; image on one side or on top, text block with 48 px padding. | Latest sermon, newcomer block. |
-| Event card | White; 16:10 image slot (placeholder until a real image exists, in the soft surface that stands out from its section: sand on sky, sky on white or sand), night-blue date badge overlapping the image, title, time and place, short text, "En savoir plus". On the events page (computer) the image sits on the left (400 px) with the badge in its top-left corner. | Home page, events page. |
-| Weekly meeting card | Sky, 32 px padding (16 px phone); night-blue square with the short day and the time, then the meeting name (h3), "Jour à HHhMM" in bold and the address as a link. | "Chaque semaine". |
+| Event card | White; 16:10 image slot (placeholder until a real image exists, in the soft surface that stands out from its section: sand on sky, sky on white or sand), night-blue date badge overlapping the image, title, time and place, short text, "En savoir plus". On the events page (computer) the image sits on the left (400 px) with the badge in its top-left corner. On a white section the card gets a 1 px `color.border` outline. | Home page, events page ("Les prochains évènements" on white). |
+| Weekly meeting card | Sky, or white on a mint section; 32 px padding (16 px phone); night-blue square with the short day and the time, then the meeting name (h3), "Jour à HHhMM" in bold and the address as a link. | "Chaque semaine". |
 | Month heading | Muted h3 in the heading font with a 1 px line under it; events of that month follow. | Events list. |
 | Practical info panel | Sand, 6 px corners; a definition list (Date, Heure, Lieu), each with a primary icon, muted label and bold value; "Voir le plan" under the place. On a computer it sits in a 360 px column beside the text; on a phone right under the image. | Single event; on the single sermon it lists Date, Orateur, Passage biblique and Série with "Toute la série". |
 | Share buttons | Secondary buttons, full width of the panel: "Partager sur Facebook", "Partager sur WhatsApp". | Single event, single sermon. |
@@ -165,6 +169,17 @@ A review of all validated pages found inner pages mostly night blue and white (y
 - one banner photo per menu section.
 
 **The mockups in [maquettes/](maquettes/) and the canvas prototypes predate these rules** and are still to be reworked. Two fixes come with that pass: the home page footer still links the five former "L'église" pages, and the phone footers lack the "Réalisé par Florian Desmet" credit.
+
+### Signal and mint (2026-10-29)
+
+The pages still felt cold after the harmonisation. The owner asked for a few touches of vivid, joyful colour that both warm the pages and carry meaning, without weighing them down. A before/after sheet (canvas page "En cours", board `Fiche-couleurs.dc.html`) was approved with these changes:
+
+- coral `color.signal` for "now" and "new" tags, mint `color.surface-mint` as a section or panel background;
+- home page, Sunday 10h00–12h00 while YouTube streams the service: the latest sermon block becomes "En direct maintenant" with one "En direct" tag above the title and the button "Suivre le culte en direct"; with no stream it stays the latest sermon;
+- events page: "Chaque semaine" on mint with white cards, then "Les prochains évènements" on white with outlined cards;
+- donation page: the "Réduction d'impôt" panel on mint, "Comment faire un don ?" on sky.
+
+The mockups in [maquettes/](maquettes/) do not show these colours yet; they come with the same rework as the harmonisation rules.
 
 ## Target screens
 
