@@ -4,12 +4,14 @@
   --color-primary-hover: #2b4d86;
   --color-secondary: #13243b;
   --color-accent: #ffaf00;
+  --color-signal: #ff6b4a;
   --color-text: #2d3b4e;
   --color-text-muted: #556275;
   --color-surface-white: #ffffff;
   --color-surface-sand: #f7f3ee;
   --color-surface-sky: #e9f3fb;
   --color-surface-sun: #fff1cc;
+  --color-surface-mint: #e2f5ec;
   --color-border: #e4e7ec;
   --color-border-tint: rgba(19, 36, 59, 0.14);
   --overlay-hero: rgba(19, 36, 59, 0.74);
