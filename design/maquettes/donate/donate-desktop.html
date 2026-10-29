@@ -1,6 +1,6 @@
 <!doctype html>
-<!-- Validated "Faire un don" mockup: donation page (computer, 1440 px), exported from the Claude Design canvas
-     https://claude.ai/artifact/UbLoYdhe5z2A3no2cDeo5u on 2026-10-27.
+<!-- Validated "Faire un don" mockup (computer, 1440 px), new charter, exported from the Claude Design canvas
+     https://claude.ai/artifact/UbLoYdhe5z2A3no2cDeo5u on 2026-10-29.
      Values come from ../../tokens.json; see ../../DESIGN.md for the rules. -->
 <html lang="fr">
 <head>
@@ -11,16 +11,16 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@600;700&amp;family=Source+Sans+3:ital,wght@0,400;0,700;1,400&amp;display=swap">
 <style>
-body{margin:0;background:#f7f3ee}
+body{margin:0;background:#ffffff}
 a{color:#3a64aa}a:hover{color:#2b4d86}
-a:focus-visible,button:focus-visible{outline:3px solid #13243b;outline-offset:3px;border-radius:4px}
+a:focus-visible,button:focus-visible,summary:focus-visible{outline:3px solid #13243b;outline-offset:3px;border-radius:4px}
 .on-dark a:focus-visible,.on-dark button:focus-visible{outline-color:#ffffff}
+summary{list-style:none;cursor:pointer}summary::-webkit-details-marker{display:none}details[open] .chevron{transform:rotate(180deg)}
 </style>
 </head>
 <body>
-<div style="font-family: 'Source Sans 3', system-ui, sans-serif; color: #2d3b4e; font-size: 18px; line-height: 1.6; background: #f7f3ee; min-height: 100vh">
+<div style="font-family: 'Source Sans 3', system-ui, sans-serif; color: #2d3b4e; font-size: 18px; line-height: 1.6; background: #ffffff; min-height: 100vh">
 
-  <!-- Header -->
   <header style="background: #f7f3ee">
     <div style="max-width: 1200px; margin: 0 auto; padding: 16px 24px; display: flex; flex-wrap: wrap; gap: 16px 32px; align-items: center; justify-content: space-between">
       <a href="../home/home-desktop.html" aria-label="Accueil" style="display: block; line-height: 0"><img src="images/logo-color.png" alt="Église Évangélique de Valenciennes" style="height: 56px; width: auto"></a>
@@ -30,44 +30,47 @@ a:focus-visible,button:focus-visible{outline:3px solid #13243b;outline-offset:3p
         <a href="../events/events-desktop.html" style="display: inline-flex; align-items: center; min-height: 44px; padding: 0 16px; border-radius: 4px; color: #13243b; text-decoration: none">Évènements</a>
         <a href="../sermons/sermons-desktop.html" style="display: inline-flex; align-items: center; min-height: 44px; padding: 0 16px; border-radius: 4px; color: #13243b; text-decoration: none">Prédications</a>
         <a href="../contact/contact-desktop.html" style="display: inline-flex; align-items: center; min-height: 44px; padding: 0 16px; border-radius: 4px; color: #13243b; text-decoration: none">Nous contacter</a>
-        <a href="donate-desktop.html" aria-current="true" style="display: inline-flex; align-items: center; min-height: 44px; padding: 0 16px; border-radius: 4px; background: #13243b; color: #ffffff; font-weight: 700; text-decoration: none">Faire un don</a>
+        <a href="donate-desktop.html" aria-current="page" style="display: inline-flex; align-items: center; min-height: 44px; padding: 0 16px; border-radius: 4px; background: #13243b; color: #ffffff; font-weight: 700; text-decoration: none">Faire un don</a>
       </nav>
     </div>
   </header>
 
-  <!-- Page banner -->
+  <!-- Page banner: the congregation, yellow bar under the title -->
   <section class="on-dark" style="position: relative; overflow: hidden; background: #13243b">
     <img src="images/congregation.jpg" alt="" aria-hidden="true" style="position: absolute; top: -32px; left: -32px; width: calc(100% + 64px); height: calc(100% + 64px); object-fit: cover; filter: blur(3px)">
     <div aria-hidden="true" style="position: absolute; inset: 0; background: rgba(19, 36, 59, 0.74)"></div>
     <div style="position: relative; max-width: 1200px; margin: 0 auto; padding: 64px 24px">
-      <nav aria-label="Fil d'Ariane" style="margin-bottom: 16px; font-size: 16px; color: #ffffff">
+      <nav aria-label="Fil d'Ariane" style="margin-bottom: 8px; font-size: 16px; color: #ffffff">
         <a href="../home/home-desktop.html" style="display: inline-flex; align-items: center; min-height: 44px; color: #ffffff; text-underline-offset: 4px">Accueil</a>
         <span aria-hidden="true" style="margin: 0 8px">›</span>
         <span aria-current="page" style="font-weight: 700">Faire un don</span>
       </nav>
-      <h1 style="margin: 0; font-family: 'Outfit', system-ui, sans-serif; font-size: 56px; line-height: 1.05; color: #ffffff; letter-spacing: -0.02em">Faire un don</h1>
+      <h1 style="margin: 0; font-family: 'Outfit', system-ui, sans-serif; font-size: 56px; line-height: 1.1; color: #ffffff; letter-spacing: -0.02em">Faire un don</h1>
+      <span aria-hidden="true" style="display: block; margin-top: 24px; width: 96px; height: 6px; border-radius: 2px; background: #ffaf00"></span>
     </div>
   </section>
 
   <section style="background: #ffffff">
-    <div style="max-width: 1200px; margin: 0 auto; padding: 96px 24px; display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: 64px; align-items: center">
+    <div style="max-width: 1200px; margin: 0 auto; padding: 96px 24px; display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: 64px; align-items: start">
       <div><h2 style="margin: 0 0 24px; font-family: 'Outfit', system-ui, sans-serif; font-size: 44px; line-height: 1.1; color: #13243b; letter-spacing: -0.01em">Soutenir l'église</h2><p style="margin: 0 0 16px">De par ses statuts, notre association cultuelle est <strong>habilitée à recevoir des offrandes</strong> pour pourvoir aux frais du culte.</p><p style="margin: 0">Elle est également <strong>habilitée à délivrer des reçus fiscaux</strong> ouvrant droit à une réduction d'impôt pour les donateurs.</p></div>
-      <aside aria-labelledby="tax-title" style="background: #e9f3fb; border-radius: 6px; padding: 48px"><h3 id="tax-title" style="margin: 0 0 16px; font-family: 'Outfit', system-ui, sans-serif; font-size: 24px; line-height: 1.2; color: #13243b">Réduction d'impôt</h3><p style="margin: 0 0 16px">Les dons au profit des associations ouvrent droit à une réduction d'impôt sur le revenu de 66 % du montant versé, dans la limite de 20 % du revenu imposable.</p><p style="margin: 0; padding: 16px; border-radius: 4px; background: #ffffff; font-weight: 700; color: #13243b">Exemple : un don de 100 € ne vous coûte réellement que 34 €.</p></aside>
+      <aside aria-labelledby="tax-title" style="background: #e2f5ec; border-radius: 6px; padding: 48px"><h3 id="tax-title" style="margin: 0 0 16px; font-family: 'Outfit', system-ui, sans-serif; font-size: 24px; line-height: 1.2; color: #13243b">Réduction d'impôt</h3><p style="margin: 0 0 16px">Les dons au profit des associations ouvrent droit à une réduction d'impôt sur le revenu de 66 % du montant versé, dans la limite de 20 % du revenu imposable.</p><p style="margin: 0; padding: 16px; border-radius: 4px; background: #ffffff; font-weight: 700; color: #13243b">Exemple : un don de 100 € ne vous coûte réellement que 34 €.</p></aside>
     </div>
   </section>
 
-  <section aria-labelledby="how-title" style="background: #f7f3ee">
+  <section aria-labelledby="how-title" style="background: #e9f3fb">
     <div style="max-width: 1200px; margin: 0 auto; padding: 96px 24px">
       <h2 id="how-title" style="margin: 0 0 32px; font-family: 'Outfit', system-ui, sans-serif; font-size: 44px; line-height: 1.1; color: #13243b; letter-spacing: -0.01em">Comment faire un don ?</h2>
       <ul style="list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 32px"><li style="display: flex"><article style="flex: 1; display: flex; flex-direction: column; gap: 16px; background: #ffffff; border-radius: 6px; padding: 48px"><span style="width: 48px; height: 48px; border-radius: 999px; background: #e9f3fb; display: flex; align-items: center; justify-content: center"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#3a64aa" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="3" y1="21" x2="21" y2="21"></line><line x1="3" y1="10" x2="21" y2="10"></line><polyline points="5 6 12 3 19 6"></polyline><line x1="4" y1="10" x2="4" y2="21"></line><line x1="20" y1="10" x2="20" y2="21"></line><line x1="8" y1="14" x2="8" y2="17"></line><line x1="12" y1="14" x2="12" y2="17"></line><line x1="16" y1="14" x2="16" y2="17"></line></svg></span><h3 style="margin: 0; font-family: 'Outfit', system-ui, sans-serif; font-size: 28px; line-height: 1.2; color: #13243b">Par virement</h3><p style="margin: 0">Téléchargez le RIB de l'église, puis faites votre virement depuis votre banque.</p><div style="margin-top: auto; padding-top: 8px"><a href="#" style="display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: 52px; padding: 0 24px; border-radius: 4px; background: #3a64aa; color: #ffffff; border: 2px solid #3a64aa; font-weight: 700; text-decoration: none"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>Télécharger le RIB (PDF)</a></div></article></li><li style="display: flex"><article style="flex: 1; display: flex; flex-direction: column; gap: 16px; background: #ffffff; border-radius: 6px; padding: 48px"><span style="width: 48px; height: 48px; border-radius: 999px; background: #e9f3fb; display: flex; align-items: center; justify-content: center"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#3a64aa" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20h9"></path><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4z"></path></svg></span><h3 style="margin: 0; font-family: 'Outfit', system-ui, sans-serif; font-size: 28px; line-height: 1.2; color: #13243b">Par chèque</h3><dl style="margin: 0; display: flex; flex-direction: column; gap: 16px"><div><dt style="font-size: 15px; color: #556275">À l'ordre de</dt><dd style="margin: 0; font-weight: 700; color: #13243b">Église Évangélique de Valenciennes</dd></div><div><dt style="font-size: 15px; color: #556275">À envoyer à</dt><dd style="margin: 0; font-weight: 700; color: #13243b">Église Évangélique de Valenciennes<br>75, rue du Chauffour<br>59300 Valenciennes</dd></div></dl></article></li></ul>
     </div>
   </section>
 
+  
+  <!-- Footer -->
   <footer class="on-dark" style="background: #13243b; color: #ffffff; font-size: 16px">
-    <div style="max-width: 1200px; margin: 0 auto; padding: 64px 24px 32px; display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 48px">
+    <div style="max-width: 1200px; margin: 0 auto; padding: 64px 24px 32px; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 48px">
       <div style="display: flex; flex-direction: column; gap: 16px">
         <img src="images/logo-white.png" alt="Église Évangélique de Valenciennes" style="width: 200px; height: auto">
-        <a href="#" style="color: #ffffff">75, rue du Chauffour<br>59300 Valenciennes</a>
+        <a href="https://maps.google.com/?q=75+rue+du+Chauffour+59300+Valenciennes" style="color: #ffffff">75, rue du Chauffour<br>59300 Valenciennes</a>
         <a href="mailto:secretariat@add-valenciennes.fr" style="color: #ffffff">secretariat@add-valenciennes.fr</a>
       </div>
       <div>
@@ -84,9 +87,9 @@ a:focus-visible,button:focus-visible{outline:3px solid #13243b;outline-offset:3p
         <h2 style="margin: 0 0 8px; font-family: 'Outfit', system-ui, sans-serif; font-size: 18px; color: #ffffff">Aller plus loin</h2>
         <ul style="list-style: none; margin: 0; padding: 0">
           <li><a href="../contact/contact-desktop.html" style="display: flex; align-items: center; min-height: 44px; color: #ffffff">Nous contacter</a></li>
-          <li><a href="#" style="display: flex; align-items: center; min-height: 44px; color: #ffffff">Demande d'entretien</a></li>
-          <li><a href="#" style="display: flex; align-items: center; min-height: 44px; color: #ffffff">Demande de prière</a></li>
-          <li><a href="#" style="display: flex; align-items: center; min-height: 44px; color: #ffffff">Servir à l'église</a></li>
+          <li><a href="../forms/interview-desktop.html" style="display: flex; align-items: center; min-height: 44px; color: #ffffff">Demande d'entretien</a></li>
+          <li><a href="../forms/prayer-desktop.html" style="display: flex; align-items: center; min-height: 44px; color: #ffffff">Demande de prière</a></li>
+          <li><a href="../forms/serve-desktop.html" style="display: flex; align-items: center; min-height: 44px; color: #ffffff">Servir à l'église</a></li>
           <li><a href="donate-desktop.html" style="display: flex; align-items: center; min-height: 44px; color: #ffffff">Faire un don</a></li>
         </ul>
       </div>
@@ -101,9 +104,9 @@ a:focus-visible,button:focus-visible{outline:3px solid #13243b;outline-offset:3p
     </div>
     <div style="max-width: 1200px; margin: 0 auto; padding: 24px; border-top: 1px solid rgba(255, 255, 255, 0.2); display: flex; flex-wrap: wrap; align-items: center; gap: 8px 24px; font-size: 15px">
       <span>© Église évangélique de Valenciennes. Membre des <a href="#" style="color: #ffffff">Assemblées de Dieu</a> et du <a href="#" style="color: #ffffff">CNEF</a>.</span>
-      <a href="../legal/privacy-desktop.html" style="display: inline-flex; align-items: center; min-height: 44px; color: #ffffff">Protection des données</a>
-      <a href="../legal/terms-desktop.html" style="display: inline-flex; align-items: center; min-height: 44px; color: #ffffff">Conditions générales</a>
-      <a href="../legal/legal-notice-desktop.html" style="display: inline-flex; align-items: center; min-height: 44px; color: #ffffff">Mentions légales</a>
+        <a href="../legal/privacy-desktop.html" style="display: inline-flex; align-items: center; min-height: 44px; color: #ffffff">Protection des données</a>
+        <a href="../legal/terms-desktop.html" style="display: inline-flex; align-items: center; min-height: 44px; color: #ffffff">Conditions générales</a>
+        <a href="../legal/legal-notice-desktop.html" style="display: inline-flex; align-items: center; min-height: 44px; color: #ffffff">Mentions légales</a>
       <span>Réalisé par <a href="https://floriandesmet.dev" style="color: #ffffff">Florian Desmet</a></span>
     </div>
   </footer>

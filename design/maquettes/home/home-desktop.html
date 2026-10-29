@@ -1,12 +1,12 @@
 <!doctype html>
-<!-- Validated home page mockup (computer, 1440 px), exported from the Claude Design canvas
-     https://claude.ai/artifact/UbLoYdhe5z2A3no2cDeo5u on 2026-10-25.
+<!-- Validated home page mockup (computer, 1440 px), new charter, exported from the Claude Design canvas
+     https://claude.ai/artifact/UbLoYdhe5z2A3no2cDeo5u on 2026-10-29.
      Values come from ../../tokens.json; see ../../DESIGN.md for the rules. -->
 <html lang="fr">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Accueil – maquette ordinateur</title>
+<title>Accueil – ordinateur</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@600;700&amp;family=Source+Sans+3:ital,wght@0,400;0,700;1,400&amp;display=swap">
@@ -23,44 +23,44 @@ a:focus-visible,button:focus-visible{outline:3px solid #13243b;outline-offset:3p
   <!-- Header -->
   <header style="background: #f7f3ee">
     <div style="max-width: 1200px; margin: 0 auto; padding: 16px 24px; display: flex; flex-wrap: wrap; gap: 16px 32px; align-items: center; justify-content: space-between">
-      <a href="Accueil-v2c.dc.html" aria-label="Accueil" style="display: block; line-height: 0"><img src="images/logo-color.png" alt="Église Évangélique de Valenciennes" style="height: 56px; width: auto"></a>
+      <a href="home-desktop.html" aria-label="Accueil" style="display: block; line-height: 0"><img src="images/logo-color.png" alt="Église Évangélique de Valenciennes" style="height: 56px; width: auto"></a>
       <nav aria-label="Menu principal" style="display: flex; flex-wrap: wrap; gap: 8px; align-items: center; background: #ffffff; border-radius: 6px; padding: 8px">
-        <a href="Accueil-v2c.dc.html" aria-current="page" style="display: inline-flex; align-items: center; min-height: 44px; padding: 0 16px; border-radius: 4px; background: #13243b; color: #ffffff; font-weight: 700; text-decoration: none">Accueil</a>
-        <a href="#" style="display: inline-flex; align-items: center; gap: 8px; min-height: 44px; padding: 0 16px; border-radius: 4px; color: #13243b; text-decoration: none">L'église<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"></polyline></svg></a>
-        <a href="#" style="display: inline-flex; align-items: center; min-height: 44px; padding: 0 16px; border-radius: 4px; color: #13243b; text-decoration: none">Évènements</a>
-        <a href="#" style="display: inline-flex; align-items: center; min-height: 44px; padding: 0 16px; border-radius: 4px; color: #13243b; text-decoration: none">Prédications</a>
-        <a href="#" style="display: inline-flex; align-items: center; min-height: 44px; padding: 0 16px; border-radius: 4px; color: #13243b; text-decoration: none">Nous contacter</a>
-        <a href="#" style="display: inline-flex; align-items: center; min-height: 44px; padding: 0 16px; border-radius: 4px; background: #3a64aa; color: #ffffff; font-weight: 700; text-decoration: none">Faire un don</a>
+        <a href="home-desktop.html" aria-current="page" style="display: inline-flex; align-items: center; min-height: 44px; padding: 0 16px; border-radius: 4px; background: #13243b; color: #ffffff; font-weight: 700; text-decoration: none">Accueil</a>
+        <a href="../church/who-we-are-desktop.html" style="display: inline-flex; align-items: center; gap: 8px; min-height: 44px; padding: 0 16px; border-radius: 4px; color: #13243b; text-decoration: none">L'église<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"></polyline></svg></a>
+        <a href="../events/events-desktop.html" style="display: inline-flex; align-items: center; min-height: 44px; padding: 0 16px; border-radius: 4px; color: #13243b; text-decoration: none">Évènements</a>
+        <a href="../sermons/sermons-desktop.html" style="display: inline-flex; align-items: center; min-height: 44px; padding: 0 16px; border-radius: 4px; color: #13243b; text-decoration: none">Prédications</a>
+        <a href="../contact/contact-desktop.html" style="display: inline-flex; align-items: center; min-height: 44px; padding: 0 16px; border-radius: 4px; color: #13243b; text-decoration: none">Nous contacter</a>
+        <a href="../donate/donate-desktop.html" style="display: inline-flex; align-items: center; min-height: 44px; padding: 0 16px; border-radius: 4px; background: #3a64aa; color: #ffffff; font-weight: 700; text-decoration: none">Faire un don</a>
       </nav>
     </div>
   </header>
 
-  <!-- Hero -->
+  <!-- 1. Hero -->
   <section class="on-dark" style="position: relative; overflow: hidden; background: #13243b">
     <img src="images/congregation.jpg" alt="" aria-hidden="true" style="position: absolute; top: -32px; left: -32px; width: calc(100% + 64px); height: calc(100% + 64px); object-fit: cover; filter: blur(3px)">
     <div aria-hidden="true" style="position: absolute; inset: 0; background: rgba(19, 36, 59, 0.74)"></div>
-    <div style="position: relative; max-width: 1200px; margin: 0 auto; padding: 96px 24px; display: flex; flex-wrap: wrap; gap: 48px; align-items: center">
+    <div style="position: relative; max-width: 1200px; margin: 0 auto; padding: 96px 24px; display: flex; flex-wrap: wrap; gap: 48px; align-items: flex-start">
       <div style="flex: 1 1 440px; min-width: 0">
-        <h1 style="margin: 0 0 32px; font-family: 'Outfit', system-ui, sans-serif; font-size: 72px; line-height: 1.02; color: #ffffff; letter-spacing: -0.025em">Une église pour moi, pour <span style="box-shadow: inset 0 -0.22em 0 #ffaf00">nous</span>, pour toi.</h1>
+        <h1 style="margin: 0 0 32px; font-family: 'Outfit', system-ui, sans-serif; font-size: 72px; line-height: 1.1; color: #ffffff; letter-spacing: -0.025em">Une église pour moi, pour <span style="box-shadow: inset 0 -0.22em 0 #ffaf00">nous</span>, pour toi.</h1>
         <div style="display: flex; flex-wrap: wrap; gap: 8px 24px">
           <span style="display: inline-flex; align-items: center; gap: 8px; min-height: 44px; color: #ffffff; font-weight: 700"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>Dimanche 10h00 · Mardi 19h00</span>
-          <a href="#" style="display: inline-flex; align-items: center; gap: 8px; min-height: 44px; color: #ffffff; font-weight: 700; text-decoration: underline; text-underline-offset: 4px"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>75, rue du Chauffour, Valenciennes</a>
+          <a href="https://maps.google.com/?q=75+rue+du+Chauffour+59300+Valenciennes" style="display: inline-flex; align-items: center; gap: 8px; min-height: 44px; color: #ffffff; font-weight: 700; text-decoration: underline; text-underline-offset: 4px"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>75, rue du Chauffour, Valenciennes</a>
         </div>
       </div>
       <div style="flex: 1 1 440px; min-width: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px">
-        <a href="#" style="display: flex; flex-direction: column; justify-content: space-between; gap: 32px; min-height: 176px; box-sizing: border-box; padding: 24px; border-radius: 6px; background: #3a64aa; color: #ffffff; text-decoration: none">
+        <a href="../forms/serve-desktop.html" style="display: flex; flex-direction: column; justify-content: space-between; gap: 32px; min-height: 176px; box-sizing: border-box; padding: 24px; border-radius: 6px; background: #3a64aa; color: #ffffff; text-decoration: none">
           <span style="width: 48px; height: 48px; border-radius: 999px; background: #ffffff; display: flex; align-items: center; justify-content: center"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#3a64aa" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg></span>
           <span style="display: flex; align-items: center; justify-content: space-between; gap: 8px; font-family: 'Outfit', system-ui, sans-serif; font-size: 24px; font-weight: 700; line-height: 1.2">Servir à l'église<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex: none"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></span>
         </a>
-        <a href="#" style="display: flex; flex-direction: column; justify-content: space-between; gap: 32px; min-height: 176px; box-sizing: border-box; padding: 24px; border-radius: 6px; background: #e9f3fb; color: #13243b; text-decoration: none">
+        <a href="../forms/prayer-desktop.html" style="display: flex; flex-direction: column; justify-content: space-between; gap: 32px; min-height: 176px; box-sizing: border-box; padding: 24px; border-radius: 6px; background: #e9f3fb; color: #13243b; text-decoration: none">
           <span style="width: 48px; height: 48px; border-radius: 999px; background: #ffffff; display: flex; align-items: center; justify-content: center"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#3a64aa" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1.1a5.5 5.5 0 0 0-7.8 7.8l1 1.1L12 21l7.8-7.6 1-1.1a5.5 5.5 0 0 0 0-7.7z"></path></svg></span>
           <span style="display: flex; align-items: center; justify-content: space-between; gap: 8px; font-family: 'Outfit', system-ui, sans-serif; font-size: 24px; font-weight: 700; line-height: 1.2">Demande de prière<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#3a64aa" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex: none"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></span>
         </a>
-        <a href="#" style="display: flex; flex-direction: column; justify-content: space-between; gap: 32px; min-height: 176px; box-sizing: border-box; padding: 24px; border-radius: 6px; background: #fff1cc; color: #13243b; text-decoration: none">
+        <a href="../contact/contact-desktop.html" style="display: flex; flex-direction: column; justify-content: space-between; gap: 32px; min-height: 176px; box-sizing: border-box; padding: 24px; border-radius: 6px; background: #fff1cc; color: #13243b; text-decoration: none">
           <span style="width: 48px; height: 48px; border-radius: 999px; background: #ffffff; display: flex; align-items: center; justify-content: center"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#3a64aa" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg></span>
           <span style="display: flex; align-items: center; justify-content: space-between; gap: 8px; font-family: 'Outfit', system-ui, sans-serif; font-size: 24px; font-weight: 700; line-height: 1.2">Nous contacter<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#3a64aa" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex: none"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></span>
         </a>
-        <a href="#" style="display: flex; flex-direction: column; justify-content: space-between; gap: 32px; min-height: 176px; box-sizing: border-box; padding: 24px; border-radius: 6px; background: #f7f3ee; color: #13243b; text-decoration: none">
+        <a href="../forms/interview-desktop.html" style="display: flex; flex-direction: column; justify-content: space-between; gap: 32px; min-height: 176px; box-sizing: border-box; padding: 24px; border-radius: 6px; background: #f7f3ee; color: #13243b; text-decoration: none">
           <span style="width: 48px; height: 48px; border-radius: 999px; background: #ffffff; display: flex; align-items: center; justify-content: center"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#3a64aa" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 11.5a8.4 8.4 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.4 8.4 0 0 1-3.8-.9L3 21l1.9-5.7a8.4 8.4 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.4 8.4 0 0 1 3.8-.9h.5a8.5 8.5 0 0 1 8 8v.5z"></path></svg></span>
           <span style="display: flex; align-items: center; justify-content: space-between; gap: 8px; font-family: 'Outfit', system-ui, sans-serif; font-size: 24px; font-weight: 700; line-height: 1.2">Demande d'entretien<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#3a64aa" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex: none"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></span>
         </a>
@@ -68,14 +68,14 @@ a:focus-visible,button:focus-visible{outline:3px solid #13243b;outline-offset:3p
     </div>
   </section>
 
-  <!-- Welcome -->
+  <!-- 2. Welcome -->
   <section style="background: #ffffff">
     <div style="max-width: 1200px; margin: 0 auto; padding: 96px 24px; display: flex; flex-wrap: wrap; gap: 48px; align-items: flex-start">
       <div style="flex: 1 1 440px; min-width: 0">
         <h2 style="margin: 0 0 24px; font-family: 'Outfit', system-ui, sans-serif; font-size: 44px; line-height: 1.1; color: #13243b">Une église pour toi</h2>
         <p style="margin: 0; font-size: 20px">Nous vous souhaitons la bienvenue sur le site de l'Église Évangélique de Valenciennes. Nous vous invitons à découvrir nos activités et nos départements, qui font toute la richesse de cette Église que nous souhaitons être pour vous.</p>
       </div>
-      <figure style="flex: 1 1 440px; min-width: 0; margin: 0; padding: 32px; box-sizing: border-box; background: #fff1cc; border-radius: 6px; display: flex; gap: 16px">
+      <figure style="flex: 1 1 440px; min-width: 0; margin: 0; padding: 32px; box-sizing: border-box; background: #e2f5ec; border-radius: 6px; display: flex; gap: 16px">
         <svg width="40" height="32" viewBox="0 0 44 36" fill="#ffaf00" aria-hidden="true" style="flex: none"><path d="M0 36V20C0 8 6 1 18 0v8c-6 1-9 5-9 12h9v16zm26 0V20C26 8 32 1 44 0v8c-6 1-9 5-9 12h9v16z"></path></svg>
         <div>
           <blockquote style="margin: 0; font-family: 'Outfit', system-ui, sans-serif; font-size: 24px; line-height: 1.3; color: #13243b">Non, les bontés de l'Éternel ne sont pas à leur terme et ses tendresses ne sont pas épuisées.</blockquote>
@@ -85,25 +85,27 @@ a:focus-visible,button:focus-visible{outline:3px solid #13243b;outline-offset:3p
     </div>
   </section>
 
-  <!-- Events -->
+  <!-- 3. Events -->
   <section style="background: #e9f3fb">
     <div style="max-width: 1200px; margin: 0 auto; padding: 96px 24px">
       <div style="display: flex; flex-wrap: wrap; gap: 16px 24px; align-items: flex-end; justify-content: space-between; margin-bottom: 32px">
         <h2 style="margin: 0; font-family: 'Outfit', system-ui, sans-serif; font-size: 44px; line-height: 1.1; color: #13243b">Les évènements</h2>
-        <a href="#" style="display: inline-flex; align-items: center; min-height: 52px; padding: 0 24px; background: #3a64aa; color: #ffffff; border-radius: 4px; font-weight: 700; text-decoration: none">Voir tous les évènements</a>
+        <a href="../events/events-desktop.html" style="display: inline-flex; align-items: center; min-height: 52px; padding: 0 24px; background: #3a64aa; color: #ffffff; border-radius: 4px; font-weight: 700; text-decoration: none">Voir tous les évènements</a>
       </div>
-      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 24px">
+      
+      <div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px">
         <article style="display: flex; flex-direction: column; background: #ffffff; border-radius: 6px; overflow: hidden">
           <div style="position: relative; aspect-ratio: 16 / 10; background: #f7f3ee; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px; color: #556275; font-size: 16px">
             <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#556275" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><polyline points="21 15 16 10 5 21"></polyline></svg>
             [Image de l'évènement]
             <span style="position: absolute; left: 24px; bottom: -32px; width: 72px; height: 80px; border-radius: 4px; background: #13243b; color: #ffffff; display: flex; flex-direction: column; align-items: center; justify-content: center; line-height: 1.1"><span style="font-family: 'Outfit', system-ui, sans-serif; font-size: 28px; font-weight: 700">JJ</span><span style="font-size: 15px; text-transform: uppercase">mois</span></span>
           </div>
-          <div style="padding: 48px 24px 24px; display: flex; flex-direction: column; gap: 8px; flex: 1">
-            <h3 style="margin: 0; font-family: 'Outfit', system-ui, sans-serif; font-size: 24px; line-height: 1.25; color: #13243b">[Titre de l'évènement]</h3>
-            <p style="margin: 0; font-size: 16px; color: #556275">[Heure] · [Lieu]</p>
-            <p style="margin: 0">[Courte présentation de l'évènement]</p>
-            <a href="#" style="margin-top: auto; display: inline-flex; align-items: center; min-height: 44px; font-weight: 700; text-underline-offset: 4px">En savoir plus</a>
+          <div style="padding: 48px 24px 24px; display: flex; flex-direction: column; flex: 1">
+            <span style="align-self: flex-start; margin-bottom: 8px; padding: 4px 12px; border-radius: 4px; background: #ff6b4a; color: #13243b; font-size: 15px; font-weight: 700; line-height: 1.4; text-transform: uppercase; letter-spacing: 0.04em">Nouveau</span>
+            <h3 style="margin: 0 0 8px; font-family: 'Outfit', system-ui, sans-serif; font-size: 24px; line-height: 1.25; color: #13243b">[Titre de l'évènement]</h3>
+            <p style="margin: 0 0 16px; font-size: 16px; color: #556275">[Heure] · [Lieu]</p>
+            <p style="margin: 0 0 16px">[Courte présentation de l'évènement]</p>
+            <a href="../events/event-desktop.html" style="margin-top: auto; align-self: flex-start; display: inline-flex; align-items: center; gap: 8px; min-height: 44px; font-weight: 700; text-underline-offset: 4px">En savoir plus<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></a>
           </div>
         </article>
         <article style="display: flex; flex-direction: column; background: #ffffff; border-radius: 6px; overflow: hidden">
@@ -112,11 +114,11 @@ a:focus-visible,button:focus-visible{outline:3px solid #13243b;outline-offset:3p
             [Image de l'évènement]
             <span style="position: absolute; left: 24px; bottom: -32px; width: 72px; height: 80px; border-radius: 4px; background: #13243b; color: #ffffff; display: flex; flex-direction: column; align-items: center; justify-content: center; line-height: 1.1"><span style="font-family: 'Outfit', system-ui, sans-serif; font-size: 28px; font-weight: 700">JJ</span><span style="font-size: 15px; text-transform: uppercase">mois</span></span>
           </div>
-          <div style="padding: 48px 24px 24px; display: flex; flex-direction: column; gap: 8px; flex: 1">
-            <h3 style="margin: 0; font-family: 'Outfit', system-ui, sans-serif; font-size: 24px; line-height: 1.25; color: #13243b">[Titre de l'évènement]</h3>
-            <p style="margin: 0; font-size: 16px; color: #556275">[Heure] · [Lieu]</p>
-            <p style="margin: 0">[Courte présentation de l'évènement]</p>
-            <a href="#" style="margin-top: auto; display: inline-flex; align-items: center; min-height: 44px; font-weight: 700; text-underline-offset: 4px">En savoir plus</a>
+          <div style="padding: 48px 24px 24px; display: flex; flex-direction: column; flex: 1">
+            <h3 style="margin: 0 0 8px; font-family: 'Outfit', system-ui, sans-serif; font-size: 24px; line-height: 1.25; color: #13243b">[Titre de l'évènement]</h3>
+            <p style="margin: 0 0 16px; font-size: 16px; color: #556275">[Heure] · [Lieu]</p>
+            <p style="margin: 0 0 16px">[Courte présentation de l'évènement]</p>
+            <a href="../events/event-desktop.html" style="margin-top: auto; align-self: flex-start; display: inline-flex; align-items: center; gap: 8px; min-height: 44px; font-weight: 700; text-underline-offset: 4px">En savoir plus<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></a>
           </div>
         </article>
         <article style="display: flex; flex-direction: column; background: #ffffff; border-radius: 6px; overflow: hidden">
@@ -125,118 +127,69 @@ a:focus-visible,button:focus-visible{outline:3px solid #13243b;outline-offset:3p
             [Image de l'évènement]
             <span style="position: absolute; left: 24px; bottom: -32px; width: 72px; height: 80px; border-radius: 4px; background: #13243b; color: #ffffff; display: flex; flex-direction: column; align-items: center; justify-content: center; line-height: 1.1"><span style="font-family: 'Outfit', system-ui, sans-serif; font-size: 28px; font-weight: 700">JJ</span><span style="font-size: 15px; text-transform: uppercase">mois</span></span>
           </div>
-          <div style="padding: 48px 24px 24px; display: flex; flex-direction: column; gap: 8px; flex: 1">
-            <h3 style="margin: 0; font-family: 'Outfit', system-ui, sans-serif; font-size: 24px; line-height: 1.25; color: #13243b">[Titre de l'évènement]</h3>
-            <p style="margin: 0; font-size: 16px; color: #556275">[Heure] · [Lieu]</p>
-            <p style="margin: 0">[Courte présentation de l'évènement]</p>
-            <a href="#" style="margin-top: auto; display: inline-flex; align-items: center; min-height: 44px; font-weight: 700; text-underline-offset: 4px">En savoir plus</a>
+          <div style="padding: 48px 24px 24px; display: flex; flex-direction: column; flex: 1">
+            <h3 style="margin: 0 0 8px; font-family: 'Outfit', system-ui, sans-serif; font-size: 24px; line-height: 1.25; color: #13243b">[Titre de l'évènement]</h3>
+            <p style="margin: 0 0 16px; font-size: 16px; color: #556275">[Heure] · [Lieu]</p>
+            <p style="margin: 0 0 16px">[Courte présentation de l'évènement]</p>
+            <a href="../events/event-desktop.html" style="margin-top: auto; align-self: flex-start; display: inline-flex; align-items: center; gap: 8px; min-height: 44px; font-weight: 700; text-underline-offset: 4px">En savoir plus<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></a>
           </div>
         </article>
       </div>
+      
+      
     </div>
   </section>
 
-  <!-- Sermon -->
-  <section style="background: #f7f3ee">
+  <!-- 4. Latest sermon, or live on Sunday 10h00–12h00 -->
+  <section style="background: #ffffff">
     <div style="max-width: 1200px; margin: 0 auto; padding: 96px 24px">
+      
       <h2 style="margin: 0 0 32px; font-family: 'Outfit', system-ui, sans-serif; font-size: 44px; line-height: 1.1; color: #13243b">La dernière prédication</h2>
-      <article style="display: flex; flex-wrap: wrap; background: #ffffff; border-radius: 6px; overflow: hidden">
-        <a href="#" aria-label="Regarder : Servir ensemble : la vraie saveur du ministère" style="flex: 1.5 1 560px; min-width: 0; position: relative; display: block; line-height: 0">
-          <img src="images/sermon-latest.jpg" alt="" style="display: block; width: 100%; height: 100%; min-height: 360px; aspect-ratio: 16 / 9; object-fit: cover">
+      <article style="display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); align-items: start; background: #f7f3ee; border-radius: 6px; overflow: hidden">
+        <a href="../sermons/sermon-desktop.html" aria-label="Regarder : Servir ensemble : la vraie saveur du ministère" style="position: relative; display: block; line-height: 0">
+          <img src="images/sermon-latest.jpg" alt="" style="display: block; width: 100%; aspect-ratio: 16 / 9; object-fit: cover">
           <span style="position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); width: 88px; height: 88px; border-radius: 999px; background: #ffaf00; display: flex; align-items: center; justify-content: center"><svg width="32" height="32" viewBox="0 0 24 24" fill="#13243b" aria-hidden="true"><polygon points="7 4 20 12 7 20 7 4"></polygon></svg></span>
         </a>
-        <div style="flex: 1 1 360px; min-width: 0; padding: 48px 32px; display: flex; flex-direction: column; justify-content: center; gap: 16px">
-          <span style="align-self: flex-start; padding: 0 8px; border-radius: 4px; background: #fff1cc; color: #13243b; font-size: 15px; font-weight: 700">24 octobre 2026</span>
-          <h3 style="margin: 0; font-family: 'Outfit', system-ui, sans-serif; font-size: 32px; line-height: 1.15; color: #13243b">Servir ensemble : la vraie saveur du ministère</h3>
-          <div style="display: flex; flex-wrap: wrap; gap: 16px; margin-top: 16px">
-            <a href="#" style="display: inline-flex; align-items: center; gap: 8px; min-height: 52px; padding: 0 24px; background: #3a64aa; color: #ffffff; border-radius: 4px; font-weight: 700; text-decoration: none"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><polygon points="7 4 20 12 7 20 7 4"></polygon></svg>Regarder la prédication</a>
-            <a href="#" style="display: inline-flex; align-items: center; min-height: 52px; box-sizing: border-box; padding: 0 24px; background: #ffffff; color: #3a64aa; border: 2px solid #3a64aa; border-radius: 4px; font-weight: 700; text-decoration: none">Voir toutes les prédications</a>
+        <div style="padding: 48px; display: flex; flex-direction: column; align-items: flex-start">
+          <span style="margin-bottom: 16px; padding: 4px 12px; border-radius: 4px; background: #fff1cc; color: #13243b; font-size: 15px; font-weight: 700">24 octobre 2026</span>
+          <h3 style="margin: 0 0 32px; font-family: 'Outfit', system-ui, sans-serif; font-size: 28px; line-height: 1.2; color: #13243b">Servir ensemble : la vraie saveur du ministère</h3>
+          <div style="display: flex; flex-wrap: wrap; gap: 16px">
+            <a href="../sermons/sermon-desktop.html" style="display: inline-flex; align-items: center; gap: 8px; min-height: 52px; padding: 0 24px; background: #3a64aa; color: #ffffff; border-radius: 4px; font-weight: 700; text-decoration: none"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><polygon points="7 4 20 12 7 20 7 4"></polygon></svg>Regarder la prédication</a>
+            <a href="../sermons/sermons-desktop.html" style="display: inline-flex; align-items: center; min-height: 52px; box-sizing: border-box; padding: 0 24px; background: #ffffff; color: #3a64aa; border: 2px solid #3a64aa; border-radius: 4px; font-weight: 700; text-decoration: none">Voir toutes les prédications</a>
           </div>
         </div>
       </article>
-    </div>
-  </section>
-
-  <!-- Departments -->
-  <section style="background: #ffffff">
-    <div style="max-width: 1200px; margin: 0 auto; padding: 96px 24px">
-      <div style="display: flex; flex-wrap: wrap; gap: 48px; align-items: center; margin-bottom: 48px">
-        <img src="images/kids-activity.jpg" alt="Une enfant colorie un marque-page pendant une activité" style="flex: 1 1 440px; min-width: 0; height: 320px; object-fit: cover; border-radius: 6px">
-        <div style="flex: 1 1 440px; min-width: 0">
-          <h2 style="margin: 0 0 32px; font-family: 'Outfit', system-ui, sans-serif; font-size: 44px; line-height: 1.1; color: #13243b">Une église où tu trouveras ta place</h2>
-          <a href="#" style="display: inline-flex; align-items: center; min-height: 52px; padding: 0 24px; background: #3a64aa; color: #ffffff; border-radius: 4px; font-weight: 700; text-decoration: none">Découvrir les départements</a>
-        </div>
-      </div>
-      <ul aria-label="Les départements" style="list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px">
-        <li><a href="#" style="display: flex; align-items: center; justify-content: space-between; gap: 8px; min-height: 64px; padding: 0 24px; border-radius: 6px; background: #f7f3ee; color: #13243b; font-weight: 700; text-decoration: none">Génération Kids<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#3a64aa" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></a></li>
-        <li><a href="#" style="display: flex; align-items: center; justify-content: space-between; gap: 8px; min-height: 64px; padding: 0 24px; border-radius: 6px; background: #f7f3ee; color: #13243b; font-weight: 700; text-decoration: none">Punch Group<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#3a64aa" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></a></li>
-        <li><a href="#" style="display: flex; align-items: center; justify-content: space-between; gap: 8px; min-height: 64px; padding: 0 24px; border-radius: 6px; background: #f7f3ee; color: #13243b; font-weight: 700; text-decoration: none">ConneXion<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#3a64aa" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></a></li>
-        <li><a href="#" style="display: flex; align-items: center; justify-content: space-between; gap: 8px; min-height: 64px; padding: 0 24px; border-radius: 6px; background: #f7f3ee; color: #13243b; font-weight: 700; text-decoration: none">Ainé'rgie<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#3a64aa" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></a></li>
-        <li><a href="#" style="display: flex; align-items: center; justify-content: space-between; gap: 8px; min-height: 64px; padding: 0 24px; border-radius: 6px; background: #f7f3ee; color: #13243b; font-weight: 700; text-decoration: none">Femmes<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#3a64aa" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></a></li>
-        <li><a href="#" style="display: flex; align-items: center; justify-content: space-between; gap: 8px; min-height: 64px; padding: 0 24px; border-radius: 6px; background: #f7f3ee; color: #13243b; font-weight: 700; text-decoration: none">Mission<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#3a64aa" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></a></li>
-        <li><a href="#" style="display: flex; align-items: center; justify-content: space-between; gap: 8px; min-height: 64px; padding: 0 24px; border-radius: 6px; background: #f7f3ee; color: #13243b; font-weight: 700; text-decoration: none">LSV<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#3a64aa" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></a></li>
-        <li><a href="#" style="display: flex; align-items: center; justify-content: space-between; gap: 8px; min-height: 64px; padding: 0 24px; border-radius: 6px; background: #f7f3ee; color: #13243b; font-weight: 700; text-decoration: none">Une prière pour toi<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#3a64aa" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></a></li>
-        <li><a href="#" style="display: flex; align-items: center; justify-content: space-between; gap: 8px; min-height: 64px; padding: 0 24px; border-radius: 6px; background: #f7f3ee; color: #13243b; font-weight: 700; text-decoration: none">Entraide<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#3a64aa" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></a></li>
-      </ul>
-    </div>
-  </section>
-
-  <!-- Newcomer -->
-  <section style="background: #f7f3ee">
-    <div style="max-width: 1200px; margin: 0 auto; padding: 96px 24px">
-      <article style="display: flex; flex-wrap: wrap; background: #ffffff; border-radius: 6px; overflow: hidden">
-        <img src="images/hall.jpg" alt="Des personnes discutent dans le hall de l'église" style="flex: 1 1 440px; min-width: 0; min-height: 400px; object-fit: cover">
-        <div style="flex: 1 1 440px; min-width: 0; padding: 48px; box-sizing: border-box; display: flex; flex-direction: column; justify-content: center; align-items: flex-start; gap: 32px">
-          <h2 style="margin: 0; font-family: 'Outfit', system-ui, sans-serif; font-size: 44px; line-height: 1.1; color: #13243b">Vous cherchez une église où grandir et vivre votre foi ?</h2>
-          <a href="#" style="display: inline-flex; align-items: center; gap: 8px; min-height: 52px; padding: 0 24px; background: #3a64aa; color: #ffffff; border-radius: 4px; font-weight: 700; text-decoration: none">Je suis nouveau<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></a>
-        </div>
-      </article>
-    </div>
-  </section>
-
-  <!-- Where -->
-  <section style="background: #ffffff">
-    <div style="max-width: 1200px; margin: 0 auto; padding: 96px 24px; display: flex; flex-wrap: wrap; gap: 48px; align-items: stretch">
-      <div style="flex: 1 1 440px; min-width: 0">
-        <h2 style="margin: 0 0 32px; font-family: 'Outfit', system-ui, sans-serif; font-size: 44px; line-height: 1.1; color: #13243b">Où sommes-nous ?</h2>
-        <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px">
-          <div style="background: #f7f3ee; border-radius: 6px; padding: 24px"><h3 style="margin: 0 0 8px; font-size: 16px; color: #556275">Notre adresse</h3><a href="#" style="color: #13243b; font-weight: 700">75, rue du Chauffour<br>59300 Valenciennes</a></div>
-          <div style="background: #f7f3ee; border-radius: 6px; padding: 24px"><h3 style="margin: 0 0 8px; font-size: 16px; color: #556275">Horaires des réunions</h3><p style="margin: 0; color: #13243b; font-weight: 700">Mardi · 19h00<br>Dimanche · 10h00</p></div>
-          <div style="background: #f7f3ee; border-radius: 6px; padding: 24px"><h3 style="margin: 0 0 8px; font-size: 16px; color: #556275">E-mail</h3><a href="mailto:secretariat@add-valenciennes.fr" style="color: #13243b; font-weight: 700; word-break: break-word">secretariat@add-valenciennes.fr</a></div>
-          <div style="background: #f7f3ee; border-radius: 6px; padding: 24px"><h3 style="margin: 0 0 8px; font-size: 16px; color: #556275">Téléphone</h3><a href="tel:+33361258062" style="color: #13243b; font-weight: 700">03 61 25 80 62</a></div>
-        </div>
-      </div>
-      <a href="#" style="flex: 1 1 440px; min-width: 0; display: block; line-height: 0"><img src="images/map.png" alt="Ouvrir le plan dans Google Maps : 75, rue du Chauffour, Valenciennes" style="display: block; width: 100%; height: 100%; min-height: 360px; object-fit: cover; box-sizing: border-box; border-radius: 6px; border: 1px solid #e4e7ec"></a>
+      
+      
     </div>
   </section>
 
   <!-- Footer -->
   <footer class="on-dark" style="background: #13243b; color: #ffffff; font-size: 16px">
-    <div style="max-width: 1200px; margin: 0 auto; padding: 64px 24px 32px; display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 48px">
+    <div style="max-width: 1200px; margin: 0 auto; padding: 64px 24px 32px; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 48px">
       <div style="display: flex; flex-direction: column; gap: 16px">
         <img src="images/logo-white.png" alt="Église Évangélique de Valenciennes" style="width: 200px; height: auto">
-        <a href="#" style="color: #ffffff">75, rue du Chauffour<br>59300 Valenciennes</a>
+        <a href="https://maps.google.com/?q=75+rue+du+Chauffour+59300+Valenciennes" style="color: #ffffff">75, rue du Chauffour<br>59300 Valenciennes</a>
         <a href="mailto:secretariat@add-valenciennes.fr" style="color: #ffffff">secretariat@add-valenciennes.fr</a>
       </div>
       <div>
         <h2 style="margin: 0 0 8px; font-family: 'Outfit', system-ui, sans-serif; font-size: 18px; color: #ffffff">Notre église</h2>
         <ul style="list-style: none; margin: 0; padding: 0">
-          <li><a href="#" style="display: flex; align-items: center; min-height: 44px; color: #ffffff">Notre vision</a></li>
-          <li><a href="#" style="display: flex; align-items: center; min-height: 44px; color: #ffffff">Nos valeurs</a></li>
-          <li><a href="#" style="display: flex; align-items: center; min-height: 44px; color: #ffffff">Les départements</a></li>
-          <li><a href="#" style="display: flex; align-items: center; min-height: 44px; color: #ffffff">Le couple pastoral</a></li>
-          <li><a href="#" style="display: flex; align-items: center; min-height: 44px; color: #ffffff">Les prédications</a></li>
-          <li><a href="#" style="display: flex; align-items: center; min-height: 44px; color: #ffffff">Évènements</a></li>
+          <li><a href="../church/who-we-are-desktop.html" style="display: flex; align-items: center; min-height: 44px; color: #ffffff">Qui sommes-nous ?</a></li>
+          <li><a href="../church/team-desktop.html" style="display: flex; align-items: center; min-height: 44px; color: #ffffff">L'équipe</a></li>
+          <li><a href="../church/history-desktop.html" style="display: flex; align-items: center; min-height: 44px; color: #ffffff">Notre histoire</a></li>
+          <li><a href="../sermons/sermons-desktop.html" style="display: flex; align-items: center; min-height: 44px; color: #ffffff">Les prédications</a></li>
+          <li><a href="../events/events-desktop.html" style="display: flex; align-items: center; min-height: 44px; color: #ffffff">Évènements</a></li>
         </ul>
       </div>
       <div>
         <h2 style="margin: 0 0 8px; font-family: 'Outfit', system-ui, sans-serif; font-size: 18px; color: #ffffff">Aller plus loin</h2>
         <ul style="list-style: none; margin: 0; padding: 0">
-          <li><a href="#" style="display: flex; align-items: center; min-height: 44px; color: #ffffff">Nous contacter</a></li>
-          <li><a href="#" style="display: flex; align-items: center; min-height: 44px; color: #ffffff">Demande d'entretien</a></li>
-          <li><a href="#" style="display: flex; align-items: center; min-height: 44px; color: #ffffff">Demande de prière</a></li>
-          <li><a href="#" style="display: flex; align-items: center; min-height: 44px; color: #ffffff">Servir à l'église</a></li>
-          <li><a href="#" style="display: flex; align-items: center; min-height: 44px; color: #ffffff">Faire un don</a></li>
+          <li><a href="../contact/contact-desktop.html" style="display: flex; align-items: center; min-height: 44px; color: #ffffff">Nous contacter</a></li>
+          <li><a href="../forms/interview-desktop.html" style="display: flex; align-items: center; min-height: 44px; color: #ffffff">Demande d'entretien</a></li>
+          <li><a href="../forms/prayer-desktop.html" style="display: flex; align-items: center; min-height: 44px; color: #ffffff">Demande de prière</a></li>
+          <li><a href="../forms/serve-desktop.html" style="display: flex; align-items: center; min-height: 44px; color: #ffffff">Servir à l'église</a></li>
+          <li><a href="../donate/donate-desktop.html" style="display: flex; align-items: center; min-height: 44px; color: #ffffff">Faire un don</a></li>
         </ul>
       </div>
       <div>
