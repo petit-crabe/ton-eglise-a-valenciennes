@@ -10,7 +10,7 @@ Full review of https://tonegliseavalenciennes.fr/ before the redesign, carried o
 | [04-content.md](04-content.md) | Page inventory, accuracy, legal pages, voice, search engines |
 | [05-accessibility.md](05-accessibility.md) | First-pass WCAG 2.1 AA check |
 | [06-code.md](06-code.md) | Custom code of the child theme and how the site is assembled |
-| [07-mockups-charter-rework.md](07-mockups-charter-rework.md) | The redesign mockups after the charter rework (2026-10-29): six improvements still to make |
+| [07-mockups-charter-rework.md](07-mockups-charter-rework.md) | The redesign mockups after the charter rework (2026-10-29): six improvements, all made and validated by 2026-11-06 |
 
 ## How it was done
 

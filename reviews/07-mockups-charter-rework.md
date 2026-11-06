@@ -129,3 +129,18 @@ Under the no-placeholder-in-production rule, these must be filled before any rel
 - Accueil, Prédications, one sermon: titles, dates, speakers, passages, series and summaries (they come from YouTube on the real site).
 - Mentions légales: legal form, RNA or SIREN number, publication director, host.
 - Protection des données: the cookie list of the new site.
+
+## Outcome (2026-11-06)
+
+All six axes were made on the canvas, validated by the owner, and written into [design/DESIGN.md](../design/DESIGN.md). The repository mockups were exported again.
+
+| # | Done | Owner's choices |
+|---|---|---|
+| M1 | Field outline `color.border-field` `#768191`, 3.5:1 or more on white, sand, sky and mint, in every board and prototype. The interview date can be typed ("jj/mm/aaaa", checked by the browser, required) or picked with the calendar button. | — |
+| M2 | "Folding" section in DESIGN.md. The portrait tablet prototypes (820 and 768) show the computer pages folded: rows of three cards stay three, four columns become two, two-column blocks stack, sections 64 px, content aligned with the header. Checked at 768 and 820 px: no horizontal scroll. | One tablet layout for both portrait sizes; three cards per row rather than two (two left a card alone). |
+| M3 | [design/tools/build_maquettes.py](../design/tools/build_maquettes.py) and [design/source/](../design/source/): one header, one footer and one body per page, colours from `tokens.json`. `pull` reads the canvas and reports any page whose header or footer drifted; `build` writes the 32 boards and 9 prototypes. The round trip reproduces the canvas boards. | A generator, since the mockups stay the reference for several months. |
+| m1 | Real addresses for Facebook, Instagram, YouTube, Assemblées de Dieu, CNEF, the RIB, the privacy policies, the site and the e-mail. The terms PDF is marked `[à compléter : fichier PDF]`. Share buttons, "Voir le plan", sermon page numbers and the cookie button are written down as behaviours of the real site. | — |
+| m2 | Cookie tags at 15 px. The remaining off-scale values (component insides, timeline indent) and the 64 px "Dans la rubrique" band are documented as exceptions; one no-event sentence with an optional ending. | Document rather than redraw. |
+| m3 | Two settings under "États des pages" in every prototype (sermon block, events block). Ids and anchors are prefixed by page inside the prototypes. Rules written for one or two events and for the live stream. | One or two events: weekly meeting cards fill the row. Live block follows YouTube, not the clock. |
+
+Added by the owner during the work: the opening screen of the home page must not cut a line of text nor end on an empty band. The home hero now fills exactly the first screen. The same treatment was tried on inner pages (banner sized to the screen) and rejected: they keep their short banner.

@@ -25,6 +25,7 @@ Working canvas (drafts, comments, history): https://claude.ai/artifact/UbLoYdhe5
 | Signal | `color.signal` | `#ff6b4a` | Coral. Only what is happening now or has just been added: the "En direct" tag of the Sunday live stream, the "Nouveau" tag on an event. |
 | Text | `color.text` / `color.text-muted` | `#2d3b4e` / `#556275` | Body text / dates, labels, captions. |
 | Surfaces | `color.surface-*` | white, sand `#f7f3ee`, sky `#e9f3fb`, sun `#fff1cc`, mint `#e2f5ec` | Section backgrounds: white, sky, mint. Panel and card backgrounds: sand, sky, sun, mint, white. Sand is never a section background. |
+| Field outline | `color.border-field` | `#768191` | The 1 px outline of every form field and filter menu: 3.5:1 or more on every surface, so everyone sees where to type (WCAG 1.4.11 asks 3:1). |
 
 Rules:
 
@@ -60,7 +61,11 @@ Rules:
 
 ## Spacing and layout
 
-- Spacing scale (`space.*`): **8, 16, 24, 32, 48, 64, 96 px**. Every gap, padding and margin uses one of these; the only exception is the inside of form fields (12 × 16 px).
+- Spacing scale (`space.*`): **8, 16, 24, 32, 48, 64, 96 px**. Every gap, padding and margin uses one of these. Exceptions, inside a component only, where a value lines something up with an icon or a line:
+  - form fields (12 × 16 px inside; 56 px on the right of the date field, room for its calendar button) and filter menus (44 px on the right, room for the chevron);
+  - tags and badges (4 × 12 px, 2 × 8 px), choice rows (12 px between box and label), 2 px nudges that centre an icon on its first text line;
+  - the timeline indent (34 px on a computer, 26 px on a phone), which centres the dots on the line.
+- "Dans la rubrique" has 64 px top and bottom padding on a computer instead of 96 px: it is a light navigation band, not a content section.
 - Every section, header included, centres its content in a **1200 px** container with 24 px side padding (16 px on a phone), so left edges line up down the page.
 - Sections have **96 px** vertical padding on a computer, **48 px** on a phone.
 
@@ -82,6 +87,23 @@ Two-column blocks, all **top-aligned**, stack when the window is narrower than a
 - **Text and a panel: 7/5**, the text wider (Faire un don, latest sermon). Exception: on Nous contacter the form is the wider column (5/7).
 - **Fixed column** only for the practical info panel (360 px: single event, single sermon) and the table of contents (300 px: legal pages).
 
+### Folding
+
+Three layouts. The computer layout from 980 px, the tablet layout from 768 to 979 px, the phone layout below 768 px. The tablet layout is the computer page with these changes:
+
+| Computer | Tablet (768–979 px) | Phone (below 768 px) |
+|---|---|---|
+| Header with the full menu | Header with the "Menu" button and the full-screen menu, 24 px side padding | Same, 16 px side padding |
+| Three cards in a row | Three in a row (two per row would leave one card alone with 3 or 9 items) | One per row |
+| Four columns (serving teams, footer) | Two columns | One column (footer: two link lists side by side) |
+| Photo and text 50/50 | One above the other (they wrap below 928 px); a 4:5 portrait photo becomes 4:3 | One above the other |
+| Text and panel 7/5 or 5/7, text and 360 px panel | One above the other | One above the other |
+| Table of contents (300 px column, 36 px rows) | Above the text, 44 px rows (touched, not clicked) | Closed "Sommaire" drop-down above the text |
+| Event card with its image on the left (400 px) | Image 2/5, text 3/5 | Image on top |
+| Sections 96 px top and bottom | 64 px | 48 px |
+
+The content and the header share the same side padding, so left edges line up from the logo to the footer at every width.
+
 ## Shape
 
 - Corners: **4 px** for buttons, tags, badges and menu items; **6 px** for cards, tiles, photos and the map. Fully round only for icon circles and the play button.
@@ -94,7 +116,7 @@ Two-column blocks, all **top-aligned**, stack when the window is narrower than a
 | Button | 52 px high, 24 px side padding, 4 px corners, bold label; primary or secondary as above. | Everywhere. |
 | Contact card | Whole card is the link. 176 px min height (144 px phone), icon in a 48 px white circle, label in the heading font with an arrow. Backgrounds in order: primary, sky, sun, sand. On the contact page the three other requests sit three in a row (primary, sky, sun). On a phone they always become 80 px rows, icon on the left, arrow on the right, home hero included, so the hero does not fill a whole phone screen. | Hero: Servir à l'église, Demande de prière, Nous contacter, Demande d'entretien. Contact page: "Une autre demande ?", on mint. |
 | Contact details | Definition list: primary icon, muted label, bold value; address, e-mail and phone are links (`tel:` on the phone number), each at least 44 px high. | Contact page. |
-| Form field | Bold label always visible above the field; 48 px high, 1 px grey outline, 4 px corners, 17 px text; the message box is 6–7 rows and can be resized. The form sits in a sand panel (48 px padding, 24 px × 16 px on a phone); the submit button is primary, full width on a phone. Optional fields say "(facultatif)" in grey after the label; everything else is required. Date fields open a calendar (44 px sky button with a calendar icon) instead of free typing. | Contact form, footer forms. |
+| Form field | Bold label always visible above the field; 48 px high, 1 px `color.border-field` outline, 4 px corners, 17 px text; the message box is 6–7 rows and can be resized. The form sits in a sand panel (48 px padding, 24 px × 16 px on a phone); the submit button is primary, full width on a phone. Optional fields say "(facultatif)" in grey after the label; everything else is required. A date field can be typed (its format, "(jj/mm/aaaa)", in grey after the label; the browser checks it and the form refuses to send without it) or picked in a calendar (44 px sky button with a calendar icon). | Contact form, footer forms. |
 | Choice list | Radio buttons or checkboxes, 22 px, one per 44 px row, primary accent; grouped in a `fieldset` with a bold legend. Long lists are split into sub-groups with a small uppercase grey legend and a key line above; 4 columns on a computer, 1 on a phone. Nothing is pre-checked. | "Servir à l'église" (attendance, serving teams). |
 | Full-width form page | Heading (h2) and one or two paragraphs (max 800 px), then the form panel across the whole container; on a computer short fields go two per row (name and e-mail always together). Same order on a phone, one field per row. | Demande d'entretien, Demande de prière, Servir à l'église. |
 | Side panel | Mint, 6 px corners, 48 px padding (24 px × 16 px on a phone); small heading (h3), text, and an optional key line in bold on a white inset (4 px corners). Beside the text on a computer (7/5 columns), under it on a phone. No oversized figures. | Donation page ("Réduction d'impôt"), in the white section; "Comment faire un don ?" below it is sky. |
@@ -108,7 +130,7 @@ Two-column blocks, all **top-aligned**, stack when the window is narrower than a
 | Share buttons | Secondary buttons, full width of the panel: "Partager sur Facebook", "Partager sur WhatsApp". | Single event, single sermon. |
 | Video slot | 16:9, 6 px corners, night blue with a round accent play button (night-blue triangle); holds the YouTube player. | Latest sermon, single sermon. |
 | Sermon card | White, 6 px corners, the whole card is the link; 16:9 thumbnail (sky placeholder with a round accent play button, night-blue triangle), series in small primary capitals, title (h3), "date · speaker" in muted text. Three per row on a computer, one per row on a phone. | Sermons list, "Dans la même série". |
-| Filter menu | Native `<select>` with a visible bold label above, 48 px high, 1 px grey outline, chevron on the right; 280 px wide on a computer, full width on a phone. The result count sits beside or under the menus. | Sermons list (Série, Orateur). |
+| Filter menu | Native `<select>` with a visible bold label above, 48 px high, 1 px `color.border-field` outline, chevron on the right; 280 px wide on a computer, full width on a phone. The result count sits beside or under the menus. | Sermons list (Série, Orateur). |
 | Pagination | 48 px squares, current page in night blue, then "Suivante". On a phone: "Page 1 sur N" and a secondary "Plus anciennes" button. | Sermons list. |
 | Tile | Sand, 64 px high (52 px phone), bold label, blue arrow; the whole tile is the link. | Unused since the home page lost its department block (2026-10-27); kept for department links once their pages exist. |
 | Info card | Sand, 24 px padding, muted label above a bold value. | Unused since the home page lost "Où sommes-nous ?" (2026-10-27). |
@@ -122,7 +144,9 @@ Two-column blocks, all **top-aligned**, stack when the window is narrower than a
 | Data table | Inside a bordered card (6 px corners): sand header with the h3 and a small white category tag, then a full-width table with a grey header row and hairline rows (8 × 12 px cells, 16 px text, codes in monospace). | Cookie list ("Cookies placés"). |
 | To-complete marker | Text the church must supply is written in square brackets on a sun background: `[à compléter]`. Never fill it with invented content. | Mentions légales, cookie list notice. |
 | Section links | "Dans la rubrique « … »" block before the footer, on a mint section: one white tile per page of the section; the current page is a night-blue tile marked "Vous êtes ici" after a 10 px accent dot. | Every page of a menu section (the three "L'église" pages). |
-| Footer | Night blue. Computer: logo, address and e-mail, then "Notre église", "Aller plus loin", "Nous suivre"; a bottom line with ©, the three legal links and "Réalisé par Florian Desmet". Phone (compact): logo with the three social links as 44 px icon buttons (each with an `aria-label`), the two link lists side by side, then ©, the legal links on one wrapping line and the credit. | Every page. |
+| Footer | Night blue. Computer: logo, address and e-mail, then "Notre église", "Aller plus loin", "Nous suivre"; a bottom line with ©, the three legal links and "Réalisé par Florian Desmet". Phone (compact): logo with the three social links as 44 px icon buttons (each with an `aria-label`), the two link lists side by side, then ©, the legal links on one wrapping line and the credit. Social links go to the church's accounts (Facebook `eglise.evangelique.add.valenciennes`, Instagram `tonegliseavalenciennes`, the YouTube channel); "Assemblées de Dieu" and "CNEF" to their sites. | Every page. |
+
+Links the real site builds, left empty (`href="#"`) in the mockups on purpose: the share buttons (Facebook and WhatsApp share addresses of the page), "Voir le plan" (Google Maps search of the event's address), and the sermon page numbers. The "Gérer mes choix de cookies" button opens the consent banner of the real site. Every other link has its real address or a visible `[à compléter]` marker, like the PDF of the Conditions générales, which the new site does not have yet.
 
 ## Imagery
 
@@ -141,9 +165,7 @@ Two-column blocks, all **top-aligned**, stack when the window is narrower than a
 
 ## Mockups
 
-| Page | Status | Files |
-|---|---|---|
-Every page was reworked with the current charter and validated on 2026-10-29.
+Every page was reworked with the current charter and validated on 2026-10-29; the six improvements of the following review were validated on 2026-11-06.
 
 | Page | Files |
 |---|---|
@@ -162,7 +184,14 @@ Every page was reworked with the current charter and validated on 2026-10-29.
 
 The HTML files open in any browser without the canvas, and link to each other; each folder has its own `images/`. The home page files show its usual state (the latest sermon, three upcoming events); the live-stream and no-event states are tweaks of the canvas boards `Accueil-charte*.dc.html`.
 
-On the canvas, the reworked boards are named `<Page>-charte.dc.html` and `<Page>-charte-telephone.dc.html` (page "Validés"); the boards from before the rework moved to "Brouillons" with "(avant la nouvelle charte)" in their titles. The nine `Ecran-*` prototypes were rebuilt from the reworked boards. To refresh the exports after a canvas change, read the boards from the canvas, then run [tools/export_maquettes.py](tools/export_maquettes.py) and [tools/shoot_maquettes.mjs](tools/shoot_maquettes.mjs) (usage at the top of each file).
+On the canvas, the reworked boards are named `<Page>-charte.dc.html` and `<Page>-charte-telephone.dc.html` (page "Validés"); the boards from before the rework moved to "Brouillons" with "(avant la nouvelle charte)" in their titles.
+
+**One source.** [source/](source/) holds one header, one footer and one helmet per device (`shell/`), the body of each page (`pages/<Page>.desktop.html`, `pages/<Page>.phone.html`), the shells of the three kinds of prototype, and the titles, sizes and tweaks of every board (`boards.json`, `prototypes.json`). Colours are written as `[[token]]` and read from [tokens.json](tokens.json). [tools/build_maquettes.py](tools/build_maquettes.py) builds the 32 boards and the 9 prototypes from it, the tablet layout included. The way round:
+
+1. The owner edits boards on the canvas, never the prototypes (they are rebuilt).
+2. Download the `*-charte*` boards and `Ecran-*` prototypes, then `build_maquettes.py pull <folder>`: the edits land in `source/`, and every page whose header, footer or prototype menu differs from the shared one is reported (the shared one wins, so a menu change is made once, in `shell/`).
+3. `build_maquettes.py build <folder>`, publish the changed files to the canvas.
+4. To refresh the repository, run [tools/export_maquettes.py](tools/export_maquettes.py) on the built boards and [tools/shoot_maquettes.mjs](tools/shoot_maquettes.mjs) for the captures (usage at the top of each file).
 
 ### Harmonisation (2026-10-27)
 
@@ -213,7 +242,7 @@ Section backgrounds, page by page, after the banner:
 | Footer forms | one white section with the sand form panel |
 | Legal pages | one white section with the sand table of contents |
 
-A review of the reworked pages on the same day listed six improvements still to make; they are tracked in [reviews/07-mockups-charter-rework.md](../reviews/07-mockups-charter-rework.md).
+A review of the reworked pages on the same day listed six improvements; all six were made and validated between 2026-10-29 and 2026-11-06, see [reviews/07-mockups-charter-rework.md](../reviews/07-mockups-charter-rework.md).
 
 ## Target screens
 
@@ -225,15 +254,17 @@ The validated pages are also built as clickable, scrollable prototypes (page "Va
 | Tablet | 1280 × 800 (landscape), 820 × 1180, 768 × 1024 | Full menu at 1280; "Menu" button and full-screen menu below |
 | Phone | 412 × 915, 390 × 844, 360 × 800 | "Menu" button and full-screen menu |
 
+The 1280 px landscape tablet shows the computer layout, the two portrait tablets the tablet layout (see [Folding](#folding)), the phones the phone layout. Each prototype has two settings under "États des pages": the sermon block ("La dernière prédication" or "En direct") and the events block ("Des évènements à venir" or "Aucun évènement à venir").
+
 ## Site structure
 
 Changes to the live site's structure, decided by the owner:
 
 - **Home page (2026-10-27).** The validated home page ran to about 16 phone screens, against the short-pages rule. It keeps four blocks, in this order:
-  1. **Hero**: title, service times, address, the four contact cards (80 px rows on a phone).
+  1. **Hero**: title, service times, address, the four contact cards (80 px rows on a phone). Header and hero fill exactly the first screen, whatever its height (`min-height: calc(100svh - header)`, content centred), so the opening screen never cuts a line of text nor ends on an empty band (owner's rules, 2026-11-06). Inner pages keep their short banner: the owner tried banners sized to the screen and kept the short ones.
   2. **"Une église pour toi"**: the welcome text and the Bible verse, in a mint panel.
-  3. **"Les évènements"**: the next three events. With no upcoming event the block is never empty: it says there is no special event at the moment and shows the weekly meetings instead (Culte, Sunday 10h00; Réunion de prière, Tuesday 19h00) as weekly meeting cards. The same sentence sits under "Les prochains évènements" on the events page, whose "Chaque semaine" block is already above it.
-  4. **"La dernière prédication"**. On Sunday between 10h00 and 12h00, the site asks YouTube whether the service is streaming live. If it is, the block becomes "En direct maintenant": the live player, one "En direct" signal tag above the title, and the button "Suivre le culte en direct". If not, or outside that window, it stays the latest sermon. Nobody has to switch anything by hand.
+  3. **"Les évènements"**: the next three events. With one or two upcoming events, the cards keep their size and weekly meeting cards (Culte, then Réunion de prière) fill the rest of the row (owner, 2026-11-06). With no upcoming event the block is never empty: it says there is no special event at the moment and shows the weekly meetings instead (Culte, Sunday 10h00; Réunion de prière, Tuesday 19h00) as weekly meeting cards. The sentence is the same on both pages, "Aucun évènement particulier n'est prévu pour le moment.", followed on the home page only by "Nous nous retrouvons chaque semaine :" because the weekly cards come right after it; on the events page the "Chaque semaine" block is already above it.
+  4. **"La dernière prédication"**. On Sunday between 10h00 and 12h00, the site asks YouTube whether the service is streaming live. If it is, the block becomes "En direct maintenant": the live player, one "En direct" signal tag above the title, and the button "Suivre le culte en direct". The block follows YouTube, not the clock (owner, 2026-11-06): before a late start and as soon as the stream ends, even before 12h00, it shows the latest sermon again. Nobody has to switch anything by hand.
 
   Removed: "Une église où tu trouveras ta place" (department tiles; the departments have no page), "Vous cherchez une église où grandir et vivre votre foi ?" (its "Je suis nouveau" button led nowhere: no newcomer page exists) and "Où sommes-nous ?" with the map (the hero already gives the address, linked to Google Maps, and the times). The no-event sentence and "Suivre le culte en direct" are interface copy, written with the mockup.
 - **"L'église" menu (2026-10-26).** The five pages Notre histoire, Notre vision, Nos valeurs, Les départements and Le couple pastoral become three:

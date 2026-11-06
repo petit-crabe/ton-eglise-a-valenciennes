@@ -1,0 +1,56 @@
+{
+ "Ecran-ordinateur-1920": {
+  "shell": "desktop",
+  "title": "Ordinateur 1920 × 1080 – prototype",
+  "width": 1920,
+  "height": 1080
+ },
+ "Ecran-ordinateur-1536": {
+  "shell": "desktop",
+  "title": "Ordinateur 1536 × 864 – prototype",
+  "width": 1536,
+  "height": 864
+ },
+ "Ecran-ordinateur-1366": {
+  "shell": "desktop",
+  "title": "Ordinateur 1366 × 768 – prototype",
+  "width": 1366,
+  "height": 768
+ },
+ "Ecran-tablette-1280": {
+  "shell": "desktop",
+  "title": "Tablette paysage 1280 × 800 – prototype",
+  "width": 1280,
+  "height": 800
+ },
+ "Ecran-tablette-820": {
+  "shell": "tablet",
+  "title": "Tablette 820 × 1180 (iPad Air) – prototype",
+  "width": 820,
+  "height": 1180
+ },
+ "Ecran-tablette-768": {
+  "shell": "tablet",
+  "title": "Tablette 768 × 1024 (iPad) – prototype",
+  "width": 768,
+  "height": 1024
+ },
+ "Ecran-telephone-412": {
+  "shell": "phone",
+  "title": "Téléphone 412 × 915 (grand Android) – prototype",
+  "width": 412,
+  "height": 915
+ },
+ "Ecran-telephone-390": {
+  "shell": "phone",
+  "title": "Téléphone 390 × 844 (iPhone) – prototype",
+  "width": 390,
+  "height": 844
+ },
+ "Ecran-telephone-360": {
+  "shell": "phone",
+  "title": "Téléphone 360 × 800 (Android) – prototype",
+  "width": 360,
+  "height": 800
+ }
+}

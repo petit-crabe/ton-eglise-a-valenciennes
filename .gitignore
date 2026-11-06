@@ -33,3 +33,6 @@ node_modules/
 !web/www/wp-content/plugins/**/node_modules/
 
 # WordPress rules live in web/.gitignore
+
+# Python bytecode from the design tools
+__pycache__/
