@@ -115,6 +115,8 @@ The content and the header share the same side padding, so left edges line up fr
 
 ## Components
 
+Every component below is linked: its shared style lives in [source/components/](source/components/) and on the canvas page "Composants" (see [Mockups](#mockups)).
+
 | Component | Look | Where |
 |---|---|---|
 | Button | 52 px high, 24 px side padding, 4 px corners, bold label; primary or secondary as above. | Everywhere. |
@@ -190,11 +192,15 @@ The HTML files open in any browser without the canvas, and link to each other; e
 
 On the canvas, the reworked boards are named `<Page>-charte.dc.html` and `<Page>-charte-telephone.dc.html` (page "Validés"); the boards from before the rework moved to "Brouillons" with "(avant la nouvelle charte)" in their titles.
 
-**One source.** [source/](source/) holds one header, one footer and one helmet per device (`shell/`), the body of each page (`pages/<Page>.desktop.html`, `pages/<Page>.phone.html`), the shells of the three kinds of prototype, and the titles, sizes and tweaks of every board (`boards.json`, `prototypes.json`). Colours are written as `[[token]]` and read from [tokens.json](tokens.json). [tools/build_maquettes.py](tools/build_maquettes.py) builds the 32 boards and the 9 prototypes from it, the tablet layout included. The way round:
+**One source.** [source/](source/) holds one header, one footer and one helmet per device (`shell/`), the body of each page (`pages/<Page>.desktop.html`, `pages/<Page>.phone.html`), the components (`components/`), the shells of the three kinds of prototype, and the titles, sizes and tweaks of every board (`boards.json`, `prototypes.json`). Colours are written as `[[token]]` and read from [tokens.json](tokens.json). [tools/build_maquettes.py](tools/build_maquettes.py) builds the 32 boards, the 9 prototypes and the 33 component boards from it, the tablet layout included.
 
-1. The owner edits boards on the canvas, never the prototypes (they are rebuilt).
-2. Download the `*-charte*` boards and `Ecran-*` prototypes, then `build_maquettes.py pull <folder>`: the edits land in `source/`, and every page whose header, footer or prototype menu differs from the shared one is reported (the shared one wins, so a menu change is made once, in `shell/`).
-3. `build_maquettes.py build <folder>`, publish the changed files to the canvas.
+**Linked components (2026-11-09).** Each of the 30 components of [components/catalog.json](source/components/catalog.json) (the table below, plus the home hero, the verse panel, the latest-sermon card and the share buttons) has one shared style per device in `components/<name>.<device>.css`. On the pages, its elements carry a class (`c-<name>` on the root, `c-<name>__<path>` on each styled part) and keep inline only what differs from one instance to the next: a card's background, a button's width. Every board and prototype gets these styles in its helmet. The 52 px buttons were brought to two models on the way (filled, outlined), which moved some by 4 px at most. The canvas page "Composants" shows one board per component, plus the header and the footer, with a computer and a phone example taken from the pages and the number of uses: a change made there reaches every page at the next pull and build. Only styles travel: a change of structure (an added element) is made on the pages. `build_maquettes.py link` splits the styles again after a new instance has been pasted on a page; a component is recognised by its class, or by the rules of the catalog.
+
+The way round:
+
+1. The owner edits component boards for anything shared and page boards for the rest, never the prototypes (they are rebuilt).
+2. Download the `*-charte*` boards, the `Ecran-*` prototypes and the `Composant-*` boards, then `build_maquettes.py pull <folder>`: the edits land in `source/`; every page whose header, footer or prototype menu differs from the shared one is reported (the shared one wins, so a menu change is made once), and changes on the component boards win over the pages.
+3. `build_maquettes.py build <folder>` and `build_maquettes.py components <folder>`, publish the changed files to the canvas.
 4. To refresh the repository, run [tools/export_maquettes.py](tools/export_maquettes.py) on the built boards and [tools/shoot_maquettes.mjs](tools/shoot_maquettes.mjs) for the captures (usage at the top of each file).
 
 ### Harmonisation (2026-10-27)

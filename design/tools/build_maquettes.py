@@ -2,6 +2,8 @@
 
 usage: python3 build_maquettes.py pull <canvas project dir>
        python3 build_maquettes.py build <out project dir>
+       python3 build_maquettes.py link
+       python3 build_maquettes.py components <out project dir>
        python3 build_maquettes.py variant <out project dir> <tokens.json> <name> <label>
 
 pull reads the *-charte boards and the Ecran-* prototypes downloaded from the canvas
@@ -9,9 +11,15 @@ and writes design/source/. It reports every header or footer that differs from t
 shared one (a hand edit made on one page only); the shared one wins.
 build writes the 32 boards and the 9 prototypes from design/source/, colours from
 design/tokens.json. Portrait tablets (768 and 820 px) get the tablet layout: the
-computer pages folded by the rules of DESIGN.md, "Folding"."""
+computer pages folded by the rules of DESIGN.md, "Folding".
+link splits the styles of every component (design/source/components/) between the shared
+rule and what each page keeps inline; see components.py. components writes one board per
+component (Composant-<name>.dc.html, canvas page "Composants"); pull reads them back last, so a
+change made on a component board wins over the pages."""
 import html, json, os, re, sys
 from collections import Counter
+
+import components as comp
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 SOURCE = os.path.join(HERE, "..", "source")
@@ -87,7 +95,8 @@ def to_tokens(s, warn):
 
 def first_screen(s):
     """The fixed height of the first screen in a board or prototype -> [[first-screen]]."""
-    return re.sub(r'(<\w+ data-first-screen="true"[^>]*?min-height: )\d+px', r"\1[[first-screen]]", s)
+    return re.sub(r'<\w+\b[^>]*data-first-screen="true"[^>]*>',
+                  lambda m: re.sub(r"min-height: \d+px", "min-height: [[first-screen]]", m.group(0)), s)
 
 
 def from_tokens(s, screen=None):
@@ -125,6 +134,23 @@ def block_end(s, start):
     raise ValueError("unclosed sc-if")
 
 
+def components_dir():
+    return os.path.join(SOURCE, "components")
+
+
+def inject(text, dev):
+    """Component styles for a device, inside the first <style> of a helmet or prototype shell."""
+    folder = components_dir()
+    css = comp.device_css(folder, comp.catalog_of(folder), "desktop" if dev == "tablet" else dev)
+    if dev == "tablet":
+        css = fold(css)
+    return text.replace("</style>", f"/* components */\n{css}/* end components */\n</style>", 1)
+
+
+def strip_injected(text):
+    return re.sub(r"/\* components \*/\n.*?/\* end components \*/\n", "", text, flags=re.S)
+
+
 def most_common(items):
     return Counter(items).most_common(1)[0][0]
 
@@ -139,7 +165,7 @@ def pull(canvas):
     boards = {}
     for base in PAGES:
         for dev, suffix in DEVICES.items():
-            boards[base, dev] = split_board(open(os.path.join(canvas, f"{base}-charte{suffix}.dc.html"), encoding="utf-8").read())
+            boards[base, dev] = split_board(strip_injected(open(os.path.join(canvas, f"{base}-charte{suffix}.dc.html"), encoding="utf-8").read()))
     meta = {}
     for dev in DEVICES:
         mine = {b: p for (b, d), p in boards.items() if d == dev}
@@ -181,7 +207,7 @@ def pull(canvas):
 
     protos, seen = {}, set()
     for name, shell in PROTOTYPES.items():
-        s = open(os.path.join(canvas, f"{name}.dc.html"), encoding="utf-8").read()
+        s = strip_injected(open(os.path.join(canvas, f"{name}.dc.html"), encoding="utf-8").read())
         title = re.search(r"<title>(.*?)</title>", s).group(1)
         w, h = map(int, re.search(r'"\$preview":\{"width":(\d+),"height":(\d+)\}', s).groups())
         protos[name] = {"shell": shell, "title": title, "width": w, "height": h}
@@ -198,6 +224,7 @@ def pull(canvas):
         elif open(path, encoding="utf-8").read() != text:
             warnings.append(f"{name}: menu or script differs from the other {shell} prototypes, replaced")
     write(os.path.join(SOURCE, "prototypes.json"), json.dumps(protos, ensure_ascii=False, indent=1) + "\n")
+    pull_components(canvas, warnings)
     for w in sorted(set(warnings)):
         print("warning:", w)
     print(f"pulled {len(boards)} boards and {len(protos)} prototypes into {os.path.normpath(SOURCE)}")
@@ -212,7 +239,7 @@ def board(base, dev, meta):
     chunks = re.split(r"(?=<a )", read("shell", f"{dev}-header.html"))
     for i, chunk in m["current"].items():
         chunks[int(i)] = chunk
-    helmet = read("shell", f"{dev}-helmet.html").replace("@@BG@@", m["background"])
+    helmet = inject(read("shell", f"{dev}-helmet.html").replace("@@BG@@", m["background"]), dev)
     return (f'<!doctype html>\n<html lang="fr">\n<head>\n<meta charset="utf-8">\n<title>{m["title"]}</title>\n'
             f'<script src="./support.js"></script>\n</head>\n<body>\n<x-dc>\n<helmet>{helmet}</helmet>\n{m["root"]}\n\n  '
             + "".join(chunks) + read("pages", f"{base}.{dev}.html") + read("shell", f"{dev}-footer.html")
@@ -254,7 +281,7 @@ def build(out):
             files[f"{base}-charte{suffix}.dc.html"] = (board(base, dev, meta), BOARD_SCREEN[dev] - HEADER[dev])
     for name, p in protos.items():
         pages = "".join(page_block(base, BODIES[p["shell"]]) for base in PAGES)
-        files[f"{name}.dc.html"] = (read("shell", f"prototype-{p['shell']}.html").replace("@@PAGES@@", pages)
+        files[f"{name}.dc.html"] = (inject(read("shell", f"prototype-{p['shell']}.html"), p["shell"]).replace("@@PAGES@@", pages)
                                     .replace("@@TITLE@@", p["title"]).replace("@@W@@", str(p["width"]))
                                     .replace("@@H@@", str(p["height"])), p["height"] - HEADER[p["shell"]])
     for f, (text, screen) in files.items():
@@ -262,6 +289,143 @@ def build(out):
         assert "[[" not in text and "@@" not in text, f
         write(os.path.join(out, f), text)
     print(f"built {len(files)} files into {out}")
+
+
+def link():
+    """Shared component styles from the pages: rewrites the pages and the components' css files."""
+    pages = {(base, dev): read("pages", f"{base}.{dev}.html") for base in PAGES for dev in DEVICES}
+    folder = components_dir()
+    out = comp.link(pages, comp.catalog_of(folder), folder, list(DEVICES))
+    for (base, dev), text in out.items():
+        write(os.path.join(SOURCE, "pages", f"{base}.{dev}.html"), text)
+    print(f"linked {len(out)} pages; css in {os.path.normpath(folder)}")
+
+
+SHELL_PARTS = {"header": ("En-tête", "Logo et menu ; sur téléphone et tablette, le bouton « Menu » ouvre un menu plein écran."),
+               "footer": ("Pied de page", "Bleu nuit : adresse, liens du site, réseaux, mentions légales et crédit.")}
+SAMPLE_PAD = 24
+
+
+def component_samples(name):
+    """First instance of a component on each device, in page order, and how often it is used."""
+    out, count, pages = {}, 0, set()
+    for dev in DEVICES:
+        for base in PAGES:
+            body = read("pages", f"{base}.{dev}.html")
+            for n in comp.parse(body):
+                if f"c-{name}" in comp.classes_of(n):
+                    count += dev == "desktop"
+                    pages.add(base)
+                    sample = body[n.start:n.end].replace("[[first-screen]]", f"{BOARD_SCREEN[dev] - HEADER[dev]}px")
+                    # desktop and phone samples share the board: keep their ids apart
+                    sample = re.sub(r'\b(id|for|aria-labelledby|aria-describedby)="([^"{]+)"',
+                                    lambda m: f'{m.group(1)}="' + " ".join(f"{dev[0]}-{i}" for i in m.group(2).split()) + '"', sample)
+                    out.setdefault(dev, sample)
+    return out, count, len(pages)
+
+
+def scoped_css(dev, rules_text):
+    return re.sub(r"(^|\n)(\.c-)", lambda m: f"{m.group(1)}.dev-{dev} {m.group(2)}", rules_text)
+
+
+def component_board(name, title, text, samples, widths, usage, height, css):
+    full = widths[0] >= 1440
+    pad = 0 if full else SAMPLE_PAD
+    width = 2 * 48 + widths[0] + 2 * pad + 80 + widths[1] + 2 * pad
+    base = read("shell", "desktop-helmet.html").replace("@@BG@@", "[[surface-white]]")
+    helmet = base.replace("</style>", "/* components */\n" + css + "/* end components */\n</style>", 1)
+    col = lambda dev, w, size, sample: (
+        f'<section style="flex: none"><h2 style="margin: 0 0 16px; font-family: \'Outfit\', system-ui, sans-serif; font-size: 20px; color: [[secondary]]">'
+        f'{"Ordinateur" if dev == "desktop" else "Téléphone"}</h2>'
+        f'<div class="dev-{dev}" data-sample="{dev}" style="box-sizing: content-box; width: {w}px; padding: {pad}px; background: [[border]]; '
+        f'border-radius: 6px; font-size: {size}px; line-height: 1.6">{sample}<!--/sample--></div></section>')
+    return (f'<!doctype html>\n<html lang="fr">\n<head>\n<meta charset="utf-8">\n<title>{title} – composant</title>\n'
+            f'<script src="./support.js"></script>\n</head>\n<body>\n<x-dc>\n<helmet>{helmet}</helmet>\n'
+            f'<div style="box-sizing: border-box; width: {width}px; padding: 48px; background: [[surface-white]]; font-family: \'Source Sans 3\', system-ui, sans-serif; color: [[text]]">\n'
+            f'  <h1 style="margin: 0 0 8px; font-family: \'Outfit\', system-ui, sans-serif; font-size: 40px; line-height: 1.1; color: [[secondary]]">{title}</h1>\n'
+            f'  <p style="margin: 0 0 8px; max-width: 880px; font-size: 18px; line-height: 1.6">{text}</p>\n'
+            f'  <p style="margin: 0 0 32px; font-size: 15px; color: [[text-muted]]">{usage} Modifiez cet exemple : toutes les pages qui utilisent ce composant suivent.</p>\n'
+            f'  <div style="display: flex; gap: 80px; align-items: flex-start">\n    '
+            + col("desktop", widths[0], 18, samples.get("desktop", "")) + "\n    " + col("phone", widths[1], 17, samples.get("phone", ""))
+            + f'\n  </div>\n</div>\n</x-dc>\n<script type="text/x-dc" data-dc-script data-props=\'{{"$preview":{{"width":{width},"height":{height}}}}}\'>\n'
+            'class Component extends DCLogic {\n  renderVals() {\n    return {};\n  }\n}\n</script>\n</body>\n</html>\n'), width
+
+
+def component_boards():
+    """name -> (board text, width, height) for every component, header and footer included."""
+    folder = components_dir()
+    catalog = comp.catalog_of(folder)
+    heights = json.load(open(os.path.join(folder, "boards.json"), encoding="utf-8")) if os.path.exists(os.path.join(folder, "boards.json")) else {}
+    out = {}
+    for part, (title, text) in SHELL_PARTS.items():
+        samples = {dev: read("shell", f"{dev}-{part}.html") for dev in DEVICES}
+        css = ""
+        h = heights.get(part, 900)
+        board_text, w = component_board(part, title, text, samples, (1440, 390), "Partagé par toutes les pages.", h, css)
+        out[f"Composant-{part}"] = (board_text, w, h)
+    for c in catalog:
+        samples, count, pages = component_samples(c["name"])
+        css = "".join(scoped_css(dev, open(os.path.join(folder, f"{c['name']}.{dev}.css"), encoding="utf-8").read())
+                      for dev in DEVICES if os.path.exists(os.path.join(folder, f"{c['name']}.{dev}.css")))
+        usage = f"Utilisé {count} fois sur {pages} page{'s' if pages > 1 else ''} (version ordinateur)."
+        h = heights.get(c["name"], 900)
+        board_text, w = component_board(c["name"], c["title"], c["text"], samples, tuple(c["width"]), usage, h, css)
+        out[f"Composant-{c['name']}"] = (board_text, w, h)
+    return out
+
+
+def components(out):
+    os.makedirs(out, exist_ok=True)
+    for name, (text, w, h) in component_boards().items():
+        text = from_tokens(text)
+        assert "[[" not in text, name
+        write(os.path.join(out, f"{name}.dc.html"), text)
+    print(f"built {len(component_boards())} component boards into {out}")
+
+
+def pull_components(canvas, warnings):
+    """Changes made on the component boards: their css rules, and inline styles added on the samples."""
+    folder = components_dir()
+    catalog = comp.catalog_of(folder)
+    built = {name: to_tokens(from_tokens(text), warnings.append) for name, (text, _, _) in component_boards().items()}
+    for name, before in built.items():
+        path = os.path.join(canvas, f"{name}.dc.html")
+        if not os.path.exists(path):
+            continue
+        after = to_tokens(open(path, encoding="utf-8").read(), warnings.append)
+        if after == before:
+            continue
+        part = name[len("Composant-"):]
+        if part in SHELL_PARTS:
+            for dev in DEVICES:
+                m = re.search(rf'data-sample="{dev}"[^>]*>(.*?)<!--/sample-->', after, re.S)
+                if m and m.group(1) != read("shell", f"{dev}-{part}.html"):
+                    write(os.path.join(SOURCE, "shell", f"{dev}-{part}.html"), m.group(1))
+                    warnings.append(f"{name}: shared {part} updated from its component board ({dev})")
+            continue
+        helmet = re.search(r"/\* components \*/\n(.*?)/\* end components \*/", after, re.S).group(1)
+        rules = {dev: {} for dev in DEVICES}
+        for m in re.finditer(r"\.dev-(\w+) \.(c-[\w-]+)\.\2\{([^}]*)\}", helmet):
+            rules[m.group(1)][m.group(2)] = comp.decls(m.group(3))
+        for dev in DEVICES:
+            old = re.search(rf'data-sample="{dev}"[^>]*>(.*?)<!--/sample-->', before, re.S).group(1)
+            new = re.search(rf'data-sample="{dev}"[^>]*>(.*?)<!--/sample-->', after, re.S).group(1)
+            olds = [n for n in comp.parse(old) if any(c.startswith("c-") for c in comp.classes_of(n))]
+            news = [n for n in comp.parse(new) if any(c.startswith("c-") for c in comp.classes_of(n))]
+            if len(olds) != len(news):
+                warnings.append(f"{name}: the {dev} sample changed shape; only its styles are kept")
+            for o, n in zip(olds, news):
+                cls = next(c for c in comp.classes_of(n) if c.startswith("c-"))
+                was = dict(comp.decls(comp.attr(o, "style")))
+                added = [(p, v) for p, v in comp.decls(comp.attr(n, "style")) if was.get(p) != v]
+                if added and cls in rules[dev]:
+                    keep = [(p, v) for p, v in rules[dev][cls] if p not in {a for a, _ in added}]
+                    rules[dev][cls] = keep + added
+        for dev in DEVICES:
+            p = os.path.join(folder, f"{part}.{dev}.css")
+            if rules[dev]:
+                write(p, comp.css_text(rules[dev]))
+        warnings.append(f"{name}: component styles updated from its board")
 
 
 def variant(out, tokens, name, label):
@@ -280,7 +444,11 @@ def variant(out, tokens, name, label):
 
 
 if __name__ == "__main__":
-    if sys.argv[1] == "variant":
+    if sys.argv[1] == "link":
+        link()
+    elif sys.argv[1] == "components":
+        components(sys.argv[2])
+    elif sys.argv[1] == "variant":
         # variant <out project dir> <tokens.json> <name> <label>
         variant(*sys.argv[2:6])
     else:

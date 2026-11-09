@@ -1,0 +1,8 @@
+.c-pagination.c-pagination{display: flex; align-items: center; justify-content: center; gap: 8px; margin-top: 48px}
+.c-pagination__a1.c-pagination__a1{display: inline-flex; align-items: center; justify-content: center; min-width: 48px; min-height: 48px; border-radius: 4px; background: [[secondary]]; color: [[surface-white]]; font-weight: 700; text-decoration: none}
+.c-pagination__a2.c-pagination__a2{display: inline-flex; align-items: center; justify-content: center; min-width: 48px; min-height: 48px; border-radius: 4px; background: [[surface-white]]; color: [[secondary]]; font-weight: 400; text-decoration: none}
+.c-pagination__a3.c-pagination__a3{display: inline-flex; align-items: center; justify-content: center; min-width: 48px; min-height: 48px; border-radius: 4px; background: [[surface-white]]; color: [[secondary]]; font-weight: 400; text-decoration: none}
+.c-pagination__a4.c-pagination__a4{display: inline-flex; align-items: center; justify-content: center; min-width: 48px; min-height: 48px; border-radius: 4px; background: [[surface-white]]; color: [[secondary]]; font-weight: 400; text-decoration: none}
+.c-pagination__a5.c-pagination__a5{display: inline-flex; align-items: center; gap: 8px; min-height: 48px; padding: 0 16px; margin-left: 8px; border-radius: 4px; background: [[surface-white]]; color: [[secondary]]; font-weight: 700; text-decoration: none}
+.c-pagination__span1.c-pagination__span1{padding: 0 8px; color: [[text-muted]]}
+.c-pagination__a5-svg1.c-pagination__a5-svg1{flex: none}

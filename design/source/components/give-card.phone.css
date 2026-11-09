@@ -1,0 +1,10 @@
+.c-give-card.c-give-card{flex: 1; display: flex; flex-direction: column; gap: 16px; background: [[surface-white]]; border-radius: 6px; padding: 24px 16px}
+.c-give-card__div1.c-give-card__div1{margin-top: auto; padding-top: 8px}
+.c-give-card__dl1.c-give-card__dl1{margin: 0; display: flex; flex-direction: column; gap: 16px}
+.c-give-card__h31.c-give-card__h31{margin: 0; font-family: 'Outfit', system-ui, sans-serif; font-size: 24px; line-height: 1.2; color: [[secondary]]}
+.c-give-card__p1.c-give-card__p1{margin: 0}
+.c-give-card__span1.c-give-card__span1{width: 48px; height: 48px; border-radius: 999px; background: [[surface-sky]]; display: flex; align-items: center; justify-content: center}
+.c-give-card__dl1-div1-dd1.c-give-card__dl1-div1-dd1{margin: 0; font-weight: 700; color: [[secondary]]}
+.c-give-card__dl1-div1-dt1.c-give-card__dl1-div1-dt1{font-size: 15px; color: [[text-muted]]}
+.c-give-card__dl1-div2-dd1.c-give-card__dl1-div2-dd1{margin: 0; font-weight: 700; color: [[secondary]]}
+.c-give-card__dl1-div2-dt1.c-give-card__dl1-div2-dt1{font-size: 15px; color: [[text-muted]]}

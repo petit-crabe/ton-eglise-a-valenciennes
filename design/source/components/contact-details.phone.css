@@ -1,0 +1,20 @@
+.c-contact-details.c-contact-details{margin: 0; display: flex; flex-direction: column; gap: 16px}
+.c-contact-details__div1.c-contact-details__div1{display: flex; gap: 16px}
+.c-contact-details__div2.c-contact-details__div2{display: flex; gap: 16px}
+.c-contact-details__div3.c-contact-details__div3{display: flex; gap: 16px}
+.c-contact-details__div4.c-contact-details__div4{display: flex; gap: 16px}
+.c-contact-details__div1-svg1.c-contact-details__div1-svg1{flex: none; margin-top: 2px}
+.c-contact-details__div2-svg1.c-contact-details__div2-svg1{flex: none; margin-top: 2px}
+.c-contact-details__div3-svg1.c-contact-details__div3-svg1{flex: none; margin-top: 2px}
+.c-contact-details__div4-svg1.c-contact-details__div4-svg1{flex: none; margin-top: 2px}
+.c-contact-details__div1-div1-dd1.c-contact-details__div1-div1-dd1{margin: 0; font-weight: 700; color: [[secondary]]}
+.c-contact-details__div1-div1-dt1.c-contact-details__div1-div1-dt1{font-size: 15px; color: [[text-muted]]}
+.c-contact-details__div2-div1-dd1.c-contact-details__div2-div1-dd1{margin: 0; font-weight: 700; color: [[secondary]]}
+.c-contact-details__div2-div1-dt1.c-contact-details__div2-div1-dt1{font-size: 15px; color: [[text-muted]]}
+.c-contact-details__div3-div1-dd1.c-contact-details__div3-div1-dd1{margin: 0; font-weight: 700; color: [[secondary]]}
+.c-contact-details__div3-div1-dt1.c-contact-details__div3-div1-dt1{font-size: 15px; color: [[text-muted]]}
+.c-contact-details__div4-div1-dd1.c-contact-details__div4-div1-dd1{margin: 0; font-weight: 700; color: [[secondary]]}
+.c-contact-details__div4-div1-dt1.c-contact-details__div4-div1-dt1{font-size: 15px; color: [[text-muted]]}
+.c-contact-details__div1-div1-dd1-a1.c-contact-details__div1-div1-dd1-a1{display: inline-flex; align-items: center; min-height: 44px; color: [[secondary]]; text-underline-offset: 4px}
+.c-contact-details__div3-div1-dd1-a1.c-contact-details__div3-div1-dd1-a1{display: inline-flex; align-items: center; min-height: 44px; color: [[secondary]]; text-underline-offset: 4px; word-break: break-word}
+.c-contact-details__div4-div1-dd1-a1.c-contact-details__div4-div1-dd1-a1{display: inline-flex; align-items: center; min-height: 44px; color: [[secondary]]; text-underline-offset: 4px}

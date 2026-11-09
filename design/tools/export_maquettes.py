@@ -86,8 +86,8 @@ for base, (folder, slug, label) in PAGES.items():
                       lambda m: f'href="{target(m.group(1), bool(m.group(2)), folder)}{m.group(3) or ""}"', body)
         assert ".dc.html" not in body, base
         # the home hero fills the browser window, as on the real site
-        body = re.sub(r'(data-first-screen="true"[^>]*?min-height: )\d+px',
-                      lambda m: m.group(1) + f"calc(100svh - {64 if phone else 92}px)", body)
+        body = re.sub(r'<\w+\b[^>]*data-first-screen="true"[^>]*>',
+                      lambda m: re.sub(r"min-height: \d+px", f"min-height: calc(100svh - {64 if phone else 92}px)", m.group(0)), body)
         if phone:
             # the board's fixed canvas frame becomes a centred 390 px column
             body, n = re.subn(r'<div style="width: 390px; min-height: \d+px; ', '<div style="max-width: 390px; margin: 0 auto; ', body, count=1)

@@ -1,17 +1,17 @@
 
 
   <!-- Page banner: the congregation, yellow bar under the title -->
-  <section class="on-dark" style="position: relative; overflow: hidden; background: [[secondary]]">
-    <img src="/_blob/b273af9e48439e9be1d5f414b7ca3fba" alt="" aria-hidden="true" style="position: absolute; top: -32px; left: -32px; width: calc(100% + 64px); height: calc(100% + 64px); object-fit: cover; filter: blur(3px)">
-    <div aria-hidden="true" style="position: absolute; inset: 0; background: rgba(21, 39, 61, 0.74)"></div>
-    <div style="position: relative; max-width: 1200px; margin: 0 auto; padding: 64px 24px">
-      <nav aria-label="Fil d'Ariane" style="margin-bottom: 8px; font-size: 16px; color: [[surface-white]]">
-        <a href="Accueil-charte.dc.html" style="display: inline-flex; align-items: center; min-height: 44px; color: [[surface-white]]; text-underline-offset: 4px">Accueil</a>
-        <span aria-hidden="true" style="margin: 0 8px">›</span>
-        <span aria-current="page" style="font-weight: 700">Demande de prière</span>
+  <section class="on-dark c-page-banner">
+    <img class="c-page-banner__img1" src="/_blob/b273af9e48439e9be1d5f414b7ca3fba" alt="" aria-hidden="true">
+    <div class="c-page-banner__div1" aria-hidden="true"></div>
+    <div class="c-page-banner__div2">
+      <nav class="c-page-banner__div2-nav1" aria-label="Fil d'Ariane">
+        <a class="c-page-banner__div2-nav1-a1" href="Accueil-charte.dc.html">Accueil</a>
+        <span class="c-page-banner__div2-nav1-span1" aria-hidden="true">›</span>
+        <span class="c-page-banner__div2-nav1-span2" style="font-weight: 700" aria-current="page">Demande de prière</span>
       </nav>
-      <h1 style="margin: 0; font-family: 'Outfit', system-ui, sans-serif; font-size: 56px; line-height: 1.1; color: [[surface-white]]; letter-spacing: -0.02em">Demande de prière</h1>
-      <span aria-hidden="true" style="display: block; margin-top: 24px; width: 96px; height: 6px; border-radius: 2px; background: [[accent]]"></span>
+      <h1 class="c-page-banner__div2-h11">Demande de prière</h1>
+      <span class="c-page-banner__div2-span1" aria-hidden="true"></span>
     </div>
   </section>
 
@@ -19,7 +19,7 @@
   <section style="background: [[surface-white]]">
     <div style="max-width: 1200px; margin: 0 auto; padding: 96px 24px; display: flex; flex-direction: column; gap: 48px">
       <div style="max-width: 800px"><h2 style="margin: 0 0 24px; font-family: 'Outfit', system-ui, sans-serif; font-size: 44px; line-height: 1.1; color: [[secondary]]; letter-spacing: -0.01em">Faites connaître vos besoins par des prières et des supplications…</h2><p style="margin: 0 0 0">Effectuez votre demande de prière via le formulaire ci-dessous et <strong>nous prierons pour vous</strong>.</p></div>
-      <section aria-labelledby="form-title" style="background: [[surface-sand]]; border-radius: 6px; padding: 48px"><h2 id="form-title" style="margin: 0 0 8px; font-family: 'Outfit', system-ui, sans-serif; font-size: 28px; line-height: 1.2; color: [[secondary]]">Votre demande</h2><p style="margin: 0 0 24px; color: [[text-muted]]">Tous les champs sont obligatoires.</p><form action="#" style="display: flex; flex-direction: column; gap: 24px"><div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; align-items: end"><div style="display: flex; flex-direction: column; gap: 8px"><label for="name" style="font-weight: 700; color: [[secondary]]">Votre prénom et votre nom</label><input id="name" name="name" type="text" autocomplete="name" required style="width: 100%; box-sizing: border-box; border: 1px solid [[border-field]]; border-radius: 4px; background: [[surface-white]]; color: [[text]]; font-family: inherit; font-size: 17px; padding: 12px 16px; min-height: 48px"></div><div style="display: flex; flex-direction: column; gap: 8px"><label for="email" style="font-weight: 700; color: [[secondary]]">Votre adresse e-mail</label><input id="email" name="email" type="email" autocomplete="email" required style="width: 100%; box-sizing: border-box; border: 1px solid [[border-field]]; border-radius: 4px; background: [[surface-white]]; color: [[text]]; font-family: inherit; font-size: 17px; padding: 12px 16px; min-height: 48px"></div></div><div style="display: flex; flex-direction: column; gap: 8px"><label for="message" style="font-weight: 700; color: [[secondary]]">Votre demande de prière</label><textarea id="message" name="message" rows="7" required style="width: 100%; box-sizing: border-box; border: 1px solid [[border-field]]; border-radius: 4px; background: [[surface-white]]; color: [[text]]; font-family: inherit; font-size: 17px; padding: 12px 16px; resize: vertical"></textarea></div><p style="margin: 0; font-size: 16px">En remplissant ce formulaire, vous acceptez notre <a href="Donnees-charte.dc.html" style="text-underline-offset: 4px">politique de confidentialité</a>.</p><div><button type="submit" style="display: inline-flex; width: auto; align-items: center; justify-content: center; gap: 8px; min-height: 52px; padding: 0 24px; border: 2px solid [[primary]]; border-radius: 4px; background: [[primary]]; color: [[surface-white]]; font-family: inherit; font-size: 18px; font-weight: 700; cursor: pointer">Envoyer ma demande</button></div></form></section>
+      <section class="c-form-panel" aria-labelledby="form-title"><h2 class="c-form-panel__h21" id="form-title">Votre demande</h2><p class="c-form-panel__p1">Tous les champs sont obligatoires.</p><form class="c-form-panel__form1" action="#"><div class="c-form-panel__form1-div1"><div class="c-field"><label class="c-field__label1" for="name">Votre prénom et votre nom</label><input class="c-field__input1" id="name" name="name" type="text" autocomplete="name" required></div><div class="c-field"><label class="c-field__label1" for="email">Votre adresse e-mail</label><input class="c-field__input1" id="email" name="email" type="email" autocomplete="email" required></div></div><div class="c-field"><label class="c-field__label1" for="message">Votre demande de prière</label><textarea class="c-field__textarea1" id="message" name="message" rows="7" required></textarea></div><p class="c-form-panel__form1-p1">En remplissant ce formulaire, vous acceptez notre <a class="c-form-panel__form1-p1-a1" href="Donnees-charte.dc.html">politique de confidentialité</a>.</p><div><button class="c-button" style="display: inline-flex; background: [[primary]]; color: [[surface-white]]" type="submit">Envoyer ma demande</button></div></form></section>
     </div>
   </section>
 
