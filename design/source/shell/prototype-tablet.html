@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<title>@@TITLE@@</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@600;700&amp;family=Source+Sans+3:ital,wght@0,400;0,700;1,400&amp;display=swap">
+<style>
+body{margin:0;background:[[surface-white]]}
+a{color:[[primary]]}a:hover{color:[[primary-hover]]}
+a:focus-visible,button:focus-visible{outline:3px solid [[secondary]];outline-offset:3px;border-radius:4px}
+.on-dark a:focus-visible,.on-dark button:focus-visible{outline-color:[[surface-white]]}
+summary{list-style:none;cursor:pointer}summary::-webkit-details-marker{display:none}details[open] .chevron{transform:rotate(180deg)}
+</style>
+</helmet>
+<div style="position: relative; width: @@W@@px; height: @@H@@px; overflow: hidden; background: [[surface-sand]]">
+  <div ref="{{ setVp }}" style="width: 100%; height: 100%; overflow-x: hidden; overflow-y: auto; font-family: 'Source Sans 3', system-ui, sans-serif; color: [[text]]; font-size: 18px; line-height: 1.6; background: [[surface-sand]]">
+  <header style="background: [[surface-sand]]; padding: 8px 24px; display: flex; align-items: center; justify-content: space-between; gap: 16px">
+    <a href="#" onClick="{{ goHome }}" aria-label="Accueil" style="display: block; line-height: 0"><img src="/_blob/513278200da79a2601d13dcd3ae8d93d" alt="Église Évangélique de Valenciennes" style="height: 52px; width: auto"></a>
+    <button type="button" aria-label="Ouvrir le menu" aria-expanded="{{ menuExpanded }}" onClick="{{ toggleMenu }}" style="display: inline-flex; align-items: center; gap: 8px; min-height: 48px; padding: 0 16px; border: 0; border-radius: 4px; background: [[secondary]]; color: [[surface-white]]; font-family: inherit; font-size: 16px; font-weight: 700; cursor: pointer"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>Menu</button>
+  </header>
+  @@PAGES@@
+
+  </div>
+  <sc-if value="{{ menuOpen }}" hint-placeholder-val="{{ false }}">
+    <div class="on-dark" role="dialog" aria-label="Menu" style="position: absolute; inset: 0; z-index: 40; overflow-y: auto; box-sizing: border-box; padding: 8px 24px 32px; background: [[secondary]]; color: [[surface-white]]">
+      <div style="display: flex; align-items: center; justify-content: space-between; gap: 16px; margin-bottom: 24px">
+        <img src="/_blob/dd5d8b616197d3ba424b25a1bc819367" alt="Église Évangélique de Valenciennes" style="height: 44px; width: auto">
+        <button type="button" aria-label="Fermer le menu" onClick="{{ toggleMenu }}" style="display: inline-flex; align-items: center; gap: 8px; min-height: 48px; padding: 0 16px; border: 1px solid rgba(255, 255, 255, 0.4); border-radius: 4px; background: transparent; color: [[surface-white]]; font-family: inherit; font-size: 16px; font-weight: 700; cursor: pointer"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><line x1="6" y1="6" x2="18" y2="18"></line><line x1="18" y1="6" x2="6" y2="18"></line></svg>Fermer</button>
+      </div>
+      <nav aria-label="Menu principal" style="display: flex; flex-direction: column; gap: 4px; max-width: 560px">
+        <a href="#" onClick="{{ goHome }}" style="display: flex; align-items: center; min-height: 52px; color: [[surface-white]]; text-decoration: none; font-size: 20px; font-weight: 700">Accueil</a>
+        <p style="margin: 8px 0 0; font-size: 20px; font-weight: 700; color: [[surface-white]]">L'église</p>
+        <a href="#" onClick="{{ goQui }}" style="display: flex; align-items: center; min-height: 48px; padding-left: 16px; border-left: 2px solid rgba(255, 255, 255, 0.3); color: [[surface-white]]; text-decoration: none; font-size: 18px">Qui sommes-nous ?</a>
+        <a href="#" onClick="{{ goEquipe }}" style="display: flex; align-items: center; min-height: 48px; padding-left: 16px; border-left: 2px solid rgba(255, 255, 255, 0.3); color: [[surface-white]]; text-decoration: none; font-size: 18px">L'équipe</a>
+        <a href="#" onClick="{{ goHistoire }}" style="display: flex; align-items: center; min-height: 48px; padding-left: 16px; border-left: 2px solid rgba(255, 255, 255, 0.3); color: [[surface-white]]; text-decoration: none; font-size: 18px">Notre histoire</a>
+        <a href="#" onClick="{{ goEvenements }}" style="display: flex; align-items: center; min-height: 52px; color: [[surface-white]]; text-decoration: none; font-size: 20px; font-weight: 700; margin-top: 8px">Évènements</a>
+        <a href="#" onClick="{{ goPredications }}" style="display: flex; align-items: center; min-height: 52px; color: [[surface-white]]; text-decoration: none; font-size: 20px; font-weight: 700">Prédications</a>
+        <a href="#" onClick="{{ goContact }}" style="display: flex; align-items: center; min-height: 52px; color: [[surface-white]]; text-decoration: none; font-size: 20px; font-weight: 700">Nous contacter</a>
+        <a href="#" onClick="{{ goDon }}" style="display: flex; align-items: center; justify-content: center; min-height: 52px; margin-top: 16px; border-radius: 4px; background: [[primary]]; color: [[surface-white]]; font-weight: 700; text-decoration: none">Faire un don</a>
+      </nav>
+    </div>
+  </sc-if>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"sermonBlock":{"editor":"enum","options":["La dernière prédication","En direct (pendant la diffusion YouTube)"],"default":"La dernière prédication","section":"États des pages"},"eventsBlock":{"editor":"enum","options":["Des évènements à venir","Aucun évènement à venir"],"default":"Des évènements à venir","section":"États des pages"},"$preview":{"width":@@W@@,"height":@@H@@}}'>
+const VALUES = [{"title": "La Bible, Parole de Dieu", "text": "Dans la Bible, toute entière, comme la Parole inspirée et infaillible de Dieu."}, {"title": "Un seul Dieu, créateur", "text": "Dans le Dieu unique et Éternel, créateur de l'univers et de l'homme."}, {"title": "Jésus-Christ", "text": "En Jésus-Christ, dans sa naissance miraculeuse, dans sa vie sans péché, dans ses miracles, dans sa mort volontaire pour tous les hommes, dans sa résurrection corporelle, dans son ascension à la droite du Père, dans son retour prochain et dans sa divinité."}, {"title": "Le salut par la foi", "text": "Dans la nature pécheresse de l'homme, mais l'accès au Salut et au pardon, en Jésus seul, et par la foi."}, {"title": "La nouvelle naissance", "text": "Dans la nouvelle naissance opérée par le Saint-Esprit : elle conduit les croyants dans un amour plus grand pour Dieu, un attachement à la Bible, et à mener une vie digne de Jésus-Christ."}, {"title": "La guérison divine", "text": "Dans la guérison divine, offerte à travers l'œuvre de Christ à la Croix."}, {"title": "Le baptême et les dons du Saint-Esprit", "text": "Dans le baptême et les dons du Saint-Esprit (la Bible, livre des Actes des Apôtres, chapitre 2, verset 4), donnés aux croyants qui le demandent, dans le but de servir efficacement Dieu et de témoigner de son nom dans notre monde."}, {"title": "L'Église", "text": "Dans l'Église de Jésus-Christ, non comme un bâtiment ou une institution religieuse, mais comme le rassemblement des croyants autour de leur foi et de leur attachement à Jésus."}, {"title": "Le baptême et la Sainte Cène", "text": "Dans la pratique de deux ordonnances chrétiennes : le baptême par immersion des adultes, signe public d'une conversion véritable et d'un engagement envers Jésus ; la Sainte Cène, ou repas du Seigneur, par lequel le croyant commémore la mort de Jésus-Christ, sa victoire absolue sur la mort et son retour prochain."}];
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.state = { page: 'home', menuOpen: false, dropOpen: false, openValue: 0 };
+  }
+  renderVals() {
+    const s = this.state;
+    const live = (this.props.sermonBlock ?? 'La dernière prédication') !== 'La dernière prédication';
+    const hasEvents = (this.props.eventsBlock ?? 'Des évènements à venir') === 'Des évènements à venir';
+    const go = (page) => (e) => {
+      if (e && e.preventDefault) e.preventDefault();
+      this.setState({ page: page, menuOpen: false, dropOpen: false });
+      if (this.vp) this.vp.scrollTop = 0;
+    };
+    const church = ['qui', 'equipe', 'histoire'].indexOf(s.page) >= 0;
+    const on = (pages, active, idle) => pages.indexOf(s.page) >= 0 ? active : idle;
+    const sect = (pages) => ({ bg: on(pages, '[[secondary]]', 'transparent'), color: on(pages, '[[surface-white]]', '[[secondary]]'), weight: on(pages, '700', '400') });
+    const ev = sect(['evenements', 'evenement']), pr = sect(['predications', 'predication']), ct = sect(['contact']);
+    const values = VALUES.map((v, i) => ({
+      n: i + 1,
+      title: v.title,
+      text: v.text,
+      open: s.openValue === i,
+      expanded: s.openValue === i ? 'true' : 'false',
+      rot: s.openValue === i ? 'rotate(180deg)' : 'none',
+      toggle: () => this.setState({ openValue: s.openValue === i ? -1 : i })
+    }));
+    return {
+      hasEvents: hasEvents, noEvents: !hasEvents, live: live, notLive: !live,
+      isHome: s.page === 'home',
+      isQui: s.page === 'qui',
+      isEquipe: s.page === 'equipe',
+      isHistoire: s.page === 'histoire',
+      isEvenements: s.page === 'evenements',
+      isEvenement: s.page === 'evenement',
+      isPredications: s.page === 'predications',
+      isPredication: s.page === 'predication',
+      isContact: s.page === 'contact',
+      isDon: s.page === 'don',
+      isEntretien: s.page === 'entretien',
+      isPriere: s.page === 'priere',
+      isServir: s.page === 'servir',
+      isDonnees: s.page === 'donnees',
+      isConditions: s.page === 'conditions',
+      isMentions: s.page === 'mentions',
+      goHome: go('home'),
+      goQui: go('qui'),
+      goEquipe: go('equipe'),
+      goHistoire: go('histoire'),
+      goEvenements: go('evenements'),
+      goEvenement: go('evenement'),
+      goPredications: go('predications'),
+      goPredication: go('predication'),
+      goContact: go('contact'),
+      goDon: go('don'),
+      goEntretien: go('entretien'),
+      goPriere: go('priere'),
+      goServir: go('servir'),
+      goDonnees: go('donnees'),
+      goConditions: go('conditions'),
+      goMentions: go('mentions'),
+      menuOpen: s.menuOpen,
+      menuExpanded: s.menuOpen ? 'true' : 'false',
+      toggleMenu: () => this.setState({ menuOpen: !s.menuOpen }),
+      dropOpen: s.dropOpen,
+      dropExpanded: s.dropOpen ? 'true' : 'false',
+      dropRot: s.dropOpen ? 'rotate(180deg)' : 'none',
+      toggleDrop: () => this.setState({ dropOpen: !s.dropOpen }),
+      homeBg: on(['home'], '[[secondary]]', 'transparent'),
+      homeColor: on(['home'], '[[surface-white]]', '[[secondary]]'),
+      homeWeight: on(['home'], '700', '400'),
+      evBg: ev.bg, evColor: ev.color, evWeight: ev.weight,
+      prBg: pr.bg, prColor: pr.color, prWeight: pr.weight,
+      ctBg: ct.bg, ctColor: ct.color, ctWeight: ct.weight,
+      donBg: on(['don'], '[[secondary]]', '[[primary]]'),
+      noSubmit: (e) => { if (e && e.preventDefault) e.preventDefault(); },
+      churchBg: church ? '[[secondary]]' : 'transparent',
+      churchColor: church ? '[[surface-white]]' : '[[secondary]]',
+      churchWeight: church ? '700' : '400',
+      quiBg: s.page === 'qui' ? '[[surface-sand]]' : 'transparent',
+      equipeBg: s.page === 'equipe' ? '[[surface-sand]]' : 'transparent',
+      histoireBg: s.page === 'histoire' ? '[[surface-sand]]' : 'transparent',
+      setVp: (el) => { this.vp = el; },
+      values: values
+    };
+  }
+}
+</script>
+</body>
+</html>

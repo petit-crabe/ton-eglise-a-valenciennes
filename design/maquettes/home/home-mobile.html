@@ -1,6 +1,6 @@
 <!doctype html>
 <!-- Validated home page mockup (phone, 390 px), new charter, exported from the Claude Design canvas
-     https://claude.ai/artifact/UbLoYdhe5z2A3no2cDeo5u on 2026-10-29.
+     https://claude.ai/artifact/UbLoYdhe5z2A3no2cDeo5u on 2026-11-06.
      Values come from ../../tokens.json; see ../../DESIGN.md for the rules. -->
 <html lang="fr">
 <head>
@@ -13,23 +13,24 @@
 <style>
 body{margin:0;background:#f7f3ee}
 a{color:#3a64aa}a:hover{color:#2b4d86}
-a:focus-visible,button:focus-visible{outline:3px solid #13243b;outline-offset:3px;border-radius:4px}
+a:focus-visible,button:focus-visible,summary:focus-visible{outline:3px solid #13243b;outline-offset:3px;border-radius:4px}
 .on-dark a:focus-visible,.on-dark button:focus-visible{outline-color:#ffffff}
+summary{list-style:none;cursor:pointer}summary::-webkit-details-marker{display:none}details[open] .chevron{transform:rotate(180deg)}
 </style>
 </head>
 <body>
 <div style="max-width: 390px; margin: 0 auto; box-sizing: border-box; display: flex; flex-direction: column; font-family: 'Source Sans 3', system-ui, sans-serif; color: #2d3b4e; font-size: 17px; line-height: 1.6; background: #f7f3ee">
 
-  <header style="padding: 8px 16px; display: flex; align-items: center; justify-content: space-between; gap: 16px">
+  <header style="background: #f7f3ee; padding: 8px 16px; display: flex; align-items: center; justify-content: space-between; gap: 16px">
     <a href="home-mobile.html" aria-label="Accueil" style="display: block; line-height: 0"><img src="images/logo-color.png" alt="Église Évangélique de Valenciennes" style="height: 44px; width: auto"></a>
     <button type="button" aria-label="Ouvrir le menu" style="display: inline-flex; align-items: center; gap: 8px; min-height: 48px; padding: 0 16px; border: 0; border-radius: 4px; background: #13243b; color: #ffffff; font-family: inherit; font-size: 16px; font-weight: 700"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>Menu</button>
   </header>
 
   <!-- 1. Hero: contact cards become 80 px rows -->
-  <section class="on-dark" style="position: relative; overflow: hidden; background: #13243b">
+  <section data-first-screen="true" class="on-dark" style="position: relative; overflow: hidden; background: #13243b; display: flex; flex-direction: column; justify-content: center; min-height: calc(100svh - 64px)">
     <img src="images/congregation.jpg" alt="" aria-hidden="true" style="position: absolute; top: -32px; left: -32px; width: calc(100% + 64px); height: calc(100% + 64px); object-fit: cover; filter: blur(3px)">
     <div aria-hidden="true" style="position: absolute; inset: 0; background: rgba(19, 36, 59, 0.74)"></div>
-    <div style="position: relative; padding: 48px 16px">
+    <div style="position: relative; padding: 48px 16px; width: 100%; box-sizing: border-box">
       <h1 style="margin: 0 0 24px; font-family: 'Outfit', system-ui, sans-serif; font-size: 42px; line-height: 1.1; color: #ffffff; letter-spacing: -0.02em">Une église pour moi, pour <span style="box-shadow: inset 0 -0.22em 0 #ffaf00">nous</span>, pour toi.</h1>
       <div style="display: flex; flex-direction: column; margin-bottom: 24px; font-size: 16px">
         <span style="display: inline-flex; align-items: center; gap: 8px; min-height: 44px; color: #ffffff; font-weight: 700"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>Dimanche 10h00 · Mardi 19h00</span>
@@ -146,12 +147,12 @@ a:focus-visible,button:focus-visible{outline:3px solid #13243b;outline-offset:3p
     <div style="display: flex; align-items: center; justify-content: space-between; gap: 16px">
       <img src="images/logo-white.png" alt="Église Évangélique de Valenciennes" style="width: 152px; height: auto">
       <div style="display: flex; gap: 8px">
-        <a href="#" aria-label="Facebook" style="display: inline-flex; align-items: center; justify-content: center; width: 44px; height: 44px; box-sizing: border-box; border: 1px solid rgba(255, 255, 255, 0.4); border-radius: 4px; color: #ffffff"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg></a>
-        <a href="#" aria-label="Instagram" style="display: inline-flex; align-items: center; justify-content: center; width: 44px; height: 44px; box-sizing: border-box; border: 1px solid rgba(255, 255, 255, 0.4); border-radius: 4px; color: #ffffff"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5"></rect><circle cx="12" cy="12" r="4"></circle><line x1="17.5" y1="6.5" x2="17.5" y2="6.5"></line></svg></a>
-        <a href="#" aria-label="YouTube" style="display: inline-flex; align-items: center; justify-content: center; width: 44px; height: 44px; box-sizing: border-box; border: 1px solid rgba(255, 255, 255, 0.4); border-radius: 4px; color: #ffffff"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="5" width="20" height="14" rx="4"></rect><polygon points="10 9 15 12 10 15"></polygon></svg></a>
+        <a href="https://www.facebook.com/eglise.evangelique.add.valenciennes/" aria-label="Facebook" style="display: inline-flex; align-items: center; justify-content: center; width: 44px; height: 44px; box-sizing: border-box; border: 1px solid rgba(255, 255, 255, 0.4); border-radius: 4px; color: #ffffff"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg></a>
+        <a href="https://www.instagram.com/tonegliseavalenciennes/" aria-label="Instagram" style="display: inline-flex; align-items: center; justify-content: center; width: 44px; height: 44px; box-sizing: border-box; border: 1px solid rgba(255, 255, 255, 0.4); border-radius: 4px; color: #ffffff"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5"></rect><circle cx="12" cy="12" r="4"></circle><line x1="17.5" y1="6.5" x2="17.5" y2="6.5"></line></svg></a>
+        <a href="https://www.youtube.com/channel/UCpRkeZ2syFznY5GiLrfWwrw" aria-label="YouTube" style="display: inline-flex; align-items: center; justify-content: center; width: 44px; height: 44px; box-sizing: border-box; border: 1px solid rgba(255, 255, 255, 0.4); border-radius: 4px; color: #ffffff"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="5" width="20" height="14" rx="4"></rect><polygon points="10 9 15 12 10 15"></polygon></svg></a>
       </div>
     </div>
-    <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; font-size: 16px">
+    <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px">
       <div>
         <h2 style="margin: 0 0 8px; font-family: 'Outfit', system-ui, sans-serif; font-size: 18px; color: #ffffff">Notre église</h2>
         <ul style="list-style: none; margin: 0; padding: 0">
@@ -173,7 +174,7 @@ a:focus-visible,button:focus-visible{outline:3px solid #13243b;outline-offset:3p
         </ul>
       </div>
     </div>
-    <div style="padding-top: 24px; border-top: 1px solid rgba(255, 255, 255, 0.2); font-size: 16px">
+    <div style="padding-top: 24px; border-top: 1px solid rgba(255, 255, 255, 0.2)">
       <p style="margin: 0 0 8px">© Église évangélique de Valenciennes. Membre des Assemblées de Dieu et du CNEF.</p>
       <div style="display: flex; flex-wrap: wrap; column-gap: 24px">
         <a href="../legal/privacy-mobile.html" style="display: inline-flex; align-items: center; min-height: 44px; color: #ffffff">Protection des données</a>
