@@ -7,7 +7,7 @@ Working canvas (drafts, comments, history): https://claude.ai/artifact/UbLoYdhe5
 ## Principles
 
 - **Members first, visitors second.** The site speaks first to church members (upcoming events, the Sunday live stream, sermons), then to visitors passing through the area who look for a place of worship (students, holidaymakers). People seeking faith are welcome, but the site does not address them first. When a block does not serve one of these two audiences, it goes.
-- **Keep the brand, modernise the rest.** The logo and its two blues stay; typography, spacing and components are new.
+- **Keep the brand, modernise the rest.** The logo stays and its colours set the palette (since 2026-11-09, those of the 90-year jubilee logo); typography, spacing and components are new.
 - **Warm and communal, not childish.** Real photographs of the congregation, soft surfaces, nearly square corners.
 - **Modernise, don't redesign.** Pages, menus and section order follow the live site; no section is invented. Bigger changes are proposed as options and only kept once the owner chooses them (see [Site structure](#site-structure)).
 - **Short pages.** A page should read in three or four phone screens; long content is split by theme or folded (accordion) rather than stacked.
@@ -17,26 +17,30 @@ Working canvas (drafts, comments, history): https://claude.ai/artifact/UbLoYdhe5
 
 ## Colour
 
+The palette comes from the 90-year jubilee logo (`logo/Logo-TEAV-new.jpg`): royal blue, night blue and gold. It became the default on 2026-11-09, replacing the first blues, the sun yellow and the mint.
+
 | Role | Token | Value | Use |
 |---|---|---|---|
-| Primary | `color.primary` | `#3a64aa` | Every button, links, icons, the first contact card. |
-| Secondary | `color.secondary` | `#13243b` | Headings, hero overlay, footer, date badges, current menu item. |
-| Accent | `color.accent` | `#ffaf00` | A small signature on every page: underline of the hero keyword (home), bar under the banner title (inner pages), every play button, the dot before "Vous êtes ici", quote marks, the last timeline dot. Nothing else. |
+| Primary | `color.primary` | `#0b49b0` | Royal blue. Every button, links, icons, the first contact card. |
+| Secondary | `color.secondary` | `#15273d` | Night blue. Headings, hero overlay, footer, date badges, current menu item. |
+| Accent | `color.accent` | `#d9a52b` | Gold. A small signature on every page: underline of the hero keyword (home), bar under the banner title (inner pages), every play button, the dot before "Vous êtes ici", quote marks, the last timeline dot. Nothing else. |
 | Signal | `color.signal` | `#ff6b4a` | Coral. Only what is happening now or has just been added: the "En direct" tag of the Sunday live stream, the "Nouveau" tag on an event. |
 | Text | `color.text` / `color.text-muted` | `#2d3b4e` / `#556275` | Body text / dates, labels, captions. |
-| Surfaces | `color.surface-*` | white, sand `#f7f3ee`, sky `#e9f3fb`, sun `#fff1cc`, mint `#e2f5ec` | Section backgrounds: white, sky, mint. Panel and card backgrounds: sand, sky, sun, mint, white. Sand is never a section background. |
-| Field outline | `color.border-field` | `#768191` | The 1 px outline of every form field and filter menu: 3.5:1 or more on every surface, so everyone sees where to type (WCAG 1.4.11 asks 3:1). |
+| Surfaces | `color.surface-*` | white, sand (ivory) `#f8f3e8`, sky `#e8eefa`, sun (light gold) `#f8e7b0`, gold (pale gold) `#fbf3dc` | Section backgrounds: white, sky, pale gold. Panel and card backgrounds: ivory, sky, light gold, pale gold, white. Ivory is never a section background. |
+| Field outline | `color.border-field` | `#768191` | The 1 px outline of every form field and filter menu: 3.2:1 or more on every surface, so everyone sees where to type (WCAG 1.4.11 asks 3:1). |
+
+Every pairing used on the site was measured: body text 9:1 or more and muted text 5:1 or more on every surface, white on royal blue 8.1:1, night blue on gold 6.7:1 and on coral 5.4:1.
 
 Rules:
 
-- **All buttons are blue.** Filled `color.primary` with white text for the main action; white with a 2 px `color.primary` border and blue text for a secondary action. There is no yellow, grey or dark button.
-- **Yellow is never text and never a button.** It has no meaning; it only adds warmth.
-- **Every page shows some yellow**, at least the bar under the banner title. The menu never uses yellow: the current item stays night blue.
-- **Yellow warms, coral signals.** Yellow means nothing; coral always means "now" or "new". Coral is always a filled tag with night-blue text on it (5.5:1), never text (2.8:1 on white), never a button, never a section background. It stays rare, once or twice per page at most, and never sits in the same spot as yellow: on the live sermon the tag goes above the title, away from the yellow play button.
-- **Sand is for blocks, never for sections.** A full sand section looked dull where the site wants joy. Sand stays for cards and panels (form panel, practical info panel, latest sermon card, table of contents, the fourth hero card) and for the header band, which keeps it.
-- **Every page shows the soft surfaces.** Sections alternate white, sky and mint so that two neighbours never share a background, on every page with no exception.
-- **Sky and mint are never neighbours.** A white section always sits between them. Mint is a section background ("Chaque semaine", "Dans la rubrique", "Une autre demande ?" on the contact page) or a panel background (Bible verse, "Réduction d'impôt"). Sections are never separated by a grey line on the same background; hairlines (`color.border`, or `color.border-tint` on sky) only split rows inside a section.
-- A page may end on white, sky or mint before the night-blue footer; there is no closing block.
+- **All buttons are royal blue.** Filled `color.primary` with white text for the main action; white with a 2 px `color.primary` border and blue text for a secondary action. There is no gold, grey or dark button.
+- **Gold is never text and never a button.** It has no meaning; it only adds warmth.
+- **Every page shows some gold**, at least the bar under the banner title. The menu never uses gold: the current item stays night blue.
+- **Gold warms, coral signals.** Gold means nothing; coral always means "now" or "new". Coral is always a filled tag with night-blue text on it, never text (2.8:1 on white), never a button, never a section background. It stays rare, once or twice per page at most, and never sits in the same spot as gold: on the live sermon the tag goes above the title, away from the gold play button.
+- **Ivory is for blocks, never for sections.** A full ivory section looks dull where the site wants joy. Ivory stays for cards and panels (form panel, practical info panel, latest sermon card, table of contents, the fourth hero card) and for the header band.
+- **Every page shows the soft surfaces.** Sections alternate white, sky and pale gold so that two neighbours never share a background, on every page with no exception.
+- **Sky and pale gold are never neighbours.** A white section always sits between them. Pale gold is a section background ("Chaque semaine", "Dans la rubrique", "Une autre demande ?" on the contact page) or a panel background (Bible verse, "Réduction d'impôt"). Sections are never separated by a grey line on the same background; hairlines (`color.border`, or `color.border-tint` on sky) only split rows inside a section.
+- A page may end on white, sky or pale gold before the night-blue footer; there is no closing block.
 - No colour outside this charter. If a new need appears, add a token first. Departments get no colour of their own until their content exists; this will be decided then.
 
 ## Typography
@@ -119,12 +123,12 @@ The content and the header share the same side padding, so left edges line up fr
 | Form field | Bold label always visible above the field; 48 px high, 1 px `color.border-field` outline, 4 px corners, 17 px text; the message box is 6–7 rows and can be resized. The form sits in a sand panel (48 px padding, 24 px × 16 px on a phone); the submit button is primary, full width on a phone. Optional fields say "(facultatif)" in grey after the label; everything else is required. A date field can be typed (its format, "(jj/mm/aaaa)", in grey after the label; the browser checks it and the form refuses to send without it) or picked in a calendar (44 px sky button with a calendar icon). | Contact form, footer forms. |
 | Choice list | Radio buttons or checkboxes, 22 px, one per 44 px row, primary accent; grouped in a `fieldset` with a bold legend. Long lists are split into sub-groups with a small uppercase grey legend and a key line above; 4 columns on a computer, 1 on a phone. Nothing is pre-checked. | "Servir à l'église" (attendance, serving teams). |
 | Full-width form page | Heading (h2) and one or two paragraphs (max 800 px), then the form panel across the whole container; on a computer short fields go two per row (name and e-mail always together). Same order on a phone, one field per row. | Demande d'entretien, Demande de prière, Servir à l'église. |
-| Side panel | Mint, 6 px corners, 48 px padding (24 px × 16 px on a phone); small heading (h3), text, and an optional key line in bold on a white inset (4 px corners). Beside the text on a computer (7/5 columns), under it on a phone. No oversized figures. | Donation page ("Réduction d'impôt"), in the white section; "Comment faire un don ?" below it is sky. |
+| Side panel | Pale gold, 6 px corners, 48 px padding (24 px × 16 px on a phone); small heading (h3), text, and an optional key line in bold on a white inset (4 px corners). Beside the text on a computer (7/5 columns), under it on a phone. No oversized figures. | Donation page ("Réduction d'impôt"), in the white section; "Comment faire un don ?" below it is sky. |
 | Signal tag | Coral fill, 4 px corners, 4 × 12 px padding, 15 px bold uppercase night-blue label; "En direct" adds a 10 px night-blue dot before the label. | "En direct" above the title of the live sermon; "Nouveau" on a recently added event card, above its title. |
 | Way-to-give card | White, 6 px corners, 48 px padding (24 px × 16 px phone); icon in a 48 px sky circle, h3, then either a short text and a primary button (download) or a definition list. Two per row on a computer. | Donation page ("Par virement", "Par chèque"). |
 | Content card | Sand, 6 px corners; image on one side or on top, text block with 48 px padding. | Latest sermon, in a white section. |
 | Event card | White; 16:10 image slot (placeholder until a real image exists, in the soft surface that stands out from its section: sand on sky, sky on white or sand), night-blue date badge overlapping the image, title, time and place, short text, "En savoir plus". On the events page (computer) the image sits on the left (400 px) with the badge in its top-left corner. On a white section the card gets a 1 px `color.border` outline. | Home page, events page ("Les prochains évènements" on white). |
-| Weekly meeting card | Sky, or white on a mint section; 32 px padding (16 px phone); night-blue square with the short day and the time, then the meeting name (h3), "Jour à HHhMM" in bold and the address as a link. | "Chaque semaine". |
+| Weekly meeting card | Sky, or white on a pale gold section; 32 px padding (16 px phone); night-blue square with the short day and the time, then the meeting name (h3), "Jour à HHhMM" in bold and the address as a link. | "Chaque semaine". |
 | Month heading | Muted h3 in the heading font with a 1 px line under it; events of that month follow. | Events list. |
 | Practical info panel | Sand, 6 px corners; a definition list (Date, Heure, Lieu), each with a primary icon, muted label and bold value; "Voir le plan" under the place. On a computer it sits in a 360 px column beside the text; on a phone right under the image. | Single event; on the single sermon it lists Date, Orateur, Passage biblique and Série with "Toute la série". |
 | Share buttons | Secondary buttons, full width of the panel: "Partager sur Facebook", "Partager sur WhatsApp". | Single event, single sermon. |
@@ -143,7 +147,7 @@ The content and the header share the same side padding, so left edges line up fr
 | Table of contents | Legal and other long text pages: on a computer a sand panel (6 px corners, 24 px padding) in a 300 px column, sticky at the top while reading, small uppercase "Sommaire" label and one link per numbered section (36 px rows, the one place below 44 px, mouse use only); text column max 760 px. On a phone a closed sand `details` "Sommaire" (52 px) above the text, 44 px links. | Protection des données, Conditions générales, Mentions légales. |
 | Data table | Inside a bordered card (6 px corners): sand header with the h3 and a small white category tag, then a full-width table with a grey header row and hairline rows (8 × 12 px cells, 16 px text, codes in monospace). | Cookie list ("Cookies placés"). |
 | To-complete marker | Text the church must supply is written in square brackets on a sun background: `[à compléter]`. Never fill it with invented content. | Mentions légales, cookie list notice. |
-| Section links | "Dans la rubrique « … »" block before the footer, on a mint section: one white tile per page of the section; the current page is a night-blue tile marked "Vous êtes ici" after a 10 px accent dot. | Every page of a menu section (the three "L'église" pages). |
+| Section links | "Dans la rubrique « … »" block before the footer, on a pale gold section: one white tile per page of the section; the current page is a night-blue tile marked "Vous êtes ici" after a 10 px accent dot. | Every page of a menu section (the three "L'église" pages). |
 | Footer | Night blue. Computer: logo, address and e-mail, then "Notre église", "Aller plus loin", "Nous suivre"; a bottom line with ©, the three legal links and "Réalisé par Florian Desmet". Phone (compact): logo with the three social links as 44 px icon buttons (each with an `aria-label`), the two link lists side by side, then ©, the legal links on one wrapping line and the credit. Social links go to the church's accounts (Facebook `eglise.evangelique.add.valenciennes`, Instagram `tonegliseavalenciennes`, the YouTube channel); "Assemblées de Dieu" and "CNEF" to their sites. | Every page. |
 
 Links the real site builds, left empty (`href="#"`) in the mockups on purpose: the share buttons (Facebook and WhatsApp share addresses of the page), "Voir le plan" (Google Maps search of the event's address), and the sermon page numbers. The "Gérer mes choix de cookies" button opens the consent banner of the real site. Every other link has its real address or a visible `[à compléter]` marker, like the PDF of the Conditions générales, which the new site does not have yet.
@@ -229,20 +233,24 @@ Section backgrounds, page by page, after the banner:
 
 | Page | Sections, top to bottom |
 |---|---|
-| Accueil | hero (photo), "Une église pour toi" white (mint verse panel), "Les évènements" sky, "La dernière prédication" white (sand card) |
-| Qui sommes-nous ? | vision sky, values white, "Dans la rubrique" mint |
-| L'équipe | pastor couple sky, departments white, "Dans la rubrique" mint |
-| Notre histoire | timeline white, partners sky, statement white, "Dans la rubrique" mint |
-| Évènements | "Chaque semaine" mint (white cards), "Les prochains évènements" white (outlined cards) |
+| Accueil | hero (photo), "Une église pour toi" white (pale gold verse panel), "Les évènements" sky, "La dernière prédication" white (sand card) |
+| Qui sommes-nous ? | vision sky, values white, "Dans la rubrique" pale gold |
+| L'équipe | pastor couple sky, departments white, "Dans la rubrique" pale gold |
+| Notre histoire | timeline white, partners sky, statement white, "Dans la rubrique" pale gold |
+| Évènements | "Chaque semaine" pale gold (white cards), "Les prochains évènements" white (outlined cards) |
 | One event | one white section with the sand practical info panel |
 | Prédications | latest sermon white (7/5), "Toutes les prédications" sky, YouTube band white |
 | One sermon | white section, then "Dans la même série" sky |
-| Nous contacter | "Nos coordonnées" white (map, 5/7 sand form), then "Une autre demande ?" mint |
-| Faire un don | white with the mint "Réduction d'impôt" panel, then "Comment faire un don ?" sky |
+| Nous contacter | "Nos coordonnées" white (map, 5/7 sand form), then "Une autre demande ?" pale gold |
+| Faire un don | white with the pale gold "Réduction d'impôt" panel, then "Comment faire un don ?" sky |
 | Footer forms | one white section with the sand form panel |
 | Legal pages | one white section with the sand table of contents |
 
 A review of the reworked pages on the same day listed six improvements; all six were made and validated between 2026-10-29 and 2026-11-06, see [reviews/07-mockups-charter-rework.md](../reviews/07-mockups-charter-rework.md).
+
+### Jubilee colours (2026-11-09)
+
+The church's 90-year jubilee logo came with its own palette. A colour variant of every page was drawn from it on 2026-11-06, and the owner made it the default on 2026-11-09, keeping the current style otherwise: royal blue `#0b49b0` replaces the first blue, night blue `#15273d` the first one, gold `#d9a52b` the sun yellow, ivory, pale sky and light gold the sand, sky and sun surfaces, and pale gold (`color.surface-gold`, `#fbf3dc`) the mint, which the logo does not have. Coral stays: it carries a meaning. The rules are unchanged, mint read as pale gold. Three home pages in other styles (modern, classic, dynamic) were drawn the same week and set aside.
 
 ## Target screens
 
@@ -262,7 +270,7 @@ Changes to the live site's structure, decided by the owner:
 
 - **Home page (2026-10-27).** The validated home page ran to about 16 phone screens, against the short-pages rule. It keeps four blocks, in this order:
   1. **Hero**: title, service times, address, the four contact cards (80 px rows on a phone). Header and hero fill exactly the first screen, whatever its height (`min-height: calc(100svh - header)`, content centred), so the opening screen never cuts a line of text nor ends on an empty band (owner's rules, 2026-11-06). Inner pages keep their short banner: the owner tried banners sized to the screen and kept the short ones.
-  2. **"Une église pour toi"**: the welcome text and the Bible verse, in a mint panel.
+  2. **"Une église pour toi"**: the welcome text and the Bible verse, in a pale gold panel.
   3. **"Les évènements"**: the next three events. With one or two upcoming events, the cards keep their size and weekly meeting cards (Culte, then Réunion de prière) fill the rest of the row (owner, 2026-11-06). With no upcoming event the block is never empty: it says there is no special event at the moment and shows the weekly meetings instead (Culte, Sunday 10h00; Réunion de prière, Tuesday 19h00) as weekly meeting cards. The sentence is the same on both pages, "Aucun évènement particulier n'est prévu pour le moment.", followed on the home page only by "Nous nous retrouvons chaque semaine :" because the weekly cards come right after it; on the events page the "Chaque semaine" block is already above it.
   4. **"La dernière prédication"**. On Sunday between 10h00 and 12h00, the site asks YouTube whether the service is streaming live. If it is, the block becomes "En direct maintenant": the live player, one "En direct" signal tag above the title, and the button "Suivre le culte en direct". The block follows YouTube, not the clock (owner, 2026-11-06): before a late start and as soon as the stream ends, even before 12h00, it shows the latest sermon again. Nobody has to switch anything by hand.
 

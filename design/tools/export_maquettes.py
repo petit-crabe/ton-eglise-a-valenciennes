@@ -6,7 +6,7 @@ import os, re, sys
 
 SRC, OUT = sys.argv[1], sys.argv[2]
 CANVAS = "https://claude.ai/artifact/UbLoYdhe5z2A3no2cDeo5u"
-DATE = "2026-11-06"
+DATE = "2026-11-09"
 
 PAGES = {
     "Accueil": ("home", "home", "home page"),

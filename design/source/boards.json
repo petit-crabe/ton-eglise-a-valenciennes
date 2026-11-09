@@ -6,7 +6,7 @@
   "current": {
    "2": "<a href=\"Accueil-charte.dc.html\" aria-current=\"page\" style=\"display: inline-flex; align-items: center; min-height: 44px; padding: 0 16px; border-radius: 4px; background: [[secondary]]; color: [[surface-white]]; font-weight: 700; text-decoration: none\">Accueil</a>\n        "
   },
-  "props": "{\"sermonBlock\": {\"editor\": \"enum\", \"options\": [\"La dernière prédication\", \"En direct (pendant la diffusion YouTube)\"], \"default\": \"En direct (pendant la diffusion YouTube)\", \"section\": \"États de la page\"}, \"eventsBlock\": {\"editor\": \"enum\", \"options\": [\"Trois évènements à venir\", \"Aucun évènement à venir\"], \"default\": \"Trois évènements à venir\", \"section\": \"États de la page\"}, \"$preview\": {\"width\": 1440, \"height\": 3200}}",
+  "props": "{\"sermonBlock\":{\"editor\":\"enum\",\"options\":[\"La dernière prédication\",\"En direct (pendant la diffusion YouTube)\"],\"default\":\"La dernière prédication\",\"section\":\"États de la page\"},\"eventsBlock\":{\"editor\":\"enum\",\"options\":[\"Trois évènements à venir\",\"Aucun évènement à venir\"],\"default\":\"Aucun évènement à venir\",\"section\":\"États de la page\"},\"$preview\":{\"width\":1440,\"height\":3200}}",
   "code": "class Component extends DCLogic {\n  renderVals() {\n    const live = (this.props.sermonBlock ?? 'La dernière prédication') !== 'La dernière prédication';\n    const hasEvents = (this.props.eventsBlock ?? 'Trois évènements à venir') === 'Trois évènements à venir';\n    return { live: live, notLive: !live, hasEvents: hasEvents, noEvents: !hasEvents };\n  }\n}\n"
  },
  "Qui-sommes-nous-charte": {

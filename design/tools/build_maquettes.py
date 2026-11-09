@@ -2,6 +2,7 @@
 
 usage: python3 build_maquettes.py pull <canvas project dir>
        python3 build_maquettes.py build <out project dir>
+       python3 build_maquettes.py variant <out project dir> <tokens.json> <name> <label>
 
 pull reads the *-charte boards and the Ecran-* prototypes downloaded from the canvas
 and writes design/source/. It reports every header or footer that differs from the
@@ -9,7 +10,7 @@ shared one (a hand edit made on one page only); the shared one wins.
 build writes the 32 boards and the 9 prototypes from design/source/, colours from
 design/tokens.json. Portrait tablets (768 and 820 px) get the tablet layout: the
 computer pages folded by the rules of DESIGN.md, "Folding"."""
-import json, os, re, sys
+import html, json, os, re, sys
 from collections import Counter
 
 HERE = os.path.dirname(os.path.abspath(__file__))
@@ -103,11 +104,13 @@ def split_board(s):
     f1 = s.index("</footer>", f0) + len("</footer>")
     helmet = s[s.index("<helmet>") + len("<helmet>"):s.index("</helmet>")]
     root = re.search(r"</helmet>\s*(<div [^>]*>)", s).group(1)
-    script = re.search(r"<script type=\"text/x-dc\" data-dc-script data-props='(.*?)'>\n(.*?)</script>", s, re.S)
+    # the canvas editor may save the props double-quoted and entity-encoded
+    script = re.search(r"<script type=\"text/x-dc\" data-dc-script data-props=(['\"])(.*?)\1>\n(.*?)</script>", s, re.S)
+    props = html.unescape(script.group(2)) if script.group(1) == '"' else script.group(2)
     return {
         "title": re.search(r"<title>(.*?)</title>", s).group(1),
         "helmet": helmet, "root": root, "header": s[h0:h1], "body": s[h1:f0], "footer": s[f0:f1],
-        "props": script.group(1), "code": script.group(2),
+        "props": props, "code": script.group(3),
     }
 
 
@@ -261,5 +264,24 @@ def build(out):
     print(f"built {len(files)} files into {out}")
 
 
+def variant(out, tokens, name, label):
+    """Colour variant: the 32 boards with another tokens.json, as <Page>-<name>[-telephone].dc.html."""
+    global TOKENS
+    TOKENS = tokens
+    meta = json.load(open(os.path.join(SOURCE, "boards.json"), encoding="utf-8"))
+    os.makedirs(out, exist_ok=True)
+    for base in PAGES:
+        for dev, suffix in DEVICES.items():
+            text = from_tokens(board(base, dev, meta), BOARD_SCREEN[dev] - HEADER[dev])
+            text = re.sub(r'href="([A-Za-z-]+)-charte(-telephone)?\.dc\.html', rf'href="\1-{name}\2.dc.html', text)
+            text = text.replace(" – nouvelle charte – ", f" – {label} – ", 1)
+            write(os.path.join(out, f"{base}-{name}{suffix}.dc.html"), text)
+    print(f"built {len(PAGES) * len(DEVICES)} {name} boards into {out}")
+
+
 if __name__ == "__main__":
-    {"pull": pull, "build": build}[sys.argv[1]](sys.argv[2])
+    if sys.argv[1] == "variant":
+        # variant <out project dir> <tokens.json> <name> <label>
+        variant(*sys.argv[2:6])
+    else:
+        {"pull": pull, "build": build}[sys.argv[1]](sys.argv[2])
