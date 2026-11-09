@@ -1,18 +1,18 @@
 
 
   <!-- Page banner: the hall, yellow bar under the title -->
-  <section class="on-dark" style="position: relative; overflow: hidden; background: [[secondary]]">
-    <img src="/_blob/f8b3f9e1f54cd1e9206abffc31d1a5d4" alt="" aria-hidden="true" style="position: absolute; top: -32px; left: -32px; width: calc(100% + 64px); height: calc(100% + 64px); object-fit: cover; filter: blur(3px)">
-    <div aria-hidden="true" style="position: absolute; inset: 0; background: rgba(19, 36, 59, 0.74)"></div>
-    <div style="position: relative; padding: 48px 16px">
-      <nav aria-label="Fil d'Ariane" style="margin-bottom: 8px; font-size: 16px; color: [[surface-white]]">
-        <a href="Accueil-charte-telephone.dc.html" style="display: inline-flex; align-items: center; min-height: 44px; color: [[surface-white]]; text-underline-offset: 4px">Accueil</a>
-        <span aria-hidden="true" style="margin: 0 8px">›</span>
-        <a href="Evenements-charte-telephone.dc.html" style="display: inline-flex; align-items: center; min-height: 44px; color: [[surface-white]]; text-underline-offset: 4px">Évènements</a>
+  <section class="on-dark c-page-banner">
+    <img class="c-page-banner__img1" src="/_blob/f8b3f9e1f54cd1e9206abffc31d1a5d4" alt="" aria-hidden="true">
+    <div class="c-page-banner__div1" aria-hidden="true"></div>
+    <div class="c-page-banner__div2">
+      <nav class="c-page-banner__div2-nav1" aria-label="Fil d'Ariane">
+        <a class="c-page-banner__div2-nav1-a1" href="Accueil-charte-telephone.dc.html">Accueil</a>
+        <span class="c-page-banner__div2-nav1-span1" aria-hidden="true">›</span>
+        <a class="c-page-banner__div2-nav1-a2" href="Evenements-charte-telephone.dc.html">Évènements</a>
       </nav>
-      <h1 style="margin: 0; font-family: 'Outfit', system-ui, sans-serif; font-size: 36px; line-height: 1.1; color: [[surface-white]]; letter-spacing: -0.02em">[Titre de l'évènement]</h1>
-      <p style="margin: 16px 0 0; font-size: 17px; font-weight: 700; color: [[surface-white]]">[Jour JJ mois AAAA] · [Heure]</p>
-      <span aria-hidden="true" style="display: block; margin-top: 24px; width: 64px; height: 4px; border-radius: 2px; background: [[accent]]"></span>
+      <h1 class="c-page-banner__div2-h11">[Titre de l'évènement]</h1>
+      <p class="c-page-banner__div2-p1">[Jour JJ mois AAAA] · [Heure]</p>
+      <span class="c-page-banner__div2-span1" aria-hidden="true"></span>
     </div>
   </section>
 
@@ -25,11 +25,11 @@
           <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="[[text-muted]]" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><polyline points="21 15 16 10 5 21"></polyline></svg>
           [Image de l'évènement]
         </div>
-        <aside aria-label="Infos pratiques" style="background: [[surface-sand]]; border-radius: 6px; padding: 24px 16px">
-          <dl style="margin: 0; display: flex; flex-direction: column; gap: 16px">
-            <div style="display: flex; gap: 16px"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="[[primary]]" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex: none; margin-top: 2px"><rect x="3" y="4" width="18" height="18" rx="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg><div><dt style="font-size: 15px; color: [[text-muted]]">Date</dt><dd style="margin: 0; font-weight: 700; color: [[secondary]]">[Jour JJ mois AAAA]</dd></div></div>
-            <div style="display: flex; gap: 16px"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="[[primary]]" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex: none; margin-top: 2px"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg><div><dt style="font-size: 15px; color: [[text-muted]]">Heure</dt><dd style="margin: 0; font-weight: 700; color: [[secondary]]">[Début] – [Fin]</dd></div></div>
-            <div style="display: flex; gap: 16px"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="[[primary]]" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex: none; margin-top: 2px"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg><div><dt style="font-size: 15px; color: [[text-muted]]">Lieu</dt><dd style="margin: 0; font-weight: 700; color: [[secondary]]">[Lieu et adresse]</dd><dd style="margin: 0"><a href="#" style="display: inline-flex; align-items: center; min-height: 44px; font-size: 16px; text-underline-offset: 4px">Voir le plan</a></dd></div></div>
+        <aside class="c-info-panel" aria-label="Infos pratiques">
+          <dl class="c-info-panel__dl1">
+            <div class="c-info-panel__dl1-div1"><svg class="c-info-panel__dl1-div1-svg1" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="[[primary]]" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg><div><dt class="c-info-panel__dl1-div1-div1-dt1">Date</dt><dd class="c-info-panel__dl1-div1-div1-dd1">[Jour JJ mois AAAA]</dd></div></div>
+            <div class="c-info-panel__dl1-div2"><svg class="c-info-panel__dl1-div2-svg1" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="[[primary]]" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg><div><dt class="c-info-panel__dl1-div2-div1-dt1">Heure</dt><dd class="c-info-panel__dl1-div2-div1-dd1">[Début] – [Fin]</dd></div></div>
+            <div class="c-info-panel__dl1-div3"><svg class="c-info-panel__dl1-div3-svg1" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="[[primary]]" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg><div><dt class="c-info-panel__dl1-div3-div1-dt1">Lieu</dt><dd class="c-info-panel__dl1-div3-div1-dd1">[Lieu et adresse]</dd><dd class="c-info-panel__dl1-div3-div1-dd2"><a class="c-info-panel__dl1-div3-div1-dd2-a1" href="#">Voir le plan</a></dd></div></div>
           </dl>
         </aside>
         <div>
@@ -37,11 +37,11 @@
         <p style="margin: 0 0 16px">[Présentation de l'évènement : ce qui est prévu, à qui il s'adresse.]</p>
         <p style="margin: 0">[Informations pratiques : inscription, repas, garde d'enfants, participation…]</p>
         </div>
-        <div>
-          <h2 style="margin: 0 0 16px; font-family: 'Outfit', system-ui, sans-serif; font-size: 18px; line-height: 1.25; color: [[secondary]]">Partager l'évènement</h2>
-          <div style="display: flex; flex-direction: column; gap: 8px">
-          <a href="#" style="display: flex; align-items: center; justify-content: center; gap: 8px; min-height: 52px; padding: 0 24px; box-sizing: border-box; border: 2px solid [[primary]]; border-radius: 4px; background: [[surface-white]]; color: [[primary]]; font-weight: 700; text-decoration: none"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>Partager sur Facebook</a>
-          <a href="#" style="display: flex; align-items: center; justify-content: center; gap: 8px; min-height: 52px; padding: 0 24px; box-sizing: border-box; border: 2px solid [[primary]]; border-radius: 4px; background: [[surface-white]]; color: [[primary]]; font-weight: 700; text-decoration: none"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 11.5a8.4 8.4 0 0 1-12.6 7.3L3 21l2.3-5.2A8.4 8.4 0 1 1 21 11.5z"></path></svg>Partager sur WhatsApp</a>
+        <div class="c-share-buttons">
+          <h2 class="c-share-buttons__h21">Partager l'évènement</h2>
+          <div class="c-share-buttons__div1">
+          <a class="c-button" style="display: flex; width: 100%; background: [[surface-white]]; color: [[primary]]" href="#"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>Partager sur Facebook</a>
+          <a class="c-button" style="display: flex; width: 100%; background: [[surface-white]]; color: [[primary]]" href="#"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 11.5a8.4 8.4 0 0 1-12.6 7.3L3 21l2.3-5.2A8.4 8.4 0 1 1 21 11.5z"></path></svg>Partager sur WhatsApp</a>
           </div>
         </div>
     </div>

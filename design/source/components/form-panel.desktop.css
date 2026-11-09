@@ -1,0 +1,35 @@
+.c-form-panel.c-form-panel{background: [[surface-sand]]; border-radius: 6px; padding: 48px}
+.c-form-panel__form1.c-form-panel__form1{display: flex; flex-direction: column; gap: 24px}
+.c-form-panel__h21.c-form-panel__h21{margin: 0 0 8px; font-family: 'Outfit', system-ui, sans-serif; font-size: 28px; line-height: 1.2; color: [[secondary]]}
+.c-form-panel__p1.c-form-panel__p1{margin: 0 0 24px; color: [[text-muted]]}
+.c-form-panel__form1-div1.c-form-panel__form1-div1{display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; align-items: end}
+.c-form-panel__form1-div2.c-form-panel__form1-div2{display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; align-items: end}
+.c-form-panel__form1-fieldset1.c-form-panel__form1-fieldset1{margin: 0; padding: 0; border: 0; min-width: 0}
+.c-form-panel__form1-fieldset2.c-form-panel__form1-fieldset2{margin: 0; padding: 0; border: 0; min-width: 0}
+.c-form-panel__form1-p1.c-form-panel__form1-p1{margin: 0; font-size: 16px}
+.c-form-panel__form1-fieldset1-div1.c-form-panel__form1-fieldset1-div1{display: flex; gap: 32px}
+.c-form-panel__form1-fieldset1-legend1.c-form-panel__form1-fieldset1-legend1{padding: 0; margin-bottom: 8px; font-weight: 700; color: [[secondary]]}
+.c-form-panel__form1-fieldset2-div1.c-form-panel__form1-fieldset2-div1{display: flex; flex-direction: column; gap: 16px}
+.c-form-panel__form1-fieldset2-legend1.c-form-panel__form1-fieldset2-legend1{padding: 0; margin-bottom: 8px; font-weight: 700; color: [[secondary]]}
+.c-form-panel__form1-fieldset2-p1.c-form-panel__form1-fieldset2-p1{margin: -4px 0 8px; font-size: 16px; color: [[text-muted]]}
+.c-form-panel__form1-p1-a1.c-form-panel__form1-p1-a1{text-underline-offset: 4px}
+.c-form-panel__form1-fieldset2-div1-div1.c-form-panel__form1-fieldset2-div1-div1{padding-top: 16px; border-top: 1px solid [[border]]}
+.c-form-panel__form1-fieldset2-div1-div2.c-form-panel__form1-fieldset2-div1-div2{padding-top: 16px; border-top: 1px solid [[border]]}
+.c-form-panel__form1-fieldset2-div1-div3.c-form-panel__form1-fieldset2-div1-div3{padding-top: 16px; border-top: 1px solid [[border]]}
+.c-form-panel__form1-fieldset2-div1-div4.c-form-panel__form1-fieldset2-div1-div4{padding-top: 16px; border-top: 1px solid [[border]]}
+.c-form-panel__form1-fieldset2-div1-div5.c-form-panel__form1-fieldset2-div1-div5{padding-top: 16px; border-top: 1px solid [[border]]}
+.c-form-panel__form1-fieldset2-div1-div1-fieldset1.c-form-panel__form1-fieldset2-div1-div1-fieldset1{margin: 0; padding: 0; border: 0; min-width: 0}
+.c-form-panel__form1-fieldset2-div1-div2-fieldset1.c-form-panel__form1-fieldset2-div1-div2-fieldset1{margin: 0; padding: 0; border: 0; min-width: 0}
+.c-form-panel__form1-fieldset2-div1-div3-fieldset1.c-form-panel__form1-fieldset2-div1-div3-fieldset1{margin: 0; padding: 0; border: 0; min-width: 0}
+.c-form-panel__form1-fieldset2-div1-div4-fieldset1.c-form-panel__form1-fieldset2-div1-div4-fieldset1{margin: 0; padding: 0; border: 0; min-width: 0}
+.c-form-panel__form1-fieldset2-div1-div5-fieldset1.c-form-panel__form1-fieldset2-div1-div5-fieldset1{margin: 0; padding: 0; border: 0; min-width: 0}
+.c-form-panel__form1-fieldset2-div1-div1-fieldset1-div1.c-form-panel__form1-fieldset2-div1-div1-fieldset1-div1{display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); column-gap: 24px}
+.c-form-panel__form1-fieldset2-div1-div1-fieldset1-legend1.c-form-panel__form1-fieldset2-div1-div1-fieldset1-legend1{padding: 0; margin-bottom: 4px; font-size: 15px; font-weight: 700; color: [[text-muted]]; text-transform: uppercase; letter-spacing: 0.06em}
+.c-form-panel__form1-fieldset2-div1-div2-fieldset1-div1.c-form-panel__form1-fieldset2-div1-div2-fieldset1-div1{display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); column-gap: 24px}
+.c-form-panel__form1-fieldset2-div1-div2-fieldset1-legend1.c-form-panel__form1-fieldset2-div1-div2-fieldset1-legend1{padding: 0; margin-bottom: 4px; font-size: 15px; font-weight: 700; color: [[text-muted]]; text-transform: uppercase; letter-spacing: 0.06em}
+.c-form-panel__form1-fieldset2-div1-div3-fieldset1-div1.c-form-panel__form1-fieldset2-div1-div3-fieldset1-div1{display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); column-gap: 24px}
+.c-form-panel__form1-fieldset2-div1-div3-fieldset1-legend1.c-form-panel__form1-fieldset2-div1-div3-fieldset1-legend1{padding: 0; margin-bottom: 4px; font-size: 15px; font-weight: 700; color: [[text-muted]]; text-transform: uppercase; letter-spacing: 0.06em}
+.c-form-panel__form1-fieldset2-div1-div4-fieldset1-div1.c-form-panel__form1-fieldset2-div1-div4-fieldset1-div1{display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); column-gap: 24px}
+.c-form-panel__form1-fieldset2-div1-div4-fieldset1-legend1.c-form-panel__form1-fieldset2-div1-div4-fieldset1-legend1{padding: 0; margin-bottom: 4px; font-size: 15px; font-weight: 700; color: [[text-muted]]; text-transform: uppercase; letter-spacing: 0.06em}
+.c-form-panel__form1-fieldset2-div1-div5-fieldset1-div1.c-form-panel__form1-fieldset2-div1-div5-fieldset1-div1{display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); column-gap: 24px}
+.c-form-panel__form1-fieldset2-div1-div5-fieldset1-legend1.c-form-panel__form1-fieldset2-div1-div5-fieldset1-legend1{padding: 0; margin-bottom: 4px; font-size: 15px; font-weight: 700; color: [[text-muted]]; text-transform: uppercase; letter-spacing: 0.06em}

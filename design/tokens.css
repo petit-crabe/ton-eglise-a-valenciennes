@@ -1,21 +1,21 @@
 /* Generated from tokens.json: change values there, not here. */
 :root {
-  --color-primary: #3a64aa;
-  --color-primary-hover: #2b4d86;
-  --color-secondary: #13243b;
-  --color-accent: #ffaf00;
+  --color-primary: #0b49b0;
+  --color-primary-hover: #06358a;
+  --color-secondary: #15273d;
+  --color-accent: #d9a52b;
   --color-signal: #ff6b4a;
   --color-text: #2d3b4e;
   --color-text-muted: #556275;
   --color-surface-white: #ffffff;
-  --color-surface-sand: #f7f3ee;
-  --color-surface-sky: #e9f3fb;
-  --color-surface-sun: #fff1cc;
-  --color-surface-mint: #e2f5ec;
+  --color-surface-sand: #f8f3e8;
+  --color-surface-sky: #e8eefa;
+  --color-surface-sun: #f8e7b0;
+  --color-surface-gold: #fbf3dc;
   --color-border: #e4e7ec;
-  --color-border-tint: rgba(19, 36, 59, 0.14);
+  --color-border-tint: rgba(21, 39, 61, 0.14);
   --color-border-field: #768191;
-  --overlay-hero: rgba(19, 36, 59, 0.74);
+  --overlay-hero: rgba(21, 39, 61, 0.74);
   --font-heading: 'Outfit', system-ui, sans-serif;
   --font-body: 'Source Sans 3', system-ui, sans-serif;
   --font-weight-regular: 400;

@@ -1,0 +1,2 @@
+.c-video-slot.c-video-slot{position: relative; aspect-ratio: 16 / 9; border-radius: 6px; background: [[secondary]]; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 16px; color: [[surface-white]]; font-size: 15px}
+.c-video-slot__span1.c-video-slot__span1{width: 64px; height: 64px; border-radius: 999px; background: [[accent]]; display: flex; align-items: center; justify-content: center}

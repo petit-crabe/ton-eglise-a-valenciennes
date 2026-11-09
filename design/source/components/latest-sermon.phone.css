@@ -1,0 +1,8 @@
+.c-latest-sermon.c-latest-sermon{background: [[surface-sand]]; border-radius: 6px; overflow: hidden}
+.c-latest-sermon__a1.c-latest-sermon__a1{position: relative; display: block; line-height: 0}
+.c-latest-sermon__div1.c-latest-sermon__div1{padding: 24px 16px; display: flex; flex-direction: column; align-items: stretch}
+.c-latest-sermon__a1-img1.c-latest-sermon__a1-img1{display: block; width: 100%; aspect-ratio: 16 / 9; object-fit: cover}
+.c-latest-sermon__a1-span1.c-latest-sermon__a1-span1{position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); width: 64px; height: 64px; border-radius: 999px; background: [[accent]]; display: flex; align-items: center; justify-content: center}
+.c-latest-sermon__div1-h31.c-latest-sermon__div1-h31{font-family: 'Outfit', system-ui, sans-serif; font-size: 24px; line-height: 1.2; color: [[secondary]]}
+.c-latest-sermon__div1-p1.c-latest-sermon__div1-p1{margin: 0 0 24px; color: [[text-muted]]}
+.c-latest-sermon__div1-span1.c-latest-sermon__div1-span1{align-self: flex-start; margin-bottom: 16px; padding: 4px 12px; border-radius: 4px; background: [[surface-sun]]; color: [[secondary]]; font-size: 15px; font-weight: 700}

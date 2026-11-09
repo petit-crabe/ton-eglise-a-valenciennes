@@ -1,0 +1,6 @@
+.c-timeline-item.c-timeline-item{display: grid; grid-template-columns: 136px minmax(0, 1fr); column-gap: 32px}
+.c-timeline-item__div1.c-timeline-item__div1{position: relative}
+.c-timeline-item__h31.c-timeline-item__h31{margin: 0; text-align: right; font-family: 'Outfit', system-ui, sans-serif; color: [[primary]]}
+.c-timeline-item__div1-a1.c-timeline-item__div1-a1{display: inline-flex; align-items: center; gap: 8px; min-height: 44px; font-weight: 700; text-underline-offset: 4px}
+.c-timeline-item__div1-span1.c-timeline-item__div1-span1{position: absolute; top: 8px; width: 16px; height: 16px; border-radius: 999px}
+.c-timeline-item__div1-a1-svg1.c-timeline-item__div1-a1-svg1{flex: none}

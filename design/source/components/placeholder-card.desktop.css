@@ -1,0 +1,5 @@
+.c-placeholder-card.c-placeholder-card{display: flex; flex-direction: column; gap: 8px; padding: 24px; border: 1px solid [[border]]; border-radius: 6px; background: [[surface-white]]}
+.c-placeholder-card__h31.c-placeholder-card__h31{margin: 0 0 8px; font-family: 'Outfit', system-ui, sans-serif; font-size: 24px; line-height: 1.25; color: [[secondary]]}
+.c-placeholder-card__p1.c-placeholder-card__p1{margin: 0; color: [[text-muted]]}
+.c-placeholder-card__p2.c-placeholder-card__p2{margin: 0; color: [[text-muted]]}
+.c-placeholder-card__p3.c-placeholder-card__p3{margin: 0; color: [[text-muted]]}
