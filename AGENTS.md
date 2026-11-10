@@ -8,7 +8,7 @@ Website of a church in Valenciennes. The live site is WordPress 6.9 (purchased N
 ## Policy
 
 - Talk to the user in French, in plain everyday language with no technical terms; explain an unavoidable technical notion in simple words.
-- Write in English every file and everything sent to git and GitHub: code, comments, documents, commit messages, branch names, pull requests.
+- Write in English every file and everything sent to git and GitHub: code, comments, documents, commit messages, branch names, pull requests. One exception: setup and operations documents addressed to the owner (such as `web/ops/cloudflare-settings.md`) are written in French, in plain language; Cloudflare menu and field names stay as they appear in the dashboard.
 - Before producing anything, ask framing questions, 3 at most at a time; ask again when the direction becomes unclear.
 - Never commit or push to `develop`, `preprod` or `main`. Branch from `develop`, commit there, push, and open a pull request to `develop`.
 - Never open a pull request to `preprod` or `main` unless the user asks: `preprod` only receives `develop`, `main` only receives `preprod`. Never merge either one; the user merges by hand.
