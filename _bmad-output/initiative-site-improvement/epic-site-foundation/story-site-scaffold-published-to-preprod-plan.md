@@ -3,7 +3,7 @@ title: 'Site scaffold published to preprod'
 type: 'feature'
 ticket: '1'
 created: '2026-11-10'
-status: 'in-review'
+status: 'built'
 baseline_revision: 'f438da362838e07735b7ef1d98580a196543ef30'
 route: 'full'
 route_source: 'auto'
@@ -98,6 +98,8 @@ context:
 | 2 | `preview_urls: true` gives every version, production included, a `<version>-ton-eglise-a-valenciennes.<subdomain>.workers.dev` link that serves an indexable production build | medium | intent_gap | Wrangler's schema: preview_urls serves `<version>-<name>.<subdomain>.workers.dev`; `WORKERS_CI_BRANCH=main` build gives `Allow: /` and no `X-Robots-Tag`. Breaks AD-10; the frozen Always (`preview_urls: true`) and matrix row 1 (no `X-Robots-Tag` on main) leave no in-plan fix. |
 | 3 | `assets.directory` is `./dist` while static output is `dist/client/` | low | patch | `dist/` holds `client/` and `server/`; deploy only works through `.wrangler/deploy/config.json` redirecting to `dist/client/wrangler.json` (`directory: "."`). Moot until the loopback for #2 settles. |
 | 4 | Code Map says no Node 26 locally | false | rejected | Fix edits this build's plan; the line described the state before the owner's decision. |
+| 5 | AGENTS.md and the architecture still say `site/` and "no build" (review loop 2) | low | defer (carried) | carried: same location and claim as #1; still fixed only on `chore/remove-wordpress-copy`, which should merge first. |
+| 6 | `not_found_handling: 404-page` with no 404 page built | low | rejected | Real: an unknown path gets Cloudflare's bare 404, still a correct 404 status and noindex on preprod. The French 404 page belongs to epic-pages-and-content; adding one here is more than a direct correction. |
 
 ## Design Notes
 
