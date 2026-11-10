@@ -1,0 +1,41 @@
+// Cloudflare Worker configuration for the new site.
+// Secrets never go here (AD-14); dashboard-only settings are recorded in
+// ops/cloudflare-settings.md.
+{
+  "$schema": "./node_modules/wrangler/config-schema.json",
+  "name": "ton-eglise-a-valenciennes",
+  // The Astro adapter's Worker entry point; it only answers routes that are
+  // not prerendered, and there are none until /api exists.
+  "main": "@astrojs/cloudflare/entrypoints/server",
+  "compatibility_date": "2026-11-03",
+  // Production answers only on its custom domain, never on workers.dev (AD-10).
+  "workers_dev": false,
+  // Set explicitly: when unset it follows workers_dev, which would turn off
+  // the preview links preprod relies on. It also gives every production
+  // version a <version>-<name>.<subdomain>.workers.dev link; the build marks
+  // all workers.dev hosts noindex for that reason (integrations/edge-files.mjs).
+  "preview_urls": true,
+  // The build writes dist/client/wrangler.json from this file and wrangler
+  // deploys that generated config (it drops "main" and the ASSETS binding
+  // while every route is prerendered).
+  "assets": {
+    "directory": "./dist/client",
+    "binding": "ASSETS",
+    // Pages live at paths with a trailing slash (AD-9).
+    "html_handling": "auto-trailing-slash",
+    "not_found_handling": "404-page"
+  },
+  "vars": {
+    "CANONICAL_HOST": "tonegliseavalenciennes.fr"
+  },
+  // Previews (preprod) do not inherit production vars, so each one is
+  // repeated here with its preview value.
+  "previews": {
+    "vars": {
+      // A host no request ever carries: on a preview, code that compares the
+      // request host with CANONICAL_HOST always takes the non-production path
+      // (for instance, forms never mail church recipients, AD-5).
+      "CANONICAL_HOST": "preview.invalid"
+    }
+  }
+}

@@ -29,5 +29,11 @@ tmp/
 # Dependencies
 node_modules/
 
+# New site build output and local Cloudflare state
+web/dist/
+web/.astro/
+web/.wrangler/
+web/.dev.vars*
+
 # Python bytecode from the design tools
 __pycache__/
