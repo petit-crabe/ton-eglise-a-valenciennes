@@ -38,6 +38,7 @@ The form schemas, `/api/forms`, the Email Sending onboarding and its DNS records
 
 ## Notes
 
+- Decision (2026-11-10): this epic adds the form-pages block of the CSP on the base CSP of epic-site-foundation.
 - Decision (2026-11-10): the switch may happen without the prayer-request form; until the church leaders answer, its page shows only the phone and e-mail.
 - Open question: which OVH mailbox receives each form, and which domain `FORM_SENDER` uses.
 - Open question: who reads prayer and interview requests, and how long they stay in the mailbox.
