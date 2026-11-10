@@ -38,5 +38,6 @@ The events collection, pages and home block. Not an archive of past events (non-
 
 ## Notes
 
+- Decision (2026-11-10): this epic adds the events schema to content.config.ts.
 - Open question: do ConneXion (Saturdays) and Entraide (Wednesdays) still run, to be shown as weekly meetings.
 - Waits on epic-site-foundation because: schemas and facts. Waits on epic-pages-and-content because: the home page events slot.

@@ -4,14 +4,14 @@
 id = 1
 slug = "epic-site-foundation"
 title = "Site foundation and publishing path"
-covers = ["CAP-19", "CAP-10", "CAP-9", "CAP-3", "CAP-7", "CAP-8", "CAP-13"]
+covers = ["CAP-19", "CAP-10", "CAP-9", "CAP-3", "CAP-5", "CAP-7", "CAP-8", "CAP-11", "CAP-13"]
 
 [[epic]]
 id = 2
 slug = "epic-pages-and-content"
 title = "Pages and imported content"
 covers = ["CAP-15", "CAP-11", "CAP-6", "CAP-5", "CAP-9", "CAP-7", "CAP-8", "CAP-13"]
-after = [{ epic = 1, needs = "base layout, tokens, collection schemas, facts, build checks" }]
+after = [{ epic = 1, needs = "base layout, tokens, page and menu collections, facts, build checks, shared components" }]
 
 [[epic]]
 id = 3
@@ -29,7 +29,7 @@ slug = "epic-events"
 title = "Events relaunched"
 covers = ["CAP-17", "CAP-7", "CAP-8", "CAP-13"]
 after = [
-  { epic = 1, needs = "collection schemas and facts (weekly meetings)" },
+  { epic = 1, needs = "content.config.ts and its checks, facts (weekly meetings)" },
   { epic = 2, needs = "home page events slot" },
 ]
 
@@ -46,7 +46,7 @@ slug = "epic-forms"
 title = "Forms reach the church mailboxes"
 covers = ["CAP-16", "CAP-5", "CAP-7", "CAP-8", "CAP-13"]
 after = [
-  { epic = 1, needs = "/api route, shared API helper, CSP with a form-pages block" },
+  { epic = 1, needs = "/api route, shared API helper, base CSP" },
   { epic = 2, needs = "form pages and privacy page" },
   { epic = 5, needs = "an active Cloudflare zone for the sending domain" },
 ]
