@@ -11,6 +11,7 @@ import { fileURLToPath } from 'node:url';
 import path from 'node:path';
 
 const PRODUCTION_BRANCH = 'main';
+const WORKERS_DEV_HOSTS = 'https://:version.:account.workers.dev/*';
 
 /** @param {string | undefined} branch */
 export function siteEnvFromBranch(branch) {
@@ -31,6 +32,11 @@ export function headersFile(siteEnv) {
   const lines = ['# Generated at build by integrations/edge-files.mjs; do not edit.'];
   if (siteEnv !== 'production') {
     lines.push('/*', '  X-Robots-Tag: noindex');
+  } else {
+    // preview_urls gives every production version its own workers.dev link;
+    // keep those copies out of search results too (AD-10). A host placeholder
+    // matches one DNS label, and a rule may hold only one splat.
+    lines.push(WORKERS_DEV_HOSTS, '  X-Robots-Tag: noindex');
   }
   lines.push('');
   return lines.join('\n');

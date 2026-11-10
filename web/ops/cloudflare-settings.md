@@ -34,6 +34,11 @@ anyone with the link.
 | workers.dev route of production | off (`workers_dev: false` in `wrangler.jsonc`) |
 | Preview URLs | on (`preview_urls: true` in `wrangler.jsonc`) |
 
+Preview URLs also give every production version its own
+`<version>-ton-eglise-a-valenciennes.<account subdomain>.workers.dev` link. The
+build marks every `workers.dev` host `X-Robots-Tag: noindex`, production builds
+included, so those copies stay out of search results (AD-10).
+
 ## Web Analytics
 
 | Setting | Value |

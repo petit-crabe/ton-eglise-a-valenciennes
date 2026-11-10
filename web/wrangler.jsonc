@@ -11,10 +11,15 @@
   // Production answers only on its custom domain, never on workers.dev (AD-10).
   "workers_dev": false,
   // Set explicitly: when unset it follows workers_dev, which would turn off
-  // the preview links preprod relies on.
+  // the preview links preprod relies on. It also gives every production
+  // version a <version>-<name>.<subdomain>.workers.dev link; the build marks
+  // all workers.dev hosts noindex for that reason (integrations/edge-files.mjs).
   "preview_urls": true,
+  // The build writes dist/client/wrangler.json from this file and wrangler
+  // deploys that generated config (it drops "main" and the ASSETS binding
+  // while every route is prerendered).
   "assets": {
-    "directory": "./dist",
+    "directory": "./dist/client",
     "binding": "ASSETS",
     // Pages live at paths with a trailing slash (AD-9).
     "html_handling": "auto-trailing-slash",
