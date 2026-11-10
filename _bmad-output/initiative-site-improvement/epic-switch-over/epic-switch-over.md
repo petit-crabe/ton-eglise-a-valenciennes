@@ -29,7 +29,7 @@ After the communication department and the church leaders approve preprod, the p
 
 ## Boundaries
 
-The switch and its checks. Not the removal of `web/` (separate task), not the choice between OVH hosting and a standalone e-mail offer (deferred).
+The switch and its checks. Not the removal of the WordPress copy (done on 2026-11-10), not the choice between OVH hosting and a standalone e-mail offer (deferred).
 
 ## References
 
