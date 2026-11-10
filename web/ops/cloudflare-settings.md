@@ -1,52 +1,59 @@
-# Cloudflare settings outside the repository
+# Réglages Cloudflare faits hors du projet
 
-Settings that exist only in the Cloudflare dashboard, recorded by name (AD-2).
-Never write a secret, token or key value here (AD-14). The owner changes these
-settings and updates this file through a pull request.
+Ce document liste les réglages qui se font uniquement dans le tableau de bord
+Cloudflare, et pas dans les fichiers du projet (AD-2). Les noms des menus et des
+champs sont donnés en anglais, tels qu'ils apparaissent dans Cloudflare.
 
-## Workers Builds connection
+N'écris jamais ici un mot de passe, un jeton ou une clé (AD-14). Quand tu
+changes un de ces réglages, mets ce document à jour par une demande de fusion.
 
-Worker: `ton-eglise-a-valenciennes` (Workers & Pages > the Worker > Settings > Builds).
+## Relier le projet GitHub à Cloudflare (Workers Builds)
 
-| Setting | Value |
+Où : **Workers & Pages** > le Worker `ton-eglise-a-valenciennes` > **Settings** >
+**Builds**.
+
+| Champ dans Cloudflare | Valeur à mettre |
 | --- | --- |
-| Git repository | `petit-crabe/ton-eglise-a-valenciennes` |
-| Root directory | `web` |
-| Production branch | `main` |
-| Build command | `npm run build` |
-| Deploy command (production branch) | `npx wrangler deploy` |
-| Non-production branch deploy command | `npx wrangler preview` |
-| Builds for non-production branches | on, for `preprod` only (branch include filter: `preprod`) |
-| Node version | read from `web/.nvmrc` |
+| Git repository (dépôt GitHub) | `petit-crabe/ton-eglise-a-valenciennes` |
+| Root directory (dossier du site) | `web` |
+| Production branch (branche du vrai site) | `main` |
+| Build command (commande de construction) | `npm run build` |
+| Deploy command (mise en ligne du vrai site) | `npx wrangler deploy` |
+| Non-production branch deploy command (mise en ligne des essais) | `npx wrangler preview` |
+| Builds for non-production branches (construire les autres branches) | activé, pour `preprod` seulement (filtre des branches : `preprod`) |
+| Version de Node | rien à régler : Cloudflare la lit dans `web/.nvmrc` |
 
-The build reads `WORKERS_CI_BRANCH`, set by Workers Builds, to decide whether it
-is production (`main` only) and writes `robots.txt` and `_headers` accordingly
-(AD-10). No build variable is needed for this.
+Tu n'as aucune variable à ajouter. Pendant la construction, Cloudflare indique
+quelle branche il construit. Seule `main` est traitée comme le vrai site ; pour
+toutes les autres, la construction demande à Google de ne pas référencer les
+pages (AD-10).
 
-`npx wrangler preview` names the Preview after the branch, so the preprod link is
-`preprod-ton-eglise-a-valenciennes.<account subdomain>.workers.dev`, public to
-anyone with the link.
+Le lien d'essai de `preprod` aura cette forme :
+`preprod-ton-eglise-a-valenciennes.<ton sous-domaine>.workers.dev`. N'importe qui
+peut l'ouvrir s'il a le lien, mais il n'est publié nulle part.
 
-## Domains and routes
+## Adresses du site
 
-| Setting | Value |
+| Réglage | État |
 | --- | --- |
-| workers.dev route of production | off (`workers_dev: false` in `wrangler.jsonc`) |
-| Preview URLs | on (`preview_urls: true` in `wrangler.jsonc`) |
+| Adresse `workers.dev` du vrai site | désactivée (`workers_dev: false` dans `wrangler.jsonc`) |
+| Liens d'essai (Preview URLs) | activés (`preview_urls: true` dans `wrangler.jsonc`) |
 
-Preview URLs also give every production version its own
-`<version>-ton-eglise-a-valenciennes.<account subdomain>.workers.dev` link. The
-build marks every `workers.dev` host `X-Robots-Tag: noindex`, production builds
-included, so those copies stay out of search results (AD-10).
+Avec les liens d'essai activés, Cloudflare crée aussi une adresse en
+`workers.dev` pour chaque version du vrai site, de la forme
+`<version>-ton-eglise-a-valenciennes.<ton sous-domaine>.workers.dev`. Le site
+demande à Google de ne référencer aucune adresse en `workers.dev`, même pour la
+version du vrai site, pour que ces copies n'apparaissent pas dans les recherches
+(AD-10).
 
-## Web Analytics
+## Statistiques de visite (Web Analytics)
 
-| Setting | Value |
+| Réglage | État |
 | --- | --- |
-| Automatic injection of the Web Analytics beacon | off (the beacon is added by hand, AD-7) |
+| Ajout automatique du code de statistiques | désactivé (le code est ajouté à la main dans le site, AD-7) |
 
-## Change record
+## Historique des changements
 
-| Date | Who | What |
+| Date | Qui | Quoi |
 | --- | --- | --- |
-| _to fill by the owner_ | _to fill by the owner_ | Workers Builds connected with the settings above |
+| _à remplir par toi_ | _à remplir par toi_ | Projet relié à Cloudflare avec les réglages ci-dessus |
