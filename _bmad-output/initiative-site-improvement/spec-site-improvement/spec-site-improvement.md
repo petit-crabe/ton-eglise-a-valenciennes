@@ -34,7 +34,7 @@ CAP-1, CAP-2, CAP-4 and CAP-14 are retired: they kept the WordPress site maintai
   - **success:** On production, every response carries the security headers of 01-S7; no login, admin or `xmlrpc.php` path answers anything but 404 or a redirect; no response names a software version; the sitemap lists only public pages; preprod and any `workers.dev` address are `noindex` and disallow all robots.
 - **CAP-5 — Honest handling of personal data**
   - **intent:** A visitor knows who publishes the site and what happens to what they send, and nothing reaches a third party before they click.
-  - **success:** A legal notice and a privacy page are published and linked from every footer and form; no font, image, map or script is requested from another domain before a click, except Turnstile on form pages and the Cloudflare Web Analytics beacon; every video shows a placeholder naming YouTube's cookies and loads only on click; no cookie banner, and the privacy page lists only services in use.
+  - **success:** A legal notice and a privacy page are published and linked from every footer and form; no font, image, map or script is requested from another domain before a click, except Turnstile on form pages and the Cloudflare Web Analytics beacon; the Content-Security-Policy allows no other source; every video shows a placeholder naming YouTube's cookies and loads only on click; no cookie banner, and the privacy page lists only services in use.
 - **CAP-6 — Lighter pages**
   - **intent:** Pages download only what they display.
   - **success:** Measured on a throttled connection, the home page and each page of the "L'église" menu weigh less than the 2026-10-12 recordings of their live counterparts; no image is served larger than its slot; no unused font or stylesheet loads.
@@ -52,7 +52,7 @@ CAP-1, CAP-2, CAP-4 and CAP-14 are retired: they kept the WordPress site maintai
   - **success:** Service time, prayer meeting, address, phone, e-mail, church name and pastor couple are stored once and every page, the footer, structured data and calendar files read them from there; the values are those of DESIGN.md "Confirmed facts" and the pastor couple Nicolas and Mélanie Tessier; phone, e-mail and address open the phone, mail and maps apps.
 - **CAP-11 — No dead end, leftover or placeholder**
   - **intent:** Every link and page a visitor can reach leads to real, French, finished content in one voice.
-  - **success:** No link target is `#` or a missing page; no English interface string; public pages say "tu" (legal pages excepted); before each release to `main`, no page contains a square-bracket placeholder or an empty text; the logo links to the home page.
+  - **success:** No link target is `#` or a missing page, and a menu link to a missing or redirected page fails the build; header and footer are built only from the menus and the facts; no English interface string; public pages say "tu" (legal pages excepted); before each release to `main`, no page contains a square-bracket placeholder or an empty text; the logo links to the home page.
 - **CAP-12 — Sermons watchable**
   - **intent:** A member watches the Sunday service live or the latest sermon from the site, and finds the rest on YouTube.
   - **success:** The home and sermons pages show the live broadcast while the channel streams, otherwise the latest video, each with a link to the channel; when YouTube fails, only the channel link shows; no YouTube request happens before the visitor clicks; every old sermon URL answers a 301 to its own video, or to the sermons page when the video is gone.
@@ -64,16 +64,16 @@ CAP-1, CAP-2, CAP-4 and CAP-14 are retired: they kept the WordPress site maintai
   - **success:** Each page listed in DESIGN.md "Mockups" is live on `tonegliseavalenciennes.fr` with the live site's texts and photographs, imported once from production; every URL of the old site is listed once with its fate (kept, 301, or 410) and answers accordingly; `www.tonegliseavalenciennes.fr`, `add-valenciennes.fr` and `www.add-valenciennes.fr` answer a 301 to the same path on the canonical address; WordPress no longer serves the domain.
 - **CAP-16 — Forms reach the church and keep nothing**
   - **intent:** A visitor sends a message, a prayer request, an interview request or an offer to serve, and the church receives it by e-mail.
-  - **success:** Each of the four forms delivers a submission to the church's OVH mailbox for it; spam protection rejects a filled honeypot or a failed Turnstile check; nothing about the submission is stored by the site, logs included; a form sent from preprod never reaches a church mailbox.
+  - **success:** Each of the four forms delivers a submission to the church's OVH mailbox for it; spam protection rejects a filled honeypot or a failed Turnstile check; nothing about the submission is stored by the site, logs included; no copy is ever sent to the visitor; a form sent from preprod, which uses Turnstile test keys, never reaches a church mailbox.
 - **CAP-17 — Events relaunched**
   - **intent:** The owner announces an event and members see it until it is over.
-  - **success:** Adding one event file and merging publishes it; lists show upcoming events only, nearest first, grouped by month; each event has a page with share links and an "Ajouter à mon agenda" file; with no upcoming event, the weekly meetings show instead of an empty block.
+  - **success:** Adding one event file and merging publishes it; lists show upcoming events only, nearest first, grouped by month, and without JavaScript hide only events ended before the build; times are typed as local Paris time and show, and land in calendars, at that time in summer and winter; each event has a page with share links and an "Ajouter à mon agenda" file; with no upcoming event, the weekly meetings show instead of an empty block.
 - **CAP-18 — Church e-mail keeps flowing**
   - **intent:** The move of the site never interrupts the church's e-mail.
-  - **success:** Before and after the DNS move, a message sent from outside reaches each OVH mailbox; every OVH mail record (MX, SPF, DKIM, DMARC, autodiscover) exists in the new DNS identically before the nameserver change.
+  - **success:** Before and after the DNS move, a message sent from outside reaches each OVH mailbox; every OVH mail record (MX, SPF, DKIM, DMARC, autodiscover) exists in the new DNS identically, checked against the saved OVH zone export, before the nameserver change; Email Routing is never enabled on either zone.
 - **CAP-19 — One path to publish**
   - **intent:** Production changes only when the owner merges to `main`, and every change can be seen on preprod first.
-  - **success:** Merging to `main` publishes production with no manual upload; `preprod` has its own link-only preview; every setting that exists only in the Cloudflare dashboard is recorded by name in the repository.
+  - **success:** Merging to `main` publishes production with no manual upload; branch protection refuses any change to `develop`, `preprod` or `main` except through a PR; no Cloudflare API token is kept on an agent's machine; `preprod` has its own link-only preview; every setting that exists only in the Cloudflare dashboard is recorded by name in the repository.
 
 ## Constraints
 
@@ -114,11 +114,11 @@ CAP-1, CAP-2, CAP-4 and CAP-14 are retired: they kept the WordPress site maintai
 ## Open Questions
 
 - Which OVH mailbox receives each of the four forms (CAP-16)?
-- Who reads prayer and interview requests, and how long do they stay in the mailbox (CAP-5, CAP-16)? Passed to the church leaders.
+- Who reads prayer and interview requests, and how long do they stay in the mailbox (CAP-5, CAP-16)? Passed to the church leaders; the prayer-request form does not go live before the answer.
 - Legal notice facts: legal form, RNA or SIREN number, publication director. Who writes and approves the legal pages (CAP-5)?
 - "Conditions générales" is a shop template: keep, rewrite or drop it?
 - Contact e-mail: `secretariat@add-valenciennes.fr` replaces the Gmail address on the live site; is that Gmail inbox still someone's working mailbox? Which church name is shown (CAP-10)?
 - Do ConneXion (Saturdays) and Entraide (Wednesdays) still run, to be shown as weekly meetings (CAP-17)?
 - Department texts, to be gathered from each department leader.
 - Is the OVH payment method valid for the renewal of `tonegliseavalenciennes.fr` on 17/12/2026 (CAP-18)?
-- Technical checks deferred to building: `send_email` in Cloudflare previews, the live broadcast in the uploads playlist, an existing `_dmarc` record to merge, no cookie set by Web Analytics. Listed in `architecture-new-site.md`.
+- Technical checks deferred to building: `send_email` in Cloudflare previews, the live broadcast in the uploads playlist, an existing `_dmarc` record to merge, no cookie set by Web Analytics, `/wp-content/uploads/` files linked from outside the site (answered by the URL inventory, CAP-15). Listed in `architecture-new-site.md`.
