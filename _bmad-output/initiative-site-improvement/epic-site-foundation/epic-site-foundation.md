@@ -12,7 +12,7 @@ risk: medium
 
 ## Description
 
-The opening epic: the `site/` Astro project, its publishing path through Workers Builds, and everything every later page reads — tokens, practical facts, collection schemas, the base layout with header and footer, the shared components, the generated edge files, and the shared `/api` helper. It leaves a home page shell visible on preprod.
+The opening epic: the `web/` Astro project, its publishing path through Workers Builds, and everything every later page reads — tokens, practical facts, collection schemas, the base layout with header and footer, the shared components, the generated edge files, and the shared `/api` helper. It leaves a home page shell visible on preprod.
 
 ## Outcome
 
@@ -25,7 +25,7 @@ The owner merges a change and sees it on the preprod link without uploading anyt
 3. The practical facts are stored once in `facts.json` and the footer, structured data and contact links read them; phone, e-mail and address open the phone, mail and maps apps.
 4. Every response of the preview carries the 01-S7 security headers and the base CSP, names no software version, and the sitemap lists only public pages.
 5. A content file with an `iframe`, `script` or third-party `src`, or a menu link to a missing route, fails the build.
-6. `site/ops/cloudflare-settings.md` names every dashboard-only setting made so far, and `AGENTS.md` says the new site's flow.
+6. `web/ops/cloudflare-settings.md` names every dashboard-only setting made so far, and `AGENTS.md` says the new site's flow.
 
 ## Boundaries
 

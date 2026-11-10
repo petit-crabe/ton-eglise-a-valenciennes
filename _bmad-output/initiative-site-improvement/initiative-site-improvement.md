@@ -32,7 +32,7 @@ Capability boundary, one owner (the site owner, working through agent sessions).
 
 - Touch point: OVH registrar and mailboxes — configured only, never moved; owner: epic-dns-to-cloudflare, then epic-switch-over
 - Touch point: YouTube channel — read through the Data API; owner: epic-sermons
-- Touch point: `web/` WordPress copy — untouched; its removal is a separate task the owner approves
+- Touch point: the WordPress copy formerly in `web/www/` was removed on 2026-11-10 and archived outside the repository; `web/` now holds the new site
 
 ## References
 
