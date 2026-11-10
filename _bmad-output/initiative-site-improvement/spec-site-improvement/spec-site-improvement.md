@@ -86,7 +86,7 @@ CAP-1, CAP-2, CAP-4 and CAP-14 are retired: they kept the WordPress site maintai
 - The prayer request and interview request forms stay.
 - Agents never merge to `develop`, `preprod` or `main` and never deploy. Until the switch, the owner uploads `main` to OVH by hand; after it, merging to `main` publishes.
 - Every change, content included, follows the git flow: task branch, PR to `develop`, then `preprod`, then `main`.
-- No value from `web/www/wp-config.php` and no secret in a tracked file.
+- No value from the WordPress `wp-config.php` and no secret in a tracked file.
 - Repository files are in English; site content is in French and addresses the visitor as "tu".
 
 ## Non-goals

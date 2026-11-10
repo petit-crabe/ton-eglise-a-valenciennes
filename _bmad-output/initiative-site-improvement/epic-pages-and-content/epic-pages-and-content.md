@@ -21,7 +21,7 @@ A visitor on preprod finds every page of today's structure, with today's texts a
 ## Done when
 
 1. Every page of DESIGN.md "Mockups" is on preprod with the live site's texts and photographs, matching its mockup on desktop and phone, except where an AD overrides it (sermons page per AD-6).
-2. Every URL of the live site appears once in `site/ops/url-inventory.csv` with its fate, and the preview answers each accordingly; login, admin and `xmlrpc.php` paths answer 404, never 410.
+2. Every URL of the live site appears once in `web/ops/url-inventory.csv` with its fate, and the preview answers each accordingly; login, admin and `xmlrpc.php` paths answer 404, never 410.
 3. Measured on a throttled connection, the home page and each "L'église" page weigh less than the 2026-10-12 recordings; no image is served larger than its slot.
 4. No link targets `#` or a missing page, no English interface string, public pages say "tu", and the logo links home.
 5. The legal notice and privacy page are published and linked from every footer and form page.

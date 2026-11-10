@@ -23,7 +23,7 @@ The church's e-mail never stops, and the domains are ready for the forms and the
 1. The OVH zone exports of both domains are saved, and every mail record (MX, SPF, DKIM, DMARC, autodiscover) exists identically in the Cloudflare zones, checked against them, before the nameserver change.
 2. After the nameserver change, a message sent from outside reaches each OVH mailbox, and the WordPress site still answers on its addresses.
 3. Email Routing is not enabled on either zone.
-4. Every setting made is recorded by name in `site/ops/cloudflare-settings.md`.
+4. Every setting made is recorded by name in `web/ops/cloudflare-settings.md`.
 
 ## Boundaries
 

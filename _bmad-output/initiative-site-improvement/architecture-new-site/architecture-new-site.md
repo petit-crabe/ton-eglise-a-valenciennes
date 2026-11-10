@@ -28,14 +28,14 @@ companions:
 
 | Layer | Lives in | May depend on |
 | --- | --- | --- |
-| Content | `site/src/content/`, `site/src/assets/` | nothing |
-| Practical facts | `site/src/data/facts.json` + its schema | nothing |
-| Design tokens | `design/tokens.json` (source) → generated `site/src/styles/tokens.css` | nothing |
-| Components and layouts | `site/src/components/`, `site/src/layouts/` | content collections, facts, tokens |
-| Pages | `site/src/pages/` | components, layouts, content collections, facts |
-| On-demand functions | `site/src/pages/api/` | facts, Worker bindings, variables and secrets |
-| Edge config in the repo | `site/wrangler.jsonc`, `site/public/_redirects`, build-generated `_headers` and `robots.txt` | nothing |
-| Edge config outside the repo | Cloudflare dashboard, recorded in `site/ops/cloudflare-settings.md` | nothing |
+| Content | `web/src/content/`, `web/src/assets/` | nothing |
+| Practical facts | `web/src/data/facts.json` + its schema | nothing |
+| Design tokens | `design/tokens.json` (source) → generated `web/src/styles/tokens.css` | nothing |
+| Components and layouts | `web/src/components/`, `web/src/layouts/` | content collections, facts, tokens |
+| Pages | `web/src/pages/` | components, layouts, content collections, facts |
+| On-demand functions | `web/src/pages/api/` | facts, Worker bindings, variables and secrets |
+| Edge config in the repo | `web/wrangler.jsonc`, `web/public/_redirects`, build-generated `_headers` and `robots.txt` | nothing |
+| Edge config outside the repo | Cloudflare dashboard, recorded in `web/ops/cloudflare-settings.md` | nothing |
 
 ```mermaid
 flowchart LR
@@ -60,25 +60,25 @@ flowchart LR
 
 - **Binds:** all, content included
 - **Prevents:** production changed outside review, or a second editing channel.
-- **Rule:** every change goes task branch → PR to `develop` → `preprod` → `main`, each merge by the owner. Merging to `main` publishes production through Workers Builds. No manual upload. Agents never merge to the three branches. Settings that exist only in the Cloudflare dashboard (DNS, redirect rules, custom domain, build settings, Turnstile, Email Sending onboarding, secrets) are changed by the owner and recorded, names only, in `site/ops/cloudflare-settings.md` through the same flow. Branch protection on `develop`, `preprod` and `main` requires a PR. No Cloudflare API token is kept on an agent's machine. In an incident the owner may roll back in the dashboard, then a revert PR follows the same day.
+- **Rule:** every change goes task branch → PR to `develop` → `preprod` → `main`, each merge by the owner. Merging to `main` publishes production through Workers Builds. No manual upload. Agents never merge to the three branches. Settings that exist only in the Cloudflare dashboard (DNS, redirect rules, custom domain, build settings, Turnstile, Email Sending onboarding, secrets) are changed by the owner and recorded, names only, in `web/ops/cloudflare-settings.md` through the same flow. Branch protection on `develop`, `preprod` and `main` requires a PR. No Cloudflare API token is kept on an agent's machine. In an incident the owner may roll back in the dashboard, then a revert PR follows the same day.
 
 ### AD-3 — Content is typed files, read only through collections [ADOPTED]
 
 - **Binds:** all content types, future CMS
 - **Prevents:** visitor-facing text hardcoded in templates, two shapes for one content type, a CMS that cannot plug in.
-- **Rule:** each content type (page, event, menu) has exactly one schema in `site/src/content.config.ts`. Templates read content only through these collections. Content files contain no `iframe`, `script` or third-party URL in an `src`; the build fails if they do. Images used by content live in `site/src/assets/`. Every menu link is checked at build against the generated routes, so a dangling or redirected link fails the build; the header and footer, legal links and credit line included, render only from the `menus` collection and facts. A future CMS either writes these same files or replaces the collection loaders.
+- **Rule:** each content type (page, event, menu) has exactly one schema in `web/src/content.config.ts`. Templates read content only through these collections. Content files contain no `iframe`, `script` or third-party URL in an `src`; the build fails if they do. Images used by content live in `web/src/assets/`. Every menu link is checked at build against the generated routes, so a dangling or redirected link fails the build; the header and footer, legal links and credit line included, render only from the `menus` collection and facts. A future CMS either writes these same files or replaces the collection loaders.
 
 ### AD-4 — Practical facts have one home [ADOPTED]
 
 - **Binds:** CAP-10, footer, contact page, "Chaque semaine" block, structured data, `.ics` files, legal pages, form e-mails
 - **Prevents:** contradictory times, address or contacts across pages.
-- **Rule:** church name, address, phone, contact e-mail, pastor couple and the regular weekly meetings live in `site/src/data/facts.json` only, validated by one schema module that pages and `/api` both import. Weekly meetings are never events. Phone, e-mail and address render as `tel:`, `mailto:` and map links.
+- **Rule:** church name, address, phone, contact e-mail, pastor couple and the regular weekly meetings live in `web/src/data/facts.json` only, validated by one schema module that pages and `/api` both import. Weekly meetings are never events. Phone, e-mail and address render as `tel:`, `mailto:` and map links.
 
 ### AD-5 — Forms send, never store [ADOPTED]
 
 - **Binds:** the four forms: contact, prayer request, interview request, "Servir à l'église" (CAP-5)
 - **Prevents:** a form keeping personal or religious data, a second sending channel, tests reaching the church.
-- **Rule:** each form posts to `/api/forms/<form-name>`. Each form has one field schema in `site/src/forms/<form-name>.ts`, imported by both the page and the function; the page submits with `fetch` and JSON, dates as `YYYY-MM-DD`. The function checks Turnstile and a honeypot, validates the fields against that schema, sends one e-mail through the Cloudflare Email Sending binding, and returns. Recipients per form live in the `FORM_RECIPIENTS` variable and the sender in `FORM_SENDER`, both in `wrangler.jsonc`. Recipients are today's OVH mailboxes. No copy is ever sent to the visitor. Nothing is stored. The Turnstile site key is the build variable `PUBLIC_TURNSTILE_SITE_KEY`, its secret a Worker secret; non-production builds use Cloudflare's Turnstile test keys. The function mails church recipients only when the request host equals `CANONICAL_HOST`; on any other host it sends to the test address of the preview environment or refuses.
+- **Rule:** each form posts to `/api/forms/<form-name>`. Each form has one field schema in `web/src/forms/<form-name>.ts`, imported by both the page and the function; the page submits with `fetch` and JSON, dates as `YYYY-MM-DD`. The function checks Turnstile and a honeypot, validates the fields against that schema, sends one e-mail through the Cloudflare Email Sending binding, and returns. Recipients per form live in the `FORM_RECIPIENTS` variable and the sender in `FORM_SENDER`, both in `wrangler.jsonc`. Recipients are today's OVH mailboxes. No copy is ever sent to the visitor. Nothing is stored. The Turnstile site key is the build variable `PUBLIC_TURNSTILE_SITE_KEY`, its secret a Worker secret; non-production builds use Cloudflare's Turnstile test keys. The function mails church recipients only when the request host equals `CANONICAL_HOST`; on any other host it sends to the test address of the preview environment or refuses.
 
 ### AD-6 — Sermons come from YouTube at request time [ADOPTED]
 
@@ -102,7 +102,7 @@ flowchart LR
 
 - **Binds:** domains, redirects, sitemap, canonical tags
 - **Prevents:** duplicate sites under two names, dead links from search engines and bookmarks.
-- **Rule:** the site answers only on `CANONICAL_HOST` = `tonegliseavalenciennes.fr`, a var in `wrangler.jsonc`. `www.tonegliseavalenciennes.fr`, `add-valenciennes.fr` and `www.add-valenciennes.fr` get a 301 to the same path there through Cloudflare Single Redirect rules on each zone. Path redirects live only in `site/public/_redirects`. Forms post to a relative `/api/` path, so a submission never crosses a host redirect. Every URL of the live site is listed once in `site/ops/url-inventory.csv` with its fate: kept, 301 to a target, or 410. Kept pages keep their WordPress path, with a trailing slash: Astro `trailingSlash: 'always'` and `build.format: 'directory'`, Workers assets `html_handling: 'auto-trailing-slash'` and `not_found_handling: '404-page'`; every `_redirects` entry, sitemap entry and canonical link uses the trailing-slash form. Each old sermon URL redirects to its own YouTube video, or to the sermons page when the video is gone.
+- **Rule:** the site answers only on `CANONICAL_HOST` = `tonegliseavalenciennes.fr`, a var in `wrangler.jsonc`. `www.tonegliseavalenciennes.fr`, `add-valenciennes.fr` and `www.add-valenciennes.fr` get a 301 to the same path there through Cloudflare Single Redirect rules on each zone. Path redirects live only in `web/public/_redirects`. Forms post to a relative `/api/` path, so a submission never crosses a host redirect. Every URL of the live site is listed once in `web/ops/url-inventory.csv` with its fate: kept, 301 to a target, or 410. Kept pages keep their WordPress path, with a trailing slash: Astro `trailingSlash: 'always'` and `build.format: 'directory'`, Workers assets `html_handling: 'auto-trailing-slash'` and `not_found_handling: '404-page'`; every `_redirects` entry, sitemap entry and canonical link uses the trailing-slash form. Each old sermon URL redirects to its own YouTube video, or to the sermons page when the video is gone.
 
 ### AD-10 — Only production is indexed [ADOPTED]
 
@@ -120,7 +120,7 @@ flowchart LR
 
 - **Binds:** all components (CAP-7, CAP-8, CAP-9)
 - **Prevents:** pages drifting from the charter, raw values that fail contrast, mockups overriding architecture.
-- **Rule:** `design/tokens.json` is the only source of colours, type scale, spacing and radii; `site/src/styles/tokens.css` is generated from it at build. Components use tokens, never raw values. Components follow the validated mockups of `design/maquettes/` and `design/DESIGN.md`; where a mockup contradicts an AD, the AD wins. Known cases: the sermons list and single-sermon mockups (AD-6), the "Gérer mes choix de cookies" button (AD-7). No photograph showing children is published for now.
+- **Rule:** `design/tokens.json` is the only source of colours, type scale, spacing and radii; `web/src/styles/tokens.css` is generated from it at build. Components use tokens, never raw values. Components follow the validated mockups of `design/maquettes/` and `design/DESIGN.md`; where a mockup contradicts an AD, the AD wins. Known cases: the sermons list and single-sermon mockups (AD-6), the "Gérer mes choix de cookies" button (AD-7). No photograph showing children is published for now.
 
 ### AD-13 — Accessibility is part of done [ADOPTED]
 
@@ -144,7 +144,7 @@ flowchart LR
 
 - **Binds:** content migration
 - **Prevents:** content taken from the stale March 2026 backup, texts rewritten during the move, two import methods.
-- **Rule:** one script, run once, pulls texts and photos from the live site into the content collections and `site/src/assets/`, and builds `url-inventory.csv` and the sermon redirects. Kept texts and photos are copied as they are, corrected only where `design/DESIGN.md` records a change. The script is removed after the switch.
+- **Rule:** one script, run once, pulls texts and photos from the live site into the content collections and `web/src/assets/`, and builds `url-inventory.csv` and the sermon redirects. Kept texts and photos are copied as they are, corrected only where `design/DESIGN.md` records a change. The script is removed after the switch.
 
 ## Consistency Conventions
 
@@ -158,9 +158,9 @@ flowchart LR
 | API headers | Set in code by one shared helper, since `_headers` does not apply to Worker responses. |
 | Logging | Workers Logs may record route, status and error code, never form contents or visitor identifiers; request IP and `cf` fields are not logged. |
 | Config | Non-secret settings and variables in `wrangler.jsonc`, with a `previews` block for preview values; secrets via Cloudflare; facts in `facts.json`. |
-| Node version | Pinned in `site/.nvmrc`, read by both local work and Workers Builds. |
+| Node version | Pinned in `web/.nvmrc`, read by both local work and Workers Builds. |
 | Versions | Stack versions are minimums; exact versions live in the lockfile. |
-| Fonts | Self-hosted; `@font-face` rules in one `site/src/styles/fonts.css`. |
+| Fonts | Self-hosted; `@font-face` rules in one `web/src/styles/fonts.css`. |
 
 ## Stack
 
@@ -201,7 +201,7 @@ flowchart LR
 ```
 
 ```text
-site/
+web/
   .nvmrc
   astro.config.mjs
   wrangler.jsonc
@@ -244,7 +244,7 @@ site/
 - **Switch-over checklist** (order of DNS move, checks, rollback): written by the domains and hosting epic, within AD-2, AD-9 and AD-11.
 - **OVH hosting versus a standalone e-mail offer**: after the switch, once OVH confirms where the mailboxes live.
 - **Fallback if Email Sending (beta) fails**: another sender only with the owner's approval (AD-15).
-- **Removal of `web/`**: a separate task the owner approves.
+- **Removal of the WordPress copy**: done on 2026-11-10 at the owner's request; `web/www/` and its ignored files are archived outside the repository, and `web/` now holds the new site.
 - **Update of `AGENTS.md`** (merging to `main` now publishes; WordPress left): a task of the first epic.
 - **Form fields and texts, legal pages wording**: page-level, following the mockups and AD-7.
 - **Site search, newcomer page, online giving**: not in the current structure.
