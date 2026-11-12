@@ -28,9 +28,28 @@
   "vars": {
     "CANONICAL_HOST": "tonegliseavalenciennes.fr"
   },
+  // Production keeps Workers Logs, as set by the owner in the dashboard.
+  // Declared here because wrangler deploy turns observability off whenever
+  // this block is missing.
+  "observability": {
+    "enabled": true,
+    "head_sampling_rate": 1,
+    "logs": {
+      "enabled": true,
+      "invocation_logs": true,
+      "persist": true
+    },
+    "traces": {
+      "enabled": false
+    }
+  },
   // Previews (preprod) do not inherit production vars, so each one is
   // repeated here with its preview value.
   "previews": {
+    // No logs on previews (owner decision, 2026-11-12).
+    "observability": {
+      "enabled": false
+    },
     "vars": {
       // A host no request ever carries: on a preview, code that compares the
       // request host with CANONICAL_HOST always takes the non-production path
