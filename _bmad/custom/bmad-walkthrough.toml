@@ -1,5 +1,5 @@
 [workflow]
 
 persistent_facts = [
-  "file:{project-root}/_bmad/custom/project-rules.md",
+  "file:{project-root}/AGENTS.md",
 ]

@@ -1,0 +1,22 @@
+.c-info-panel.c-info-panel{background: [[surface-sand]]; border-radius: 6px; padding: 24px 16px}
+.c-info-panel__dl1.c-info-panel__dl1{margin: 0; display: flex; flex-direction: column; gap: 16px}
+.c-info-panel__dl1-div1.c-info-panel__dl1-div1{display: flex; gap: 16px}
+.c-info-panel__dl1-div2.c-info-panel__dl1-div2{display: flex; gap: 16px}
+.c-info-panel__dl1-div3.c-info-panel__dl1-div3{display: flex; gap: 16px}
+.c-info-panel__dl1-div4.c-info-panel__dl1-div4{display: flex; gap: 16px}
+.c-info-panel__dl1-div1-svg1.c-info-panel__dl1-div1-svg1{flex: none; margin-top: 2px}
+.c-info-panel__dl1-div2-svg1.c-info-panel__dl1-div2-svg1{flex: none; margin-top: 2px}
+.c-info-panel__dl1-div3-svg1.c-info-panel__dl1-div3-svg1{flex: none; margin-top: 2px}
+.c-info-panel__dl1-div4-svg1.c-info-panel__dl1-div4-svg1{flex: none; margin-top: 2px}
+.c-info-panel__dl1-div1-div1-dd1.c-info-panel__dl1-div1-div1-dd1{margin: 0; font-weight: 700; color: [[secondary]]}
+.c-info-panel__dl1-div1-div1-dt1.c-info-panel__dl1-div1-div1-dt1{font-size: 15px; color: [[text-muted]]}
+.c-info-panel__dl1-div2-div1-dd1.c-info-panel__dl1-div2-div1-dd1{margin: 0; font-weight: 700; color: [[secondary]]}
+.c-info-panel__dl1-div2-div1-dt1.c-info-panel__dl1-div2-div1-dt1{font-size: 15px; color: [[text-muted]]}
+.c-info-panel__dl1-div3-div1-dd1.c-info-panel__dl1-div3-div1-dd1{margin: 0; font-weight: 700; color: [[secondary]]}
+.c-info-panel__dl1-div3-div1-dd2.c-info-panel__dl1-div3-div1-dd2{margin: 0}
+.c-info-panel__dl1-div3-div1-dt1.c-info-panel__dl1-div3-div1-dt1{font-size: 15px; color: [[text-muted]]}
+.c-info-panel__dl1-div4-div1-dd1.c-info-panel__dl1-div4-div1-dd1{margin: 0; font-weight: 700; color: [[secondary]]}
+.c-info-panel__dl1-div4-div1-dd2.c-info-panel__dl1-div4-div1-dd2{margin: 0}
+.c-info-panel__dl1-div4-div1-dt1.c-info-panel__dl1-div4-div1-dt1{font-size: 15px; color: [[text-muted]]}
+.c-info-panel__dl1-div3-div1-dd2-a1.c-info-panel__dl1-div3-div1-dd2-a1{display: inline-flex; align-items: center; min-height: 44px; font-size: 16px; text-underline-offset: 4px}
+.c-info-panel__dl1-div4-div1-dd2-a1.c-info-panel__dl1-div4-div1-dd2-a1{display: inline-flex; align-items: center; min-height: 44px; font-size: 16px; text-underline-offset: 4px}

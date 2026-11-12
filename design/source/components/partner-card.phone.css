@@ -1,0 +1,4 @@
+.c-partner-card.c-partner-card{display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 16px; border-radius: 6px; background: [[surface-white]]; color: [[secondary]]; text-decoration: none}
+.c-partner-card__svg1.c-partner-card__svg1{flex: none}
+.c-partner-card__span1-span1.c-partner-card__span1-span1{font-size: 16px; color: [[text-muted]]}
+.c-partner-card__span1-strong1.c-partner-card__span1-strong1{display: block; font-family: 'Outfit', system-ui, sans-serif; font-size: 20px; line-height: 1.25}

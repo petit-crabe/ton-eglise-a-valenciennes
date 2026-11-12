@@ -1,0 +1,7 @@
+.c-weekly-card.c-weekly-card{display: flex; gap: 16px; align-items: flex-start; padding: 16px; border-radius: 6px; background: [[surface-white]]}
+.c-weekly-card__span1.c-weekly-card__span1{flex: none; width: 72px; height: 72px; border-radius: 4px; background: [[secondary]]; color: [[surface-white]]; display: flex; flex-direction: column; align-items: center; justify-content: center; line-height: 1.1}
+.c-weekly-card__div1-a1.c-weekly-card__div1-a1{display: inline-flex; align-items: center; min-height: 44px; font-size: 16px; text-underline-offset: 4px}
+.c-weekly-card__div1-h31.c-weekly-card__div1-h31{margin: 0 0 8px; font-family: 'Outfit', system-ui, sans-serif; font-size: 20px; line-height: 1.25; color: [[secondary]]}
+.c-weekly-card__div1-p1.c-weekly-card__div1-p1{margin: 0; font-weight: 700; color: [[secondary]]}
+.c-weekly-card__span1-span1.c-weekly-card__span1-span1{font-size: 15px; text-transform: uppercase}
+.c-weekly-card__span1-span2.c-weekly-card__span1-span2{font-family: 'Outfit', system-ui, sans-serif; font-size: 20px; font-weight: 700}

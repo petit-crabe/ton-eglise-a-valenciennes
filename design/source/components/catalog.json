@@ -1,0 +1,572 @@
+[
+ {
+  "name": "page-banner",
+  "title": "Bannière de page",
+  "text": "Photo floutée de la rubrique, fil d'Ariane, titre de la page et barre dorée. En haut de chaque page intérieure.",
+  "width": [
+   1440,
+   390
+  ],
+  "match": [
+   {
+    "tag": "section",
+    "style": [
+     "position: relative; overflow: hidden; background: [[secondary]]"
+    ],
+    "contains": "Fil d'Ariane"
+   }
+  ]
+ },
+ {
+  "name": "home-hero",
+  "title": "Grande bannière d'accueil",
+  "text": "Titre, horaires, adresse et les quatre cartes de contact ; remplit tout le premier écran.",
+  "width": [
+   1440,
+   390
+  ],
+  "match": [
+   {
+    "tag": "section",
+    "style": [
+     "position: relative; overflow: hidden; background: [[secondary]]"
+    ],
+    "contains": "Une église pour moi"
+   }
+  ]
+ },
+ {
+  "name": "contact-card",
+  "title": "Carte de contact",
+  "text": "Toute la carte est un lien : icône dans un rond blanc, intitulé, flèche. Le fond change selon la carte (bleu, ciel, or clair, ivoire).",
+  "width": [
+   282,
+   358
+  ],
+  "match": [
+   {
+    "tag": "a",
+    "style": [
+     "min-height: 176px"
+    ]
+   },
+   {
+    "tag": "a",
+    "style": [
+     "min-height: 80px; box-sizing: border-box; padding: 16px; border-radius: 6px"
+    ]
+   }
+  ]
+ },
+ {
+  "name": "button",
+  "title": "Bouton",
+  "text": "Deux modèles : plein (action principale) et contour (action secondaire). Sur téléphone, souvent sur toute la largeur.",
+  "width": [
+   360,
+   358
+  ],
+  "match": [
+   {
+    "tag": "a",
+    "style": [
+     "min-height: 52px"
+    ]
+   },
+   {
+    "tag": "button",
+    "style": [
+     "min-height: 52px"
+    ]
+   }
+  ]
+ },
+ {
+  "name": "signal-tag",
+  "title": "Étiquette « En direct » / « Nouveau »",
+  "text": "Corail, texte bleu nuit : uniquement pour ce qui se passe maintenant ou vient d'être ajouté.",
+  "width": [
+   360,
+   358
+  ],
+  "match": [
+   {
+    "tag": "span",
+    "style": [
+     "background: [[signal]]"
+    ]
+   }
+  ]
+ },
+ {
+  "name": "sermon-card",
+  "title": "Carte de prédication",
+  "text": "Toute la carte est un lien : miniature avec bouton lecture, série, titre, date et orateur.",
+  "width": [
+   368,
+   358
+  ],
+  "match": [
+   {
+    "tag": "article",
+    "style": [
+     "position: relative; flex: 1; display: flex; flex-direction: column; background: [[surface-white]]"
+    ]
+   }
+  ]
+ },
+ {
+  "name": "event-card",
+  "title": "Carte d'évènement (accueil)",
+  "text": "Image, pastille de date, titre, heure et lieu, courte présentation, lien « En savoir plus ».",
+  "width": [
+   384,
+   358
+  ],
+  "match": [
+   {
+    "tag": "article",
+    "style": [
+     "display: flex; flex-direction: column; background: [[surface-white]]; border-radius: 6px; overflow: hidden"
+    ]
+   },
+   {
+    "tag": "article",
+    "style": [
+     "background: [[surface-white]]; border-radius: 6px; overflow: hidden"
+    ],
+    "page": "Accueil"
+   }
+  ]
+ },
+ {
+  "name": "event-row",
+  "title": "Ligne d'évènement (liste)",
+  "text": "Version de la carte d'évènement pour la page Évènements : image à gauche sur ordinateur.",
+  "width": [
+   1152,
+   358
+  ],
+  "match": [
+   {
+    "tag": "article",
+    "style": [
+     "display: grid; grid-template-columns: minmax(0, 400px)"
+    ]
+   },
+   {
+    "tag": "article",
+    "style": [
+     "background: [[surface-white]]; border: 1px solid [[border]]; border-radius: 6px; overflow: hidden"
+    ],
+    "page": "Evenements"
+   }
+  ]
+ },
+ {
+  "name": "month-heading",
+  "title": "Titre de mois",
+  "text": "Regroupe les évènements d'un même mois, avec un filet dessous.",
+  "width": [
+   1152,
+   358
+  ],
+  "match": [
+   {
+    "tag": "h3",
+    "style": [
+     "padding-bottom: 8px; border-bottom: 1px solid [[border]]"
+    ]
+   }
+  ]
+ },
+ {
+  "name": "weekly-card",
+  "title": "Carte de réunion hebdomadaire",
+  "text": "Carré bleu nuit avec le jour et l'heure, nom de la réunion, horaire et adresse.",
+  "width": [
+   576,
+   358
+  ],
+  "match": [
+   {
+    "tag": "article",
+    "style": [
+     "display: flex; gap: 24px; align-items: flex-start; padding: 32px"
+    ]
+   },
+   {
+    "tag": "article",
+    "style": [
+     "display: flex; gap: 16px; align-items: flex-start; padding: 16px"
+    ]
+   }
+  ]
+ },
+ {
+  "name": "latest-sermon",
+  "title": "Carte « Dernière prédication » (accueil)",
+  "text": "Vignette de la vidéo avec bouton lecture doré, date, titre et boutons.",
+  "width": [
+   1152,
+   358
+  ],
+  "match": [
+   {
+    "tag": "article",
+    "style": [
+     "background: [[surface-sand]]"
+    ],
+    "page": "Accueil"
+   }
+  ]
+ },
+ {
+  "name": "video-slot",
+  "title": "Emplacement vidéo",
+  "text": "Format 16:9 bleu nuit avec bouton lecture doré ; accueillera le lecteur YouTube.",
+  "width": [
+   672,
+   358
+  ],
+  "match": [
+   {
+    "tag": "div",
+    "style": [
+     "position: relative; aspect-ratio: 16 / 9; border-radius: 6px; background: [[secondary]]"
+    ]
+   }
+  ]
+ },
+ {
+  "name": "filter-menu",
+  "title": "Menu de filtre",
+  "text": "Liste déroulante avec son intitulé au-dessus (Série, Orateur).",
+  "width": [
+   280,
+   358
+  ],
+  "match": [
+   {
+    "tag": "div",
+    "style": [
+     "display: flex; flex-direction: column; gap: 8px"
+    ],
+    "contains": "<select"
+   }
+  ]
+ },
+ {
+  "name": "pagination",
+  "title": "Pagination",
+  "text": "Numéros de page et « Suivante » sur ordinateur ; « Page 1 sur N » et « Plus anciennes » sur téléphone.",
+  "width": [
+   1152,
+   358
+  ],
+  "match": [
+   {
+    "tag": "nav",
+    "attr": "aria-label=\"Pages\""
+   }
+  ]
+ },
+ {
+  "name": "info-panel",
+  "title": "Encadré d'infos pratiques",
+  "text": "Fond ivoire, liste date / heure / lieu (ou orateur, passage, série) avec icônes.",
+  "width": [
+   360,
+   358
+  ],
+  "match": [
+   {
+    "tag": "aside",
+    "style": [
+     "background: [[surface-sand]]; border-radius: 6px"
+    ]
+   }
+  ]
+ },
+ {
+  "name": "share-buttons",
+  "title": "Boutons de partage",
+  "text": "Petit titre et deux boutons contour : Facebook et WhatsApp.",
+  "width": [
+   360,
+   358
+  ],
+  "match": [
+   {
+    "tag": "div",
+    "contains": "Partager l"
+   }
+  ]
+ },
+ {
+  "name": "verse-panel",
+  "title": "Encadré verset",
+  "text": "Fond or pâle, guillemet doré, verset et référence.",
+  "width": [
+   552,
+   358
+  ],
+  "match": [
+   {
+    "tag": "figure",
+    "style": [
+     "background: [[surface-gold]]"
+    ]
+   }
+  ]
+ },
+ {
+  "name": "side-panel",
+  "title": "Encadré latéral",
+  "text": "Fond or pâle, petit titre, texte et une ligne clé sur fond blanc (Réduction d'impôt).",
+  "width": [
+   464,
+   358
+  ],
+  "match": [
+   {
+    "tag": "aside",
+    "style": [
+     "background: [[surface-gold]]; border-radius: 6px"
+    ]
+   }
+  ]
+ },
+ {
+  "name": "give-card",
+  "title": "Carte « Comment donner »",
+  "text": "Icône dans un rond ciel, titre, texte et bouton (virement) ou liste (chèque).",
+  "width": [
+   560,
+   358
+  ],
+  "match": [
+   {
+    "tag": "article",
+    "style": [
+     "flex: 1; display: flex; flex-direction: column; gap: 16px; background: [[surface-white]]"
+    ]
+   }
+  ]
+ },
+ {
+  "name": "contact-details",
+  "title": "Coordonnées",
+  "text": "Adresse, horaires, e-mail et téléphone, chacun avec son icône ; les liens font au moins 44 px.",
+  "width": [
+   464,
+   358
+  ],
+  "match": [
+   {
+    "tag": "dl",
+    "contains": "Horaires des réunions"
+   }
+  ]
+ },
+ {
+  "name": "form-panel",
+  "title": "Panneau de formulaire",
+  "text": "Fond ivoire, titre, phrase sur les champs obligatoires, puis le formulaire.",
+  "width": [
+   1152,
+   358
+  ],
+  "match": [
+   {
+    "tag": "section",
+    "style": [
+     "background: [[surface-sand]]; border-radius: 6px"
+    ]
+   }
+  ]
+ },
+ {
+  "name": "field",
+  "title": "Champ de formulaire",
+  "text": "Intitulé en gras au-dessus, case de 48 px, contour bien visible ; variantes texte, message, date avec calendrier.",
+  "width": [
+   560,
+   358
+  ],
+  "match": [
+   {
+    "tag": "div",
+    "style": [
+     "display: flex; flex-direction: column; gap: 8px"
+    ],
+    "contains": "<label"
+   }
+  ]
+ },
+ {
+  "name": "choice",
+  "title": "Case à cocher / bouton radio",
+  "text": "Une ligne de 44 px, case de 22 px, intitulé à droite.",
+  "width": [
+   280,
+   358
+  ],
+  "match": [
+   {
+    "tag": "label",
+    "style": [
+     "display: flex; align-items: center; gap: 12px; min-height: 44px"
+    ]
+   }
+  ]
+ },
+ {
+  "name": "accordion-item",
+  "title": "Ligne d'accordéon",
+  "text": "Numéro, titre court, chevron ; le texte s'ouvre au clic (Nos valeurs).",
+  "width": [
+   800,
+   358
+  ],
+  "match": [
+   {
+    "tag": "details",
+    "style": [
+     "border-bottom: 1px solid [[border]]"
+    ]
+   }
+  ]
+ },
+ {
+  "name": "timeline-item",
+  "title": "Étape de frise",
+  "text": "Année en bleu, point sur la ligne, texte ; la dernière étape a un point doré.",
+  "width": [
+   880,
+   358
+  ],
+  "match": [
+   {
+    "tag": "li",
+    "style": [
+     "display: grid; grid-template-columns: 136px"
+    ]
+   },
+   {
+    "tag": "li",
+    "style": [
+     "position: relative; border-left: 2px solid [[primary]]"
+    ]
+   }
+  ]
+ },
+ {
+  "name": "placeholder-card",
+  "title": "Carte à compléter",
+  "text": "Carte blanche à contour fin, nom et une ligne grise entre crochets par information manquante (départements).",
+  "width": [
+   384,
+   358
+  ],
+  "match": [
+   {
+    "tag": "article",
+    "style": [
+     "display: flex; flex-direction: column; gap: 8px; padding: "
+    ]
+   }
+  ]
+ },
+ {
+  "name": "partner-card",
+  "title": "Carte partenaire",
+  "text": "Nom du partenaire, son site en gris, icône de lien externe.",
+  "width": [
+   576,
+   358
+  ],
+  "match": [
+   {
+    "tag": "a",
+    "style": [
+     "display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: "
+    ]
+   }
+  ]
+ },
+ {
+  "name": "section-link",
+  "title": "Lien « Dans la rubrique »",
+  "text": "Tuile blanche avec flèche ; la page en cours est bleu nuit avec « Vous êtes ici » et un point doré.",
+  "width": [
+   384,
+   358
+  ],
+  "match": [
+   {
+    "tag": "a",
+    "style": [
+     "justify-content: space-between; gap: 16px; min-height: 64px"
+    ]
+   }
+  ]
+ },
+ {
+  "name": "toc",
+  "title": "Sommaire",
+  "text": "Pages juridiques : colonne fixe sur ordinateur, liste dépliante sur téléphone.",
+  "width": [
+   300,
+   358
+  ],
+  "match": [
+   {
+    "tag": "nav",
+    "style": [
+     "position: sticky"
+    ]
+   },
+   {
+    "tag": "details",
+    "style": [
+     "margin-bottom: 8px; border: 1px solid [[border]]"
+    ]
+   }
+  ]
+ },
+ {
+  "name": "cookie-table",
+  "title": "Tableau de cookies",
+  "text": "Un tableau par service : en-tête ivoire avec étiquette de catégorie, puis les cookies.",
+  "width": [
+   760,
+   358
+  ],
+  "match": [
+   {
+    "tag": "div",
+    "style": [
+     "margin: 0 0 24px; border: 1px solid [[border]]; border-radius: 6px; overflow: hidden"
+    ]
+   }
+  ]
+ },
+ {
+  "name": "todo-marker",
+  "title": "Repère « à compléter »",
+  "text": "Texte à fournir par l'église, entre crochets sur fond or clair. Jamais en production.",
+  "width": [
+   360,
+   358
+  ],
+  "match": [
+   {
+    "tag": "span",
+    "style": [
+     "padding: 0 4px; border-radius: 4px; background: [[surface-sun]]"
+    ]
+   }
+  ]
+ }
+]

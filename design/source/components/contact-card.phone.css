@@ -1,0 +1,4 @@
+.c-contact-card.c-contact-card{display: flex; align-items: center; gap: 16px; min-height: 80px; box-sizing: border-box; padding: 16px; border-radius: 6px; text-decoration: none}
+.c-contact-card__span1.c-contact-card__span1{flex: none; width: 48px; height: 48px; border-radius: 999px; background: [[surface-white]]; display: flex; align-items: center; justify-content: center}
+.c-contact-card__span2.c-contact-card__span2{flex: 1; font-family: 'Outfit', system-ui, sans-serif; font-size: 20px; font-weight: 700; line-height: 1.2}
+.c-contact-card__svg1.c-contact-card__svg1{flex: none}

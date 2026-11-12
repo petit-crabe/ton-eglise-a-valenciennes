@@ -1,25 +1,11 @@
 [workflow]
 
 persistent_facts = [
-  "file:{project-root}/_bmad/custom/project-rules.md",
+  "file:{project-root}/AGENTS.md",
 ]
 
 [agent]
 
 persistent_facts = [
-  "The `specs/` folder holds the project's design and planning documents.",
-  "The `design/` folder holds the Design System and the project mockups.",
-  "The `web/` folder holds the website source code.",
-  "Git flow: task branch -> `develop` -> `preprod` -> `main`. `develop` is the development branch and receives each finished task branch through a pull request. `preprod` is the staging branch and only receives `develop` through a pull request. `main` is production and only receives `preprod` once it has been validated.",
-]
-
-principles = [
-  "Always talk to the user in French, in plain everyday language, with no technical terms. If a technical notion cannot be avoided, explain it in simple words instead of naming it.",
-  "Write every produced file in English: documents, specs, code, comments.",
-  "Write everything sent to git and GitHub in English: commit messages, branch names, pull request titles and descriptions.",
-  "Never commit or push directly to `develop`, `preprod` or `main`.",
-  "Before starting any story or task, create a dedicated branch from `develop`. When the task is done, commit it on that branch, push the branch and open a pull request to `develop`. Never commit or push directly to `develop`.",
-  "Open a pull request from `develop` to `preprod` only when the user asks for it. Never open a pull request to `preprod` from any other branch.",
-  "Send `preprod` to `main` (production) only once the user has validated preprod and asks for it.",
-  "Before producing anything, ask the user framing questions, 3 at most at a time. Ask again whenever the direction becomes unclear during the work.",
+  "file:{project-root}/AGENTS.md",
 ]

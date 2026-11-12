@@ -1,0 +1,65 @@
+# tickets.toml — the epics of initiative-site-improvement. Table order is the build order.
+
+[[epic]]
+id = 1
+slug = "epic-site-foundation"
+title = "Site foundation and publishing path"
+covers = ["CAP-19", "CAP-10", "CAP-9", "CAP-3", "CAP-5", "CAP-7", "CAP-8", "CAP-11", "CAP-13"]
+
+[[epic]]
+id = 2
+slug = "epic-pages-and-content"
+title = "Pages and imported content"
+covers = ["CAP-15", "CAP-11", "CAP-6", "CAP-5", "CAP-9", "CAP-7", "CAP-8", "CAP-13"]
+after = [{ epic = 1, needs = "base layout, tokens, page and menu collections, facts, build checks, shared components" }]
+
+[[epic]]
+id = 3
+slug = "epic-sermons"
+title = "Sermons from YouTube"
+covers = ["CAP-12", "CAP-5", "CAP-7", "CAP-8", "CAP-13"]
+after = [
+  { epic = 1, needs = "/api route, shared API helper and error codes, base CSP" },
+  { epic = 2, needs = "home and sermons pages, sermon redirects from the import" },
+]
+
+[[epic]]
+id = 4
+slug = "epic-events"
+title = "Events relaunched"
+covers = ["CAP-17", "CAP-7", "CAP-8", "CAP-13"]
+after = [
+  { epic = 1, needs = "content.config.ts and its checks, facts (weekly meetings)" },
+  { epic = 2, needs = "home page events slot" },
+]
+
+[[epic]]
+id = 5
+slug = "epic-dns-to-cloudflare"
+title = "Domain names managed by Cloudflare, e-mail untouched"
+covers = ["CAP-18"]
+after = [{ epic = 1, needs = "the Cloudflare account set up for the site" }]
+
+[[epic]]
+id = 6
+slug = "epic-forms"
+title = "Forms reach the church mailboxes"
+covers = ["CAP-16", "CAP-5", "CAP-7", "CAP-8", "CAP-13"]
+after = [
+  { epic = 1, needs = "/api route, shared API helper, base CSP" },
+  { epic = 2, needs = "form pages and privacy page" },
+  { epic = 5, needs = "an active Cloudflare zone for the sending domain" },
+]
+
+[[epic]]
+id = 7
+slug = "epic-switch-over"
+title = "The new site takes over the domain"
+covers = ["CAP-15", "CAP-3", "CAP-18", "CAP-5"]
+after = [
+  { epic = 2, needs = "every page and the URL inventory" },
+  { epic = 3, needs = "sermons live" },
+  { epic = 4, needs = "events live" },
+  { epic = 5, needs = "DNS on Cloudflare" },
+  { epic = 6, needs = "forms live" },
+]

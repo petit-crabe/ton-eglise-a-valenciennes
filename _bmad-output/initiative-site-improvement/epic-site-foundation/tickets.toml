@@ -1,0 +1,137 @@
+# tickets.toml — the stories of epic-site-foundation. Table order is the build order.
+# Built one story at a time, interactively with bmad-build.
+
+[[entry]]
+id = 1
+type = "story"
+title = "Site scaffold published to preprod"
+description = "Creates the web/ Astro project (pinned Node, Astro, Cloudflare adapter, trailing-slash directory routes, compile-time images, wrangler.jsonc with assets handling, CANONICAL_HOST and a previews block) with one prerendered home page, connects Workers Builds so main builds production and preprod a link-only preview, derives SITE_ENV from the branch, and generates robots.txt and the X-Robots-Tag noindex for every non-production build; starts web/ops/cloudflare-settings.md."
+verify = "After the owner merges to preprod, the preview link shows the home page, its robots.txt disallows all and its responses carry X-Robots-Tag noindex; the main build succeeds, wrangler.jsonc sets workers_dev to false and the production workers.dev address does not answer."
+covers = ["CAP-19", "CAP-3"]
+after = []
+hitl = true
+risk = "high"
+
+[[entry]]
+id = 2
+type = "story"
+title = "Branch protection and agent instructions"
+description = "Has the owner protect develop, preprod and main so only a PR can change them, and updates AGENTS.md for the new site: how to run and build web/, that preprod is the prototype, and that merging to main publishes once the domain is switched."
+verify = "A direct push to preprod is refused by GitHub, and the commands AGENTS.md gives build web/ locally."
+covers = ["CAP-19"]
+after = [1]
+hitl = true
+risk = "low"
+
+[[entry]]
+id = 3
+type = "story"
+title = "Design tokens, fonts and base styles"
+description = "Generates web/src/styles/tokens.css from design/tokens.json at build, self-hosts Outfit and Source Sans 3 in fonts.css, sets the base typography, focus and reduced-motion styles from DESIGN.md, and fails the build when a component style uses a raw colour, size or radius instead of a token."
+verify = "Changing a value in design/tokens.json changes the built page; a raw hex colour in a component fails the build; the page requests no font from another domain."
+covers = ["CAP-9", "CAP-8", "CAP-7"]
+after = [1]
+hitl = false
+risk = "medium"
+
+[[entry]]
+id = 4
+type = "story"
+title = "Practical facts and structured data"
+description = "Adds web/src/data/facts.json with the confirmed facts and the weekly meetings, one schema module that pages and /api import, helpers that render tel:, mailto: and map links, and the church's structured data built from the facts; the church name and contact e-mail may stay provisional on preprod until the church confirms them."
+verify = "An invalid facts.json fails the build, and the structured data of the home page passes a schema validator with the confirmed address, phone and service time."
+covers = ["CAP-10"]
+after = [1]
+hitl = false
+risk = "low"
+
+[[entry]]
+id = 5
+type = "story"
+title = "Content collections, menus and content checks"
+description = "Defines the page and menu collections in content.config.ts (each later content type, such as events, adds its own schema there), writes the main, footer and legal menus of the mockups as content with one 'page en préparation' page per menu target that epic-pages-and-content replaces, and adds the build checks that fail on an iframe, script or third-party src in content and on a menu link to a missing or redirected route."
+verify = "The build passes with the full mockup menus; a content file with an iframe, and a menu entry pointing to a missing page, each make the build fail with a message naming the file."
+covers = ["CAP-11", "CAP-3"]
+after = [1]
+hitl = false
+risk = "medium"
+
+[[entry]]
+id = 6
+type = "story"
+title = "Base layout and accessibility check"
+description = "Builds the base layout every page uses: French language, skip link, header, main and footer landmarks, one h1 slot, pinch-zoom allowed, canonical trailing-slash link, structured data, and the Cloudflare Web Analytics beacon added by hand for production builds only when its token is set; the owner turns off automatic injection, and both are recorded in cloudflare-settings.md. Adds an axe-core command-line check run against the preview."
+verify = "The axe-core check on the preview home page reports no WCAG 2.1 AA violation, and the preview HTML contains no analytics beacon."
+covers = ["CAP-13", "CAP-7", "CAP-5"]
+after = [3, 4]
+hitl = true
+risk = "low"
+
+[[entry]]
+id = 7
+type = "story"
+title = "Security headers, CSP, sitemap and 404"
+description = "Extends the generated _headers with one list of the 01-S7 security headers and the base Content-Security-Policy of AD-7 (naming the Web Analytics beacon's sources; embed and form blocks are added by the epics that need them), removes every software version from pages and responses, generates a sitemap of public pages only with trailing-slash URLs, and adds the 404 page on the base layout."
+verify = "On the preview, every page response carries the 01-S7 headers and the base CSP, none names a software version, the sitemap lists only public pages, and /wp-admin/ and an unknown path answer the 404 page with status 404."
+covers = ["CAP-3", "CAP-5"]
+after = [6]
+hitl = false
+risk = "medium"
+
+[[entry]]
+id = 8
+type = "story"
+title = "Shared /api helper and health route"
+description = "Adds the Worker side under web/src/pages/api/ with one shared helper that sets on API responses the security headers of story 7's list, one shared list of error codes, the JSON response shapes and logging rules of the conventions, and a health route that proves the path."
+verify = "On the preview, /api/health/ answers {\"ok\": true} with the security headers, and an unknown /api path answers {\"ok\": false, \"error\": ...} with the matching status."
+covers = ["CAP-3"]
+after = [7]
+hitl = false
+risk = "medium"
+
+[[entry]]
+id = 9
+type = "story"
+title = "Header and menu"
+description = "Builds the header from the menus collection and plugs it into the base layout, matching the mockups on computer and phone: logo linking home, the desktop menu with the current section marked through one shared menu-position helper, and the same keyboard-usable Menu button on every page on a phone, with 44 px targets and visible focus."
+verify = "On the preview at 360 px and 1440 px, the header shows the same elements in the same order and colours as the home mockup captures, the Menu button opens and closes with keyboard and touch, every item is at least 44 px, and the axe-core check passes."
+covers = ["CAP-7", "CAP-9", "CAP-11", "CAP-13"]
+after = [5, 6]
+hitl = false
+risk = "medium"
+references = ["design/maquettes/home/", "design/source/shell/"]
+
+[[entry]]
+id = 10
+type = "story"
+title = "Footer"
+description = "Builds the footer from the menus collection and the facts and plugs it into the base layout, in its computer layout and its compact phone layout: logo, address and e-mail as links, the link columns, social links as named 44 px icon buttons, the three legal links and the credit line."
+verify = "On the preview at 360 px and 1440 px, the footer shows the same elements in the same order and colours as the home mockup captures, its address, e-mail and phone open the maps, mail and phone apps, and changing the phone in facts.json changes it there."
+covers = ["CAP-10", "CAP-9", "CAP-7", "CAP-13"]
+after = [9]
+hitl = false
+risk = "low"
+references = ["design/maquettes/home/", "design/source/shell/"]
+
+[[entry]]
+id = 11
+type = "story"
+title = "Shared components: button, page banner, breadcrumb, section links"
+description = "Builds the components used on nearly every page: primary and secondary Button, Page banner with its Breadcrumb, and the 'Dans la rubrique' section links, both reading the menu-position helper of story 9, shown together on a preview-only component page."
+verify = "On the preview component page at 360 px and 1440 px, each component shows the same elements and colours as its board in design/source/components/, the axe-core check passes, and the page is absent from the production build and its sitemap."
+covers = ["CAP-9", "CAP-8", "CAP-7", "CAP-13"]
+after = [9]
+hitl = false
+risk = "low"
+references = ["design/source/components/", "design/maquettes/church/"]
+
+[[entry]]
+id = 12
+type = "story"
+title = "Refactor sweep"
+description = "Cleans up what the epic's plans and reviews deferred; scope set when it starts, cleanup only."
+verify = "The site builds and the checks of stories 1 to 11 rerun on the preview all pass."
+covers = []
+after = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
+hitl = false
+risk = "low"
