@@ -1,59 +1,89 @@
 # Réglages Cloudflare faits hors du projet
 
-Ce document liste les réglages qui se font uniquement dans le tableau de bord
-Cloudflare, et pas dans les fichiers du projet (AD-2). Les noms des menus et des
-champs sont donnés en anglais, tels qu'ils apparaissent dans Cloudflare.
+Ce document liste les réglages du tableau de bord Cloudflare (AD-2). Les noms
+des menus et des champs sont ceux du tableau de bord en français.
 
 N'écris jamais ici un mot de passe, un jeton ou une clé (AD-14). Quand tu
 changes un de ces réglages, mets ce document à jour par une demande de fusion.
 
-## Relier le projet GitHub à Cloudflare (Workers Builds)
+Certains réglages sont aussi écrits dans `web/wrangler.jsonc`. Ceux-là, Cloudflare
+les réapplique à chaque mise en ligne : si tu les changes seulement dans le
+tableau de bord, la mise en ligne suivante les remettra comme dans le fichier.
+Ils sont signalés par « (fichier) » ci-dessous.
 
-Où : **Workers & Pages** > le Worker `ton-eglise-a-valenciennes` > **Settings** >
-**Builds**.
+## Construction du site (Compilations)
 
-| Champ dans Cloudflare | Valeur à mettre |
+Où : **Workers et Pages** > `ton-eglise-a-valenciennes` > **Paramètres** >
+**Compilations**.
+
+| Champ | Valeur |
 | --- | --- |
-| Git repository (dépôt GitHub) | `petit-crabe/ton-eglise-a-valenciennes` |
-| Root directory (dossier du site) | `web` |
-| Production branch (branche du vrai site) | `main` |
-| Build command (commande de construction) | `npm run build` |
-| Deploy command (mise en ligne du vrai site) | `npx wrangler deploy` |
-| Non-production branch deploy command (mise en ligne des essais) | `npx wrangler preview` |
-| Builds for non-production branches (construire les autres branches) | activé, pour `preprod` seulement (filtre des branches : `preprod`) |
+| Référentiel Git | `petit-crabe/ton-eglise-a-valenciennes` |
+| Branche en production | `main` |
+| Commande de build | `npm run build` |
+| Déployer la commande | `npx wrangler deploy` |
+| Builds pour les branches d'aperçu | activé |
+| Commande d'aperçu | `npx wrangler preview` |
+| Répertoire racine | `web` |
+| Chemins de surveillance des builds | inclure `*`, rien d'exclu |
+| Jeton d'API | celui nommé « Builds de Workers - 2026-10-19 10:11 » |
+| Variables et secrets | aucun |
+| Cache du build | désactivé |
 | Version de Node | rien à régler : Cloudflare la lit dans `web/.nvmrc` |
 
-Tu n'as aucune variable à ajouter. Pendant la construction, Cloudflare indique
-quelle branche il construit. Seule `main` est traitée comme le vrai site ; pour
-toutes les autres, la construction demande à Google de ne pas référencer les
-pages (AD-10).
+Cloudflare ne permet pas ici de limiter les aperçus à la seule branche
+`preprod` : chaque branche envoyée sur GitHub obtient son propre lien d'essai.
+Ce n'est pas un problème, car ces liens ne sont publiés nulle part et le site y
+interdit le référencement par Google.
 
-Le lien d'essai de `preprod` aura cette forme :
-`preprod-ton-eglise-a-valenciennes.<ton sous-domaine>.workers.dev`. N'importe qui
-peut l'ouvrir s'il a le lien, mais il n'est publié nulle part.
+Pendant la construction, Cloudflare indique quelle branche il construit. Seule
+`main` est traitée comme le vrai site ; pour toutes les autres, la construction
+demande à Google de ne pas référencer les pages (AD-10).
 
-## Adresses du site
+Le lien d'essai de `preprod` est :
+`preprod-ton-eglise-a-valenciennes.contact-floriandesmet.workers.dev`.
 
-| Réglage | État |
+## Adresses du site (Domaines)
+
+Où : **Workers et Pages** > `ton-eglise-a-valenciennes` > **Domaines** >
+**URL du Worker**.
+
+| Ligne | État |
 | --- | --- |
-| Adresse `workers.dev` du vrai site | désactivée (`workers_dev: false` dans `wrangler.jsonc`) |
-| Liens d'essai (Preview URLs) | activés (`preview_urls: true` dans `wrangler.jsonc`) |
+| Production (`ton-eglise-a-valenciennes.contact-floriandesmet.workers.dev`) | désactivée (fichier : `workers_dev: false`) |
+| Aperçu (`*-ton-eglise-a-valenciennes.contact-floriandesmet.workers.dev`) | activée (fichier : `preview_urls: true`) |
+| Domaines personnalisés et routes | aucun pour l'instant ; le vrai nom de domaine sera ajouté lors du passage à Cloudflare |
 
-Avec les liens d'essai activés, Cloudflare crée aussi une adresse en
-`workers.dev` pour chaque version du vrai site, de la forme
-`<version>-ton-eglise-a-valenciennes.<ton sous-domaine>.workers.dev`. Le site
-demande à Google de ne référencer aucune adresse en `workers.dev`, même pour la
-version du vrai site, pour que ces copies n'apparaissent pas dans les recherches
-(AD-10).
+Avec les aperçus activés, Cloudflare crée aussi une adresse en `workers.dev`
+pour chaque version du vrai site. Le site demande à Google de ne référencer
+aucune adresse en `workers.dev`, même pour la version du vrai site, pour que ces
+copies n'apparaissent pas dans les recherches (AD-10).
+
+## Journaux d'activité (Observabilité)
+
+Où : **Workers et Pages** > `ton-eglise-a-valenciennes` > **Paramètres** >
+**Observabilité**, onglets **Production** et **Base des aperçus**.
+
+| Réglage | Production | Base des aperçus |
+| --- | --- | --- |
+| Journaux Workers | activés (fichier) | désactivés (fichier) |
+| Inclure les journaux d'invocation | oui (fichier) | — |
+| Conserver les journaux sur le tableau de bord Workers | oui (fichier) | — |
+| Échantillonnage des journaux | 100 % (fichier) | — |
+| Workers Traces | désactivé (fichier) | désactivé (fichier) |
+| Problèmes | désactivé | désactivé |
 
 ## Statistiques de visite (Web Analytics)
 
-| Réglage | État |
-| --- | --- |
-| Ajout automatique du code de statistiques | désactivé (le code est ajouté à la main dans le site, AD-7) |
+Où : **Observability** > **Analytics** > **Web Analytics**.
+
+Aucun site n'y est déclaré pour l'église : rien n'est ajouté automatiquement
+aux pages. Le code de statistiques sera ajouté à la main dans le site (AD-7).
+Lors du passage du nom de domaine à Cloudflare, vérifie que la « Configuration
+automatique » n'est pas activée pour `tonegliseavalenciennes.fr`.
 
 ## Historique des changements
 
 | Date | Qui | Quoi |
 | --- | --- | --- |
-| _à remplir par toi_ | _à remplir par toi_ | Projet relié à Cloudflare avec les réglages ci-dessus |
+| 2026-11-12 | Florian Desmet | Projet relié à Cloudflare ; aperçus activés, adresse `workers.dev` du vrai site désactivée, journaux gardés pour le vrai site et coupés pour les aperçus |
