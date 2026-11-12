@@ -32,7 +32,10 @@ un envoi par erreur depuis un ordinateur ne peut ni modifier l'aperçu
    - **Require a pull request before merging**, avec **Required approvals**
      à `0` : tu es seul à accepter les demandes de fusion, et GitHub ne te
      laisse pas approuver la tienne.
-   Laisse tout le reste décoché.
+   Laisse tout le reste décoché. Sous la demande de fusion, GitHub coche de
+   lui-même **Require an additional approval for unattributed Copilot pull
+   requests** : laisse-la, elle ne joue que si au moins une approbation est
+   demandée.
 6. Clique **Create** en bas de la page.
 
 ### Comment vérifier sans rien risquer
@@ -46,7 +49,7 @@ un envoi par erreur depuis un ordinateur ne peut ni modifier l'aperçu
 Si GitHub propose encore d'enregistrer directement sur `preprod`, le verrou
 n'est pas actif : reprends les étapes 3 à 5 (état, branches visées, règles).
 
-### Réglage attendu
+### Réglage appliqué
 
 | Champ | Valeur |
 | --- | --- |
@@ -56,11 +59,12 @@ n'est pas actif : reprends les étapes 3 à 5 (état, branches visées, règles)
 | Target branches | `develop`, `preprod`, `main` |
 | Restrict deletions | coché |
 | Block force pushes | coché |
-| Require a pull request before merging | coché, Required approvals `0` |
+| Require a pull request before merging | coché, Required approvals `0`, Allowed merge methods : Merge, Squash, Rebase |
+| Require an additional approval for unattributed Copilot pull requests | coché (par défaut, sans effet avec `0`) |
 | Autres règles | décochées |
 
 ## Historique des changements
 
 | Date | Qui | Quoi |
 | --- | --- | --- |
-| à remplir | à remplir | Verrou posé sur `develop`, `preprod` et `main` |
+| 2026-11-12 | Florian Desmet | Verrou posé sur `develop`, `preprod` et `main` ; essai d'enregistrement direct sur `preprod` refusé |
