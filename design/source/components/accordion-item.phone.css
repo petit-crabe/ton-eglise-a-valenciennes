@@ -1,6 +1,6 @@
 .c-accordion-item.c-accordion-item{border-bottom: 1px solid [[border]]}
 .c-accordion-item__p1.c-accordion-item__p1{margin: 0; padding: 0 0 24px 48px}
 .c-accordion-item__summary1.c-accordion-item__summary1{display: flex; align-items: center; gap: 16px; min-height: 56px; padding: 8px 0}
-.c-accordion-item__summary1-span1.c-accordion-item__summary1-span1{flex: none; width: 32px; font-family: 'Outfit', system-ui, sans-serif; font-size: 20px; font-weight: 700; color: [[primary]]}
-.c-accordion-item__summary1-span2.c-accordion-item__summary1-span2{flex: 1; font-family: 'Outfit', system-ui, sans-serif; font-size: 20px; font-weight: 600; line-height: 1.25; color: [[secondary]]}
+.c-accordion-item__summary1-span1.c-accordion-item__summary1-span1{flex: none; width: 32px; font-family: 'Inter Tight', system-ui, sans-serif; font-size: 20px; font-weight: 600; color: [[primary]]; letter-spacing: -0.025em}
+.c-accordion-item__summary1-span2.c-accordion-item__summary1-span2{flex: 1; font-family: 'Inter Tight', system-ui, sans-serif; font-size: 20px; font-weight: 600; line-height: 1.25; color: [[secondary]]; letter-spacing: -0.025em}
 .c-accordion-item__summary1-svg1.c-accordion-item__summary1-svg1{flex: none}

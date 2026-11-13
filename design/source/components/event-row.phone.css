@@ -1,11 +1,11 @@
-.c-event-row.c-event-row{background: [[surface-white]]; border: 1px solid [[border]]; border-radius: 6px; overflow: hidden}
+.c-event-row.c-event-row{background: [[surface-white]]; border: 1px solid [[border]]; border-radius: 4px; overflow: hidden}
 .c-event-row__div1.c-event-row__div1{position: relative; aspect-ratio: 16 / 10; background: [[surface-sky]]; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px; color: [[text-muted]]; font-size: 15px}
 .c-event-row__div2.c-event-row__div2{padding: 48px 16px 16px; display: flex; flex-direction: column; gap: 8px}
 .c-event-row__div1-span1.c-event-row__div1-span1{position: absolute; left: 16px; bottom: -24px; width: 64px; height: 64px; border-radius: 4px; background: [[secondary]]; color: [[surface-white]]; display: flex; flex-direction: column; align-items: center; justify-content: center; line-height: 1.1}
 .c-event-row__div2-a1.c-event-row__div2-a1{align-self: flex-start; display: inline-flex; align-items: center; gap: 8px; min-height: 44px; font-weight: 700; text-underline-offset: 4px}
-.c-event-row__div2-h41.c-event-row__div2-h41{margin: 0; font-family: 'Outfit', system-ui, sans-serif; font-size: 20px; line-height: 1.25; color: [[secondary]]}
+.c-event-row__div2-h41.c-event-row__div2-h41{margin: 0; font-family: 'Inter Tight', system-ui, sans-serif; font-size: 20px; line-height: 1.25; color: [[secondary]]; font-weight: 600; letter-spacing: -0.025em}
 .c-event-row__div2-p1.c-event-row__div2-p1{margin: 0 0 8px; font-size: 15px; color: [[text-muted]]}
 .c-event-row__div2-p2.c-event-row__div2-p2{margin: 0}
-.c-event-row__div1-span1-span1.c-event-row__div1-span1-span1{font-family: 'Outfit', system-ui, sans-serif; font-size: 24px; font-weight: 700}
+.c-event-row__div1-span1-span1.c-event-row__div1-span1-span1{font-family: 'Inter Tight', system-ui, sans-serif; font-size: 24px; font-weight: 600; letter-spacing: -0.025em}
 .c-event-row__div1-span1-span2.c-event-row__div1-span1-span2{font-size: 15px; text-transform: uppercase}
 .c-event-row__div2-a1-svg1.c-event-row__div2-a1-svg1{flex: none}

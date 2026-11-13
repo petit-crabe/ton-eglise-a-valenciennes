@@ -1,12 +1,12 @@
-.c-page-banner.c-page-banner{position: relative; overflow: hidden; background: [[secondary]]}
-.c-page-banner__div1.c-page-banner__div1{position: absolute; inset: 0; background: rgba(21, 39, 61, 0.74)}
+.c-page-banner.c-page-banner{position: relative; background: [[surface-white]]; border-bottom: 1px solid [[border]]}
+.c-page-banner__div1.c-page-banner__div1{display: none}
 .c-page-banner__div2.c-page-banner__div2{position: relative; max-width: 1200px; margin: 0 auto; padding: 64px 24px}
-.c-page-banner__img1.c-page-banner__img1{position: absolute; top: -32px; left: -32px; width: calc(100% + 64px); height: calc(100% + 64px); object-fit: cover; filter: blur(3px)}
-.c-page-banner__div2-h11.c-page-banner__div2-h11{margin: 0; font-family: 'Outfit', system-ui, sans-serif; font-size: 56px; line-height: 1.1; color: [[surface-white]]; letter-spacing: -0.02em}
-.c-page-banner__div2-nav1.c-page-banner__div2-nav1{margin-bottom: 8px; font-size: 16px; color: [[surface-white]]}
-.c-page-banner__div2-p1.c-page-banner__div2-p1{margin: 16px 0 0; font-size: 20px; font-weight: 700; color: [[surface-white]]}
-.c-page-banner__div2-span1.c-page-banner__div2-span1{display: block; margin-top: 24px; width: 96px; height: 6px; border-radius: 2px; background: [[accent]]}
-.c-page-banner__div2-nav1-a1.c-page-banner__div2-nav1-a1{display: inline-flex; align-items: center; min-height: 44px; color: [[surface-white]]; text-underline-offset: 4px}
-.c-page-banner__div2-nav1-a2.c-page-banner__div2-nav1-a2{display: inline-flex; align-items: center; min-height: 44px; color: [[surface-white]]; text-underline-offset: 4px}
+.c-page-banner__img1.c-page-banner__img1{display: none}
+.c-page-banner__div2-h11.c-page-banner__div2-h11{margin: 0; font-family: 'Inter Tight', system-ui, sans-serif; font-size: 64px; font-weight: 600; line-height: 1.02; letter-spacing: -0.04em; color: [[secondary]]}
+.c-page-banner__div2-nav1.c-page-banner__div2-nav1{margin-bottom: 8px; font-size: 16px; color: [[text-muted]]}
+.c-page-banner__div2-p1.c-page-banner__div2-p1{margin: 16px 0 0; font-size: 20px; font-weight: 500; color: [[text]]}
+.c-page-banner__div2-span1.c-page-banner__div2-span1{display: block; margin-top: 24px; width: 56px; height: 4px; border-radius: 2px; background: [[accent]]}
+.c-page-banner__div2-nav1-a1.c-page-banner__div2-nav1-a1{display: inline-flex; align-items: center; min-height: 44px; color: [[text-muted]]; text-underline-offset: 4px}
+.c-page-banner__div2-nav1-a2.c-page-banner__div2-nav1-a2{display: inline-flex; align-items: center; min-height: 44px; color: [[text-muted]]; text-underline-offset: 4px}
 .c-page-banner__div2-nav1-span1.c-page-banner__div2-nav1-span1{margin: 0 8px}
-.c-page-banner__div2-nav1-span4.c-page-banner__div2-nav1-span4{font-weight: 700}
+.c-page-banner__div2-nav1-span4.c-page-banner__div2-nav1-span4{font-weight: 600; color: [[secondary]]}

@@ -4,6 +4,8 @@ The visual rules of the redesigned site, validated with the home page on 2026-10
 
 Working canvas (drafts, comments, history): https://claude.ai/artifact/UbLoYdhe5z2A3no2cDeo5u. Only validated pages are copied into [maquettes/](maquettes/).
 
+**Style Épuré (2026-11-13).** The church asked for a more modern and clean look. The components now follow the style Épuré: one font (Inter Tight) for titles and text, white panels with a hairline instead of tinted ones, 4 px corners, white header and page banner without photo, night-blue footer. The section backgrounds of the pages are reworked page by page in the next step; until then a page may still show the alternation described under Colour. See [Style Épuré](#style-épuré-2026-11-13).
+
 ## Principles
 
 - **Members first, visitors second.** The site speaks first to church members (upcoming events, the Sunday live stream, sermons), then to visitors passing through the area who look for a place of worship (students, holidaymakers). People seeking faith are welcome, but the site does not address them first. When a block does not serve one of these two audiences, it goes.
@@ -27,16 +29,18 @@ The palette comes from the 90-year jubilee logo (`logo/Logo-TEAV-new.jpg`): roya
 | Signal | `color.signal` | `#ff6b4a` | Coral. Only what is happening now or has just been added: the "En direct" tag of the Sunday live stream, the "Nouveau" tag on an event. |
 | Text | `color.text` / `color.text-muted` | `#2d3b4e` / `#556275` | Body text / dates, labels, captions. |
 | Surfaces | `color.surface-*` | white, sand (ivory) `#f8f3e8`, sky `#e8eefa`, sun (light gold) `#f8e7b0`, gold (pale gold) `#fbf3dc` | Section backgrounds: white, sky, pale gold. Panel and card backgrounds: ivory, sky, light gold, pale gold, white. Ivory is never a section background. |
+| Mist | `color.surface-mist` | `#f5f6f8` | Light neutral grey (style Épuré): image slots, light panels, the one tinted section a page may have. |
 | Field outline | `color.border-field` | `#768191` | The 1 px outline of every form field and filter menu: 3.2:1 or more on every surface, so everyone sees where to type (WCAG 1.4.11 asks 3:1). |
 
 Every pairing used on the site was measured: body text 9:1 or more and muted text 5:1 or more on every surface, white on royal blue 8.1:1, night blue on gold 6.7:1 and on coral 5.4:1.
 
 Rules:
 
-- **All buttons are royal blue.** Filled `color.primary` with white text for the main action; white with a 2 px `color.primary` border and blue text for a secondary action. There is no gold, grey or dark button.
+- **All buttons are royal blue.** Filled `color.primary` with white text for the main action; white with a 1 px `color.border` hairline and night-blue text for a secondary action (style Épuré). There is no gold, grey or dark button.
 - **Gold is never text and never a button.** It has no meaning; it only adds warmth.
 - **Every page shows some gold**, at least the bar under the banner title. The menu never uses gold: the current item stays night blue.
 - **Gold warms, coral signals.** Gold means nothing; coral always means "now" or "new". Coral is always a filled tag with night-blue text on it, never text (2.8:1 on white), never a button, never a section background. It stays rare, once or twice per page at most, and never sits in the same spot as gold: on the live sermon the tag goes above the title, away from the gold play button.
+- **Style Épuré: mostly white.** Components no longer use ivory or pale gold: panels and cards are white with a 1 px `color.border` hairline, image slots `color.surface-mist`. A page shows at most one tinted section (`color.surface-mist`, or sky). The three rules below describe the alternation of the pages drawn before 2026-11-13 and go once each section is reworked.
 - **Ivory is for blocks, never for sections.** A full ivory section looks dull where the site wants joy. Ivory stays for cards and panels (form panel, practical info panel, latest sermon card, table of contents, the fourth hero card) and for the header band.
 - **Every page shows the soft surfaces.** Sections alternate white, sky and pale gold so that two neighbours never share a background, on every page with no exception.
 - **Sky and pale gold are never neighbours.** A white section always sits between them. Pale gold is a section background ("Chaque semaine", "Dans la rubrique", "Une autre demande ?" on the contact page) or a panel background (Bible verse, "Réduction d'impôt"). Sections are never separated by a grey line on the same background; hairlines (`color.border`, or `color.border-tint` on sky) only split rows inside a section.
@@ -58,7 +62,7 @@ Rules:
 | Meta, footer | `font.size.small` | 16 px | 16 px |
 | Dates, labels | `font.size.caption` | 15 px | 15 px |
 
-- Headings: **Outfit** 600–700. Body: **Source Sans 3** 400 and 700. Both from Google Fonts; self-host them on the final site so no request reaches Google before consent.
+- One family: **Inter Tight**, 400 for text, 500 for meta lines, 600 for headings, buttons and labels (style Épuré, 2026-11-13; it replaces Outfit and Source Sans 3). Headings are tightened: −0.025 em to −0.045 em, the larger the tighter. From Google Fonts; self-host it on the final site so no request reaches Google before consent.
 - One size per role, whatever the page: every section title is 44 px. A block title is the heading of a block inside a section (form panel, "Présentation", side panel, numbered heading of a legal page). A small title heads a footer column, "Partager l'évènement" or "Dans la rubrique". The timeline years and the "Nos valeurs" accordion rows keep their own sizes.
 - Nothing below 15 px; running text never below 16 px on a phone.
 - Line height 1.1 for headings, 1.6 for text. No headings in capitals.
@@ -110,7 +114,7 @@ The content and the header share the same side padding, so left edges line up fr
 
 ## Shape
 
-- Corners: **4 px** for buttons, tags, badges and menu items; **6 px** for cards, tiles, photos and the map. Fully round only for icon circles and the play button.
+- Corners: **4 px** everywhere (buttons, tags, cards, panels, photos, the map), since the style Épuré. Fully round only for icon circles and the play button.
 - No pills, no decorative blobs, no shadows, no gradients.
 
 ## Components
@@ -119,8 +123,8 @@ Every component below is linked: its shared style lives in [source/components/](
 
 | Component | Look | Where |
 |---|---|---|
-| Button | 52 px high, 24 px side padding, 4 px corners, bold label; primary or secondary as above. | Everywhere. |
-| Contact card | Whole card is the link. 176 px min height (144 px phone), icon in a 48 px white circle, label in the heading font with an arrow. Backgrounds in order: primary, sky, sun, sand. On the contact page the three other requests sit three in a row (primary, sky, sun). On a phone they always become 80 px rows, icon on the left, arrow on the right, home hero included, so the hero does not fill a whole phone screen. | Hero: Servir avec nous, Confier une prière, Nous contacter, Demander un entretien (home texts of 2026-11-13). Contact page: "Une autre demande ?", on mint. |
+| Button | 52 px high, 24 px side padding, 4 px corners, semibold label; filled royal blue, or white with a grey hairline and night-blue text (style Épuré). | Everywhere. |
+| Contact card | Whole card is the link. A white square with a 1 px hairline (style Épuré): icon, then the label in semibold with an arrow at the bottom. Home hero: four squares in a row, two by two on a phone. Contact page: three in a row, 176 px high instead of square. | Hero: Servir avec nous, Confier une prière, Nous contacter, Demander un entretien (home texts of 2026-11-13). Contact page: "Une autre demande ?". |
 | Contact details | Definition list: primary icon, muted label, bold value; address, e-mail and phone are links (`tel:` on the phone number), each at least 44 px high. | Contact page. |
 | Form field | Bold label always visible above the field; 48 px high, 1 px `color.border-field` outline, 4 px corners, 17 px text; the message box is 6–7 rows and can be resized. The form sits in a sand panel (48 px padding, 24 px × 16 px on a phone); the submit button is primary, full width on a phone. Optional fields say "(facultatif)" in grey after the label; everything else is required. A date field can be typed (its format, "(jj/mm/aaaa)", in grey after the label; the browser checks it and the form refuses to send without it) or picked in a calendar (44 px sky button with a calendar icon). | Contact form, footer forms. |
 | Choice list | Radio buttons or checkboxes, 22 px, one per 44 px row, primary accent; grouped in a `fieldset` with a bold legend. Long lists are split into sub-groups with a small uppercase grey legend and a key line above; 4 columns on a computer, 1 on a phone. Nothing is pre-checked. | "Servir à l'église" (attendance, serving teams). |
@@ -140,7 +144,7 @@ Every component below is linked: its shared style lives in [source/components/](
 | Pagination | 48 px squares, current page in night blue, then "Suivante". On a phone: "Page 1 sur N" and a secondary "Plus anciennes" button. | Sermons list. |
 | Tile | Sand, 64 px high (52 px phone), bold label, blue arrow; the whole tile is the link. | Unused since the home page lost its department block (2026-10-27); kept for department links once their pages exist. |
 | Info card | Sand, 24 px padding, muted label above a bold value. | Unused since the home page lost "Où sommes-nous ?" (2026-10-27). |
-| Page banner | A blurred photo of the section under `overlay.hero` (see [Imagery](#imagery)), 64 px vertical padding (48 px phone); breadcrumb in white, the page title, then an accent bar 24 px under it (`size.accent-bar-*`: 96 × 6 px, 64 × 4 px on a phone). | Top of every inner page. |
+| Page banner | White with a hairline under it, no photo (style Épuré); breadcrumb in muted text with the current page in night blue, title 64 px (40 px phone) in night blue, a 56 × 4 px gold bar (40 × 4 phone). | Top of every inner page. |
 | Breadcrumb | 16 px white text, `›` separators, current page in bold; a menu heading without its own page ("L'église") is plain text, not a link. | Page banner. |
 | Accordion | Native `<details>`/`<summary>`: number in primary, short title in the heading font, chevron; rows split by 1 px `color.border` lines, 64 px high (56 px phone). The first row starts open. | "Nos valeurs", in a white section. |
 | Timeline | 2 px primary line, white dots with a primary ring, year as an h3 in primary (left column on computer, above the text on phone); the last dot is filled with the accent. | "Notre histoire". |
@@ -257,6 +261,18 @@ A review of the reworked pages on the same day listed six improvements; all six 
 ### Jubilee colours (2026-11-09)
 
 The church's 90-year jubilee logo came with its own palette. A colour variant of every page was drawn from it on 2026-11-06, and the owner made it the default on 2026-11-09, keeping the current style otherwise: royal blue `#0b49b0` replaces the first blue, night blue `#15273d` the first one, gold `#d9a52b` the sun yellow, ivory, pale sky and light gold the sand, sky and sun surfaces, and pale gold (`color.surface-gold`, `#fbf3dc`) the mint, which the logo does not have. Coral stays: it carries a meaning. The rules are unchanged, mint read as pale gold. Three home pages in other styles (modern, classic, dynamic) were drawn the same week and set aside.
+
+### Style Épuré (2026-11-13)
+
+The church's wish for a more modern and clean look led to a new round on the home hero: three styles with a contrasting title font (handwritten, soft serif, bold grotesque), then photo cards, then three modern styles (Épuré, Éditorial, Bento) on the canvas page "En cours". The owner chose **Épuré** for the whole site, with Inter Tight for titles and text, mostly white sections, a white header with a hairline and the night-blue footer kept, and asked to change the components first. The component boards were redrawn (canvas page "Composants Épuré") and validated the same day:
+
+- Inter Tight everywhere, semibold headings tightened; 4 px corners everywhere;
+- ivory and pale gold leave the components: white panels with a hairline (form, practical info, side panel, table of contents, verse, giving card, latest sermon), `color.surface-mist` for image slots;
+- date tags become royal-blue text; secondary buttons a grey hairline with night-blue text;
+- header and page banner white, without photo; home hero without photo, the title then the four contact cards as white squares;
+- the footer keeps its night blue.
+
+Still to do, page by page: the section backgrounds (at most one tinted section per page), the numbers 01–04 and the church's name above the home title drawn on the home model `Accueil-epure` (canvas page "En cours"), and the current menu item (still a night-blue fill).
 
 ## Target screens
 

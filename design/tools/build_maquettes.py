@@ -359,14 +359,14 @@ def component_board(name, title, text, samples, widths, usage, height, css):
     base = read("shell", "desktop-helmet.html").replace("@@BG@@", "[[surface-white]]")
     helmet = base.replace("</style>", "/* components */\n" + css + "/* end components */\n</style>", 1)
     col = lambda dev, w, size, sample: (
-        f'<section style="flex: none"><h2 style="margin: 0 0 16px; font-family: \'Outfit\', system-ui, sans-serif; font-size: 20px; color: [[secondary]]">'
+        f'<section style="flex: none"><h2 style="margin: 0 0 16px; font-family: \'Inter Tight\', system-ui, sans-serif; font-size: 20px; color: [[secondary]]">'
         f'{"Ordinateur" if dev == "desktop" else "Téléphone"}</h2>'
         f'<div class="dev-{dev}" data-sample="{dev}" style="box-sizing: content-box; width: {w}px; padding: {pad}px; background: [[border]]; '
         f'border-radius: 6px; font-size: {size}px; line-height: 1.6">{sample}<!--/sample--></div></section>')
     return (f'<!doctype html>\n<html lang="fr">\n<head>\n<meta charset="utf-8">\n<title>{title} – composant</title>\n'
             f'<script src="./support.js"></script>\n</head>\n<body>\n<x-dc>\n<helmet>{helmet}</helmet>\n'
-            f'<div style="box-sizing: border-box; width: {width}px; padding: 48px; background: [[surface-white]]; font-family: \'Source Sans 3\', system-ui, sans-serif; color: [[text]]">\n'
-            f'  <h1 style="margin: 0 0 8px; font-family: \'Outfit\', system-ui, sans-serif; font-size: 40px; line-height: 1.1; color: [[secondary]]">{title}</h1>\n'
+            f'<div style="box-sizing: border-box; width: {width}px; padding: 48px; background: [[surface-white]]; font-family: \'Inter Tight\', system-ui, sans-serif; color: [[text]]">\n'
+            f'  <h1 style="margin: 0 0 8px; font-family: \'Inter Tight\', system-ui, sans-serif; font-size: 40px; line-height: 1.1; color: [[secondary]]">{title}</h1>\n'
             f'  <p style="margin: 0 0 8px; max-width: 880px; font-size: 18px; line-height: 1.6">{text}</p>\n'
             f'  <p style="margin: 0 0 32px; font-size: 15px; color: [[text-muted]]">{usage} Modifiez cet exemple : toutes les pages qui utilisent ce composant suivent.</p>\n'
             f'  <div style="display: flex; gap: 80px; align-items: flex-start">\n    '

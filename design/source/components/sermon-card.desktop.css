@@ -1,9 +1,9 @@
-.c-sermon-card.c-sermon-card{position: relative; flex: 1; display: flex; flex-direction: column; background: [[surface-white]]; border-radius: 6px; overflow: hidden}
+.c-sermon-card.c-sermon-card{position: relative; flex: 1; display: flex; flex-direction: column; background: [[surface-white]]; border-radius: 4px; overflow: hidden}
 .c-sermon-card__div1.c-sermon-card__div1{position: relative; aspect-ratio: 16 / 9; background: [[surface-sky]]; display: flex; align-items: center; justify-content: center; color: [[text-muted]]}
 .c-sermon-card__div2.c-sermon-card__div2{padding: 24px; display: flex; flex-direction: column; gap: 8px; flex: 1}
 .c-sermon-card__div1-span1.c-sermon-card__div1-span1{width: 56px; height: 56px; border-radius: 999px; background: [[accent]]; display: flex; align-items: center; justify-content: center}
 .c-sermon-card__div1-span2.c-sermon-card__div1-span2{position: absolute; left: 16px; bottom: 8px; font-size: 15px}
-.c-sermon-card__div2-h31.c-sermon-card__div2-h31{margin: 0; font-family: 'Outfit', system-ui, sans-serif; font-size: 24px; line-height: 1.25; color: [[secondary]]}
+.c-sermon-card__div2-h31.c-sermon-card__div2-h31{margin: 0; font-family: 'Inter Tight', system-ui, sans-serif; font-size: 24px; line-height: 1.25; color: [[secondary]]; font-weight: 600; letter-spacing: -0.025em}
 .c-sermon-card__div2-p1.c-sermon-card__div2-p1{margin: 0; font-size: 15px; font-weight: 700; color: [[primary]]; text-transform: uppercase; letter-spacing: 0.06em}
 .c-sermon-card__div2-p2.c-sermon-card__div2-p2{margin: auto 0 0; font-size: 16px; color: [[text-muted]]}
 .c-sermon-card__div2-h31-a1.c-sermon-card__div2-h31-a1{color: [[secondary]]; text-decoration: none}

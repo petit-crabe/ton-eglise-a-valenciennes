@@ -1,4 +1,4 @@
 .c-timeline-item.c-timeline-item{position: relative; border-left: 2px solid [[primary]]; padding: 0 0 32px 24px}
-.c-timeline-item__h31.c-timeline-item__h31{margin: 0 0 8px; font-family: 'Outfit', system-ui, sans-serif; line-height: 1.1; color: [[primary]]}
+.c-timeline-item__h31.c-timeline-item__h31{margin: 0 0 8px; font-family: 'Inter Tight', system-ui, sans-serif; line-height: 1.1; color: [[primary]]; font-weight: 600}
 .c-timeline-item__p1.c-timeline-item__p1{margin: 0}
 .c-timeline-item__span1.c-timeline-item__span1{position: absolute; left: -9px; top: 6px; width: 16px; height: 16px; box-sizing: border-box; border-radius: 999px; background: [[surface-white]]; border: 3px solid [[primary]]}

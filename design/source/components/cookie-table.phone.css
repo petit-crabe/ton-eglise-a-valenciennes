@@ -1,7 +1,7 @@
-.c-cookie-table.c-cookie-table{margin: 0 0 24px; border: 1px solid [[border]]; border-radius: 6px; overflow: hidden}
-.c-cookie-table__div1.c-cookie-table__div1{padding: 16px; background: [[surface-sand]]}
+.c-cookie-table.c-cookie-table{margin: 0 0 24px; border: 1px solid [[border]]; border-radius: 4px; overflow: hidden}
+.c-cookie-table__div1.c-cookie-table__div1{padding: 16px; background: [[surface-mist]]}
 .c-cookie-table__table1.c-cookie-table__table1{width: 100%; border-collapse: collapse; font-size: 16px}
-.c-cookie-table__div1-h31.c-cookie-table__div1-h31{margin: 0 0 4px; font-family: 'Outfit', system-ui, sans-serif; font-size: 20px; line-height: 1.2; color: [[secondary]]}
+.c-cookie-table__div1-h31.c-cookie-table__div1-h31{margin: 0 0 4px; font-family: 'Inter Tight', system-ui, sans-serif; font-size: 20px; line-height: 1.2; color: [[secondary]]; font-weight: 600; letter-spacing: -0.025em}
 .c-cookie-table__div1-p1.c-cookie-table__div1-p1{margin: 0; font-size: 16px}
 .c-cookie-table__div1-h31-span1.c-cookie-table__div1-h31-span1{margin-left: 8px; padding: 2px 8px; border-radius: 4px; background: [[surface-white]]; font-family: inherit; font-size: 15px; font-weight: 700; color: [[text-muted]]; vertical-align: middle}
 .c-cookie-table__div1-p1-a1.c-cookie-table__div1-p1-a1{color: [[primary]]; text-underline-offset: 4px}

@@ -1,10 +1,10 @@
-.c-event-card.c-event-card{display: flex; flex-direction: column; background: [[surface-white]]; border-radius: 6px; overflow: hidden}
-.c-event-card__div1.c-event-card__div1{position: relative; aspect-ratio: 16 / 10; background: [[surface-sand]]; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px; color: [[text-muted]]; font-size: 16px}
+.c-event-card.c-event-card{display: flex; flex-direction: column; background: [[surface-white]]; border-radius: 4px; overflow: hidden}
+.c-event-card__div1.c-event-card__div1{position: relative; aspect-ratio: 16 / 10; background: [[surface-mist]]; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px; color: [[text-muted]]; font-size: 16px}
 .c-event-card__div2.c-event-card__div2{padding: 48px 24px 24px; display: flex; flex-direction: column; flex: 1}
 .c-event-card__div1-span1.c-event-card__div1-span1{position: absolute; left: 24px; bottom: -32px; width: 72px; height: 80px; border-radius: 4px; background: [[secondary]]; color: [[surface-white]]; display: flex; flex-direction: column; align-items: center; justify-content: center; line-height: 1.1}
 .c-event-card__div2-a1.c-event-card__div2-a1{margin-top: auto; align-self: flex-start; display: inline-flex; align-items: center; gap: 8px; min-height: 44px; font-weight: 700; text-underline-offset: 4px}
-.c-event-card__div2-h31.c-event-card__div2-h31{margin: 0 0 8px; font-family: 'Outfit', system-ui, sans-serif; font-size: 24px; line-height: 1.25; color: [[secondary]]}
+.c-event-card__div2-h31.c-event-card__div2-h31{margin: 0 0 8px; font-family: 'Inter Tight', system-ui, sans-serif; font-size: 24px; line-height: 1.25; color: [[secondary]]; font-weight: 600; letter-spacing: -0.025em}
 .c-event-card__div2-p1.c-event-card__div2-p1{margin: 0 0 16px; font-size: 16px; color: [[text-muted]]}
 .c-event-card__div2-p2.c-event-card__div2-p2{margin: 0 0 16px}
-.c-event-card__div1-span1-span1.c-event-card__div1-span1-span1{font-family: 'Outfit', system-ui, sans-serif; font-size: 28px; font-weight: 700}
+.c-event-card__div1-span1-span1.c-event-card__div1-span1-span1{font-family: 'Inter Tight', system-ui, sans-serif; font-size: 28px; font-weight: 600; letter-spacing: -0.025em}
 .c-event-card__div1-span1-span2.c-event-card__div1-span1-span2{font-size: 15px; text-transform: uppercase}

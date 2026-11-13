@@ -2,7 +2,7 @@
  {
   "name": "page-banner",
   "title": "Bannière de page",
-  "text": "Photo floutée de la rubrique, fil d'Ariane, titre de la page et barre dorée. En haut de chaque page intérieure.",
+  "text": "Fond blanc, fil d'Ariane, grand titre et petite barre dorée, trait fin dessous. En haut de chaque page intérieure.",
   "width": [
    1440,
    390
@@ -20,7 +20,7 @@
  {
   "name": "home-hero",
   "title": "Grande bannière d'accueil",
-  "text": "Titre, horaires, adresse et les quatre cartes de contact ; remplit tout le premier écran.",
+  "text": "Fond blanc, très grand titre, horaires et adresse, puis les quatre cartes carrées ; remplit tout le premier écran.",
   "width": [
    1440,
    390
@@ -38,7 +38,7 @@
  {
   "name": "contact-card",
   "title": "Carte de contact",
-  "text": "Toute la carte est un lien : icône dans un rond blanc, intitulé, flèche. Le fond change selon la carte (bleu, ciel, or clair, ivoire).",
+  "text": "Carré blanc au trait fin : icône, intitulé et flèche. Sur l'accueil, quatre carrés en ligne (deux par deux sur téléphone).",
   "width": [
    282,
    358
@@ -62,7 +62,7 @@
   "name": "button",
   "title": "Bouton",
   "variant": "background",
-  "text": "Deux modèles : plein (action principale) et contour (action secondaire). Sur téléphone, souvent sur toute la largeur.",
+  "text": "Deux modèles : plein bleu roi (action principale) et blanc au trait gris fin (action secondaire). Sur téléphone, souvent sur toute la largeur.",
   "width": [
    360,
    358
@@ -373,7 +373,7 @@
  {
   "name": "form-panel",
   "title": "Panneau de formulaire",
-  "text": "Fond ivoire, titre, phrase sur les champs obligatoires, puis le formulaire.",
+  "text": "Fond blanc au trait fin, titre, phrase sur les champs obligatoires, puis le formulaire.",
   "width": [
    1152,
    358

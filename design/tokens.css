@@ -12,12 +12,13 @@
   --color-surface-sky: #e8eefa;
   --color-surface-sun: #f8e7b0;
   --color-surface-gold: #fbf3dc;
+  --color-surface-mist: #f5f6f8;
   --color-border: #e4e7ec;
   --color-border-tint: rgba(21, 39, 61, 0.14);
   --color-border-field: #768191;
   --overlay-hero: rgba(21, 39, 61, 0.74);
-  --font-heading: 'Outfit', system-ui, sans-serif;
-  --font-body: 'Source Sans 3', system-ui, sans-serif;
+  --font-heading: 'Inter Tight', system-ui, sans-serif;
+  --font-body: 'Inter Tight', system-ui, sans-serif;
   --font-weight-regular: 400;
   --font-weight-semibold: 600;
   --font-weight-bold: 700;

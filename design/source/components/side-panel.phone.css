@@ -1,4 +1,4 @@
-.c-side-panel.c-side-panel{background: [[surface-gold]]; border-radius: 6px; padding: 24px 16px}
-.c-side-panel__h31.c-side-panel__h31{margin: 0 0 16px; font-family: 'Outfit', system-ui, sans-serif; font-size: 20px; line-height: 1.2; color: [[secondary]]}
+.c-side-panel.c-side-panel{background: [[surface-white]]; border-radius: 4px; padding: 24px 16px; border: 1px solid [[border]]}
+.c-side-panel__h31.c-side-panel__h31{margin: 0 0 16px; font-family: 'Inter Tight', system-ui, sans-serif; font-size: 20px; line-height: 1.2; color: [[secondary]]; font-weight: 600; letter-spacing: -0.025em}
 .c-side-panel__p1.c-side-panel__p1{margin: 0 0 16px}
 .c-side-panel__p2.c-side-panel__p2{margin: 0; padding: 16px; border-radius: 4px; background: [[surface-white]]; font-weight: 700; color: [[secondary]]}

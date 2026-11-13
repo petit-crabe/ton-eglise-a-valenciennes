@@ -1,4 +1,4 @@
-.c-verse-panel.c-verse-panel{margin: 0; padding: 24px; background: [[surface-gold]]; border-radius: 6px; display: flex; gap: 16px}
+.c-verse-panel.c-verse-panel{margin: 0; padding: 24px; background: [[surface-white]]; border-radius: 4px; display: flex; gap: 16px; border: 1px solid [[border]]}
 .c-verse-panel__svg1.c-verse-panel__svg1{flex: none}
-.c-verse-panel__div1-blockquote1.c-verse-panel__div1-blockquote1{margin: 0; font-family: 'Outfit', system-ui, sans-serif; font-size: 20px; line-height: 1.3; color: [[secondary]]}
+.c-verse-panel__div1-blockquote1.c-verse-panel__div1-blockquote1{margin: 0; font-family: 'Inter Tight', system-ui, sans-serif; font-size: 20px; line-height: 1.3; color: [[secondary]]; font-weight: 600; letter-spacing: -0.025em}
 .c-verse-panel__div1-figcaption1.c-verse-panel__div1-figcaption1{margin-top: 8px; font-size: 15px; color: [[text-muted]]}

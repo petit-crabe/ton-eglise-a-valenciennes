@@ -1,4 +1,4 @@
-.c-info-panel.c-info-panel{background: [[surface-sand]]; border-radius: 6px; padding: 24px 16px}
+.c-info-panel.c-info-panel{background: [[surface-white]]; border-radius: 4px; padding: 24px 16px; border: 1px solid [[border]]}
 .c-info-panel__dl1.c-info-panel__dl1{margin: 0; display: flex; flex-direction: column; gap: 16px}
 .c-info-panel__dl1-div1.c-info-panel__dl1-div1{display: flex; gap: 16px}
 .c-info-panel__dl1-div2.c-info-panel__dl1-div2{display: flex; gap: 16px}
