@@ -306,9 +306,14 @@ SHELL_PARTS = {"header": ("En-tête", "Logo et menu ; sur téléphone et tablett
 SAMPLE_PAD = 24
 
 
-def component_samples(name):
-    """First instance of a component on each device, in page order, and how often it is used."""
-    out, count, pages = {}, 0, set()
+SAMPLE_GAP = '<div style="height: 16px"></div>'
+
+
+def component_samples(name, variant=None):
+    """First instance of a component on each device, in page order, and how often it is used.
+    With `variant` (an inline property, such as background), the first instance of each value of it,
+    so a component with several models shows them all."""
+    out, seen, count, pages = {}, {}, 0, set()
     for dev in DEVICES:
         for base in PAGES:
             body = read("pages", f"{base}.{dev}.html")
@@ -316,12 +321,31 @@ def component_samples(name):
                 if f"c-{name}" in comp.classes_of(n):
                     count += dev == "desktop"
                     pages.add(base)
+                    key = dict(comp.decls(comp.attr(n, "style"))).get(variant) if variant else None
+                    if key in seen.setdefault(dev, []) or (not variant and seen[dev]):
+                        continue
+                    seen[dev].append(key)
                     sample = body[n.start:n.end].replace("[[first-screen]]", f"{BOARD_SCREEN[dev] - HEADER[dev]}px")
                     # desktop and phone samples share the board: keep their ids apart
                     sample = re.sub(r'\b(id|for|aria-labelledby|aria-describedby)="([^"{]+)"',
                                     lambda m: f'{m.group(1)}="' + " ".join(f"{dev[0]}-{i}" for i in m.group(2).split()) + '"', sample)
-                    out.setdefault(dev, sample)
+                    out[dev] = out[dev] + SAMPLE_GAP + sample if dev in out else sample
     return out, count, len(pages)
+
+
+def nested_components(name, samples):
+    """Other components drawn inside the samples (a button in a card): their boards need their styles too."""
+    found = []
+    for sample in samples.values():
+        for n in comp.parse(sample):
+            for c in comp.classes_of(n):
+                if c.startswith("c-") and "__" not in c and c != f"c-{name}" and c[2:] not in found:
+                    found.append(c[2:])
+    return found
+
+
+def own_class(name, cls):
+    return cls == f"c-{name}" or cls.startswith(f"c-{name}__")
 
 
 def scoped_css(dev, rules_text):
@@ -364,9 +388,11 @@ def component_boards():
         board_text, w = component_board(part, title, text, samples, (1440, 390), "Partagé par toutes les pages.", h, css)
         out[f"Composant-{part}"] = (board_text, w, h)
     for c in catalog:
-        samples, count, pages = component_samples(c["name"])
-        css = "".join(scoped_css(dev, open(os.path.join(folder, f"{c['name']}.{dev}.css"), encoding="utf-8").read())
-                      for dev in DEVICES if os.path.exists(os.path.join(folder, f"{c['name']}.{dev}.css")))
+        samples, count, pages = component_samples(c["name"], c.get("variant"))
+        # nested components first, so the board's own component wins where both style an element
+        css = "".join(scoped_css(dev, open(os.path.join(folder, f"{part}.{dev}.css"), encoding="utf-8").read())
+                      for part in nested_components(c["name"], samples) + [c["name"]]
+                      for dev in DEVICES if os.path.exists(os.path.join(folder, f"{part}.{dev}.css")))
         usage = f"Utilisé {count} fois sur {pages} page{'s' if pages > 1 else ''} (version ordinateur)."
         h = heights.get(c["name"], 900)
         board_text, w = component_board(c["name"], c["title"], c["text"], samples, tuple(c["width"]), usage, h, css)
@@ -405,17 +431,19 @@ def pull_components(canvas, warnings):
             continue
         helmet = re.search(r"/\* components \*/\n(.*?)/\* end components \*/", after, re.S).group(1)
         rules = {dev: {} for dev in DEVICES}
+        # only the board's own component: a nested one (a button in a card) is edited on its own board
         for m in re.finditer(r"\.dev-(\w+) \.(c-[\w-]+)\.\2\{([^}]*)\}", helmet):
-            rules[m.group(1)][m.group(2)] = comp.decls(m.group(3))
+            if own_class(part, m.group(2)):
+                rules[m.group(1)][m.group(2)] = comp.decls(m.group(3))
         for dev in DEVICES:
             old = re.search(rf'data-sample="{dev}"[^>]*>(.*?)<!--/sample-->', before, re.S).group(1)
             new = re.search(rf'data-sample="{dev}"[^>]*>(.*?)<!--/sample-->', after, re.S).group(1)
-            olds = [n for n in comp.parse(old) if any(c.startswith("c-") for c in comp.classes_of(n))]
-            news = [n for n in comp.parse(new) if any(c.startswith("c-") for c in comp.classes_of(n))]
+            olds = [n for n in comp.parse(old) if any(own_class(part, c) for c in comp.classes_of(n))]
+            news = [n for n in comp.parse(new) if any(own_class(part, c) for c in comp.classes_of(n))]
             if len(olds) != len(news):
                 warnings.append(f"{name}: the {dev} sample changed shape; only its styles are kept")
             for o, n in zip(olds, news):
-                cls = next(c for c in comp.classes_of(n) if c.startswith("c-"))
+                cls = next(c for c in comp.classes_of(n) if own_class(part, c))
                 was = dict(comp.decls(comp.attr(o, "style")))
                 added = [(p, v) for p, v in comp.decls(comp.attr(n, "style")) if was.get(p) != v]
                 if added and cls in rules[dev]:

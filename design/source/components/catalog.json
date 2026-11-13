@@ -61,6 +61,7 @@
  {
   "name": "button",
   "title": "Bouton",
+  "variant": "background",
   "text": "Deux modèles : plein (action principale) et contour (action secondaire). Sur téléphone, souvent sur toute la largeur.",
   "width": [
    360,
