@@ -1,4 +1,4 @@
-.c-sermon-card.c-sermon-card{position: relative; display: flex; gap: 16px; align-items: center; padding: 16px 0; border-bottom: 1px solid [[border]]}
+.c-sermon-card.c-sermon-card{position: relative; display: flex; gap: 16px; align-items: center; padding: 16px 0}
 .c-sermon-card__div1.c-sermon-card__div1{flex: none; width: 128px; aspect-ratio: 16 / 9; border-radius: 4px; background: [[surface-mist]]; display: flex; align-items: center; justify-content: center}
 .c-sermon-card__div2.c-sermon-card__div2{min-width: 0}
 .c-sermon-card__div1-span1.c-sermon-card__div1-span1{width: 32px; height: 32px; border-radius: 999px; background: [[accent]]; display: flex; align-items: center; justify-content: center}

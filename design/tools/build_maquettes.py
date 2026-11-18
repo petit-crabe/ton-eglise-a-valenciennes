@@ -58,6 +58,8 @@ FOLD = [
     ("grid-template-columns: minmax(0, 400px) minmax(0, 1fr)", "grid-template-columns: minmax(0, 2fr) minmax(0, 3fr)"),
     # a portrait photo stacked above its text would fill the screen
     ("aspect-ratio: 4 / 5", "aspect-ratio: 4 / 3"),
+    # the weekly cards are narrow on a tablet: the address goes on its own line
+    (' · <a href="https://maps.google.com/?q=75+rue+du+Chauffour+59300+Valenciennes" style="display: inline-block', '<br><a href="https://maps.google.com/?q=75+rue+du+Chauffour+59300+Valenciennes" style="display: inline-block'),
     # table of contents links are touched, not clicked, on a tablet
     ("min-height: 36px", "min-height: 44px"),
 ]

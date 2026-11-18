@@ -160,7 +160,7 @@
  {
   "name": "month-heading",
   "title": "Titre de mois",
-  "text": "Regroupe les évènements d'un même mois, avec un filet dessous.",
+  "text": "Regroupe les évènements d'un même mois.",
   "width": [
    1152,
    358
@@ -169,7 +169,13 @@
    {
     "tag": "h3",
     "style": [
-     "padding-bottom: 8px; border-bottom: 1px solid [[border]]"
+     "font-size: 24px; line-height: 1.25"
+    ]
+   },
+   {
+    "tag": "h3",
+    "style": [
+     "font-size: 20px; line-height: 1.25"
     ]
    }
   ]
@@ -332,21 +338,6 @@
   ]
  },
  {
-  "name": "contact-details",
-  "title": "Coordonnées",
-  "text": "Adresse, horaires, e-mail et téléphone, chacun avec son icône ; les liens font au moins 44 px.",
-  "width": [
-   464,
-   358
-  ],
-  "match": [
-   {
-    "tag": "dl",
-    "contains": "Horaires des réunions"
-   }
-  ]
- },
- {
   "name": "form-panel",
   "title": "Panneau de formulaire",
   "text": "Fond blanc au trait fin, titre, phrase sur les champs obligatoires, puis le formulaire.",
@@ -441,7 +432,7 @@
  {
   "name": "partner-card",
   "title": "Carte partenaire",
-  "text": "Ligne avec trait fin : nom du partenaire, son site en gris, icône de lien externe.",
+  "text": "Ligne simple : nom du partenaire, son site en gris, icône de lien externe.",
   "width": [
    576,
    358

@@ -16,7 +16,7 @@
   "current": {
    "3": "<a aria-current=\"page\" href=\"Eglise-charte.dc.html\" style=\"display: inline-flex; align-items: center; gap: 8px; min-height: 44px; color: [[secondary]]; font-size: 18px; font-weight: 600; text-decoration: none\"><span aria-hidden=\"true\" style=\"flex: none; width: 6px; height: 6px; border-radius: 999px; background: [[accent]]\"></span>L'église</a>\n        "
   },
-  "props": "{\"$preview\":{\"width\":1440,\"height\":5492}}",
+  "props": "{\"$preview\":{\"width\":1440,\"height\":5490}}",
   "code": "class Component extends DCLogic {\n  renderVals() {\n    return {};\n  }\n}\n"
  },
  "Evenements-charte": {
@@ -26,8 +26,8 @@
   "current": {
    "4": "<a aria-current=\"page\" href=\"Evenements-charte.dc.html\" style=\"display: inline-flex; align-items: center; gap: 8px; min-height: 44px; color: [[secondary]]; font-size: 18px; font-weight: 600; text-decoration: none\"><span aria-hidden=\"true\" style=\"flex: none; width: 6px; height: 6px; border-radius: 999px; background: [[accent]]\"></span>Évènements</a>\n        "
   },
-  "props": "{\"eventsBlock\":{\"editor\":\"enum\",\"options\":[\"Des évènements à venir\",\"Aucun évènement à venir\"],\"default\":\"Des évènements à venir\",\"section\":\"États de la page\"},\"$preview\":{\"width\":1440,\"height\":1802}}",
-  "code": "class Component extends DCLogic {\n  renderVals() {\n    const hasEvents = (this.props.eventsBlock ?? 'Des évènements à venir') === 'Des évènements à venir';\n    return { hasEvents: hasEvents, noEvents: !hasEvents };\n  }\n}\n"
+  "props": "{\"$preview\":{\"width\":1440,\"height\":1733}}",
+  "code": "class Component extends DCLogic {\n  renderVals() {\n    const hasEvents = (this.props.eventsBlock ?? 'Des évènements à venir') === 'Des évènements à venir';\n    // Next date of each weekly meeting, Paris time; it moves on when the meeting ends.\n    const weekly = (() => {\n      const short = [\"janv\", \"févr\", \"mars\", \"avr\", \"mai\", \"juin\", \"juil\", \"août\", \"sept\", \"oct\", \"nov\", \"déc\"];\n      const long = [\"janvier\", \"février\", \"mars\", \"avril\", \"mai\", \"juin\", \"juillet\", \"août\", \"septembre\", \"octobre\", \"novembre\", \"décembre\"];\n      const days = [\"Sun\", \"Mon\", \"Tue\", \"Wed\", \"Thu\", \"Fri\", \"Sat\"];\n      const now = {};\n      new Intl.DateTimeFormat(\"en-GB\", { timeZone: \"Europe/Paris\", weekday: \"short\", year: \"numeric\", month: \"numeric\", day: \"numeric\", hour: \"numeric\", hourCycle: \"h23\" })\n        .formatToParts(new Date()).forEach((p) => { now[p.type] = p.value; });\n      const next = (weekday, endHour) => {\n        let diff = (weekday - days.indexOf(now.weekday) + 7) % 7;\n        if (diff === 0 && Number(now.hour) >= endHour) diff = 7;\n        const d = new Date(Date.UTC(Number(now.year), Number(now.month) - 1, Number(now.day) + diff));\n        return { day: d.getUTCDate(), month: d.getUTCMonth() };\n      };\n      const sun = next(0, 12);\n      const tue = next(2, 20);\n      return {\n        sunDay: sun.day, sunMonth: short[sun.month], sunLabel: \"Prochain culte : dimanche \" + sun.day + \" \" + long[sun.month],\n        tueDay: tue.day, tueMonth: short[tue.month], tueLabel: \"Prochaine réunion de prière : mardi \" + tue.day + \" \" + long[tue.month]\n      };\n    })();\n    return { hasEvents: hasEvents, noEvents: !hasEvents, ...weekly };\n  }\n}\n"
  },
  "Evenement-charte": {
   "title": "Un évènement – nouvelle charte – ordinateur",
@@ -66,7 +66,7 @@
   "current": {
    "6": "<a aria-current=\"page\" href=\"Contact-charte.dc.html\" style=\"display: inline-flex; align-items: center; gap: 8px; min-height: 44px; color: [[secondary]]; font-size: 18px; font-weight: 600; text-decoration: none\"><span aria-hidden=\"true\" style=\"flex: none; width: 6px; height: 6px; border-radius: 999px; background: [[accent]]\"></span>Nous contacter</a>\n        "
   },
-  "props": "{\"$preview\":{\"width\":1440,\"height\":2100}}",
+  "props": "{\"$preview\":{\"width\":1440,\"height\":1821}}",
   "code": "class Component extends DCLogic {\n  renderVals() {\n    return {};\n  }\n}\n"
  },
  "Don-charte": {
@@ -140,7 +140,7 @@
   "background": "[[surface-white]]",
   "root": "<div style=\"width: 390px; min-height: 6176px; box-sizing: border-box; display: flex; flex-direction: column; font-family: 'Inter Tight', system-ui, sans-serif; color: [[text]]; font-size: 17px; line-height: 1.6; background: [[surface-white]]\">",
   "current": {},
-  "props": "{\"$preview\":{\"width\":390,\"height\":6176}}",
+  "props": "{\"$preview\":{\"width\":390,\"height\":6171}}",
   "code": "class Component extends DCLogic {\n  renderVals() {\n    return {};\n  }\n}\n"
  },
  "Evenements-charte-telephone": {
@@ -148,15 +148,15 @@
   "background": "[[surface-white]]",
   "root": "<div style=\"width: 390px; min-height: 1664px; box-sizing: border-box; display: flex; flex-direction: column; font-family: 'Inter Tight', system-ui, sans-serif; color: [[text]]; font-size: 17px; line-height: 1.6; background: [[surface-white]]\">",
   "current": {},
-  "props": "{\"eventsBlock\":{\"editor\":\"enum\",\"options\":[\"Des évènements à venir\",\"Aucun évènement à venir\"],\"default\":\"Des évènements à venir\",\"section\":\"États de la page\"},\"$preview\":{\"width\":390,\"height\":1664}}",
-  "code": "class Component extends DCLogic {\n  renderVals() {\n    const hasEvents = (this.props.eventsBlock ?? 'Des évènements à venir') === 'Des évènements à venir';\n    return { hasEvents: hasEvents, noEvents: !hasEvents };\n  }\n}\n"
+  "props": "{\"$preview\":{\"width\":390,\"height\":1567}}",
+  "code": "class Component extends DCLogic {\n  renderVals() {\n    const hasEvents = (this.props.eventsBlock ?? 'Des évènements à venir') === 'Des évènements à venir';\n    // Next date of each weekly meeting, Paris time; it moves on when the meeting ends.\n    const weekly = (() => {\n      const short = [\"janv\", \"févr\", \"mars\", \"avr\", \"mai\", \"juin\", \"juil\", \"août\", \"sept\", \"oct\", \"nov\", \"déc\"];\n      const long = [\"janvier\", \"février\", \"mars\", \"avril\", \"mai\", \"juin\", \"juillet\", \"août\", \"septembre\", \"octobre\", \"novembre\", \"décembre\"];\n      const days = [\"Sun\", \"Mon\", \"Tue\", \"Wed\", \"Thu\", \"Fri\", \"Sat\"];\n      const now = {};\n      new Intl.DateTimeFormat(\"en-GB\", { timeZone: \"Europe/Paris\", weekday: \"short\", year: \"numeric\", month: \"numeric\", day: \"numeric\", hour: \"numeric\", hourCycle: \"h23\" })\n        .formatToParts(new Date()).forEach((p) => { now[p.type] = p.value; });\n      const next = (weekday, endHour) => {\n        let diff = (weekday - days.indexOf(now.weekday) + 7) % 7;\n        if (diff === 0 && Number(now.hour) >= endHour) diff = 7;\n        const d = new Date(Date.UTC(Number(now.year), Number(now.month) - 1, Number(now.day) + diff));\n        return { day: d.getUTCDate(), month: d.getUTCMonth() };\n      };\n      const sun = next(0, 12);\n      const tue = next(2, 20);\n      return {\n        sunDay: sun.day, sunMonth: short[sun.month], sunLabel: \"Prochain culte : dimanche \" + sun.day + \" \" + long[sun.month],\n        tueDay: tue.day, tueMonth: short[tue.month], tueLabel: \"Prochaine réunion de prière : mardi \" + tue.day + \" \" + long[tue.month]\n      };\n    })();\n    return { hasEvents: hasEvents, noEvents: !hasEvents, ...weekly };\n  }\n}\n"
  },
  "Evenement-charte-telephone": {
   "title": "Un évènement – nouvelle charte – téléphone",
   "background": "[[surface-white]]",
   "root": "<div style=\"width: 390px; min-height: 1793px; box-sizing: border-box; display: flex; flex-direction: column; font-family: 'Inter Tight', system-ui, sans-serif; color: [[text]]; font-size: 17px; line-height: 1.6; background: [[surface-white]]\">",
   "current": {},
-  "props": "{\"$preview\":{\"width\":390,\"height\":1793}}",
+  "props": "{\"$preview\":{\"width\":390,\"height\":1741}}",
   "code": "class Component extends DCLogic {\n  renderVals() {\n    return {};\n  }\n}\n"
  },
  "Predications-charte-telephone": {
@@ -164,7 +164,7 @@
   "background": "[[surface-white]]",
   "root": "<div style=\"width: 390px; min-height: 2272px; box-sizing: border-box; display: flex; flex-direction: column; font-family: 'Inter Tight', system-ui, sans-serif; color: [[text]]; font-size: 17px; line-height: 1.6; background: [[surface-white]]\">",
   "current": {},
-  "props": "{\"$preview\":{\"width\":390,\"height\":2272}}",
+  "props": "{\"$preview\":{\"width\":390,\"height\":2265}}",
   "code": "class Component extends DCLogic {\n  renderVals() {\n    return {};\n  }\n}\n"
  },
  "Predication-charte-telephone": {
@@ -172,7 +172,7 @@
   "background": "[[surface-white]]",
   "root": "<div style=\"width: 390px; min-height: 1441px; box-sizing: border-box; display: flex; flex-direction: column; font-family: 'Inter Tight', system-ui, sans-serif; color: [[text]]; font-size: 17px; line-height: 1.6; background: [[surface-white]]\">",
   "current": {},
-  "props": "{\"$preview\":{\"width\":390,\"height\":1441}}",
+  "props": "{\"$preview\":{\"width\":390,\"height\":1398}}",
   "code": "class Component extends DCLogic {\n  renderVals() {\n    return {};\n  }\n}\n"
  },
  "Contact-charte-telephone": {
@@ -180,7 +180,7 @@
   "background": "[[surface-white]]",
   "root": "<div style=\"width: 390px; min-height: 3381px; box-sizing: border-box; display: flex; flex-direction: column; font-family: 'Inter Tight', system-ui, sans-serif; color: [[text]]; font-size: 17px; line-height: 1.6; background: [[surface-white]]\">",
   "current": {},
-  "props": "{\"$preview\":{\"width\":390,\"height\":3381}}",
+  "props": "{\"$preview\":{\"width\":390,\"height\":2355}}",
   "code": "class Component extends DCLogic {\n  renderVals() {\n    return {};\n  }\n}\n"
  },
  "Don-charte-telephone": {

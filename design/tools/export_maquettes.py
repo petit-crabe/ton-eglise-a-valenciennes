@@ -3,6 +3,8 @@
 usage: python3 export_maquettes.py <canvas project dir> <repo design/maquettes dir>
 Shows the default state: the latest sermon and three upcoming events."""
 import os, re, sys
+from datetime import datetime, timedelta
+from zoneinfo import ZoneInfo
 
 SRC, OUT = sys.argv[1], sys.argv[2]
 CANVAS = "https://claude.ai/artifact/UbLoYdhe5z2A3no2cDeo5u"
@@ -141,6 +143,28 @@ SHEETS = {
 }
 KEEP = {"hasEvents": True, "noEvents": False, "live": False, "notLive": True}
 
+
+def weekly_holes():
+    """Next Sunday and Tuesday meetings at export time, Paris time (the mockups compute them live)."""
+    short = "janv févr mars avr mai juin juil août sept oct nov déc".split()
+    long_ = "janvier février mars avril mai juin juillet août septembre octobre novembre décembre".split()
+    now = datetime.now(ZoneInfo("Europe/Paris"))
+    def next_date(weekday, end_hour):
+        diff = (weekday - now.weekday()) % 7
+        if diff == 0 and now.hour >= end_hour:
+            diff = 7
+        return now.date() + timedelta(days=diff)
+    sun, tue = next_date(6, 12), next_date(1, 20)
+    return {
+        "sunDay": str(sun.day), "sunMonth": short[sun.month - 1], "sunLabel": f"Prochain culte : dimanche {sun.day} {long_[sun.month - 1]}",
+        "tueDay": str(tue.day), "tueMonth": short[tue.month - 1], "tueLabel": f"Prochaine réunion de prière : mardi {tue.day} {long_[tue.month - 1]}",
+    }
+
+WEEKLY_HOLES = weekly_holes()
+
+def fill_holes(s):
+    return re.sub(r"\{\{(sun|tue)(Day|Month|Label)\}\}", lambda m: WEEKLY_HOLES[m.group(1) + m.group(2)], s)
+
 # every image already exists somewhere in design/maquettes/
 STOCK = {}
 for d in os.listdir(OUT):
@@ -177,7 +201,7 @@ for base, (folder, slug, label) in PAGES.items():
         title = re.search(r"<title>(.*?)</title>", s).group(1).replace(" – nouvelle charte", "")
         helmet = s[s.index("<helmet>") + 8:s.index("</helmet>")].strip("\n")
         body = s[s.index("</helmet>") + 9:s.index("</x-dc>")].strip("\n")
-        body = resolve_ifs(body)
+        body = fill_holes(resolve_ifs(body))
         assert "{{" not in body and "<sc-" not in body, base
         for blob, img in BLOBS.items():
             if blob in body:

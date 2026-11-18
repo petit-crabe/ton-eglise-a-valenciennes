@@ -83,6 +83,27 @@ class Component extends DCLogic {
     const s = this.state;
     const live = (this.props.sermonBlock ?? 'La dernière prédication') !== 'La dernière prédication';
     const hasEvents = (this.props.eventsBlock ?? 'Des évènements à venir') === 'Des évènements à venir';
+    // Next date of each weekly meeting, Paris time; it moves on when the meeting ends.
+    const weekly = (() => {
+      const short = ["janv", "févr", "mars", "avr", "mai", "juin", "juil", "août", "sept", "oct", "nov", "déc"];
+      const long = ["janvier", "février", "mars", "avril", "mai", "juin", "juillet", "août", "septembre", "octobre", "novembre", "décembre"];
+      const days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+      const now = {};
+      new Intl.DateTimeFormat("en-GB", { timeZone: "Europe/Paris", weekday: "short", year: "numeric", month: "numeric", day: "numeric", hour: "numeric", hourCycle: "h23" })
+        .formatToParts(new Date()).forEach((p) => { now[p.type] = p.value; });
+      const next = (weekday, endHour) => {
+        let diff = (weekday - days.indexOf(now.weekday) + 7) % 7;
+        if (diff === 0 && Number(now.hour) >= endHour) diff = 7;
+        const d = new Date(Date.UTC(Number(now.year), Number(now.month) - 1, Number(now.day) + diff));
+        return { day: d.getUTCDate(), month: d.getUTCMonth() };
+      };
+      const sun = next(0, 12);
+      const tue = next(2, 20);
+      return {
+        sunDay: sun.day, sunMonth: short[sun.month], sunLabel: "Prochain culte : dimanche " + sun.day + " " + long[sun.month],
+        tueDay: tue.day, tueMonth: short[tue.month], tueLabel: "Prochaine réunion de prière : mardi " + tue.day + " " + long[tue.month]
+      };
+    })();
     const go = (page) => (e) => {
       if (e && e.preventDefault) e.preventDefault();
       this.setState({ page: page, menuOpen: false, scrolled: false, anchor: page === 'eglise' ? 'vision' : 'accueil', sheetOpen: false });
@@ -119,6 +140,7 @@ class Component extends DCLogic {
       toggle: () => this.setState({ openValue: s.openValue === i ? -1 : i })
     }));
     return {
+      ...weekly,
       hasEvents: hasEvents, noEvents: !hasEvents, live: live, notLive: !live,
       isHome: s.page === 'home',
       isEglise: s.page === 'eglise',
