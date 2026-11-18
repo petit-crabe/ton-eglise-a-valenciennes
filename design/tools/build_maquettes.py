@@ -45,7 +45,7 @@ BODIES = {"desktop": "desktop", "tablet": "tablet", "phone": "phone"}
 # First screen = header + banner (+ the first line of the first block) = the screen height.
 # Boards show it on a typical screen; prototypes on their own; the real site uses 100svh.
 BOARD_SCREEN = {"desktop": 900, "phone": 844}
-HEADER = {"desktop": 92, "tablet": 68, "phone": 64}
+HEADER = {"desktop": 120, "tablet": 88, "phone": 80}  # header height at the top of the page
 
 # Tablet layout (768-979 px): the computer page with these changes
 FOLD = [
@@ -256,6 +256,8 @@ def fold(s):
 def page_block(base, bodies):
     dev = "desktop" if bodies == "tablet" else bodies
     s = "  " + read("pages", f"{base}.{dev}.html").strip() + "\n\n  " + read("shell", f"{dev}-footer.html")
+    # the static section links of the home page: the prototype shell carries a live copy
+    s = re.sub(r'\s*(?:<!--(?:(?!-->).)*-->\s*)?<nav class="anchor-nav[^"]*".*?</nav>', "", s, flags=re.S)
     if bodies == "tablet":
         s = fold(s)
     s = re.sub(r'href="([A-Za-z-]+)-charte(?:-telephone)?\.dc\.html"',
@@ -302,7 +304,7 @@ def link():
 
 
 SHELL_PARTS = {"header": ("En-tête", "Logo et menu ; sur téléphone et tablette, le bouton « Menu » ouvre un menu plein écran."),
-               "footer": ("Pied de page", "Bleu nuit : adresse, liens du site, réseaux, mentions légales et crédit.")}
+               "footer": ("Pied de page", "Gris clair : logo, adresse et horaires, réseaux, mentions légales et crédit.")}
 SAMPLE_PAD = 24
 
 

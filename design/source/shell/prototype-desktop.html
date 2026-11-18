@@ -18,35 +18,45 @@ a:focus-visible,button:focus-visible{outline:3px solid [[secondary]];outline-off
 .on-dark a:focus-visible,.on-dark button:focus-visible{outline-color:[[surface-white]]}
 summary{list-style:none;cursor:pointer}summary::-webkit-details-marker{display:none}details[open] .chevron{transform:rotate(180deg)}
 h1,h2,h3,h4{font-weight:600;letter-spacing:-0.03em}
+.anchor-nav .anchor-label{opacity:0;transition:opacity .15s}.anchor-nav a:hover .anchor-label,.anchor-nav a:focus-visible .anchor-label{opacity:1}
+.snapfx #home-accueil>*:not(.anchor-nav),.snapfx #home-bienvenue>*,.snapfx #home-evenements>*,.snapfx #home-predication>*{transition:opacity 1.2s ease .15s;opacity:.15}.snapfx[data-cur="accueil"] #home-accueil>*:not(.anchor-nav),.snapfx[data-cur="bienvenue"] #home-bienvenue>*,.snapfx[data-cur="evenements"] #home-evenements>*,.snapfx[data-cur="predication"] #home-predication>*{opacity:1}@media (prefers-reduced-motion: reduce){.snapfx #home-accueil>*:not(.anchor-nav),.snapfx #home-bienvenue>*,.snapfx #home-evenements>*,.snapfx #home-predication>*{transition:none;opacity:1}}
 </style>
 </helmet>
 <div style="position: relative; width: @@W@@px; height: @@H@@px; overflow: hidden; background: [[surface-white]]">
-  <div ref="{{ setVp }}" style="width: 100%; height: 100%; overflow-x: hidden; overflow-y: auto; font-family: 'Inter Tight', system-ui, sans-serif; color: [[text]]; font-size: 18px; line-height: 1.6; background: [[surface-white]]">
-  <header style="background: [[surface-white]]; border-bottom: 1px solid [[border]]; position: relative; z-index: 20">
-    <div style="max-width: 1200px; margin: 0 auto; padding: 16px 24px; display: flex; flex-wrap: wrap; gap: 16px 32px; align-items: center; justify-content: space-between">
-      <a href="#" onClick="{{ goHome }}" aria-label="Accueil" style="display: block; line-height: 0"><img src="/_blob/513278200da79a2601d13dcd3ae8d93d" alt="Église Évangélique de Valenciennes" style="height: 56px; width: auto"></a>
-      <nav aria-label="Menu principal" style="display: flex; flex-wrap: wrap; gap: 8px; align-items: center; background: [[surface-white]]; border-radius: 6px; padding: 8px">
-        <a href="#" onClick="{{ goHome }}" style="display: inline-flex; align-items: center; min-height: 44px; padding: 0 16px; border-radius: 4px; text-decoration: none; background: {{ homeBg }}; color: {{ homeColor }}; font-weight: {{ homeWeight }}">Accueil</a>
+  <div ref="{{ setVp }}" onScroll="{{ onScroll }}" class="{{ snapClass }}" data-cur="{{ snapCur }}" style="scroll-snap-type: {{ snapType }}; scroll-padding-top: 71px; width: 100%; height: 100%; overflow-x: hidden; overflow-y: auto; font-family: 'Inter Tight', system-ui, sans-serif; color: [[text]]; font-size: 18px; line-height: 1.6; background: [[surface-white]]">
+  <header style="position: sticky; top: 0; z-index: 20; background: [[surface-white]]; border-bottom: 1px solid {{ hdrLine }}; box-shadow: {{ hdrShadow }}; transition: box-shadow 0.2s">
+    <div style="max-width: 1200px; height: {{ hdrH }}; margin: 0 auto; padding: 0 24px; display: flex; align-items: center; justify-content: space-between; gap: 32px; transition: height 0.2s">
+      <a href="#" onClick="{{ goHome }}" aria-label="Accueil" style="display: block; line-height: 0"><img src="/_blob/513278200da79a2601d13dcd3ae8d93d" alt="Église Évangélique de Valenciennes" style="height: {{ logoH }}; width: auto; transition: height 0.2s"></a>
+      <nav aria-label="Menu principal" style="display: flex; align-items: center; gap: {{ navGap }}">
+        <a href="#" onClick="{{ goHome }}" style="display: inline-flex; align-items: center; gap: 8px; min-height: 44px; color: {{ homeColor }}; font-size: {{ navFs }}; font-weight: {{ homeWeight }}; text-decoration: none"><span aria-hidden="true" style="flex: none; display: {{ homeDot }}; width: 6px; height: 6px; border-radius: 999px; background: [[accent]]"></span>Accueil</a>
         <div style="position: relative">
-          <button type="button" aria-expanded="{{ dropExpanded }}" onClick="{{ toggleDrop }}" style="display: inline-flex; align-items: center; gap: 8px; min-height: 44px; padding: 0 16px; border: 0; border-radius: 4px; cursor: pointer; font: inherit; background: {{ churchBg }}; color: {{ churchColor }}; font-weight: {{ churchWeight }}">L'église<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="transform: {{ dropRot }}"><polyline points="6 9 12 15 18 9"></polyline></svg></button>
+          <button type="button" aria-expanded="{{ dropExpanded }}" onClick="{{ toggleDrop }}" style="display: inline-flex; align-items: center; gap: 8px; min-height: 44px; padding: 0; border: 0; cursor: pointer; font-family: inherit; background: transparent; color: {{ churchColor }}; font-size: {{ navFs }}; font-weight: {{ churchWeight }}; text-decoration: none"><span aria-hidden="true" style="flex: none; display: {{ churchDot }}; width: 6px; height: 6px; border-radius: 999px; background: [[accent]]"></span>L'église<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"></polyline></svg></button>
           <sc-if value="{{ dropOpen }}" hint-placeholder-val="{{ false }}">
             <div style="position: absolute; top: calc(100% + 16px); left: 0; z-index: 30; min-width: 240px; padding: 8px; background: [[surface-white]]; border: 1px solid [[border]]; border-radius: 6px">
-              <a href="#" onClick="{{ goQui }}" style="display: flex; align-items: center; min-height: 44px; padding: 0 16px; border-radius: 4px; color: [[secondary]]; text-decoration: none; background: {{ quiBg }}">Qui sommes-nous ?</a>
-              <a href="#" onClick="{{ goEquipe }}" style="display: flex; align-items: center; min-height: 44px; padding: 0 16px; border-radius: 4px; color: [[secondary]]; text-decoration: none; background: {{ equipeBg }}">L'équipe</a>
-              <a href="#" onClick="{{ goHistoire }}" style="display: flex; align-items: center; min-height: 44px; padding: 0 16px; border-radius: 4px; color: [[secondary]]; text-decoration: none; background: {{ histoireBg }}">Notre histoire</a>
+              <a href="#" onClick="{{ goQui }}" style="display: flex; align-items: center; gap: 8px; min-height: 44px; padding: 0 16px; border-radius: 4px; color: {{ quiColor }}; font-weight: {{ quiWeight }}; text-decoration: none"><span aria-hidden="true" style="flex: none; display: {{ quiDot }}; width: 6px; height: 6px; border-radius: 999px; background: [[accent]]"></span>Qui sommes-nous ?</a>
+              <a href="#" onClick="{{ goEquipe }}" style="display: flex; align-items: center; gap: 8px; min-height: 44px; padding: 0 16px; border-radius: 4px; color: {{ equipeColor }}; font-weight: {{ equipeWeight }}; text-decoration: none"><span aria-hidden="true" style="flex: none; display: {{ equipeDot }}; width: 6px; height: 6px; border-radius: 999px; background: [[accent]]"></span>L'équipe</a>
+              <a href="#" onClick="{{ goHistoire }}" style="display: flex; align-items: center; gap: 8px; min-height: 44px; padding: 0 16px; border-radius: 4px; color: {{ histoireColor }}; font-weight: {{ histoireWeight }}; text-decoration: none"><span aria-hidden="true" style="flex: none; display: {{ histoireDot }}; width: 6px; height: 6px; border-radius: 999px; background: [[accent]]"></span>Notre histoire</a>
             </div>
           </sc-if>
         </div>
-        <a href="#" onClick="{{ goEvenements }}" style="display: inline-flex; align-items: center; min-height: 44px; padding: 0 16px; border-radius: 4px; text-decoration: none; background: {{ evBg }}; color: {{ evColor }}; font-weight: {{ evWeight }}">Évènements</a>
-        <a href="#" onClick="{{ goPredications }}" style="display: inline-flex; align-items: center; min-height: 44px; padding: 0 16px; border-radius: 4px; text-decoration: none; background: {{ prBg }}; color: {{ prColor }}; font-weight: {{ prWeight }}">Prédications</a>
-        <a href="#" onClick="{{ goContact }}" style="display: inline-flex; align-items: center; min-height: 44px; padding: 0 16px; border-radius: 4px; text-decoration: none; background: {{ ctBg }}; color: {{ ctColor }}; font-weight: {{ ctWeight }}">Nous contacter</a>
-        <a href="#" onClick="{{ goDon }}" style="display: inline-flex; align-items: center; min-height: 44px; padding: 0 16px; border-radius: 4px; background: {{ donBg }}; color: [[surface-white]]; font-weight: 600; text-decoration: none">Faire un don</a>
+        <a href="#" onClick="{{ goEvenements }}" style="display: inline-flex; align-items: center; gap: 8px; min-height: 44px; color: {{ evColor }}; font-size: {{ navFs }}; font-weight: {{ evWeight }}; text-decoration: none"><span aria-hidden="true" style="flex: none; display: {{ evDot }}; width: 6px; height: 6px; border-radius: 999px; background: [[accent]]"></span>Évènements</a>
+        <a href="#" onClick="{{ goPredications }}" style="display: inline-flex; align-items: center; gap: 8px; min-height: 44px; color: {{ prColor }}; font-size: {{ navFs }}; font-weight: {{ prWeight }}; text-decoration: none"><span aria-hidden="true" style="flex: none; display: {{ prDot }}; width: 6px; height: 6px; border-radius: 999px; background: [[accent]]"></span>Prédications</a>
+        <a href="#" onClick="{{ goContact }}" style="display: inline-flex; align-items: center; gap: 8px; min-height: 44px; color: {{ ctColor }}; font-size: {{ navFs }}; font-weight: {{ ctWeight }}; text-decoration: none"><span aria-hidden="true" style="flex: none; display: {{ ctDot }}; width: 6px; height: 6px; border-radius: 999px; background: [[accent]]"></span>Nous contacter</a>
+        <a href="#" onClick="{{ goDon }}" style="display: inline-flex; align-items: center; gap: 8px; min-height: {{ donH }}; padding: 0 20px; border-radius: 4px; background: [[primary]]; color: [[surface-white]]; font-size: {{ navFs }}; font-weight: 700; text-decoration: none"><span aria-hidden="true" style="flex: none; display: {{ donDot }}; width: 6px; height: 6px; border-radius: 999px; background: [[accent]]"></span>Faire un don</a>
       </nav>
     </div>
   </header>
   @@PAGES@@
 
   </div>
+  <sc-if value="{{ isHome }}" hint-placeholder-val="{{ true }}">
+    <nav class="anchor-nav" aria-label="Sections de la page" style="position: absolute; right: 24px; top: 50%; transform: translateY(-50%); font-family: 'Inter Tight', system-ui, sans-serif; line-height: 1.6; z-index: 25; display: flex; flex-direction: column; align-items: flex-end">
+      <a href="#" onClick="{{ jumpAccueil }}" aria-current="{{ aAccueilCur }}" style="display: flex; align-items: center; justify-content: flex-end; gap: 12px; min-height: 32px; text-decoration: none"><span class="anchor-label" style="padding: 4px 10px; border-radius: 4px; background: [[surface-white]]; box-shadow: 0 2px 8px rgba(21, 39, 61, 0.12); font-size: 14px; font-weight: {{ aAccueilW }}; color: {{ aAccueilC }}; white-space: nowrap">Haut de page</span><span aria-hidden="true" style="display: flex; justify-content: center; width: 24px"><span style="display: block; width: 8px; height: {{ aAccueilH }}; border-radius: 999px; background: {{ aAccueilBg }}"></span></span></a>
+      <a href="#" onClick="{{ jumpBienvenue }}" aria-current="{{ aBienvenueCur }}" style="display: flex; align-items: center; justify-content: flex-end; gap: 12px; min-height: 32px; text-decoration: none"><span class="anchor-label" style="padding: 4px 10px; border-radius: 4px; background: [[surface-white]]; box-shadow: 0 2px 8px rgba(21, 39, 61, 0.12); font-size: 14px; font-weight: {{ aBienvenueW }}; color: {{ aBienvenueC }}; white-space: nowrap">Bienvenue</span><span aria-hidden="true" style="display: flex; justify-content: center; width: 24px"><span style="display: block; width: 8px; height: {{ aBienvenueH }}; border-radius: 999px; background: {{ aBienvenueBg }}"></span></span></a>
+      <a href="#" onClick="{{ jumpEvenements }}" aria-current="{{ aEvenementsCur }}" style="display: flex; align-items: center; justify-content: flex-end; gap: 12px; min-height: 32px; text-decoration: none"><span class="anchor-label" style="padding: 4px 10px; border-radius: 4px; background: [[surface-white]]; box-shadow: 0 2px 8px rgba(21, 39, 61, 0.12); font-size: 14px; font-weight: {{ aEvenementsW }}; color: {{ aEvenementsC }}; white-space: nowrap">Les évènements</span><span aria-hidden="true" style="display: flex; justify-content: center; width: 24px"><span style="display: block; width: 8px; height: {{ aEvenementsH }}; border-radius: 999px; background: {{ aEvenementsBg }}"></span></span></a>
+      <a href="#" onClick="{{ jumpPredication }}" aria-current="{{ aPredicationCur }}" style="display: flex; align-items: center; justify-content: flex-end; gap: 12px; min-height: 32px; text-decoration: none"><span class="anchor-label" style="padding: 4px 10px; border-radius: 4px; background: [[surface-white]]; box-shadow: 0 2px 8px rgba(21, 39, 61, 0.12); font-size: 14px; font-weight: {{ aPredicationW }}; color: {{ aPredicationC }}; white-space: nowrap">{{ aPredicationLabel }}</span><span aria-hidden="true" style="display: flex; justify-content: center; width: 24px"><span style="display: block; width: 8px; height: {{ aPredicationH }}; border-radius: 999px; background: {{ aPredicationBg }}"></span></span></a>
+    </nav>
+  </sc-if>
 </div>
 </x-dc>
 <script type="text/x-dc" data-dc-script data-props='{"sermonBlock":{"editor":"enum","options":["La dernière prédication","En direct (pendant la diffusion YouTube)"],"default":"La dernière prédication","section":"États des pages"},"eventsBlock":{"editor":"enum","options":["Des évènements à venir","Aucun évènement à venir"],"default":"Des évènements à venir","section":"États des pages"},"$preview":{"width":@@W@@,"height":@@H@@}}'>
@@ -54,7 +64,7 @@ const VALUES = [{"title": "La Bible, Parole de Dieu", "text": "Dans la Bible, to
 class Component extends DCLogic {
   constructor(props) {
     super(props);
-    this.state = { page: 'home', menuOpen: false, dropOpen: false, openValue: 0 };
+    this.state = { page: 'home', menuOpen: false, dropOpen: false, openValue: 0, scrolled: false, anchor: 'accueil', flash: false, sheetOpen: false };
   }
   renderVals() {
     const s = this.state;
@@ -62,13 +72,31 @@ class Component extends DCLogic {
     const hasEvents = (this.props.eventsBlock ?? 'Des évènements à venir') === 'Des évènements à venir';
     const go = (page) => (e) => {
       if (e && e.preventDefault) e.preventDefault();
-      this.setState({ page: page, menuOpen: false, dropOpen: false });
+      this.setState({ page: page, menuOpen: false, dropOpen: false, scrolled: false, anchor: 'accueil', sheetOpen: false });
       if (this.vp) this.vp.scrollTop = 0;
     };
     const church = ['qui', 'equipe', 'histoire'].indexOf(s.page) >= 0;
     const on = (pages, active, idle) => pages.indexOf(s.page) >= 0 ? active : idle;
-    const sect = (pages) => ({ bg: on(pages, '[[secondary]]', 'transparent'), color: on(pages, '[[surface-white]]', '[[secondary]]'), weight: on(pages, '600', '400') });
-    const ev = sect(['evenements', 'evenement']), pr = sect(['predications', 'predication']), ct = sect(['contact']);
+    // current section: night blue, semibold, gold dot before; the others muted
+    const sect = (pages) => ({ color: on(pages, '[[secondary]]', '[[text-muted]]'), weight: on(pages, '600', '500'), dot: on(pages, 'inline-block', 'none') });
+    const home = sect(['home']), chu = sect(['qui', 'equipe', 'histoire']), qui = sect(['qui']), equ = sect(['equipe']), his = sect(['histoire']);
+    const ev = sect(['evenements', 'evenement']), pr = sect(['predications', 'predication']), ct = sect(['contact']), dn = sect(['don']);
+    const sc = s.scrolled;
+    // smooth scroll to a home section, below the compact header
+    // slow eased scroll (1 s); the computer home moves section by section with the wheel
+    const HC = 71;
+    const target = (k) => { const vp = this.vp, el = vp && vp.querySelector('#home-' + k); return el ? (k === 'accueil' ? 0 : el.getBoundingClientRect().top - vp.getBoundingClientRect().top + vp.scrollTop - HC) : null; };
+    const glide = (to) => {
+      const vp = this.vp; if (!vp) return;
+      const reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      const from = vp.scrollTop, d = to - from, dur = reduce ? 0 : 1000, t0 = performance.now();
+      this._anim = true;
+      const ease = (x) => x < 0.5 ? 4 * x * x * x : 1 - Math.pow(-2 * x + 2, 3) / 2;
+      const step = (now) => { const x = dur ? Math.min(1, (now - t0) / dur) : 1; vp.scrollTop = from + d * ease(x); if (x < 1) requestAnimationFrame(step); else { this._anim = false; this._cool = Date.now() + 300; } };
+      requestAnimationFrame(step);
+    };
+    const jump = (k) => (e) => { if (e && e.preventDefault) e.preventDefault(); if (s.sheetOpen) this.setState({ sheetOpen: false }); const t = target(k); if (t !== null) glide(t); };
+    const LABELS = { accueil: 'Haut de page', bienvenue: 'Bienvenue', evenements: 'Les évènements', predication: live ? 'En ce moment' : 'La dernière prédication' };
     const values = VALUES.map((v, i) => ({
       n: i + 1,
       title: v.title,
@@ -119,21 +147,66 @@ class Component extends DCLogic {
       dropExpanded: s.dropOpen ? 'true' : 'false',
       dropRot: s.dropOpen ? 'rotate(180deg)' : 'none',
       toggleDrop: () => this.setState({ dropOpen: !s.dropOpen }),
-      homeBg: on(['home'], '[[secondary]]', 'transparent'),
-      homeColor: on(['home'], '[[surface-white]]', '[[secondary]]'),
-      homeWeight: on(['home'], '600', '400'),
-      evBg: ev.bg, evColor: ev.color, evWeight: ev.weight,
-      prBg: pr.bg, prColor: pr.color, prWeight: pr.weight,
-      ctBg: ct.bg, ctColor: ct.color, ctWeight: ct.weight,
-      donBg: on(['don'], '[[secondary]]', '[[primary]]'),
+      homeColor: home.color, homeWeight: home.weight, homeDot: home.dot,
+      evColor: ev.color, evWeight: ev.weight, evDot: ev.dot,
+      prColor: pr.color, prWeight: pr.weight, prDot: pr.dot,
+      ctColor: ct.color, ctWeight: ct.weight, ctDot: ct.dot,
+      donDot: dn.dot,
+      quiColor: qui.color, quiWeight: qui.weight, quiDot: qui.dot,
+      equipeColor: equ.color, equipeWeight: equ.weight, equipeDot: equ.dot,
+      histoireColor: his.color, histoireWeight: his.weight, histoireDot: his.dot,
+      // tall and airy at the top of the page, compact once scrolled
+      onScroll: (e) => {
+        const vp = e.target, y = vp.scrollTop, next = {};
+        if (!sc && y > 60) next.scrolled = true; else if (sc && y < 4) next.scrolled = false;
+        if (s.page === 'home') {
+          // the section whose top has passed the middle of the screen is the current one
+          const top = vp.getBoundingClientRect().top; let cur = 'accueil';
+          ['bienvenue', 'evenements', 'predication'].forEach((k) => { const el = vp.querySelector('#home-' + k); if (el && el.getBoundingClientRect().top - top < vp.clientHeight / 2) cur = k; });
+          if (cur !== s.anchor) { next.anchor = cur; next.flash = true; clearTimeout(this._flash); this._flash = setTimeout(() => this.setState({ flash: false }), 1600); }
+        }
+        if (Object.keys(next).length) this.setState(next);
+      },
+      jumpAccueil: jump('accueil'), aAccueilCur: s.anchor === 'accueil' ? 'true' : 'false', aAccueilH: s.anchor === 'accueil' ? '24px' : '8px', aAccueilBg: s.anchor === 'accueil' ? '[[accent]]' : '[[text-muted]]', aAccueilW: s.anchor === 'accueil' ? '600' : '500', aAccueilC: s.anchor === 'accueil' ? '[[secondary]]' : '[[text]]',
+      jumpBienvenue: jump('bienvenue'), aBienvenueCur: s.anchor === 'bienvenue' ? 'true' : 'false', aBienvenueH: s.anchor === 'bienvenue' ? '24px' : '8px', aBienvenueBg: s.anchor === 'bienvenue' ? '[[accent]]' : '[[text-muted]]', aBienvenueW: s.anchor === 'bienvenue' ? '600' : '500', aBienvenueC: s.anchor === 'bienvenue' ? '[[secondary]]' : '[[text]]',
+      jumpEvenements: jump('evenements'), aEvenementsCur: s.anchor === 'evenements' ? 'true' : 'false', aEvenementsH: s.anchor === 'evenements' ? '24px' : '8px', aEvenementsBg: s.anchor === 'evenements' ? '[[accent]]' : '[[text-muted]]', aEvenementsW: s.anchor === 'evenements' ? '600' : '500', aEvenementsC: s.anchor === 'evenements' ? '[[secondary]]' : '[[text]]',
+      aAccueilOp: s.anchor === 'accueil' && s.flash ? '1' : '0', aAccueilPh: s.anchor === 'accueil' ? '20px' : '8px',
+      aBienvenueOp: s.anchor === 'bienvenue' && s.flash ? '1' : '0', aBienvenuePh: s.anchor === 'bienvenue' ? '20px' : '8px',
+      aEvenementsOp: s.anchor === 'evenements' && s.flash ? '1' : '0', aEvenementsPh: s.anchor === 'evenements' ? '20px' : '8px',
+      aPredicationOp: s.anchor === 'predication' && s.flash ? '1' : '0', aPredicationPh: s.anchor === 'predication' ? '20px' : '8px',
+      snapCur: s.anchor, snapClass: s.page === 'home' ? 'snapfx' : '',
+      aAccueilVis: s.anchor === 'accueil' ? 'visible' : 'hidden',
+      aBienvenueVis: s.anchor === 'bienvenue' ? 'visible' : 'hidden',
+      aEvenementsVis: s.anchor === 'evenements' ? 'visible' : 'hidden',
+      aPredicationVis: s.anchor === 'predication' ? 'visible' : 'hidden',
+      showSheetBtn: s.page === 'home' && (s.scrolled || s.anchor !== 'accueil'),
+      anchorLabel: LABELS[s.anchor], sheetOpen: s.sheetOpen, sheetExpanded: s.sheetOpen ? 'true' : 'false',
+      toggleSheet: () => this.setState({ sheetOpen: !s.sheetOpen }), closeSheet: () => this.setState({ sheetOpen: false }),
+      snapType: 'none',
+      aPredicationLabel: live ? 'En ce moment' : 'La dernière prédication',
+      jumpPredication: jump('predication'), aPredicationCur: s.anchor === 'predication' ? 'true' : 'false', aPredicationH: s.anchor === 'predication' ? '24px' : '8px', aPredicationBg: s.anchor === 'predication' ? '[[accent]]' : '[[text-muted]]', aPredicationW: s.anchor === 'predication' ? '600' : '500', aPredicationC: s.anchor === 'predication' ? '[[secondary]]' : '[[text]]',
+      hdrH: sc ? '71px' : '119px', logoH: sc ? '44px' : '72px', navFs: sc ? '16px' : '18px', navGap: sc ? '32px' : '40px', donH: sc ? '44px' : '52px',
+      hdrLine: sc ? '[[border]]' : 'transparent', hdrShadow: sc ? '0 4px 16px rgba(21, 39, 61, 0.08)' : 'none',
       noSubmit: (e) => { if (e && e.preventDefault) e.preventDefault(); },
-      churchBg: church ? '[[secondary]]' : 'transparent',
-      churchColor: church ? '[[surface-white]]' : '[[secondary]]',
-      churchWeight: church ? '600' : '400',
+      churchColor: chu.color, churchWeight: chu.weight, churchDot: chu.dot,
       quiBg: s.page === 'qui' ? '[[surface-mist]]' : 'transparent',
       equipeBg: s.page === 'equipe' ? '[[surface-mist]]' : 'transparent',
       histoireBg: s.page === 'histoire' ? '[[surface-mist]]' : 'transparent',
-      setVp: (el) => { this.vp = el; },
+      setVp: (el) => {
+        this.vp = el;
+        if (el && !el._wheel) {
+          el._wheel = true;
+          el.addEventListener('wheel', (e) => {
+            if (this.state.page !== 'home') return;
+            e.preventDefault();
+            if (this._anim || Date.now() < (this._cool || 0) || Math.abs(e.deltaY) < 4) return;
+            const stops = [0].concat(['bienvenue', 'evenements', 'predication'].map((k) => target(k)).filter((v) => v !== null), [el.scrollHeight - el.clientHeight]);
+            const y = el.scrollTop;
+            const next = e.deltaY > 0 ? stops.find((v) => v > y + 2) : stops.slice().reverse().find((v) => v < y - 2);
+            if (next !== undefined) glide(next);
+          }, { passive: false });
+        }
+      },
       values: values
     };
   }

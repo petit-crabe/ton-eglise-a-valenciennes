@@ -1,5 +1,5 @@
-.c-event-card.c-event-card{background: [[surface-white]]; border-radius: 4px; overflow: hidden}
-.c-event-card__div1.c-event-card__div1{position: relative; aspect-ratio: 16 / 10; background: [[surface-mist]]; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px; color: [[text-muted]]; font-size: 15px}
+.c-event-card.c-event-card{box-sizing: border-box; border: 1px solid [[border]]; background: [[surface-white]]; border-radius: 4px; overflow: hidden}
+.c-event-card__div1.c-event-card__div1{position: relative; aspect-ratio: 16 / 9; background: [[surface-mist]]; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px; color: [[text-muted]]; font-size: 15px}
 .c-event-card__div2.c-event-card__div2{padding: 48px 16px 16px; display: flex; flex-direction: column; align-items: flex-start}
 .c-event-card__div1-span1.c-event-card__div1-span1{position: absolute; left: 16px; bottom: -24px; width: 64px; height: 64px; border-radius: 4px; background: [[secondary]]; color: [[surface-white]]; display: flex; flex-direction: column; align-items: center; justify-content: center; line-height: 1.1}
 .c-event-card__div2-a1.c-event-card__div2-a1{display: inline-flex; align-items: center; gap: 8px; min-height: 44px; font-weight: 700; text-underline-offset: 4px}

@@ -4,7 +4,7 @@ The visual rules of the redesigned site, validated with the home page on 2026-10
 
 Working canvas (drafts, comments, history): https://claude.ai/artifact/UbLoYdhe5z2A3no2cDeo5u. Only validated pages are copied into [maquettes/](maquettes/).
 
-**Style Épuré (2026-11-13).** The church asked for a more modern and clean look. The components now follow the style Épuré: one font (Inter Tight) for titles and text, white panels with a hairline instead of tinted ones, 4 px corners, white header and page banner without photo, night-blue footer. The section backgrounds of the pages are reworked page by page in the next step; until then a page may still show the alternation described under Colour. See [Style Épuré](#style-épuré-2026-11-13).
+**Style Épuré (2026-11-13).** The church asked for a more modern and clean look. The components now follow the style Épuré: one font (Inter Tight) for titles and text, white panels with a hairline instead of tinted ones, 4 px corners, white header and page banner without photo. The pages are reworked one by one: the home page, the menu and the footer were done on 2026-11-16 and 2026-11-17 (see [Home page and shared parts](#home-page-and-shared-parts-2026-11-17)); until its turn, an inner page may still show the alternation described under Colour. See [Style Épuré](#style-épuré-2026-11-13).
 
 ## Principles
 
@@ -23,13 +23,13 @@ The palette comes from the 90-year jubilee logo (`logo/Logo-TEAV-new.jpg`): roya
 
 | Role | Token | Value | Use |
 |---|---|---|---|
-| Primary | `color.primary` | `#0b49b0` | Royal blue. Every button, links, icons, the first contact card. |
-| Secondary | `color.secondary` | `#15273d` | Night blue. Headings, hero overlay, footer, date badges, current menu item. |
-| Accent | `color.accent` | `#d9a52b` | Gold. A small signature on every page: underline of the hero keyword (home), bar under the banner title (inner pages), every play button, the dot before "Vous êtes ici", quote marks, the last timeline dot. Nothing else. |
+| Primary | `color.primary` | `#0b49b0` | Royal blue. Every button, links, icons, the arrows of the contact cards. |
+| Secondary | `color.secondary` | `#15273d` | Night blue. Headings, date badges, the current menu item (text), the "Sur cette page" button. |
+| Accent | `color.accent` | `#d9a52b` | Gold. A small signature on every page: the dot before the current menu item and before small section labels ("Église Évangélique de Valenciennes", "L'église", "Agenda"…), the bar beside the home verse, the bar under the banner title (inner pages), every play button, the dot before "Vous êtes ici", the current section in the section links, the last timeline dot. Nothing else. |
 | Signal | `color.signal` | `#ff6b4a` | Coral. Only what is happening now or has just been added: the "En direct" tag of the Sunday live stream, the "Nouveau" tag on an event. |
 | Text | `color.text` / `color.text-muted` | `#2d3b4e` / `#556275` | Body text / dates, labels, captions. |
 | Surfaces | `color.surface-*` | white, sand (ivory) `#f8f3e8`, sky `#e8eefa`, sun (light gold) `#f8e7b0`, gold (pale gold) `#fbf3dc` | Section backgrounds: white, sky, pale gold. Panel and card backgrounds: ivory, sky, light gold, pale gold, white. Ivory is never a section background. |
-| Mist | `color.surface-mist` | `#f5f6f8` | Light neutral grey (style Épuré): image slots, light panels, the one tinted section a page may have. |
+| Mist | `color.surface-mist` | `#f5f6f8` | Light neutral grey (style Épuré): image slots, light panels, the one tinted section a page may have, the footer. Muted text drops to 4.3:1 on it: on mist, small text uses `color.text`. |
 | Field outline | `color.border-field` | `#768191` | The 1 px outline of every form field and filter menu: 3.2:1 or more on every surface, so everyone sees where to type (WCAG 1.4.11 asks 3:1). |
 
 Every pairing used on the site was measured: body text 9:1 or more and muted text 5:1 or more on every surface, white on royal blue 8.1:1, night blue on gold 6.7:1 and on coral 5.4:1.
@@ -38,13 +38,13 @@ Rules:
 
 - **All buttons are royal blue.** Filled `color.primary` with white text for the main action; white with a 1 px `color.border` hairline and night-blue text for a secondary action (style Épuré). There is no gold, grey or dark button.
 - **Gold is never text and never a button.** It has no meaning; it only adds warmth.
-- **Every page shows some gold**, at least the bar under the banner title. The menu never uses gold: the current item stays night blue.
+- **Every page shows some gold**, at least the bar under the banner title. In the menu, gold is only the 6 px dot before the current item (2026-11-17): the current item is night blue and semibold, the others `color.text-muted`; there is no underline and no fill.
 - **Gold warms, coral signals.** Gold means nothing; coral always means "now" or "new". Coral is always a filled tag with night-blue text on it, never text (2.8:1 on white), never a button, never a section background. It stays rare, once or twice per page at most, and never sits in the same spot as gold: on the live sermon the tag goes above the title, away from the gold play button.
 - **Style Épuré: mostly white.** Components no longer use ivory or pale gold: panels and cards are white with a 1 px `color.border` hairline, image slots `color.surface-mist`. A page shows at most one tinted section (`color.surface-mist`, or sky). The three rules below describe the alternation of the pages drawn before 2026-11-13 and go once each section is reworked.
 - **Ivory is for blocks, never for sections.** A full ivory section looks dull where the site wants joy. Ivory stays for cards and panels (form panel, practical info panel, latest sermon card, table of contents, the fourth hero card) and for the header band.
 - **Every page shows the soft surfaces.** Sections alternate white, sky and pale gold so that two neighbours never share a background, on every page with no exception.
 - **Sky and pale gold are never neighbours.** A white section always sits between them. Pale gold is a section background ("Chaque semaine", "Dans la rubrique", "Une autre demande ?" on the contact page) or a panel background (Bible verse, "Réduction d'impôt"). Sections are never separated by a grey line on the same background; hairlines (`color.border`, or `color.border-tint` on sky) only split rows inside a section.
-- A page may end on white, sky or pale gold before the night-blue footer; there is no closing block.
+- A page may end on any section before the footer, which is mist with a hairline above (2026-11-17); there is no closing block.
 - No colour outside this charter. If a new need appears, add a token first. Departments get no colour of their own until their content exists; this will be decided then.
 
 ## Typography
@@ -63,7 +63,7 @@ Rules:
 | Dates, labels | `font.size.caption` | 15 px | 15 px |
 
 - One family: **Inter Tight**, 400 for text, 500 for meta lines, 600 for headings, buttons and labels (style Épuré, 2026-11-13; it replaces Outfit and Source Sans 3). Headings are tightened: −0.025 em to −0.045 em, the larger the tighter. From Google Fonts; self-host it on the final site so no request reaches Google before consent.
-- One size per role, whatever the page: every section title is 44 px. A block title is the heading of a block inside a section (form panel, "Présentation", side panel, numbered heading of a legal page). A small title heads a footer column, "Partager l'évènement" or "Dans la rubrique". The timeline years and the "Nos valeurs" accordion rows keep their own sizes.
+- One size per role, whatever the page: every section title is 44 px. Exception: the home sections open with a title band whose title uses the page-title size (56 px, 36 px on a phone), to match the hero. A block title is the heading of a block inside a section (form panel, "Présentation", side panel, numbered heading of a legal page). A small title heads a footer column, "Partager l'évènement" or "Dans la rubrique". The timeline years and the "Nos valeurs" accordion rows keep their own sizes.
 - Nothing below 15 px; running text never below 16 px on a phone.
 - Line height 1.1 for headings, 1.6 for text. No headings in capitals.
 
@@ -74,7 +74,7 @@ Rules:
   - tags and badges (4 × 12 px, 2 × 8 px), choice rows (12 px between box and label), 2 px nudges that centre an icon on its first text line;
   - the timeline indent (34 px on a computer, 26 px on a phone), which centres the dots on the line.
 - "Dans la rubrique" has 64 px top and bottom padding on a computer instead of 96 px: it is a light navigation band, not a content section.
-- Every section, header included, centres its content in a **1200 px** container with 24 px side padding (16 px on a phone), so left edges line up down the page.
+- Every section, header and footer included, centres its content in a **1200 px** container with 24 px side padding (16 px on a phone), so left and right edges line up down the page: on a 1440 px screen everything runs from 120 to 1320 px. Use `max-width: 1200px` on a content-box container; a `border-box` or 1152 px container moves the edges by 24 px (the home sections and the header did until 2026-11-17).
 - Sections have **96 px** vertical padding on a computer, **48 px** on a phone.
 
 The same gap for the same situation, on every page:
@@ -114,8 +114,8 @@ The content and the header share the same side padding, so left edges line up fr
 
 ## Shape
 
-- Corners: **4 px** everywhere (buttons, tags, cards, panels, photos, the map), since the style Épuré. Fully round only for icon circles and the play button.
-- No pills, no decorative blobs, no shadows, no gradients.
+- Corners: **4 px** everywhere (buttons, tags, cards, panels, photos, the map), since the style Épuré. Fully round only for icon circles, the play button, the section dots and the floating "Sur cette page" button; the bottom sheet has 16 px top corners.
+- No decorative blobs and no gradients. Shadows only on what floats above the page: the compact header once scrolled, the hover labels of the section dots, the "Sur cette page" button.
 
 ## Components
 
@@ -124,16 +124,17 @@ Every component below is linked: its shared style lives in [source/components/](
 | Component | Look | Where |
 |---|---|---|
 | Button | 52 px high, 24 px side padding, 4 px corners, semibold label; filled royal blue, or white with a grey hairline and night-blue text (style Épuré). | Everywhere. |
-| Contact card | Whole card is the link. A white square with a 1 px hairline (style Épuré): icon, then the label in semibold with an arrow at the bottom. Home hero: four squares in a row, two by two on a phone. Contact page: three in a row, 176 px high instead of square. | Hero: Servir avec nous, Confier une prière, Nous contacter, Demander un entretien (home texts of 2026-11-13). Contact page: "Une autre demande ?". |
+| Contact card | Whole card is the link. A white square with a 1 px hairline (style Épuré): a muted number (01–04) and the icon on top, then the label in semibold with a royal-blue arrow at the bottom. Home hero: four squares in a row; on a phone a list of 64 px rows (icon, label, arrow, no number). No photo (tried and dropped, 2026-11-17). Contact page: three in a row, 176 px high instead of square. | Hero: Servir avec nous, Confier une prière, Nous contacter, Demander un entretien (home texts of 2026-11-13). Contact page: "Une autre demande ?". |
 | Contact details | Definition list: primary icon, muted label, bold value; address, e-mail and phone are links (`tel:` on the phone number), each at least 44 px high. | Contact page. |
 | Form field | Bold label always visible above the field; 48 px high, 1 px `color.border-field` outline, 4 px corners, 17 px text; the message box is 6–7 rows and can be resized. The form sits in a sand panel (48 px padding, 24 px × 16 px on a phone); the submit button is primary, full width on a phone. Optional fields say "(facultatif)" in grey after the label; everything else is required. A date field can be typed (its format, "(jj/mm/aaaa)", in grey after the label; the browser checks it and the form refuses to send without it) or picked in a calendar (44 px sky button with a calendar icon). | Contact form, footer forms. |
 | Choice list | Radio buttons or checkboxes, 22 px, one per 44 px row, primary accent; grouped in a `fieldset` with a bold legend. Long lists are split into sub-groups with a small uppercase grey legend and a key line above; 4 columns on a computer, 1 on a phone. Nothing is pre-checked. | "Servir à l'église" (attendance, serving teams). |
 | Full-width form page | Heading (h2) and one or two paragraphs (max 800 px), then the form panel across the whole container; on a computer short fields go two per row (name and e-mail always together). Same order on a phone, one field per row. | Demande d'entretien, Demande de prière, Servir à l'église. |
 | Side panel | Pale gold, 6 px corners, 48 px padding (24 px × 16 px on a phone); small heading (h3), text, and an optional key line in bold on a white inset (4 px corners). Beside the text on a computer (7/5 columns), under it on a phone. No oversized figures. | Donation page ("Réduction d'impôt"), in the white section; "Comment faire un don ?" below it is sky. |
-| Signal tag | Coral fill, 4 px corners, 4 × 12 px padding, 15 px bold uppercase night-blue label; "En direct" adds a 10 px night-blue dot before the label. | "En direct" above the title of the live sermon; "Nouveau" on a recently added event card, above its title. |
+| Signal tag | Coral fill, 4 px corners, 4 × 12 px padding, 15 px bold uppercase night-blue label; "En direct" adds a 10 px night-blue dot before the label. | "En direct" above the title of the live sermon; "Nouveau" on a recently added event: in the top-left corner of the image of a home event card (16 px in), above the title of a phone agenda row. |
 | Way-to-give card | White, 6 px corners, 48 px padding (24 px × 16 px phone); icon in a 48 px sky circle, h3, then either a short text and a primary button (download) or a definition list. Two per row on a computer. | Donation page ("Par virement", "Par chèque"). |
-| Content card | Sand, 6 px corners; image on one side or on top, text block with 48 px padding. | Latest sermon, in a white section. |
-| Event card | White; 16:10 image slot (placeholder until a real image exists, in the soft surface that stands out from its section: sand on sky, sky on white or sand), night-blue date badge overlapping the image, title, time and place, short text, "En savoir plus". On the events page (computer) the image sits on the left (400 px) with the badge in its top-left corner. On a white section the card gets a 1 px `color.border` outline. | Home page, events page ("Les prochains évènements" on white). |
+| Latest sermon | No frame (2026-11-17): the video (16:9, 4 px corners, gold play button) and, beside it (7/5, vertically centred), the date in royal blue, the title (32 px) and one "Regarder la prédication" button; on a phone the video on top and the button full width. The live state keeps the same layout with the "En direct" tag in place of the date. | Home page. |
+| Event card | White with a 1 px `color.border` outline; 16:9 image slot (`color.surface-mist` placeholder until a real image exists), night-blue date badge overlapping the image, title, time and place, short text, "En savoir plus". On the events page (computer) the image sits on the left (400 px) with the badge in its top-left corner. | Home page on a computer (three in a row), events page. |
+| Agenda row | Phone home page (2026-11-17): white row with a hairline, 16 px padding; 64 px night-blue date badge, then the "Nouveau" tag if any, the title (18 px, h3) and "time · place" in muted text, and a royal-blue arrow; the whole row is the link. No image, no short text. | Home page on a phone, in place of the event cards. |
 | Weekly meeting card | Sky, or white on a pale gold section; 32 px padding (16 px phone); night-blue square with the short day and the time, then the meeting name (h3), "Jour à HHhMM" in bold and the address as a link. | "Chaque semaine". |
 | Month heading | Muted h3 in the heading font with a 1 px line under it; events of that month follow. | Events list. |
 | Practical info panel | Sand, 6 px corners; a definition list (Date, Heure, Lieu), each with a primary icon, muted label and bold value; "Voir le plan" under the place. On a computer it sits in a 360 px column beside the text; on a phone right under the image. | Single event; on the single sermon it lists Date, Orateur, Passage biblique and Série with "Toute la série". |
@@ -154,7 +155,12 @@ Every component below is linked: its shared style lives in [source/components/](
 | Data table | Inside a bordered card (6 px corners): sand header with the h3 and a small white category tag, then a full-width table with a grey header row and hairline rows (8 × 12 px cells, 16 px text, codes in monospace). | Cookie list ("Cookies placés"). |
 | To-complete marker | Text the church must supply is written in square brackets on a sun background: `[à compléter]`. Never fill it with invented content. | Mentions légales, cookie list notice. |
 | Section links | "Dans la rubrique « … »" block before the footer, on a pale gold section: one white tile per page of the section; the current page is a night-blue tile marked "Vous êtes ici" after a 10 px accent dot. | Every page of a menu section (the three "L'église" pages). |
-| Footer | Night blue. Computer: logo, address and e-mail, then "Notre église", "Aller plus loin", "Nous suivre"; a bottom line with ©, the three legal links and "Réalisé par Florian Desmet". Phone (compact): logo with the three social links as 44 px icon buttons (each with an `aria-label`), the two link lists side by side, then ©, the legal links on one wrapping line and the credit. Social links go to the church's accounts (Facebook `eglise.evangelique.add.valenciennes`, Instagram `tonegliseavalenciennes`, the YouTube channel); "Assemblées de Dieu" and "CNEF" to their sites. | Every page. |
+| Header | White. At the top of the page it is tall and airy: 120 px on a computer (logo 72 px, 18 px links 40 px apart), 88 px on a tablet, 80 px on a phone, with no line under it on a computer. Once the reader scrolls it stays on screen and shrinks to a compact bar (72 / 68 / 64 px) with a hairline and a soft shadow. Links are `color.text-muted`; the current one is night blue, semibold, after a 6 px gold dot; "Faire un don" is a filled button (the dot sits inside it on the donation page). Tablets and phones show a "Menu" button that opens a white full-screen menu with the same current-item marker. | Every page. |
+| Section title band | Opens each home section after the hero: a small label in muted text after an 8 px gold dot ("L'église", "Agenda", "Prédications"; no numbers), the title (56 px, 36 px phone) on the left and, where useful, a text link with an arrow on the right ("Tous les évènements", "Toutes les prédications"; under the content on a phone); a 1 px hairline under the band. | Home page: Bienvenue, Les évènements, La dernière prédication. |
+| Verse | The Bible verse without a panel: a 4 px gold bar on its left (32 px gap, 20 px phone), the verse in 32 px semibold night blue (22 px phone), the reference in muted text under it. | Home "Bienvenue", beside the welcome text (under it on a phone). |
+| Section dots | Computer, home page only: a column of 8 px dots fixed on the right edge, vertically centred; the current section's dot becomes an 8 × 24 px gold bar. Each dot is a link named after its section title ("Haut de page", "Bienvenue", "Les évènements", "La dernière prédication" or "En ce moment"); the name shows in a small white label on hover or keyboard focus. A click glides to the section. | Home page, computer and 1280 px landscape tablet. |
+| "Sur cette page" button | Touch screens, home page only: a night-blue pill (52 px, list icon, the current section title, chevron) floating 16 px from the right and 24 px from the bottom, hidden at the top of the page. It opens a white bottom sheet "Sur cette page" with the four section titles as 56 px rows, the current one semibold after a gold dot; choosing one closes the sheet and glides there; a tap on the dimmed page or Escape closes it. Focus moves into the list and back to the button. | Home page, phones and portrait tablets. |
+| Footer | Mist with a hairline above it (2026-11-17). Computer: the colour logo with the address (a Google Maps link) and "Culte le dimanche à 10h00 · Prière le mardi à 19h00" on the left, the three social links as 44 px icon buttons (each with an `aria-label`) on the right; a bottom line with "© 2026 Église Évangélique de Valenciennes", the three legal links and "Réalisé par Florian Desmet". Phone: the same, one block under the other. Text in `color.text` (muted text is too light on mist). Social links go to the church's accounts (Facebook `eglise.evangelique.add.valenciennes`, Instagram `tonegliseavalenciennes`, the YouTube channel). The link lists, the e-mail and the Assemblées de Dieu / CNEF line left the footer: the menu and the hero cards give the links, "Nous contacter" the e-mail, "Notre histoire" presents the two networks. | Every page. |
 
 Links the real site builds, left empty (`href="#"`) in the mockups on purpose: the share buttons (Facebook and WhatsApp share addresses of the page), "Voir le plan" (Google Maps search of the event's address), and the sermon page numbers. The "Gérer mes choix de cookies" button opens the consent banner of the real site. Every other link has its real address or a visible `[à compléter]` marker, like the PDF of the Conditions générales, which the new site does not have yet.
 
@@ -162,7 +168,7 @@ Links the real site builds, left empty (`href="#"`) in the mockups on purpose: t
 
 - Real photographs of the church only, cropped with `object-fit: cover` to fixed ratios (16:9, 4:3, 16:10).
 - **One banner photo per menu section**: the church front for L'église, the hall for Évènements, the congregation for the other pages until the church provides photos for them (Prédications, Faire un don and the others).
-- **No text directly on a photo.** The hero and banner photos are blurred (3 px) under a `overlay.hero` layer (night blue at 74 %), which keeps white text at 6.7:1 or more.
+- **No text directly on a photo.** Since the style Épuré the home hero and the page banners have no photo. Should a photo carry text again, blur it (3 px) under the `overlay.hero` layer (night blue at 74 %), which keeps white text at 6.7:1 or more.
 - Map: a static image of the Google Maps view that links to Google Maps. An embedded interactive map would load Google before the visitor consents.
 
 ## Accessibility
@@ -172,6 +178,8 @@ Links the real site builds, left empty (`href="#"`) in the mockups on purpose: t
 - Keyboard focus: a 3 px outline with 3 px offset, `color.secondary` on light areas and white on dark areas (`.on-dark`). Never remove it.
 - Real `<a>` and `<button>` elements; icon-only links carry an `aria-label`; decorative images have an empty `alt`.
 - `lang="fr"`, one `h1` per page, headings in order.
+- Motion respects `prefers-reduced-motion`: with it, the section-by-section scroll, the glides and the fade of the home sections are off.
+- Anything fixed over the page (section dots, "Sur cette page" button) carries readable names, and its current item is marked with `aria-current`, not only by colour.
 
 ## Mockups
 
@@ -272,7 +280,23 @@ The church's wish for a more modern and clean look led to a new round on the hom
 - header and page banner white, without photo; home hero without photo, the title then the four contact cards as white squares;
 - the footer keeps its night blue.
 
-Still to do, page by page: the section backgrounds (at most one tinted section per page), the numbers 01–04 and the church's name above the home title drawn on the home model `Accueil-epure` (canvas page "En cours"), and the current menu item (still a night-blue fill).
+Done on the home page and the shared parts on 2026-11-16 and 2026-11-17 (see below). Still to do, page by page: the section backgrounds of the inner pages (at most one tinted section per page).
+
+### Home page and shared parts (2026-11-17)
+
+The owner reworked the home page section by section on the canvas page "En cours", choosing each time among three drafts (boards kept there: `Cartes-accueil-styles`, `Bienvenue-organisations`, `Evenements-structures`, `Predications-structures`, `Gauche-1-editorial` to `Gauche-3-bandeau`, `Menus-propositions`, `Pieds-de-page-propositions`, `Ancres-styles`, `Ancres-mobile`, and the separate page of scroll animations https://claude.ai/artifact/P1FSosq6k8hQyro4K3vgP9). Decisions, now in the rules above:
+
+- **Hero.** Mostly white; the church's name above the title after a gold dot; the four contact cards numbered 01–04, without photo (the church's own photos were tried in the cards, then dropped). On a phone the cards become list rows.
+- **Text aligned left everywhere.** Centred sections were tried and refused. Each section after the hero opens with a title band, without numbers (they were confused with the card numbers).
+- **Bienvenue.** Welcome text on the left, the verse on the right with a gold bar; verse Lamentations 3:22 ("La bonté du SEIGNEUR n'est pas épuisée, il n'a pas fini de montrer son amour.").
+- **Les évènements.** Mist section; three cards on a computer, agenda rows on a phone (a swipe carousel was tried and dropped).
+- **La dernière prédication.** White; video and text side by side, no frame.
+- **One screen per section on a computer.** The hero fills the first screen under the tall header; each following section fills one screen under the compact header (`calc(100svh - 72px)` once scrolled). The wheel moves section by section, then to the bottom of the footer, in a 1 s eased glide (the browser's own snap was too quick); the coming section fades in over 1.2 s while the others stay faint. Keyboard and touch scroll freely. On a phone the sections keep their natural height (the hero alone fills the first screen), so tall phones show no empty bands.
+- **Section links.** Gold-marked dots on the right edge on a computer; on touch screens the "Sur cette page" button (dots were not visible or accessible enough there).
+- **Menu** tall at the top, compact once scrolled, current item marked by the gold dot; **footer** light and short.
+- **Alignment.** Header, sections and footer on the same 1200 px column.
+
+The captures in [maquettes/](maquettes/) still show the home page before this round; they are refreshed once every page is reworked.
 
 ## Target screens
 
@@ -280,7 +304,7 @@ The validated pages are also built as clickable, scrollable prototypes (page "Va
 
 | Device | Sizes (CSS px) | Header |
 |---|---|---|
-| Computer | 1920 × 1080, 1536 × 864, 1366 × 768 | Full menu, "L'église" opens a drop-down |
+| Computer | 1920 × 1080, 1536 × 864, 1366 × 768 | Full menu, "L'église" opens a drop-down; tall at the top, compact once scrolled |
 | Tablet | 1280 × 800 (landscape), 820 × 1180, 768 × 1024 | Full menu at 1280; "Menu" button and full-screen menu below |
 | Phone | 412 × 915, 390 × 844, 360 × 800 | "Menu" button and full-screen menu |
 
@@ -291,9 +315,9 @@ The 1280 px landscape tablet shows the computer layout, the two portrait tablets
 Changes to the live site's structure, decided by the owner:
 
 - **Home page (2026-10-27).** The validated home page ran to about 16 phone screens, against the short-pages rule. It keeps four blocks, in this order:
-  1. **Hero**: title, service times, address, the four contact cards (80 px rows on a phone). Header and hero fill exactly the first screen, whatever its height (`min-height: calc(100svh - header)`, content centred), so the opening screen never cuts a line of text nor ends on an empty band (owner's rules, 2026-11-06). Inner pages keep their short banner: the owner tried banners sized to the screen and kept the short ones.
-  2. **"Bienvenue"**: the welcome text and the Bible verse, in a pale gold panel.
-  3. **"Les évènements"**: the next three events. With one or two upcoming events, the cards keep their size and weekly meeting cards (Culte, then Réunion de prière) fill the rest of the row (owner, 2026-11-06). With no upcoming event the block is never empty: it says there is no special event at the moment and shows the weekly meetings instead (Culte, Sunday 10h00; Réunion de prière, Tuesday 19h00) as weekly meeting cards. On the home page the sentence is "Rien de particulier n'est prévu pour l'instant. Nous nous retrouvons quand même chaque semaine." (home texts of 2026-11-13), and the weekly cards read "Ouvert à tous" and "Ouverte à tous" under their titles, the time staying in their badge; the events page keeps "Aucun évènement particulier n'est prévu pour le moment." until its own texts are reviewed.
+  1. **Hero**: the church's name, title, service times, address, the four contact cards (64 px list rows on a phone). Header and hero fill exactly the first screen, whatever its height (`min-height: calc(100svh - header)`, content centred), so the opening screen never cuts a line of text nor ends on an empty band (owner's rules, 2026-11-06). Inner pages keep their short banner: the owner tried banners sized to the screen and kept the short ones.
+  2. **"Bienvenue"**: the welcome text and the Bible verse (Lamentations 3:22), side by side on a computer.
+  3. **"Les évènements"**: the next three events (cards on a computer, agenda rows on a phone). With one or two upcoming events, the cards keep their size and weekly meeting cards (Culte, then Réunion de prière) fill the rest of the row (owner, 2026-11-06). With no upcoming event the block is never empty: it says there is no special event at the moment and shows the weekly meetings instead (Culte, Sunday 10h00; Réunion de prière, Tuesday 19h00) as weekly meeting cards. On the home page the sentence is "Rien de particulier n'est prévu pour l'instant. Nous nous retrouvons quand même chaque semaine." (home texts of 2026-11-13), and the weekly cards read "Ouvert à tous" and "Ouverte à tous" under their titles, the time staying in their badge; the events page keeps "Aucun évènement particulier n'est prévu pour le moment." until its own texts are reviewed.
   4. **"La dernière prédication"**. On Sunday between 10h00 and 12h00, the site asks YouTube whether the service is streaming live. If it is, the block becomes "En ce moment": the live player, one "En direct" signal tag above the title, "Sur YouTube, de 10h00 à 12h00." and the button "Regarder le culte". The block follows YouTube, not the clock (owner, 2026-11-06): before a late start and as soon as the stream ends, even before 12h00, it shows the latest sermon again. Nobody has to switch anything by hand.
 
   Removed: "Une église où tu trouveras ta place" (department tiles; the departments have no page), "Vous cherchez une église où grandir et vivre votre foi ?" (its "Je suis nouveau" button led nowhere: no newcomer page exists) and "Où sommes-nous ?" with the map (the hero already gives the address, linked to Google Maps, and the times). The no-event sentence and "Suivre le culte en direct" are interface copy, written with the mockup.

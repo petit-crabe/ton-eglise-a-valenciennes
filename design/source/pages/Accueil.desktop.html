@@ -1,11 +1,19 @@
 
 
   <!-- 1. Hero -->
-  <section class="c-home-hero" style="min-height: [[first-screen]]" data-first-screen="true">
+  <section id="accueil" class="c-home-hero" style="min-height: [[first-screen]]; scroll-snap-align: start; scroll-margin-top: 120px" data-first-screen="true">
+    <!-- the page moves section by section on the computer (each section after the hero is one screen under the compact header); quick links to the page sections, desktop only: fixed on the right edge, names show on hover or focus -->
+    <nav class="anchor-nav" aria-label="Sections de la page" style="position: absolute; right: 24px; top: 50%; transform: translateY(-50%); font-family: 'Inter Tight', system-ui, sans-serif; line-height: 1.6; z-index: 10; display: flex; flex-direction: column; align-items: flex-end">
+      <a href="#accueil" aria-current="true" style="display: flex; align-items: center; justify-content: flex-end; gap: 12px; min-height: 32px; text-decoration: none"><span class="anchor-label" style="padding: 4px 10px; border-radius: 4px; background: [[surface-white]]; box-shadow: 0 2px 8px rgba(21, 39, 61, 0.12); font-size: 14px; font-weight: 600; color: [[secondary]]; white-space: nowrap">Haut de page</span><span aria-hidden="true" style="display: flex; justify-content: center; width: 24px"><span style="display: block; width: 8px; height: 24px; border-radius: 999px; background: [[accent]]"></span></span></a>
+      <a href="#bienvenue" aria-current="false" style="display: flex; align-items: center; justify-content: flex-end; gap: 12px; min-height: 32px; text-decoration: none"><span class="anchor-label" style="padding: 4px 10px; border-radius: 4px; background: [[surface-white]]; box-shadow: 0 2px 8px rgba(21, 39, 61, 0.12); font-size: 14px; font-weight: 500; color: [[text]]; white-space: nowrap">Bienvenue</span><span aria-hidden="true" style="display: flex; justify-content: center; width: 24px"><span style="display: block; width: 8px; height: 8px; border-radius: 999px; background: [[text-muted]]"></span></span></a>
+      <a href="#evenements" aria-current="false" style="display: flex; align-items: center; justify-content: flex-end; gap: 12px; min-height: 32px; text-decoration: none"><span class="anchor-label" style="padding: 4px 10px; border-radius: 4px; background: [[surface-white]]; box-shadow: 0 2px 8px rgba(21, 39, 61, 0.12); font-size: 14px; font-weight: 500; color: [[text]]; white-space: nowrap">Les évènements</span><span aria-hidden="true" style="display: flex; justify-content: center; width: 24px"><span style="display: block; width: 8px; height: 8px; border-radius: 999px; background: [[text-muted]]"></span></span></a>
+      <a href="#predication" aria-current="false" style="display: flex; align-items: center; justify-content: flex-end; gap: 12px; min-height: 32px; text-decoration: none"><span class="anchor-label" style="padding: 4px 10px; border-radius: 4px; background: [[surface-white]]; box-shadow: 0 2px 8px rgba(21, 39, 61, 0.12); font-size: 14px; font-weight: 500; color: [[text]]; white-space: nowrap">La dernière prédication</span><span aria-hidden="true" style="display: flex; justify-content: center; width: 24px"><span style="display: block; width: 8px; height: 8px; border-radius: 999px; background: [[text-muted]]"></span></span></a>
+    </nav>
     <img class="c-home-hero__img1" src="/_blob/b273af9e48439e9be1d5f414b7ca3fba" alt="" aria-hidden="true">
     <div class="c-home-hero__div1" aria-hidden="true"></div>
     <div class="c-home-hero__div2">
       <div class="c-home-hero__div2-div1">
+        <p style="margin: 0 0 24px; display: flex; align-items: center; gap: 8px; font-size: 15px; font-weight: 500; color: [[text-muted]]"><span aria-hidden="true" style="flex: none; width: 8px; height: 8px; border-radius: 999px; background: [[accent]]"></span>Église Évangélique de Valenciennes</p>
         <h1 class="c-home-hero__div2-div1-h11">Un lieu où <span class="c-home-hero__div2-div1-h11-span1">chacun</span> a sa place.</h1>
         <div class="c-home-hero__div2-div1-div1">
           <span class="c-home-hero__div2-div1-div1-span1"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="[[text]]" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>Dimanche 10h00 · Mardi 19h00</span>
@@ -14,59 +22,58 @@
       </div>
       <div class="c-home-hero__div2-div2">
         <a class="c-contact-card" style="background: [[surface-white]]; color: [[secondary]]" href="Servir-charte.dc.html">
-          <span class="c-contact-card__span1"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="[[primary]]" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg></span>
-          <span class="c-contact-card__span2">Servir avec nous<svg class="c-contact-card__span2-svg1" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></span>
+          <span class="c-contact-card__span1" style="justify-content: space-between; align-items: flex-start"><span style="font-size: 15px; font-weight: 500; line-height: 1; color: [[text-muted]]">01</span><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="[[primary]]" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg></span>
+          <span class="c-contact-card__span2">Servir avec nous<svg class="c-contact-card__span2-svg1" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="[[primary]]" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></span>
         </a>
         <a class="c-contact-card" style="background: [[surface-white]]; color: [[secondary]]" href="Priere-charte.dc.html">
-          <span class="c-contact-card__span1"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="[[primary]]" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1.1a5.5 5.5 0 0 0-7.8 7.8l1 1.1L12 21l7.8-7.6 1-1.1a5.5 5.5 0 0 0 0-7.7z"></path></svg></span>
+          <span class="c-contact-card__span1" style="justify-content: space-between; align-items: flex-start"><span style="font-size: 15px; font-weight: 500; line-height: 1; color: [[text-muted]]">02</span><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="[[primary]]" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1.1a5.5 5.5 0 0 0-7.8 7.8l1 1.1L12 21l7.8-7.6 1-1.1a5.5 5.5 0 0 0 0-7.7z"></path></svg></span>
           <span class="c-contact-card__span2">Confier une prière<svg class="c-contact-card__span2-svg1" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="[[primary]]" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></span>
         </a>
         <a class="c-contact-card" style="background: [[surface-white]]; color: [[secondary]]" href="Contact-charte.dc.html">
-          <span class="c-contact-card__span1"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="[[primary]]" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg></span>
+          <span class="c-contact-card__span1" style="justify-content: space-between; align-items: flex-start"><span style="font-size: 15px; font-weight: 500; line-height: 1; color: [[text-muted]]">03</span><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="[[primary]]" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg></span>
           <span class="c-contact-card__span2">Nous contacter<svg class="c-contact-card__span2-svg1" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="[[primary]]" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></span>
         </a>
         <a class="c-contact-card" style="background: [[surface-white]]; color: [[secondary]]" href="Entretien-charte.dc.html">
-          <span class="c-contact-card__span1"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="[[primary]]" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 11.5a8.4 8.4 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.4 8.4 0 0 1-3.8-.9L3 21l1.9-5.7a8.4 8.4 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.4 8.4 0 0 1 3.8-.9h.5a8.5 8.5 0 0 1 8 8v.5z"></path></svg></span>
+          <span class="c-contact-card__span1" style="justify-content: space-between; align-items: flex-start"><span style="font-size: 15px; font-weight: 500; line-height: 1; color: [[text-muted]]">04</span><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="[[primary]]" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 11.5a8.4 8.4 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.4 8.4 0 0 1-3.8-.9L3 21l1.9-5.7a8.4 8.4 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.4 8.4 0 0 1 3.8-.9h.5a8.5 8.5 0 0 1 8 8v.5z"></path></svg></span>
           <span class="c-contact-card__span2">Demander un entretien<svg class="c-contact-card__span2-svg1" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="[[primary]]" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></span>
         </a>
       </div>
     </div>
   </section>
 
-  <!-- 2. Welcome -->
-  <section style="background: [[surface-white]]">
-    <div style="max-width: 1200px; margin: 0 auto; padding: 96px 24px; display: flex; flex-wrap: wrap; gap: 48px; align-items: flex-start">
-      <div style="flex: 1 1 440px; min-width: 0">
-        <h2 style="margin: 0 0 24px; font-family: 'Inter Tight', system-ui, sans-serif; font-size: 44px; line-height: 1.1; color: [[secondary]]">Bienvenue</h2>
-        <p style="margin: 0; font-size: 20px">Voici le site de l'Église Évangélique de Valenciennes. Tu y trouveras nos rencontres, nos évènements et les prédications des derniers dimanches. Que tu viennes chaque semaine ou que tu sois juste de passage, la porte t'est ouverte.</p>
+  <!-- 2. Welcome: one full screen, title band -->
+  <section id="bienvenue" style="min-height: calc([[first-screen]] + 48px); scroll-snap-align: start; box-sizing: border-box; display: flex; align-items: center; padding: 56px 24px; background: [[surface-white]]" data-first-screen="true">
+    <div style="width: 100%; max-width: 1200px; margin: 0 auto">
+      <div style="display: flex; align-items: flex-end; justify-content: space-between; gap: 32px; padding-bottom: 32px; margin-bottom: 48px; border-bottom: 1px solid [[border]]">
+        <div><p style="margin: 0 0 16px; display: flex; align-items: center; gap: 8px; font-size: 15px; font-weight: 500; color: [[text-muted]]"><span aria-hidden="true" style="flex: none; width: 8px; height: 8px; border-radius: 999px; background: [[accent]]"></span>L'église</p><h2 style="margin: 0; font-family: 'Inter Tight', system-ui, sans-serif; font-size: 56px; font-weight: 600; line-height: 1.02; letter-spacing: -0.04em; color: [[secondary]]">Bienvenue</h2></div>
       </div>
-      <figure class="c-verse-panel">
-        <svg class="c-verse-panel__svg1" width="40" height="32" viewBox="0 0 44 36" fill="[[accent]]" aria-hidden="true"><path d="M0 36V20C0 8 6 1 18 0v8c-6 1-9 5-9 12h9v16zm26 0V20C26 8 32 1 44 0v8c-6 1-9 5-9 12h9v16z"></path></svg>
-        <div>
-          <blockquote class="c-verse-panel__div1-blockquote1">Non, les bontés de l'Éternel ne sont pas à leur terme et ses tendresses ne sont pas épuisées.</blockquote>
-          <figcaption class="c-verse-panel__div1-figcaption1">La Bible</figcaption>
-        </div>
-      </figure>
+      <div style="display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 96px; align-items: start">
+        <p style="margin: 0; font-size: 22px; line-height: 1.6">Voici le site de l'Église Évangélique de Valenciennes. Tu y trouveras nos rencontres, nos évènements et les prédications des derniers dimanches. Que tu viennes chaque semaine ou que tu sois juste de passage, la porte t'est ouverte.</p>
+        <figure class="c-verse-panel">
+          <blockquote class="c-verse-panel__div1-blockquote1">La bonté du SEIGNEUR n’est pas épuisée, il n’a pas fini de montrer son amour.</blockquote>
+          <figcaption class="c-verse-panel__div1-figcaption1">Lamentations 3:22</figcaption>
+        </figure>
+      </div>
     </div>
   </section>
 
-  <!-- 3. Events -->
-  <section style="background: [[surface-sky]]">
-    <div style="max-width: 1200px; margin: 0 auto; padding: 96px 24px">
-      <div style="display: flex; flex-wrap: wrap; gap: 16px 24px; align-items: flex-end; justify-content: space-between; margin-bottom: 32px">
-        <h2 style="margin: 0; font-family: 'Inter Tight', system-ui, sans-serif; font-size: 44px; line-height: 1.1; color: [[secondary]]">Les évènements</h2>
-        <a class="c-button" style="display: inline-flex; background: [[primary]]; color: [[surface-white]]" href="Evenements-charte.dc.html">Voir tous les évènements</a>
+  <!-- 3. Events: one full screen, title band -->
+  <section id="evenements" style="min-height: calc([[first-screen]] + 48px); scroll-snap-align: start; box-sizing: border-box; display: flex; align-items: center; padding: 56px 24px; background: [[surface-mist]]" data-first-screen="true">
+    <div style="width: 100%; max-width: 1200px; margin: 0 auto">
+      <div style="display: flex; align-items: flex-end; justify-content: space-between; gap: 32px; padding-bottom: 32px; margin-bottom: 48px; border-bottom: 1px solid [[border]]">
+        <div><p style="margin: 0 0 16px; display: flex; align-items: center; gap: 8px; font-size: 15px; font-weight: 500; color: [[text-muted]]"><span aria-hidden="true" style="flex: none; width: 8px; height: 8px; border-radius: 999px; background: [[accent]]"></span>Agenda</p><h2 style="margin: 0; font-family: 'Inter Tight', system-ui, sans-serif; font-size: 56px; font-weight: 600; line-height: 1.02; letter-spacing: -0.04em; color: [[secondary]]">Les évènements</h2></div>
+        <a href="Evenements-charte.dc.html" style="display: inline-flex; align-items: center; gap: 8px; min-height: 44px; font-size: 18px; font-weight: 700; text-decoration: underline; text-underline-offset: 4px; white-space: nowrap">Tous les évènements<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></a>
       </div>
       <sc-if value="{{hasEvents}}" hint-placeholder-val="{{ true }}">
       <div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px">
         <article class="c-event-card">
           <div class="c-event-card__div1">
             <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="[[text-muted]]" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><polyline points="21 15 16 10 5 21"></polyline></svg>
+            <span class="c-signal-tag" style="position: absolute; top: 16px; left: 16px">Nouveau</span>
             [Image de l'évènement]
             <span class="c-event-card__div1-span1"><span class="c-event-card__div1-span1-span1">JJ</span><span class="c-event-card__div1-span1-span2">mois</span></span>
           </div>
           <div class="c-event-card__div2">
-            <span class="c-signal-tag" style="align-self: flex-start; margin-bottom: 8px">Nouveau</span>
             <h3 class="c-event-card__div2-h31">[Titre de l'évènement]</h3>
             <p class="c-event-card__div2-p1">[Heure] · [Lieu]</p>
             <p class="c-event-card__div2-p2">[Courte présentation de l'évènement]</p>
@@ -125,11 +132,14 @@
     </div>
   </section>
 
-  <!-- 4. Latest sermon, or live on Sunday 10h00–12h00 -->
-  <section style="background: [[surface-white]]">
-    <div style="max-width: 1200px; margin: 0 auto; padding: 96px 24px">
+  <!-- 4. Full screen, title band: latest sermon, or live on Sunday 10h00–12h00 -->
+  <section id="predication" style="min-height: calc([[first-screen]] + 48px); scroll-snap-align: start; box-sizing: border-box; display: flex; align-items: center; padding: 56px 24px; background: [[surface-white]]" data-first-screen="true">
+    <div style="width: 100%; max-width: 1200px; margin: 0 auto">
       <sc-if value="{{notLive}}" hint-placeholder-val="{{ true }}">
-      <h2 style="margin: 0 0 32px; font-family: 'Inter Tight', system-ui, sans-serif; font-size: 44px; line-height: 1.1; color: [[secondary]]">La dernière prédication</h2>
+      <div style="display: flex; align-items: flex-end; justify-content: space-between; gap: 32px; padding-bottom: 32px; margin-bottom: 48px; border-bottom: 1px solid [[border]]">
+        <div><p style="margin: 0 0 16px; display: flex; align-items: center; gap: 8px; font-size: 15px; font-weight: 500; color: [[text-muted]]"><span aria-hidden="true" style="flex: none; width: 8px; height: 8px; border-radius: 999px; background: [[accent]]"></span>Prédications</p><h2 style="margin: 0; font-family: 'Inter Tight', system-ui, sans-serif; font-size: 56px; font-weight: 600; line-height: 1.02; letter-spacing: -0.04em; color: [[secondary]]">La dernière prédication</h2></div>
+        <a href="Predications-charte.dc.html" style="display: inline-flex; align-items: center; gap: 8px; min-height: 44px; font-size: 18px; font-weight: 700; text-decoration: underline; text-underline-offset: 4px; white-space: nowrap">Toutes les prédications<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></a>
+      </div>
       <article class="c-latest-sermon">
         <a class="c-latest-sermon__a1" href="Predication-charte.dc.html" aria-label="Regarder : Servir ensemble : la vraie saveur du ministère">
           <img class="c-latest-sermon__a1-img1" src="/_blob/f4aa364211b32a70c240f4440d6ff2c1" alt="">
@@ -137,16 +147,18 @@
         </a>
         <div class="c-latest-sermon__div1">
           <span class="c-latest-sermon__div1-span1">24 octobre 2026</span>
-          <h3 class="c-latest-sermon__div1-h31" style="margin: 0 0 32px">Servir ensemble : la vraie saveur du ministère</h3>
+          <h3 class="c-latest-sermon__div1-h31" style="margin: 0 0 24px">Servir ensemble : la vraie saveur du ministère</h3>
           <div class="c-latest-sermon__div1-div1">
             <a class="c-button" style="display: inline-flex; background: [[primary]]; color: [[surface-white]]" href="Predication-charte.dc.html"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><polygon points="7 4 20 12 7 20 7 4"></polygon></svg>Regarder la prédication</a>
-            <a class="c-button" style="display: inline-flex; background: [[surface-white]]; color: [[secondary]]; border-color: [[border]]" href="Predications-charte.dc.html">Voir toutes les prédications</a>
           </div>
         </div>
       </article>
       </sc-if>
       <sc-if value="{{live}}" hint-placeholder-val="{{ false }}">
-      <h2 style="margin: 0 0 32px; font-family: 'Inter Tight', system-ui, sans-serif; font-size: 44px; line-height: 1.1; color: [[secondary]]">En ce moment</h2>
+      <div style="display: flex; align-items: flex-end; justify-content: space-between; gap: 32px; padding-bottom: 32px; margin-bottom: 48px; border-bottom: 1px solid [[border]]">
+        <div><p style="margin: 0 0 16px; display: flex; align-items: center; gap: 8px; font-size: 15px; font-weight: 500; color: [[text-muted]]"><span aria-hidden="true" style="flex: none; width: 8px; height: 8px; border-radius: 999px; background: [[accent]]"></span>Prédications</p><h2 style="margin: 0; font-family: 'Inter Tight', system-ui, sans-serif; font-size: 56px; font-weight: 600; line-height: 1.02; letter-spacing: -0.04em; color: [[secondary]]">En ce moment</h2></div>
+        <a href="Predications-charte.dc.html" style="display: inline-flex; align-items: center; gap: 8px; min-height: 44px; font-size: 18px; font-weight: 700; text-decoration: underline; text-underline-offset: 4px; white-space: nowrap">Toutes les prédications<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></a>
+      </div>
       <article class="c-latest-sermon">
         <a class="c-latest-sermon__a1" href="https://www.youtube.com/" aria-label="Regarder le culte en direct">
           <img class="c-latest-sermon__a1-img1" src="/_blob/f4aa364211b32a70c240f4440d6ff2c1" alt="">
@@ -158,7 +170,6 @@
           <p class="c-latest-sermon__div1-p1">Sur YouTube, de 10h00 à 12h00.</p>
           <div class="c-latest-sermon__div1-div1">
             <a class="c-button" style="display: inline-flex; background: [[primary]]; color: [[surface-white]]" href="https://www.youtube.com/"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><polygon points="7 4 20 12 7 20 7 4"></polygon></svg>Regarder le culte</a>
-            <a class="c-button" style="display: inline-flex; background: [[surface-white]]; color: [[secondary]]; border-color: [[border]]" href="Predications-charte.dc.html">Voir toutes les prédications</a>
           </div>
         </div>
       </article>
