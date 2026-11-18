@@ -26,7 +26,7 @@
   "current": {
    "4": "<a aria-current=\"page\" href=\"Evenements-charte.dc.html\" style=\"display: inline-flex; align-items: center; gap: 8px; min-height: 44px; color: [[secondary]]; font-size: 18px; font-weight: 600; text-decoration: none\"><span aria-hidden=\"true\" style=\"flex: none; width: 6px; height: 6px; border-radius: 999px; background: [[accent]]\"></span>Évènements</a>\n        "
   },
-  "props": "{\"eventsBlock\":{\"editor\":\"enum\",\"options\":[\"Des évènements à venir\",\"Aucun évènement à venir\"],\"default\":\"Des évènements à venir\",\"section\":\"États de la page\"},\"$preview\":{\"width\":1440,\"height\":2352}}",
+  "props": "{\"eventsBlock\":{\"editor\":\"enum\",\"options\":[\"Des évènements à venir\",\"Aucun évènement à venir\"],\"default\":\"Des évènements à venir\",\"section\":\"États de la page\"},\"$preview\":{\"width\":1440,\"height\":1802}}",
   "code": "class Component extends DCLogic {\n  renderVals() {\n    const hasEvents = (this.props.eventsBlock ?? 'Des évènements à venir') === 'Des évènements à venir';\n    return { hasEvents: hasEvents, noEvents: !hasEvents };\n  }\n}\n"
  },
  "Evenement-charte": {
@@ -36,7 +36,7 @@
   "current": {
    "4": "<a aria-current=\"page\" href=\"Evenements-charte.dc.html\" style=\"display: inline-flex; align-items: center; gap: 8px; min-height: 44px; color: [[secondary]]; font-size: 18px; font-weight: 600; text-decoration: none\"><span aria-hidden=\"true\" style=\"flex: none; width: 6px; height: 6px; border-radius: 999px; background: [[accent]]\"></span>Évènements</a>\n        "
   },
-  "props": "{\"$preview\":{\"width\":1440,\"height\":1585}}",
+  "props": "{\"$preview\":{\"width\":1440,\"height\":1537}}",
   "code": "class Component extends DCLogic {\n  renderVals() {\n    return {};\n  }\n}\n"
  },
  "Predications-charte": {
@@ -146,17 +146,17 @@
  "Evenements-charte-telephone": {
   "title": "Évènements – nouvelle charte – téléphone",
   "background": "[[surface-white]]",
-  "root": "<div style=\"width: 390px; min-height: 2862px; box-sizing: border-box; display: flex; flex-direction: column; font-family: 'Inter Tight', system-ui, sans-serif; color: [[text]]; font-size: 17px; line-height: 1.6; background: [[surface-white]]\">",
+  "root": "<div style=\"width: 390px; min-height: 1664px; box-sizing: border-box; display: flex; flex-direction: column; font-family: 'Inter Tight', system-ui, sans-serif; color: [[text]]; font-size: 17px; line-height: 1.6; background: [[surface-white]]\">",
   "current": {},
-  "props": "{\"eventsBlock\":{\"editor\":\"enum\",\"options\":[\"Des évènements à venir\",\"Aucun évènement à venir\"],\"default\":\"Des évènements à venir\",\"section\":\"États de la page\"},\"$preview\":{\"width\":390,\"height\":2862}}",
+  "props": "{\"eventsBlock\":{\"editor\":\"enum\",\"options\":[\"Des évènements à venir\",\"Aucun évènement à venir\"],\"default\":\"Des évènements à venir\",\"section\":\"États de la page\"},\"$preview\":{\"width\":390,\"height\":1664}}",
   "code": "class Component extends DCLogic {\n  renderVals() {\n    const hasEvents = (this.props.eventsBlock ?? 'Des évènements à venir') === 'Des évènements à venir';\n    return { hasEvents: hasEvents, noEvents: !hasEvents };\n  }\n}\n"
  },
  "Evenement-charte-telephone": {
   "title": "Un évènement – nouvelle charte – téléphone",
   "background": "[[surface-white]]",
-  "root": "<div style=\"width: 390px; min-height: 1810px; box-sizing: border-box; display: flex; flex-direction: column; font-family: 'Inter Tight', system-ui, sans-serif; color: [[text]]; font-size: 17px; line-height: 1.6; background: [[surface-white]]\">",
+  "root": "<div style=\"width: 390px; min-height: 1793px; box-sizing: border-box; display: flex; flex-direction: column; font-family: 'Inter Tight', system-ui, sans-serif; color: [[text]]; font-size: 17px; line-height: 1.6; background: [[surface-white]]\">",
   "current": {},
-  "props": "{\"$preview\":{\"width\":390,\"height\":1810}}",
+  "props": "{\"$preview\":{\"width\":390,\"height\":1793}}",
   "code": "class Component extends DCLogic {\n  renderVals() {\n    return {};\n  }\n}\n"
  },
  "Predications-charte-telephone": {

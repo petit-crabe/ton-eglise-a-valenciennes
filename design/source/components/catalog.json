@@ -142,7 +142,7 @@
  {
   "name": "event-row",
   "title": "Ligne d'évènement (liste)",
-  "text": "Version de la carte d'évènement pour la page Évènements : image à gauche sur ordinateur.",
+  "text": "Ligne d'agenda de la page Évènements : pastille de date, titre, jour, heure et lieu, flèche. Toute la ligne est un lien.",
   "width": [
    1152,
    358
@@ -151,15 +151,8 @@
    {
     "tag": "article",
     "style": [
-     "display: grid; grid-template-columns: minmax(0, 400px)"
+     "display: block"
     ]
-   },
-   {
-    "tag": "article",
-    "style": [
-     "background: [[surface-white]]; border: 1px solid [[border]]; border-radius: 6px; overflow: hidden"
-    ],
-    "page": "Evenements"
    }
   ]
  },
@@ -183,7 +176,7 @@
  {
   "name": "weekly-card",
   "title": "Carte de réunion hebdomadaire",
-  "text": "Carré bleu nuit avec le jour et l'heure, nom de la réunion, horaire et adresse.",
+  "text": "Carré bleu nuit avec le jour et l'heure, nom de la réunion, horaire et adresse (accueil, quand peu d'évènements sont annoncés).",
   "width": [
    576,
    358
@@ -274,7 +267,7 @@
  {
   "name": "info-panel",
   "title": "Encadré d'infos pratiques",
-  "text": "Fond ivoire, liste date / heure / lieu (ou orateur, passage, série) avec icônes.",
+  "text": "Liste orateur, passage, série… avec icônes, sur la page d'une prédication.",
   "width": [
    360,
    358
