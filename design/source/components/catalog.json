@@ -2,7 +2,7 @@
  {
   "name": "page-banner",
   "title": "Bannière de page",
-  "text": "Fond blanc, fil d'Ariane, grand titre et petite barre dorée, trait fin dessous. En haut de chaque page intérieure.",
+  "text": "Fond blanc, grand titre et petite barre dorée, trait fin dessous. En haut de chaque page intérieure.",
   "width": [
    1440,
    390
@@ -12,8 +12,7 @@
     "tag": "section",
     "style": [
      "position: relative; overflow: hidden; background: [[secondary]]"
-    ],
-    "contains": "Fil d'Ariane"
+    ]
    }
   ]
  },
@@ -307,7 +306,7 @@
  {
   "name": "verse-panel",
   "title": "Encadré verset",
-  "text": "Fond or pâle, guillemet doré, verset et référence.",
+  "text": "Barre dorée à gauche et grande phrase : le verset de l'accueil, la phrase de mission de L'église.",
   "width": [
    552,
    358
@@ -425,7 +424,7 @@
  {
   "name": "accordion-item",
   "title": "Ligne d'accordéon",
-  "text": "Numéro, titre court, chevron ; le texte s'ouvre au clic (Nos valeurs).",
+  "text": "Titre court et chevron, avec un numéro pour Nos valeurs ; le contenu s'ouvre au clic (Nos valeurs, Les départements).",
   "width": [
    800,
    358
@@ -442,16 +441,16 @@
  {
   "name": "timeline-item",
   "title": "Étape de frise",
-  "text": "Année en bleu, point sur la ligne, texte ; la dernière étape a un point doré.",
+  "text": "Sur ordinateur, une colonne : trait et point en haut, année en bleu, texte. Sur téléphone, frise verticale. La dernière étape a un point doré.",
   "width": [
-   880,
+   264,
    358
   ],
   "match": [
    {
     "tag": "li",
     "style": [
-     "display: grid; grid-template-columns: 136px"
+     "position: relative; padding-top: 24px; border-top: 2px solid [[primary]]"
     ]
    },
    {
@@ -463,26 +462,9 @@
   ]
  },
  {
-  "name": "placeholder-card",
-  "title": "Carte à compléter",
-  "text": "Carte blanche à contour fin, nom et une ligne grise entre crochets par information manquante (départements).",
-  "width": [
-   384,
-   358
-  ],
-  "match": [
-   {
-    "tag": "article",
-    "style": [
-     "display: flex; flex-direction: column; gap: 8px; padding: "
-    ]
-   }
-  ]
- },
- {
   "name": "partner-card",
   "title": "Carte partenaire",
-  "text": "Nom du partenaire, son site en gris, icône de lien externe.",
+  "text": "Ligne avec trait fin : nom du partenaire, son site en gris, icône de lien externe.",
   "width": [
    576,
    358
@@ -491,24 +473,7 @@
    {
     "tag": "a",
     "style": [
-     "display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: "
-    ]
-   }
-  ]
- },
- {
-  "name": "section-link",
-  "title": "Lien « Dans la rubrique »",
-  "text": "Tuile blanche avec flèche ; la page en cours est bleu nuit avec « Vous êtes ici » et un point doré.",
-  "width": [
-   384,
-   358
-  ],
-  "match": [
-   {
-    "tag": "a",
-    "style": [
-     "justify-content: space-between; gap: 16px; min-height: 64px"
+     "display: flex; align-items: center; justify-content: space-between; gap: 16px; min-height: 64px"
     ]
    }
   ]

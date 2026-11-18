@@ -29,16 +29,7 @@ h1,h2,h3,h4{font-weight:600;letter-spacing:-0.03em}
       <a href="#" onClick="{{ goHome }}" aria-label="Accueil" style="display: block; line-height: 0"><img src="/_blob/513278200da79a2601d13dcd3ae8d93d" alt="Église Évangélique de Valenciennes" style="height: {{ logoH }}; width: auto; transition: height 0.2s"></a>
       <nav aria-label="Menu principal" style="display: flex; align-items: center; gap: {{ navGap }}">
         <a href="#" onClick="{{ goHome }}" style="display: inline-flex; align-items: center; gap: 8px; min-height: 44px; color: {{ homeColor }}; font-size: {{ navFs }}; font-weight: {{ homeWeight }}; text-decoration: none"><span aria-hidden="true" style="flex: none; display: {{ homeDot }}; width: 6px; height: 6px; border-radius: 999px; background: [[accent]]"></span>Accueil</a>
-        <div style="position: relative">
-          <button type="button" aria-expanded="{{ dropExpanded }}" onClick="{{ toggleDrop }}" style="display: inline-flex; align-items: center; gap: 8px; min-height: 44px; padding: 0; border: 0; cursor: pointer; font-family: inherit; background: transparent; color: {{ churchColor }}; font-size: {{ navFs }}; font-weight: {{ churchWeight }}; text-decoration: none"><span aria-hidden="true" style="flex: none; display: {{ churchDot }}; width: 6px; height: 6px; border-radius: 999px; background: [[accent]]"></span>L'église<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"></polyline></svg></button>
-          <sc-if value="{{ dropOpen }}" hint-placeholder-val="{{ false }}">
-            <div style="position: absolute; top: calc(100% + 16px); left: 0; z-index: 30; min-width: 240px; padding: 8px; background: [[surface-white]]; border: 1px solid [[border]]; border-radius: 6px">
-              <a href="#" onClick="{{ goQui }}" style="display: flex; align-items: center; gap: 8px; min-height: 44px; padding: 0 16px; border-radius: 4px; color: {{ quiColor }}; font-weight: {{ quiWeight }}; text-decoration: none"><span aria-hidden="true" style="flex: none; display: {{ quiDot }}; width: 6px; height: 6px; border-radius: 999px; background: [[accent]]"></span>Qui sommes-nous ?</a>
-              <a href="#" onClick="{{ goEquipe }}" style="display: flex; align-items: center; gap: 8px; min-height: 44px; padding: 0 16px; border-radius: 4px; color: {{ equipeColor }}; font-weight: {{ equipeWeight }}; text-decoration: none"><span aria-hidden="true" style="flex: none; display: {{ equipeDot }}; width: 6px; height: 6px; border-radius: 999px; background: [[accent]]"></span>L'équipe</a>
-              <a href="#" onClick="{{ goHistoire }}" style="display: flex; align-items: center; gap: 8px; min-height: 44px; padding: 0 16px; border-radius: 4px; color: {{ histoireColor }}; font-weight: {{ histoireWeight }}; text-decoration: none"><span aria-hidden="true" style="flex: none; display: {{ histoireDot }}; width: 6px; height: 6px; border-radius: 999px; background: [[accent]]"></span>Notre histoire</a>
-            </div>
-          </sc-if>
-        </div>
+        <a href="#" onClick="{{ goEglise }}" style="display: inline-flex; align-items: center; gap: 8px; min-height: 44px; color: {{ churchColor }}; font-size: {{ navFs }}; font-weight: {{ churchWeight }}; text-decoration: none"><span aria-hidden="true" style="flex: none; display: {{ churchDot }}; width: 6px; height: 6px; border-radius: 999px; background: [[accent]]"></span>L'église</a>
         <a href="#" onClick="{{ goEvenements }}" style="display: inline-flex; align-items: center; gap: 8px; min-height: 44px; color: {{ evColor }}; font-size: {{ navFs }}; font-weight: {{ evWeight }}; text-decoration: none"><span aria-hidden="true" style="flex: none; display: {{ evDot }}; width: 6px; height: 6px; border-radius: 999px; background: [[accent]]"></span>Évènements</a>
         <a href="#" onClick="{{ goPredications }}" style="display: inline-flex; align-items: center; gap: 8px; min-height: 44px; color: {{ prColor }}; font-size: {{ navFs }}; font-weight: {{ prWeight }}; text-decoration: none"><span aria-hidden="true" style="flex: none; display: {{ prDot }}; width: 6px; height: 6px; border-radius: 999px; background: [[accent]]"></span>Prédications</a>
         <a href="#" onClick="{{ goContact }}" style="display: inline-flex; align-items: center; gap: 8px; min-height: 44px; color: {{ ctColor }}; font-size: {{ navFs }}; font-weight: {{ ctWeight }}; text-decoration: none"><span aria-hidden="true" style="flex: none; display: {{ ctDot }}; width: 6px; height: 6px; border-radius: 999px; background: [[accent]]"></span>Nous contacter</a>
@@ -57,6 +48,13 @@ h1,h2,h3,h4{font-weight:600;letter-spacing:-0.03em}
       <a href="#" onClick="{{ jumpPredication }}" aria-current="{{ aPredicationCur }}" style="display: flex; align-items: center; justify-content: flex-end; gap: 12px; min-height: 32px; text-decoration: none"><span class="anchor-label" style="padding: 4px 10px; border-radius: 4px; background: [[surface-white]]; box-shadow: 0 2px 8px rgba(21, 39, 61, 0.12); font-size: 14px; font-weight: {{ aPredicationW }}; color: {{ aPredicationC }}; white-space: nowrap">{{ aPredicationLabel }}</span><span aria-hidden="true" style="display: flex; justify-content: center; width: 24px"><span style="display: block; width: 8px; height: {{ aPredicationH }}; border-radius: 999px; background: {{ aPredicationBg }}"></span></span></a>
     </nav>
   </sc-if>
+  <sc-if value="{{ isEglise }}" hint-placeholder-val="{{ false }}">
+    <nav class="anchor-nav" aria-label="Sections de la page" style="position: absolute; right: 24px; top: 50%; transform: translateY(-50%); font-family: 'Inter Tight', system-ui, sans-serif; line-height: 1.6; z-index: 25; display: flex; flex-direction: column; align-items: flex-end">
+      <sc-for list="{{ churchSections }}" as="d" hint-placeholder-count="5">
+      <a href="#" onClick="{{ d.jump }}" aria-current="{{ d.cur }}" style="display: flex; align-items: center; justify-content: flex-end; gap: 12px; min-height: 32px; text-decoration: none"><span class="anchor-label" style="padding: 4px 10px; border-radius: 4px; background: [[surface-white]]; box-shadow: 0 2px 8px rgba(21, 39, 61, 0.12); font-size: 14px; font-weight: {{ d.w }}; color: {{ d.c }}; white-space: nowrap">{{ d.label }}</span><span aria-hidden="true" style="display: flex; justify-content: center; width: 24px"><span style="display: block; width: 8px; height: {{ d.h }}; border-radius: 999px; background: {{ d.bg }}"></span></span></a>
+      </sc-for>
+    </nav>
+  </sc-if>
 </div>
 </x-dc>
 <script type="text/x-dc" data-dc-script data-props='{"sermonBlock":{"editor":"enum","options":["La dernière prédication","En direct (pendant la diffusion YouTube)"],"default":"La dernière prédication","section":"États des pages"},"eventsBlock":{"editor":"enum","options":["Des évènements à venir","Aucun évènement à venir"],"default":"Des évènements à venir","section":"États des pages"},"$preview":{"width":@@W@@,"height":@@H@@}}'>
@@ -64,7 +62,7 @@ const VALUES = [{"title": "La Bible, Parole de Dieu", "text": "Dans la Bible, to
 class Component extends DCLogic {
   constructor(props) {
     super(props);
-    this.state = { page: 'home', menuOpen: false, dropOpen: false, openValue: 0, scrolled: false, anchor: 'accueil', flash: false, sheetOpen: false };
+    this.state = { page: 'home', menuOpen: false, openValue: 0, scrolled: false, anchor: 'accueil', flash: false, sheetOpen: false };
   }
   renderVals() {
     const s = this.state;
@@ -72,20 +70,19 @@ class Component extends DCLogic {
     const hasEvents = (this.props.eventsBlock ?? 'Des évènements à venir') === 'Des évènements à venir';
     const go = (page) => (e) => {
       if (e && e.preventDefault) e.preventDefault();
-      this.setState({ page: page, menuOpen: false, dropOpen: false, scrolled: false, anchor: 'accueil', sheetOpen: false });
+      this.setState({ page: page, menuOpen: false, scrolled: false, anchor: page === 'eglise' ? 'vision' : 'accueil', sheetOpen: false });
       if (this.vp) this.vp.scrollTop = 0;
     };
-    const church = ['qui', 'equipe', 'histoire'].indexOf(s.page) >= 0;
     const on = (pages, active, idle) => pages.indexOf(s.page) >= 0 ? active : idle;
     // current section: night blue, semibold, gold dot before; the others muted
     const sect = (pages) => ({ color: on(pages, '[[secondary]]', '[[text-muted]]'), weight: on(pages, '600', '500'), dot: on(pages, 'inline-block', 'none') });
-    const home = sect(['home']), chu = sect(['qui', 'equipe', 'histoire']), qui = sect(['qui']), equ = sect(['equipe']), his = sect(['histoire']);
+    const home = sect(['home']), chu = sect(['eglise']);
     const ev = sect(['evenements', 'evenement']), pr = sect(['predications', 'predication']), ct = sect(['contact']), dn = sect(['don']);
     const sc = s.scrolled;
     // smooth scroll to a home section, below the compact header
     // slow eased scroll (1 s); the computer home moves section by section with the wheel
     const HC = 71;
-    const target = (k) => { const vp = this.vp, el = vp && vp.querySelector('#home-' + k); return el ? (k === 'accueil' ? 0 : el.getBoundingClientRect().top - vp.getBoundingClientRect().top + vp.scrollTop - HC) : null; };
+    const target = (k) => { const vp = this.vp, el = vp && vp.querySelector('#' + s.page + '-' + k); return el ? (k === 'accueil' || k === 'vision' ? 0 : el.getBoundingClientRect().top - vp.getBoundingClientRect().top + vp.scrollTop - HC) : null; };
     const glide = (to) => {
       const vp = this.vp; if (!vp) return;
       const reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -96,7 +93,7 @@ class Component extends DCLogic {
       requestAnimationFrame(step);
     };
     const jump = (k) => (e) => { if (e && e.preventDefault) e.preventDefault(); if (s.sheetOpen) this.setState({ sheetOpen: false }); const t = target(k); if (t !== null) glide(t); };
-    const LABELS = { accueil: 'Haut de page', bienvenue: 'Bienvenue', evenements: 'Les évènements', predication: live ? 'En ce moment' : 'La dernière prédication' };
+    const LABELS = { vision: 'Notre vision', valeurs: 'Nos valeurs', 'couple-pastoral': 'Le couple pastoral', departements: 'Les départements', histoire: 'Notre histoire', accueil: 'Haut de page', bienvenue: 'Bienvenue', evenements: 'Les évènements', predication: live ? 'En ce moment' : 'La dernière prédication' };
     const values = VALUES.map((v, i) => ({
       n: i + 1,
       title: v.title,
@@ -109,9 +106,7 @@ class Component extends DCLogic {
     return {
       hasEvents: hasEvents, noEvents: !hasEvents, live: live, notLive: !live,
       isHome: s.page === 'home',
-      isQui: s.page === 'qui',
-      isEquipe: s.page === 'equipe',
-      isHistoire: s.page === 'histoire',
+      isEglise: s.page === 'eglise',
       isEvenements: s.page === 'evenements',
       isEvenement: s.page === 'evenement',
       isPredications: s.page === 'predications',
@@ -125,9 +120,7 @@ class Component extends DCLogic {
       isConditions: s.page === 'conditions',
       isMentions: s.page === 'mentions',
       goHome: go('home'),
-      goQui: go('qui'),
-      goEquipe: go('equipe'),
-      goHistoire: go('histoire'),
+      goEglise: go('eglise'),
       goEvenements: go('evenements'),
       goEvenement: go('evenement'),
       goPredications: go('predications'),
@@ -143,26 +136,20 @@ class Component extends DCLogic {
       menuOpen: s.menuOpen,
       menuExpanded: s.menuOpen ? 'true' : 'false',
       toggleMenu: () => this.setState({ menuOpen: !s.menuOpen }),
-      dropOpen: s.dropOpen,
-      dropExpanded: s.dropOpen ? 'true' : 'false',
-      dropRot: s.dropOpen ? 'rotate(180deg)' : 'none',
-      toggleDrop: () => this.setState({ dropOpen: !s.dropOpen }),
       homeColor: home.color, homeWeight: home.weight, homeDot: home.dot,
       evColor: ev.color, evWeight: ev.weight, evDot: ev.dot,
       prColor: pr.color, prWeight: pr.weight, prDot: pr.dot,
       ctColor: ct.color, ctWeight: ct.weight, ctDot: ct.dot,
       donDot: dn.dot,
-      quiColor: qui.color, quiWeight: qui.weight, quiDot: qui.dot,
-      equipeColor: equ.color, equipeWeight: equ.weight, equipeDot: equ.dot,
-      histoireColor: his.color, histoireWeight: his.weight, histoireDot: his.dot,
       // tall and airy at the top of the page, compact once scrolled
       onScroll: (e) => {
         const vp = e.target, y = vp.scrollTop, next = {};
         if (!sc && y > 60) next.scrolled = true; else if (sc && y < 4) next.scrolled = false;
-        if (s.page === 'home') {
+        const anchors = s.page === 'home' ? ['bienvenue', 'evenements', 'predication'] : s.page === 'eglise' ? ['valeurs', 'couple-pastoral', 'departements', 'histoire'] : null;
+        if (anchors) {
           // the section whose top has passed the middle of the screen is the current one
-          const top = vp.getBoundingClientRect().top; let cur = 'accueil';
-          ['bienvenue', 'evenements', 'predication'].forEach((k) => { const el = vp.querySelector('#home-' + k); if (el && el.getBoundingClientRect().top - top < vp.clientHeight / 2) cur = k; });
+          const top = vp.getBoundingClientRect().top; let cur = s.page === 'home' ? 'accueil' : 'vision';
+          anchors.forEach((k) => { const el = vp.querySelector('#' + s.page + '-' + k); if (el && el.getBoundingClientRect().top - top < vp.clientHeight / 2) cur = k; });
           if (cur !== s.anchor) { next.anchor = cur; next.flash = true; clearTimeout(this._flash); this._flash = setTimeout(() => this.setState({ flash: false }), 1600); }
         }
         if (Object.keys(next).length) this.setState(next);
@@ -179,7 +166,7 @@ class Component extends DCLogic {
       aBienvenueVis: s.anchor === 'bienvenue' ? 'visible' : 'hidden',
       aEvenementsVis: s.anchor === 'evenements' ? 'visible' : 'hidden',
       aPredicationVis: s.anchor === 'predication' ? 'visible' : 'hidden',
-      showSheetBtn: s.page === 'home' && (s.scrolled || s.anchor !== 'accueil'),
+      showSheetBtn: (s.page === 'home' && (s.scrolled || s.anchor !== 'accueil')) || (s.page === 'eglise' && s.scrolled),
       anchorLabel: LABELS[s.anchor], sheetOpen: s.sheetOpen, sheetExpanded: s.sheetOpen ? 'true' : 'false',
       toggleSheet: () => this.setState({ sheetOpen: !s.sheetOpen }), closeSheet: () => this.setState({ sheetOpen: false }),
       snapType: 'none',
@@ -189,9 +176,6 @@ class Component extends DCLogic {
       hdrLine: sc ? '[[border]]' : 'transparent', hdrShadow: sc ? '0 4px 16px rgba(21, 39, 61, 0.08)' : 'none',
       noSubmit: (e) => { if (e && e.preventDefault) e.preventDefault(); },
       churchColor: chu.color, churchWeight: chu.weight, churchDot: chu.dot,
-      quiBg: s.page === 'qui' ? '[[surface-mist]]' : 'transparent',
-      equipeBg: s.page === 'equipe' ? '[[surface-mist]]' : 'transparent',
-      histoireBg: s.page === 'histoire' ? '[[surface-mist]]' : 'transparent',
       setVp: (el) => {
         this.vp = el;
         if (el && !el._wheel) {
@@ -207,6 +191,7 @@ class Component extends DCLogic {
           }, { passive: false });
         }
       },
+      churchSections: [ ["vision", "Notre vision"], ["valeurs", "Nos valeurs"], ["couple-pastoral", "Le couple pastoral"], ["departements", "Les départements"], ["histoire", "Notre histoire"]].map(([k, label]) => { const on = s.anchor === k; return { label: label, jump: jump(k), cur: on ? 'true' : 'false', h: on ? '24px' : '8px', bg: on ? '[[accent]]' : '[[text-muted]]', w: on ? '600' : '500', c: on ? '[[secondary]]' : '[[text]]', vis: on ? 'visible' : 'hidden', op: on && s.flash ? '1' : '0', ph: on ? '20px' : '8px' }; }),
       values: values
     };
   }

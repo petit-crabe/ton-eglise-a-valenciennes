@@ -9,7 +9,7 @@ usage: python3 build_maquettes.py pull <canvas project dir>
 pull reads the *-charte boards and the Ecran-* prototypes downloaded from the canvas
 and writes design/source/. It reports every header or footer that differs from the
 shared one (a hand edit made on one page only); the shared one wins.
-build writes the 32 boards and the 9 prototypes from design/source/, colours from
+build writes the 28 boards and the 9 prototypes from design/source/, colours from
 design/tokens.json. Portrait tablets (768 and 820 px) get the tablet layout: the
 computer pages folded by the rules of DESIGN.md, "Folding".
 link splits the styles of every component (design/source/components/) between the shared
@@ -27,7 +27,7 @@ TOKENS = os.path.join(HERE, "..", "tokens.json")
 
 # board base name -> prototype page key
 PAGES = {
-    "Accueil": "home", "Qui-sommes-nous": "qui", "Equipe": "equipe", "Notre-histoire": "histoire",
+    "Accueil": "home", "Eglise": "eglise",
     "Evenements": "evenements", "Evenement": "evenement", "Predications": "predications",
     "Predication": "predication", "Contact": "contact", "Don": "don", "Entretien": "entretien",
     "Priere": "priere", "Servir": "servir", "Donnees": "donnees", "Conditions": "conditions",
@@ -459,7 +459,7 @@ def pull_components(canvas, warnings):
 
 
 def variant(out, tokens, name, label):
-    """Colour variant: the 32 boards with another tokens.json, as <Page>-<name>[-telephone].dc.html."""
+    """Colour variant: the boards with another tokens.json, as <Page>-<name>[-telephone].dc.html."""
     global TOKENS
     TOKENS = tokens
     meta = json.load(open(os.path.join(SOURCE, "boards.json"), encoding="utf-8"))

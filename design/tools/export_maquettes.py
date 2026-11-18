@@ -10,9 +10,7 @@ DATE = "2026-11-09"
 
 PAGES = {
     "Accueil": ("home", "home", "home page"),
-    "Qui-sommes-nous": ("church", "who-we-are", "\"Qui sommes-nous ?\""),
-    "Equipe": ("church", "team", "\"L'équipe\""),
-    "Notre-histoire": ("church", "history", "\"Notre histoire\""),
+    "Eglise": ("church", "church", "\"L'église\""),
     "Evenements": ("events", "events", "\"Évènements\""),
     "Evenement": ("events", "event", "single event"),
     "Predications": ("sermons", "sermons", "\"Prédications\""),
@@ -64,8 +62,8 @@ ANCHOR_SCRIPT = """
     requestAnimationFrame(step);
   };
   links.forEach((a) => a.addEventListener('click', (e) => { e.preventDefault(); glide(top(a.getAttribute('href').slice(1))); }));
-  // computer: the wheel moves section by section, then to the bottom of the footer
-  if (!touch) {
+  // computer home page: the wheel moves section by section, then to the bottom of the footer
+  if (!touch && document.getElementById('bienvenue')) {
     root.classList.add('snapfx');
     addEventListener('wheel', (e) => {
       e.preventDefault();
@@ -100,7 +98,8 @@ ANCHOR_SCRIPT = """
   update();
 })();
 </script>"""
-SHEET_HTML = """
+def sheet_html(sections):
+    return """
 <button type="button" id="sheet-button" aria-expanded="false" aria-controls="sheet" hidden style="position: fixed; right: 16px; bottom: 24px; z-index: 30; display: inline-flex; align-items: center; gap: 10px; max-width: calc(100% - 32px); min-height: 52px; padding: 0 18px; border: 0; border-radius: 999px; background: #15273d; color: #ffffff; font-family: 'Inter Tight', system-ui, sans-serif; font-size: 16px; font-weight: 600; cursor: pointer; box-shadow: 0 6px 20px rgba(21, 39, 61, 0.25)"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><line x1="9" y1="6" x2="20" y2="6"></line><line x1="9" y1="12" x2="20" y2="12"></line><line x1="9" y1="18" x2="20" y2="18"></line><circle cx="4.5" cy="6" r="1"></circle><circle cx="4.5" cy="12" r="1"></circle><circle cx="4.5" cy="18" r="1"></circle></svg><span id="sheet-current" style="overflow: hidden; text-overflow: ellipsis; white-space: nowrap">Haut de page</span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 15 12 9 18 15"></polyline></svg></button>
 <div id="sheet-backdrop" hidden style="position: fixed; inset: 0; z-index: 44; background: rgba(21, 39, 61, 0.35)"></div>
 <div id="sheet" role="dialog" aria-modal="true" aria-label="Aller à une section" hidden style="position: fixed; left: 0; right: 0; bottom: 0; z-index: 45; box-sizing: border-box; padding: 12px 20px 28px; border-radius: 16px 16px 0 0; background: #ffffff; font-family: 'Inter Tight', system-ui, sans-serif; line-height: 1.6">
@@ -108,7 +107,7 @@ SHEET_HTML = """
   <p style="margin: 0 0 4px; font-size: 13px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: #2d3b4e">Sur cette page</p>
   <nav aria-label="Sections de la page">""" + "".join(
     f'<a href="#{k}" style="display: flex; align-items: center; gap: 12px; min-height: 56px; padding: 0 4px; border-bottom: 1px solid #e4e7ec; font-size: 18px; color: #2d3b4e; text-decoration: none"><span aria-hidden="true" style="flex: none; width: 8px; height: 8px; border-radius: 999px; background: #d9a52b"></span>{label}</a>'
-    for k, label in [("accueil", "Haut de page"), ("bienvenue", "Bienvenue"), ("evenements", "Les évènements"), ("predication", "La dernière prédication")]) + """</nav>
+    for k, label in sections) + """</nav>
 </div>
 <script>
 (() => {
@@ -136,6 +135,10 @@ SHEET_HTML = """
   update();
 })();
 </script>"""
+SHEETS = {
+    "bienvenue": [("accueil", "Haut de page"), ("bienvenue", "Bienvenue"), ("evenements", "Les évènements"), ("predication", "La dernière prédication")],
+    "valeurs": [("vision", "Notre vision"), ("valeurs", "Nos valeurs"), ("couple-pastoral", "Le couple pastoral"), ("departements", "Les départements"), ("histoire", "Notre histoire")],
+}
 KEEP = {"hasEvents": True, "noEvents": False, "live": False, "notLive": True}
 
 # every image already exists somewhere in design/maquettes/
@@ -192,10 +195,11 @@ for base, (folder, slug, label) in PAGES.items():
             body, n = re.subn(r'<div style="width: 390px; min-height: \d+px; ', '<div style="max-width: 390px; margin: 0 auto; ', body, count=1)
             assert n == 1, base
         body = re.sub(r"\n{3,}", "\n\n", body)
-        # phone home: a floating "on this page" button opens the list of sections
-        if phone and 'id="bienvenue"' in body:
-            body += SHEET_HTML
-        # the home section links stay on the right edge while scrolling and follow the current section
+        # phone: a floating "on this page" button opens the list of sections
+        for marker, sections in SHEETS.items():
+            if phone and f'id="{marker}"' in body:
+                body += sheet_html(sections)
+        # the section links stay on the right edge while scrolling and follow the current section
         if 'class="anchor-nav' in body:
             body = re.sub(r'(class="anchor-nav[^"]*" aria-label="Sections de la page" style=")position: absolute;', r"\1position: fixed;", body)
             body += ANCHOR_SCRIPT
