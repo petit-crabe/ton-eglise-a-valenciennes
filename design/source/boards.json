@@ -46,7 +46,7 @@
   "current": {
    "5": "<a aria-current=\"page\" href=\"Predications-charte.dc.html\" style=\"display: inline-flex; align-items: center; gap: 8px; min-height: 44px; color: [[secondary]]; font-size: 18px; font-weight: 600; text-decoration: none\"><span aria-hidden=\"true\" style=\"flex: none; width: 6px; height: 6px; border-radius: 999px; background: [[accent]]\"></span>Prédications</a>\n        "
   },
-  "props": "{\"$preview\":{\"width\":1440,\"height\":2634}}",
+  "props": "{\"$preview\":{\"width\":1440,\"height\":2371}}",
   "code": "class Component extends DCLogic {\n  renderVals() {\n    return {};\n  }\n}\n"
  },
  "Predication-charte": {
@@ -56,7 +56,7 @@
   "current": {
    "5": "<a aria-current=\"page\" href=\"Predications-charte.dc.html\" style=\"display: inline-flex; align-items: center; gap: 8px; min-height: 44px; color: [[secondary]]; font-size: 18px; font-weight: 600; text-decoration: none\"><span aria-hidden=\"true\" style=\"flex: none; width: 6px; height: 6px; border-radius: 999px; background: [[accent]]\"></span>Prédications</a>\n        "
   },
-  "props": "{\"$preview\":{\"width\":1440,\"height\":2165}}",
+  "props": "{\"$preview\":{\"width\":1440,\"height\":1317}}",
   "code": "class Component extends DCLogic {\n  renderVals() {\n    return {};\n  }\n}\n"
  },
  "Contact-charte": {
@@ -162,17 +162,17 @@
  "Predications-charte-telephone": {
   "title": "Prédications – nouvelle charte – téléphone",
   "background": "[[surface-white]]",
-  "root": "<div style=\"width: 390px; min-height: 3391px; box-sizing: border-box; display: flex; flex-direction: column; font-family: 'Inter Tight', system-ui, sans-serif; color: [[text]]; font-size: 17px; line-height: 1.6; background: [[surface-white]]\">",
+  "root": "<div style=\"width: 390px; min-height: 2272px; box-sizing: border-box; display: flex; flex-direction: column; font-family: 'Inter Tight', system-ui, sans-serif; color: [[text]]; font-size: 17px; line-height: 1.6; background: [[surface-white]]\">",
   "current": {},
-  "props": "{\"$preview\":{\"width\":390,\"height\":3391}}",
+  "props": "{\"$preview\":{\"width\":390,\"height\":2272}}",
   "code": "class Component extends DCLogic {\n  renderVals() {\n    return {};\n  }\n}\n"
  },
  "Predication-charte-telephone": {
   "title": "Une prédication – nouvelle charte – téléphone",
   "background": "[[surface-white]]",
-  "root": "<div style=\"width: 390px; min-height: 3096px; box-sizing: border-box; display: flex; flex-direction: column; font-family: 'Inter Tight', system-ui, sans-serif; color: [[text]]; font-size: 17px; line-height: 1.6; background: [[surface-white]]\">",
+  "root": "<div style=\"width: 390px; min-height: 1441px; box-sizing: border-box; display: flex; flex-direction: column; font-family: 'Inter Tight', system-ui, sans-serif; color: [[text]]; font-size: 17px; line-height: 1.6; background: [[surface-white]]\">",
   "current": {},
-  "props": "{\"$preview\":{\"width\":390,\"height\":3096}}",
+  "props": "{\"$preview\":{\"width\":390,\"height\":1441}}",
   "code": "class Component extends DCLogic {\n  renderVals() {\n    return {};\n  }\n}\n"
  },
  "Contact-charte-telephone": {

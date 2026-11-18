@@ -101,7 +101,7 @@
  {
   "name": "sermon-card",
   "title": "Carte de prédication",
-  "text": "Toute la carte est un lien : miniature avec bouton lecture, série, titre, date et orateur.",
+  "text": "Toute la carte est un lien : miniature avec bouton lecture, titre, date et orateur. Sur téléphone, une ligne avec une petite miniature à gauche.",
   "width": [
    368,
    358
@@ -110,8 +110,9 @@
    {
     "tag": "article",
     "style": [
-     "position: relative; flex: 1; display: flex; flex-direction: column; background: [[surface-white]]"
-    ]
+     "position: relative"
+    ],
+    "contains": "c-sermon-card__div1"
    }
   ]
  },
@@ -234,7 +235,7 @@
  {
   "name": "filter-menu",
   "title": "Menu de filtre",
-  "text": "Liste déroulante avec son intitulé au-dessus (Série, Orateur).",
+  "text": "Liste déroulante avec son intitulé au-dessus (Orateur).",
   "width": [
    280,
    358
@@ -261,23 +262,6 @@
    {
     "tag": "nav",
     "attr": "aria-label=\"Pages\""
-   }
-  ]
- },
- {
-  "name": "info-panel",
-  "title": "Encadré d'infos pratiques",
-  "text": "Liste orateur, passage, série… avec icônes, sur la page d'une prédication.",
-  "width": [
-   360,
-   358
-  ],
-  "match": [
-   {
-    "tag": "aside",
-    "style": [
-     "background: [[surface-sand]]; border-radius: 6px"
-    ]
    }
   ]
  },
