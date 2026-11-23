@@ -304,40 +304,6 @@
   ]
  },
  {
-  "name": "side-panel",
-  "title": "Encadré latéral",
-  "text": "Fond or pâle, petit titre, texte et une ligne clé sur fond blanc (Réduction d'impôt).",
-  "width": [
-   464,
-   358
-  ],
-  "match": [
-   {
-    "tag": "aside",
-    "style": [
-     "background: [[surface-gold]]; border-radius: 6px"
-    ]
-   }
-  ]
- },
- {
-  "name": "give-card",
-  "title": "Carte « Comment donner »",
-  "text": "Icône dans un rond ciel, titre, texte et bouton (virement) ou liste (chèque).",
-  "width": [
-   560,
-   358
-  ],
-  "match": [
-   {
-    "tag": "article",
-    "style": [
-     "flex: 1; display: flex; flex-direction: column; gap: 16px; background: [[surface-white]]"
-    ]
-   }
-  ]
- },
- {
   "name": "form-panel",
   "title": "Panneau de formulaire",
   "text": "Fond blanc au trait fin, titre, phrase sur les champs obligatoires, puis le formulaire.",

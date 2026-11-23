@@ -76,7 +76,7 @@
   "current": {
    "7": "<a aria-current=\"page\" href=\"Don-charte.dc.html\" style=\"display: inline-flex; align-items: center; gap: 8px; min-height: 52px; padding: 0 20px; border-radius: 4px; background: [[primary]]; color: [[surface-white]]; font-size: 18px; font-weight: 700; text-decoration: none\"><span aria-hidden=\"true\" style=\"flex: none; width: 6px; height: 6px; border-radius: 999px; background: [[accent]]\"></span>Faire un don</a>\n      </nav>\n    </div>\n  </header>"
   },
-  "props": "{\"$preview\":{\"width\":1440,\"height\":1854}}",
+  "props": "{\"$preview\":{\"width\":1440,\"height\":1680}}",
   "code": "class Component extends DCLogic {\n  renderVals() {\n    return {};\n  }\n}\n"
  },
  "Entretien-charte": {
@@ -186,9 +186,9 @@
  "Don-charte-telephone": {
   "title": "Faire un don – nouvelle charte – téléphone",
   "background": "[[surface-white]]",
-  "root": "<div style=\"width: 390px; min-height: 2122px; box-sizing: border-box; display: flex; flex-direction: column; font-family: 'Inter Tight', system-ui, sans-serif; color: [[text]]; font-size: 17px; line-height: 1.6; background: [[surface-white]]\">",
+  "root": "<div style=\"width: 390px; min-height: 1944px; box-sizing: border-box; display: flex; flex-direction: column; font-family: 'Inter Tight', system-ui, sans-serif; color: [[text]]; font-size: 17px; line-height: 1.6; background: [[surface-white]]\">",
   "current": {},
-  "props": "{\"$preview\":{\"width\":390,\"height\":2122}}",
+  "props": "{\"$preview\":{\"width\":390,\"height\":1944}}",
   "code": "class Component extends DCLogic {\n  renderVals() {\n    return {};\n  }\n}\n"
  },
  "Entretien-charte-telephone": {
