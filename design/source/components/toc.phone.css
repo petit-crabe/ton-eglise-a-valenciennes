@@ -1,4 +1,4 @@
-.c-toc.c-toc{margin-bottom: 8px; border: 1px solid [[border]]; border-radius: 6px; background: [[surface-sand]]}
+.c-toc.c-toc{margin-bottom: 8px; border-radius: 4px; background: [[surface-white]]; border: 1px solid [[border]]}
 .c-toc__div1.c-toc__div1{padding: 0 16px 8px}
 .c-toc__summary1.c-toc__summary1{display: flex; align-items: center; min-height: 52px; padding: 0 16px; font-weight: 700; color: [[secondary]]; cursor: pointer}
 .c-toc__div1-ul1.c-toc__div1-ul1{list-style: none; margin: 0; padding: 0}

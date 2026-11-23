@@ -1,278 +1,242 @@
 {
  "Accueil-charte": {
   "title": "Accueil – nouvelle charte – ordinateur",
-  "background": "[[surface-sand]]",
-  "root": "<div style=\"font-family: 'Source Sans 3', system-ui, sans-serif; color: [[text]]; font-size: 18px; line-height: 1.6; background: [[surface-sand]]; min-height: 100vh\">",
+  "background": "[[surface-white]]",
+  "root": "<div style=\"font-family: 'Inter Tight', system-ui, sans-serif; color: [[text]]; font-size: 18px; line-height: 1.6; background: [[surface-white]]; min-height: 100vh\">",
   "current": {
-   "2": "<a href=\"Accueil-charte.dc.html\" aria-current=\"page\" style=\"display: inline-flex; align-items: center; min-height: 44px; padding: 0 16px; border-radius: 4px; background: [[secondary]]; color: [[surface-white]]; font-weight: 700; text-decoration: none\">Accueil</a>\n        "
+   "2": "<a aria-current=\"page\" href=\"Accueil-charte.dc.html\" style=\"display: inline-flex; align-items: center; gap: 8px; min-height: 44px; color: [[secondary]]; font-size: 18px; font-weight: 600; text-decoration: none\"><span aria-hidden=\"true\" style=\"flex: none; width: 6px; height: 6px; border-radius: 999px; background: [[accent]]\"></span>Accueil</a>\n        "
   },
-  "props": "{\"sermonBlock\":{\"editor\":\"enum\",\"options\":[\"La dernière prédication\",\"En direct (pendant la diffusion YouTube)\"],\"default\":\"La dernière prédication\",\"section\":\"États de la page\"},\"eventsBlock\":{\"editor\":\"enum\",\"options\":[\"Trois évènements à venir\",\"Aucun évènement à venir\"],\"default\":\"Aucun évènement à venir\",\"section\":\"États de la page\"},\"$preview\":{\"width\":1440,\"height\":3200}}",
+  "props": "{\"sermonBlock\":{\"editor\":\"enum\",\"options\":[\"La dernière prédication\",\"En direct (pendant la diffusion YouTube)\"],\"default\":\"La dernière prédication\",\"section\":\"États de la page\"},\"eventsBlock\":{\"editor\":\"enum\",\"options\":[\"Trois évènements à venir\",\"Aucun évènement à venir\"],\"default\":\"Aucun évènement à venir\",\"section\":\"États de la page\"},\"$preview\":{\"width\":1440,\"height\":3250}}",
   "code": "class Component extends DCLogic {\n  renderVals() {\n    const live = (this.props.sermonBlock ?? 'La dernière prédication') !== 'La dernière prédication';\n    const hasEvents = (this.props.eventsBlock ?? 'Trois évènements à venir') === 'Trois évènements à venir';\n    return { live: live, notLive: !live, hasEvents: hasEvents, noEvents: !hasEvents };\n  }\n}\n"
  },
- "Qui-sommes-nous-charte": {
-  "title": "Qui sommes-nous ? – nouvelle charte – ordinateur",
+ "Eglise-charte": {
+  "title": "L'église – nouvelle charte – ordinateur",
   "background": "[[surface-white]]",
-  "root": "<div style=\"font-family: 'Source Sans 3', system-ui, sans-serif; color: [[text]]; font-size: 18px; line-height: 1.6; background: [[surface-white]]; min-height: 100vh\">",
+  "root": "<div style=\"font-family: 'Inter Tight', system-ui, sans-serif; color: [[text]]; font-size: 18px; line-height: 1.6; background: [[surface-white]]; min-height: 100vh\">",
   "current": {
-   "3": "<a href=\"Qui-sommes-nous-charte.dc.html\" aria-current=\"true\" style=\"display: inline-flex; align-items: center; gap: 8px; min-height: 44px; padding: 0 16px; border-radius: 4px; background: [[secondary]]; color: [[surface-white]]; font-weight: 700; text-decoration: none\">L'église<svg width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><polyline points=\"6 9 12 15 18 9\"></polyline></svg></a>\n        "
+   "3": "<a aria-current=\"page\" href=\"Eglise-charte.dc.html\" style=\"display: inline-flex; align-items: center; gap: 8px; min-height: 44px; color: [[secondary]]; font-size: 18px; font-weight: 600; text-decoration: none\"><span aria-hidden=\"true\" style=\"flex: none; width: 6px; height: 6px; border-radius: 999px; background: [[accent]]\"></span>L'église</a>\n        "
   },
-  "props": "{\"$preview\":{\"width\":1440,\"height\":2900}}",
-  "code": "class Component extends DCLogic {\n  renderVals() {\n    return {};\n  }\n}\n"
- },
- "Equipe-charte": {
-  "title": "L'équipe – nouvelle charte – ordinateur",
-  "background": "[[surface-white]]",
-  "root": "<div style=\"font-family: 'Source Sans 3', system-ui, sans-serif; color: [[text]]; font-size: 18px; line-height: 1.6; background: [[surface-white]]; min-height: 100vh\">",
-  "current": {
-   "3": "<a href=\"Qui-sommes-nous-charte.dc.html\" aria-current=\"true\" style=\"display: inline-flex; align-items: center; gap: 8px; min-height: 44px; padding: 0 16px; border-radius: 4px; background: [[secondary]]; color: [[surface-white]]; font-weight: 700; text-decoration: none\">L'église<svg width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><polyline points=\"6 9 12 15 18 9\"></polyline></svg></a>\n        "
-  },
-  "props": "{\"$preview\":{\"width\":1440,\"height\":2900}}",
-  "code": "class Component extends DCLogic {\n  renderVals() {\n    return {};\n  }\n}\n"
- },
- "Notre-histoire-charte": {
-  "title": "Notre histoire – nouvelle charte – ordinateur",
-  "background": "[[surface-white]]",
-  "root": "<div style=\"font-family: 'Source Sans 3', system-ui, sans-serif; color: [[text]]; font-size: 18px; line-height: 1.6; background: [[surface-white]]; min-height: 100vh\">",
-  "current": {
-   "3": "<a href=\"Qui-sommes-nous-charte.dc.html\" aria-current=\"true\" style=\"display: inline-flex; align-items: center; gap: 8px; min-height: 44px; padding: 0 16px; border-radius: 4px; background: [[secondary]]; color: [[surface-white]]; font-weight: 700; text-decoration: none\">L'église<svg width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><polyline points=\"6 9 12 15 18 9\"></polyline></svg></a>\n        "
-  },
-  "props": "{\"$preview\":{\"width\":1440,\"height\":3900}}",
+  "props": "{\"$preview\":{\"width\":1440,\"height\":5490}}",
   "code": "class Component extends DCLogic {\n  renderVals() {\n    return {};\n  }\n}\n"
  },
  "Evenements-charte": {
   "title": "Évènements – nouvelle charte – ordinateur",
   "background": "[[surface-white]]",
-  "root": "<div style=\"font-family: 'Source Sans 3', system-ui, sans-serif; color: [[text]]; font-size: 18px; line-height: 1.6; background: [[surface-white]]; min-height: 100vh\">",
+  "root": "<div style=\"font-family: 'Inter Tight', system-ui, sans-serif; color: [[text]]; font-size: 18px; line-height: 1.6; background: [[surface-white]]; min-height: 100vh\">",
   "current": {
-   "4": "<a href=\"Evenements-charte.dc.html\" aria-current=\"page\" style=\"display: inline-flex; align-items: center; min-height: 44px; padding: 0 16px; border-radius: 4px; background: [[secondary]]; color: [[surface-white]]; font-weight: 700; text-decoration: none\">Évènements</a>\n        "
+   "4": "<a aria-current=\"page\" href=\"Evenements-charte.dc.html\" style=\"display: inline-flex; align-items: center; gap: 8px; min-height: 44px; color: [[secondary]]; font-size: 18px; font-weight: 600; text-decoration: none\"><span aria-hidden=\"true\" style=\"flex: none; width: 6px; height: 6px; border-radius: 999px; background: [[accent]]\"></span>Évènements</a>\n        "
   },
-  "props": "{\"eventsBlock\":{\"editor\":\"enum\",\"options\":[\"Des évènements à venir\",\"Aucun évènement à venir\"],\"default\":\"Des évènements à venir\",\"section\":\"États de la page\"},\"$preview\":{\"width\":1440,\"height\":2700}}",
-  "code": "class Component extends DCLogic {\n  renderVals() {\n    const hasEvents = (this.props.eventsBlock ?? 'Des évènements à venir') === 'Des évènements à venir';\n    return { hasEvents: hasEvents, noEvents: !hasEvents };\n  }\n}\n"
+  "props": "{\"$preview\":{\"width\":1440,\"height\":1733}}",
+  "code": "class Component extends DCLogic {\n  renderVals() {\n    const hasEvents = (this.props.eventsBlock ?? 'Des évènements à venir') === 'Des évènements à venir';\n    // Next date of each weekly meeting, Paris time; it moves on when the meeting ends.\n    const weekly = (() => {\n      const short = [\"janv\", \"févr\", \"mars\", \"avr\", \"mai\", \"juin\", \"juil\", \"août\", \"sept\", \"oct\", \"nov\", \"déc\"];\n      const long = [\"janvier\", \"février\", \"mars\", \"avril\", \"mai\", \"juin\", \"juillet\", \"août\", \"septembre\", \"octobre\", \"novembre\", \"décembre\"];\n      const days = [\"Sun\", \"Mon\", \"Tue\", \"Wed\", \"Thu\", \"Fri\", \"Sat\"];\n      const now = {};\n      new Intl.DateTimeFormat(\"en-GB\", { timeZone: \"Europe/Paris\", weekday: \"short\", year: \"numeric\", month: \"numeric\", day: \"numeric\", hour: \"numeric\", hourCycle: \"h23\" })\n        .formatToParts(new Date()).forEach((p) => { now[p.type] = p.value; });\n      const next = (weekday, endHour) => {\n        let diff = (weekday - days.indexOf(now.weekday) + 7) % 7;\n        if (diff === 0 && Number(now.hour) >= endHour) diff = 7;\n        const d = new Date(Date.UTC(Number(now.year), Number(now.month) - 1, Number(now.day) + diff));\n        return { day: d.getUTCDate(), month: d.getUTCMonth() };\n      };\n      const sun = next(0, 12);\n      const tue = next(2, 20);\n      return {\n        sunDay: sun.day, sunMonth: short[sun.month], sunLabel: \"Prochain culte : dimanche \" + sun.day + \" \" + long[sun.month],\n        tueDay: tue.day, tueMonth: short[tue.month], tueLabel: \"Prochaine réunion de prière : mardi \" + tue.day + \" \" + long[tue.month]\n      };\n    })();\n    return { hasEvents: hasEvents, noEvents: !hasEvents, ...weekly };\n  }\n}\n"
  },
  "Evenement-charte": {
   "title": "Un évènement – nouvelle charte – ordinateur",
   "background": "[[surface-white]]",
-  "root": "<div style=\"font-family: 'Source Sans 3', system-ui, sans-serif; color: [[text]]; font-size: 18px; line-height: 1.6; background: [[surface-white]]; min-height: 100vh\">",
+  "root": "<div style=\"font-family: 'Inter Tight', system-ui, sans-serif; color: [[text]]; font-size: 18px; line-height: 1.6; background: [[surface-white]]; min-height: 100vh\">",
   "current": {
-   "4": "<a href=\"Evenements-charte.dc.html\" aria-current=\"page\" style=\"display: inline-flex; align-items: center; min-height: 44px; padding: 0 16px; border-radius: 4px; background: [[secondary]]; color: [[surface-white]]; font-weight: 700; text-decoration: none\">Évènements</a>\n        "
+   "4": "<a aria-current=\"page\" href=\"Evenements-charte.dc.html\" style=\"display: inline-flex; align-items: center; gap: 8px; min-height: 44px; color: [[secondary]]; font-size: 18px; font-weight: 600; text-decoration: none\"><span aria-hidden=\"true\" style=\"flex: none; width: 6px; height: 6px; border-radius: 999px; background: [[accent]]\"></span>Évènements</a>\n        "
   },
-  "props": "{\"$preview\":{\"width\":1440,\"height\":1900}}",
+  "props": "{\"$preview\":{\"width\":1440,\"height\":1537}}",
   "code": "class Component extends DCLogic {\n  renderVals() {\n    return {};\n  }\n}\n"
  },
  "Predications-charte": {
   "title": "Prédications – nouvelle charte – ordinateur",
   "background": "[[surface-white]]",
-  "root": "<div style=\"font-family: 'Source Sans 3', system-ui, sans-serif; color: [[text]]; font-size: 18px; line-height: 1.6; background: [[surface-white]]; min-height: 100vh\">",
+  "root": "<div style=\"font-family: 'Inter Tight', system-ui, sans-serif; color: [[text]]; font-size: 18px; line-height: 1.6; background: [[surface-white]]; min-height: 100vh\">",
   "current": {
-   "5": "<a href=\"Predications-charte.dc.html\" aria-current=\"page\" style=\"display: inline-flex; align-items: center; min-height: 44px; padding: 0 16px; border-radius: 4px; background: [[secondary]]; color: [[surface-white]]; font-weight: 700; text-decoration: none\">Prédications</a>\n        "
+   "5": "<a aria-current=\"page\" href=\"Predications-charte.dc.html\" style=\"display: inline-flex; align-items: center; gap: 8px; min-height: 44px; color: [[secondary]]; font-size: 18px; font-weight: 600; text-decoration: none\"><span aria-hidden=\"true\" style=\"flex: none; width: 6px; height: 6px; border-radius: 999px; background: [[accent]]\"></span>Prédications</a>\n        "
   },
-  "props": "{\"$preview\":{\"width\":1440,\"height\":2900}}",
+  "props": "{\"$preview\":{\"width\":1440,\"height\":2371}}",
   "code": "class Component extends DCLogic {\n  renderVals() {\n    return {};\n  }\n}\n"
  },
  "Predication-charte": {
   "title": "Une prédication – nouvelle charte – ordinateur",
   "background": "[[surface-white]]",
-  "root": "<div style=\"font-family: 'Source Sans 3', system-ui, sans-serif; color: [[text]]; font-size: 18px; line-height: 1.6; background: [[surface-white]]; min-height: 100vh\">",
+  "root": "<div style=\"font-family: 'Inter Tight', system-ui, sans-serif; color: [[text]]; font-size: 18px; line-height: 1.6; background: [[surface-white]]; min-height: 100vh\">",
   "current": {
-   "5": "<a href=\"Predications-charte.dc.html\" aria-current=\"page\" style=\"display: inline-flex; align-items: center; min-height: 44px; padding: 0 16px; border-radius: 4px; background: [[secondary]]; color: [[surface-white]]; font-weight: 700; text-decoration: none\">Prédications</a>\n        "
+   "5": "<a aria-current=\"page\" href=\"Predications-charte.dc.html\" style=\"display: inline-flex; align-items: center; gap: 8px; min-height: 44px; color: [[secondary]]; font-size: 18px; font-weight: 600; text-decoration: none\"><span aria-hidden=\"true\" style=\"flex: none; width: 6px; height: 6px; border-radius: 999px; background: [[accent]]\"></span>Prédications</a>\n        "
   },
-  "props": "{\"$preview\":{\"width\":1440,\"height\":2300}}",
+  "props": "{\"$preview\":{\"width\":1440,\"height\":1317}}",
   "code": "class Component extends DCLogic {\n  renderVals() {\n    return {};\n  }\n}\n"
  },
  "Contact-charte": {
   "title": "Nous contacter – nouvelle charte – ordinateur",
   "background": "[[surface-white]]",
-  "root": "<div style=\"font-family: 'Source Sans 3', system-ui, sans-serif; color: [[text]]; font-size: 18px; line-height: 1.6; background: [[surface-white]]; min-height: 100vh\">",
+  "root": "<div style=\"font-family: 'Inter Tight', system-ui, sans-serif; color: [[text]]; font-size: 18px; line-height: 1.6; background: [[surface-white]]; min-height: 100vh\">",
   "current": {
-   "6": "<a href=\"Contact-charte.dc.html\" aria-current=\"page\" style=\"display: inline-flex; align-items: center; min-height: 44px; padding: 0 16px; border-radius: 4px; background: [[secondary]]; color: [[surface-white]]; font-weight: 700; text-decoration: none\">Nous contacter</a>\n        "
+   "6": "<a aria-current=\"page\" href=\"Contact-charte.dc.html\" style=\"display: inline-flex; align-items: center; gap: 8px; min-height: 44px; color: [[secondary]]; font-size: 18px; font-weight: 600; text-decoration: none\"><span aria-hidden=\"true\" style=\"flex: none; width: 6px; height: 6px; border-radius: 999px; background: [[accent]]\"></span>Nous contacter</a>\n        "
   },
-  "props": "{\"$preview\":{\"width\":1440,\"height\":2100}}",
+  "props": "{\"$preview\":{\"width\":1440,\"height\":1821}}",
   "code": "class Component extends DCLogic {\n  renderVals() {\n    return {};\n  }\n}\n"
  },
  "Don-charte": {
   "title": "Faire un don – nouvelle charte – ordinateur",
   "background": "[[surface-white]]",
-  "root": "<div style=\"font-family: 'Source Sans 3', system-ui, sans-serif; color: [[text]]; font-size: 18px; line-height: 1.6; background: [[surface-white]]; min-height: 100vh\">",
+  "root": "<div style=\"font-family: 'Inter Tight', system-ui, sans-serif; color: [[text]]; font-size: 18px; line-height: 1.6; background: [[surface-white]]; min-height: 100vh\">",
   "current": {
-   "7": "<a href=\"Don-charte.dc.html\" aria-current=\"page\" style=\"display: inline-flex; align-items: center; min-height: 44px; padding: 0 16px; border-radius: 4px; background: [[secondary]]; color: [[surface-white]]; font-weight: 700; text-decoration: none\">Faire un don</a>\n      </nav>\n    </div>\n  </header>"
+   "7": "<a aria-current=\"page\" href=\"Don-charte.dc.html\" style=\"display: inline-flex; align-items: center; gap: 8px; min-height: 52px; padding: 0 20px; border-radius: 4px; background: [[primary]]; color: [[surface-white]]; font-size: 18px; font-weight: 700; text-decoration: none\"><span aria-hidden=\"true\" style=\"flex: none; width: 6px; height: 6px; border-radius: 999px; background: [[accent]]\"></span>Faire un don</a>\n      </nav>\n    </div>\n  </header>"
   },
-  "props": "{\"$preview\":{\"width\":1440,\"height\":1800}}",
+  "props": "{\"$preview\":{\"width\":1440,\"height\":1680}}",
   "code": "class Component extends DCLogic {\n  renderVals() {\n    return {};\n  }\n}\n"
  },
  "Entretien-charte": {
   "title": "Demande d'entretien – nouvelle charte – ordinateur",
   "background": "[[surface-white]]",
-  "root": "<div style=\"font-family: 'Source Sans 3', system-ui, sans-serif; color: [[text]]; font-size: 18px; line-height: 1.6; background: [[surface-white]]; min-height: 100vh\">",
+  "root": "<div style=\"font-family: 'Inter Tight', system-ui, sans-serif; color: [[text]]; font-size: 18px; line-height: 1.6; background: [[surface-white]]; min-height: 100vh\">",
   "current": {},
-  "props": "{\"$preview\":{\"width\":1440,\"height\":2000}}",
+  "props": "{\"$preview\":{\"width\":1440,\"height\":1866}}",
   "code": "class Component extends DCLogic {\n  renderVals() {\n    return {};\n  }\n}\n"
  },
  "Priere-charte": {
   "title": "Demande de prière – nouvelle charte – ordinateur",
   "background": "[[surface-white]]",
-  "root": "<div style=\"font-family: 'Source Sans 3', system-ui, sans-serif; color: [[text]]; font-size: 18px; line-height: 1.6; background: [[surface-white]]; min-height: 100vh\">",
+  "root": "<div style=\"font-family: 'Inter Tight', system-ui, sans-serif; color: [[text]]; font-size: 18px; line-height: 1.6; background: [[surface-white]]; min-height: 100vh\">",
   "current": {},
-  "props": "{\"$preview\":{\"width\":1440,\"height\":1800}}",
+  "props": "{\"$preview\":{\"width\":1440,\"height\":1647}}",
   "code": "class Component extends DCLogic {\n  renderVals() {\n    return {};\n  }\n}\n"
  },
  "Servir-charte": {
   "title": "Servir à l'église – nouvelle charte – ordinateur",
   "background": "[[surface-white]]",
-  "root": "<div style=\"font-family: 'Source Sans 3', system-ui, sans-serif; color: [[text]]; font-size: 18px; line-height: 1.6; background: [[surface-white]]; min-height: 100vh\">",
+  "root": "<div style=\"font-family: 'Inter Tight', system-ui, sans-serif; color: [[text]]; font-size: 18px; line-height: 1.6; background: [[surface-white]]; min-height: 100vh\">",
   "current": {},
-  "props": "{\"$preview\":{\"width\":1440,\"height\":2600}}",
+  "props": "{\"$preview\":{\"width\":1440,\"height\":2330}}",
   "code": "class Component extends DCLogic {\n  renderVals() {\n    return {};\n  }\n}\n"
  },
  "Donnees-charte": {
   "title": "Protection des données – nouvelle charte – ordinateur",
   "background": "[[surface-white]]",
-  "root": "<div style=\"font-family: 'Source Sans 3', system-ui, sans-serif; color: [[text]]; font-size: 18px; line-height: 1.6; background: [[surface-white]]; min-height: 100vh\">",
+  "root": "<div style=\"font-family: 'Inter Tight', system-ui, sans-serif; color: [[text]]; font-size: 18px; line-height: 1.6; background: [[surface-white]]; min-height: 100vh\">",
   "current": {},
-  "props": "{\"$preview\":{\"width\":1440,\"height\":7300}}",
+  "props": "{\"$preview\":{\"width\":1440,\"height\":7460}}",
   "code": "class Component extends DCLogic {\n  renderVals() {\n    return {};\n  }\n}\n"
  },
  "Conditions-charte": {
   "title": "Conditions générales – nouvelle charte – ordinateur",
   "background": "[[surface-white]]",
-  "root": "<div style=\"font-family: 'Source Sans 3', system-ui, sans-serif; color: [[text]]; font-size: 18px; line-height: 1.6; background: [[surface-white]]; min-height: 100vh\">",
+  "root": "<div style=\"font-family: 'Inter Tight', system-ui, sans-serif; color: [[text]]; font-size: 18px; line-height: 1.6; background: [[surface-white]]; min-height: 100vh\">",
   "current": {},
-  "props": "{\"$preview\":{\"width\":1440,\"height\":7200}}",
+  "props": "{\"$preview\":{\"width\":1440,\"height\":7558}}",
   "code": "class Component extends DCLogic {\n  renderVals() {\n    return {};\n  }\n}\n"
  },
  "Mentions-charte": {
   "title": "Mentions légales – nouvelle charte – ordinateur",
   "background": "[[surface-white]]",
-  "root": "<div style=\"font-family: 'Source Sans 3', system-ui, sans-serif; color: [[text]]; font-size: 18px; line-height: 1.6; background: [[surface-white]]; min-height: 100vh\">",
+  "root": "<div style=\"font-family: 'Inter Tight', system-ui, sans-serif; color: [[text]]; font-size: 18px; line-height: 1.6; background: [[surface-white]]; min-height: 100vh\">",
   "current": {},
-  "props": "{\"$preview\":{\"width\":1440,\"height\":1700}}",
+  "props": "{\"$preview\":{\"width\":1440,\"height\":1642}}",
   "code": "class Component extends DCLogic {\n  renderVals() {\n    return {};\n  }\n}\n"
  },
  "Accueil-charte-telephone": {
   "title": "Accueil – nouvelle charte – téléphone",
-  "background": "[[surface-sand]]",
-  "root": "<div style=\"width: 390px; min-height: 4300px; box-sizing: border-box; display: flex; flex-direction: column; font-family: 'Source Sans 3', system-ui, sans-serif; color: [[text]]; font-size: 17px; line-height: 1.6; background: [[surface-sand]]\">",
+  "background": "[[surface-white]]",
+  "root": "<div style=\"width: 390px; min-height: 3170px; box-sizing: border-box; display: flex; flex-direction: column; font-family: 'Inter Tight', system-ui, sans-serif; color: [[text]]; font-size: 17px; line-height: 1.6; background: [[surface-white]]\">",
   "current": {},
   "props": "{\"sermonBlock\": {\"editor\": \"enum\", \"options\": [\"La dernière prédication\", \"En direct (pendant la diffusion YouTube)\"], \"default\": \"En direct (pendant la diffusion YouTube)\", \"section\": \"États de la page\"}, \"eventsBlock\": {\"editor\": \"enum\", \"options\": [\"Trois évènements à venir\", \"Aucun évènement à venir\"], \"default\": \"Aucun évènement à venir\", \"section\": \"États de la page\"}, \"$preview\": {\"width\": 390, \"height\": 4300}}",
   "code": "class Component extends DCLogic {\n  renderVals() {\n    const live = (this.props.sermonBlock ?? 'La dernière prédication') !== 'La dernière prédication';\n    const hasEvents = (this.props.eventsBlock ?? 'Trois évènements à venir') === 'Trois évènements à venir';\n    return { live: live, notLive: !live, hasEvents: hasEvents, noEvents: !hasEvents };\n  }\n}\n"
  },
- "Qui-sommes-nous-charte-telephone": {
-  "title": "Qui sommes-nous ? – nouvelle charte – téléphone",
+ "Eglise-charte-telephone": {
+  "title": "L'église – nouvelle charte – téléphone",
   "background": "[[surface-white]]",
-  "root": "<div style=\"width: 390px; min-height: 4300px; box-sizing: border-box; display: flex; flex-direction: column; font-family: 'Source Sans 3', system-ui, sans-serif; color: [[text]]; font-size: 17px; line-height: 1.6; background: [[surface-white]]\">",
+  "root": "<div style=\"width: 390px; min-height: 6176px; box-sizing: border-box; display: flex; flex-direction: column; font-family: 'Inter Tight', system-ui, sans-serif; color: [[text]]; font-size: 17px; line-height: 1.6; background: [[surface-white]]\">",
   "current": {},
-  "props": "{\"$preview\":{\"width\":390,\"height\":4300}}",
-  "code": "class Component extends DCLogic {\n  renderVals() {\n    return {};\n  }\n}\n"
- },
- "Equipe-charte-telephone": {
-  "title": "L'équipe – nouvelle charte – téléphone",
-  "background": "[[surface-white]]",
-  "root": "<div style=\"width: 390px; min-height: 5300px; box-sizing: border-box; display: flex; flex-direction: column; font-family: 'Source Sans 3', system-ui, sans-serif; color: [[text]]; font-size: 17px; line-height: 1.6; background: [[surface-white]]\">",
-  "current": {},
-  "props": "{\"$preview\":{\"width\":390,\"height\":5300}}",
-  "code": "class Component extends DCLogic {\n  renderVals() {\n    return {};\n  }\n}\n"
- },
- "Notre-histoire-charte-telephone": {
-  "title": "Notre histoire – nouvelle charte – téléphone",
-  "background": "[[surface-white]]",
-  "root": "<div style=\"width: 390px; min-height: 5100px; box-sizing: border-box; display: flex; flex-direction: column; font-family: 'Source Sans 3', system-ui, sans-serif; color: [[text]]; font-size: 17px; line-height: 1.6; background: [[surface-white]]\">",
-  "current": {},
-  "props": "{\"$preview\":{\"width\":390,\"height\":5100}}",
+  "props": "{\"$preview\":{\"width\":390,\"height\":6171}}",
   "code": "class Component extends DCLogic {\n  renderVals() {\n    return {};\n  }\n}\n"
  },
  "Evenements-charte-telephone": {
   "title": "Évènements – nouvelle charte – téléphone",
   "background": "[[surface-white]]",
-  "root": "<div style=\"width: 390px; min-height: 3900px; box-sizing: border-box; display: flex; flex-direction: column; font-family: 'Source Sans 3', system-ui, sans-serif; color: [[text]]; font-size: 17px; line-height: 1.6; background: [[surface-white]]\">",
+  "root": "<div style=\"width: 390px; min-height: 1664px; box-sizing: border-box; display: flex; flex-direction: column; font-family: 'Inter Tight', system-ui, sans-serif; color: [[text]]; font-size: 17px; line-height: 1.6; background: [[surface-white]]\">",
   "current": {},
-  "props": "{\"eventsBlock\":{\"editor\":\"enum\",\"options\":[\"Des évènements à venir\",\"Aucun évènement à venir\"],\"default\":\"Des évènements à venir\",\"section\":\"États de la page\"},\"$preview\":{\"width\":390,\"height\":3900}}",
-  "code": "class Component extends DCLogic {\n  renderVals() {\n    const hasEvents = (this.props.eventsBlock ?? 'Des évènements à venir') === 'Des évènements à venir';\n    return { hasEvents: hasEvents, noEvents: !hasEvents };\n  }\n}\n"
+  "props": "{\"$preview\":{\"width\":390,\"height\":1567}}",
+  "code": "class Component extends DCLogic {\n  renderVals() {\n    const hasEvents = (this.props.eventsBlock ?? 'Des évènements à venir') === 'Des évènements à venir';\n    // Next date of each weekly meeting, Paris time; it moves on when the meeting ends.\n    const weekly = (() => {\n      const short = [\"janv\", \"févr\", \"mars\", \"avr\", \"mai\", \"juin\", \"juil\", \"août\", \"sept\", \"oct\", \"nov\", \"déc\"];\n      const long = [\"janvier\", \"février\", \"mars\", \"avril\", \"mai\", \"juin\", \"juillet\", \"août\", \"septembre\", \"octobre\", \"novembre\", \"décembre\"];\n      const days = [\"Sun\", \"Mon\", \"Tue\", \"Wed\", \"Thu\", \"Fri\", \"Sat\"];\n      const now = {};\n      new Intl.DateTimeFormat(\"en-GB\", { timeZone: \"Europe/Paris\", weekday: \"short\", year: \"numeric\", month: \"numeric\", day: \"numeric\", hour: \"numeric\", hourCycle: \"h23\" })\n        .formatToParts(new Date()).forEach((p) => { now[p.type] = p.value; });\n      const next = (weekday, endHour) => {\n        let diff = (weekday - days.indexOf(now.weekday) + 7) % 7;\n        if (diff === 0 && Number(now.hour) >= endHour) diff = 7;\n        const d = new Date(Date.UTC(Number(now.year), Number(now.month) - 1, Number(now.day) + diff));\n        return { day: d.getUTCDate(), month: d.getUTCMonth() };\n      };\n      const sun = next(0, 12);\n      const tue = next(2, 20);\n      return {\n        sunDay: sun.day, sunMonth: short[sun.month], sunLabel: \"Prochain culte : dimanche \" + sun.day + \" \" + long[sun.month],\n        tueDay: tue.day, tueMonth: short[tue.month], tueLabel: \"Prochaine réunion de prière : mardi \" + tue.day + \" \" + long[tue.month]\n      };\n    })();\n    return { hasEvents: hasEvents, noEvents: !hasEvents, ...weekly };\n  }\n}\n"
  },
  "Evenement-charte-telephone": {
   "title": "Un évènement – nouvelle charte – téléphone",
   "background": "[[surface-white]]",
-  "root": "<div style=\"width: 390px; min-height: 2400px; box-sizing: border-box; display: flex; flex-direction: column; font-family: 'Source Sans 3', system-ui, sans-serif; color: [[text]]; font-size: 17px; line-height: 1.6; background: [[surface-white]]\">",
+  "root": "<div style=\"width: 390px; min-height: 1793px; box-sizing: border-box; display: flex; flex-direction: column; font-family: 'Inter Tight', system-ui, sans-serif; color: [[text]]; font-size: 17px; line-height: 1.6; background: [[surface-white]]\">",
   "current": {},
-  "props": "{\"$preview\":{\"width\":390,\"height\":2400}}",
+  "props": "{\"$preview\":{\"width\":390,\"height\":1741}}",
   "code": "class Component extends DCLogic {\n  renderVals() {\n    return {};\n  }\n}\n"
  },
  "Predications-charte-telephone": {
   "title": "Prédications – nouvelle charte – téléphone",
   "background": "[[surface-white]]",
-  "root": "<div style=\"width: 390px; min-height: 3900px; box-sizing: border-box; display: flex; flex-direction: column; font-family: 'Source Sans 3', system-ui, sans-serif; color: [[text]]; font-size: 17px; line-height: 1.6; background: [[surface-white]]\">",
+  "root": "<div style=\"width: 390px; min-height: 2272px; box-sizing: border-box; display: flex; flex-direction: column; font-family: 'Inter Tight', system-ui, sans-serif; color: [[text]]; font-size: 17px; line-height: 1.6; background: [[surface-white]]\">",
   "current": {},
-  "props": "{\"$preview\":{\"width\":390,\"height\":3900}}",
+  "props": "{\"$preview\":{\"width\":390,\"height\":2265}}",
   "code": "class Component extends DCLogic {\n  renderVals() {\n    return {};\n  }\n}\n"
  },
  "Predication-charte-telephone": {
   "title": "Une prédication – nouvelle charte – téléphone",
   "background": "[[surface-white]]",
-  "root": "<div style=\"width: 390px; min-height: 3300px; box-sizing: border-box; display: flex; flex-direction: column; font-family: 'Source Sans 3', system-ui, sans-serif; color: [[text]]; font-size: 17px; line-height: 1.6; background: [[surface-white]]\">",
+  "root": "<div style=\"width: 390px; min-height: 1441px; box-sizing: border-box; display: flex; flex-direction: column; font-family: 'Inter Tight', system-ui, sans-serif; color: [[text]]; font-size: 17px; line-height: 1.6; background: [[surface-white]]\">",
   "current": {},
-  "props": "{\"$preview\":{\"width\":390,\"height\":3300}}",
+  "props": "{\"$preview\":{\"width\":390,\"height\":1398}}",
   "code": "class Component extends DCLogic {\n  renderVals() {\n    return {};\n  }\n}\n"
  },
  "Contact-charte-telephone": {
   "title": "Nous contacter – nouvelle charte – téléphone",
   "background": "[[surface-white]]",
-  "root": "<div style=\"width: 390px; min-height: 3000px; box-sizing: border-box; display: flex; flex-direction: column; font-family: 'Source Sans 3', system-ui, sans-serif; color: [[text]]; font-size: 17px; line-height: 1.6; background: [[surface-white]]\">",
+  "root": "<div style=\"width: 390px; min-height: 3381px; box-sizing: border-box; display: flex; flex-direction: column; font-family: 'Inter Tight', system-ui, sans-serif; color: [[text]]; font-size: 17px; line-height: 1.6; background: [[surface-white]]\">",
   "current": {},
-  "props": "{\"$preview\":{\"width\":390,\"height\":3000}}",
+  "props": "{\"$preview\":{\"width\":390,\"height\":2355}}",
   "code": "class Component extends DCLogic {\n  renderVals() {\n    return {};\n  }\n}\n"
  },
  "Don-charte-telephone": {
   "title": "Faire un don – nouvelle charte – téléphone",
   "background": "[[surface-white]]",
-  "root": "<div style=\"width: 390px; min-height: 2500px; box-sizing: border-box; display: flex; flex-direction: column; font-family: 'Source Sans 3', system-ui, sans-serif; color: [[text]]; font-size: 17px; line-height: 1.6; background: [[surface-white]]\">",
+  "root": "<div style=\"width: 390px; min-height: 1944px; box-sizing: border-box; display: flex; flex-direction: column; font-family: 'Inter Tight', system-ui, sans-serif; color: [[text]]; font-size: 17px; line-height: 1.6; background: [[surface-white]]\">",
   "current": {},
-  "props": "{\"$preview\":{\"width\":390,\"height\":2500}}",
+  "props": "{\"$preview\":{\"width\":390,\"height\":1944}}",
   "code": "class Component extends DCLogic {\n  renderVals() {\n    return {};\n  }\n}\n"
  },
  "Entretien-charte-telephone": {
   "title": "Demande d'entretien – nouvelle charte – téléphone",
   "background": "[[surface-white]]",
-  "root": "<div style=\"width: 390px; min-height: 2700px; box-sizing: border-box; display: flex; flex-direction: column; font-family: 'Source Sans 3', system-ui, sans-serif; color: [[text]]; font-size: 17px; line-height: 1.6; background: [[surface-white]]\">",
+  "root": "<div style=\"width: 390px; min-height: 2064px; box-sizing: border-box; display: flex; flex-direction: column; font-family: 'Inter Tight', system-ui, sans-serif; color: [[text]]; font-size: 17px; line-height: 1.6; background: [[surface-white]]\">",
   "current": {},
-  "props": "{\"$preview\":{\"width\":390,\"height\":2700}}",
+  "props": "{\"$preview\":{\"width\":390,\"height\":2064}}",
   "code": "class Component extends DCLogic {\n  renderVals() {\n    return {};\n  }\n}\n"
  },
  "Priere-charte-telephone": {
   "title": "Demande de prière – nouvelle charte – téléphone",
   "background": "[[surface-white]]",
-  "root": "<div style=\"width: 390px; min-height: 2300px; box-sizing: border-box; display: flex; flex-direction: column; font-family: 'Source Sans 3', system-ui, sans-serif; color: [[text]]; font-size: 17px; line-height: 1.6; background: [[surface-white]]\">",
+  "root": "<div style=\"width: 390px; min-height: 1679px; box-sizing: border-box; display: flex; flex-direction: column; font-family: 'Inter Tight', system-ui, sans-serif; color: [[text]]; font-size: 17px; line-height: 1.6; background: [[surface-white]]\">",
   "current": {},
-  "props": "{\"$preview\":{\"width\":390,\"height\":2300}}",
+  "props": "{\"$preview\":{\"width\":390,\"height\":1679}}",
   "code": "class Component extends DCLogic {\n  renderVals() {\n    return {};\n  }\n}\n"
  },
  "Servir-charte-telephone": {
   "title": "Servir à l'église – nouvelle charte – téléphone",
   "background": "[[surface-white]]",
-  "root": "<div style=\"width: 390px; min-height: 3900px; box-sizing: border-box; display: flex; flex-direction: column; font-family: 'Source Sans 3', system-ui, sans-serif; color: [[text]]; font-size: 17px; line-height: 1.6; background: [[surface-white]]\">",
+  "root": "<div style=\"width: 390px; min-height: 2515px; box-sizing: border-box; display: flex; flex-direction: column; font-family: 'Inter Tight', system-ui, sans-serif; color: [[text]]; font-size: 17px; line-height: 1.6; background: [[surface-white]]\">",
   "current": {},
-  "props": "{\"$preview\":{\"width\":390,\"height\":3900}}",
+  "props": "{\"$preview\":{\"width\":390,\"height\":2515}}",
   "code": "class Component extends DCLogic {\n  renderVals() {\n    return {};\n  }\n}\n"
  },
  "Donnees-charte-telephone": {
   "title": "Protection des données – nouvelle charte – téléphone",
   "background": "[[surface-white]]",
-  "root": "<div style=\"width: 390px; min-height: 10500px; box-sizing: border-box; display: flex; flex-direction: column; font-family: 'Source Sans 3', system-ui, sans-serif; color: [[text]]; font-size: 17px; line-height: 1.6; background: [[surface-white]]\">",
+  "root": "<div style=\"width: 390px; min-height: 10373px; box-sizing: border-box; display: flex; flex-direction: column; font-family: 'Inter Tight', system-ui, sans-serif; color: [[text]]; font-size: 17px; line-height: 1.6; background: [[surface-white]]\">",
   "current": {},
-  "props": "{\"$preview\":{\"width\":390,\"height\":10500}}",
+  "props": "{\"$preview\":{\"width\":390,\"height\":10373}}",
   "code": "class Component extends DCLogic {\n  renderVals() {\n    return {};\n  }\n}\n"
  },
  "Conditions-charte-telephone": {
   "title": "Conditions générales – nouvelle charte – téléphone",
   "background": "[[surface-white]]",
-  "root": "<div style=\"width: 390px; min-height: 10600px; box-sizing: border-box; display: flex; flex-direction: column; font-family: 'Source Sans 3', system-ui, sans-serif; color: [[text]]; font-size: 17px; line-height: 1.6; background: [[surface-white]]\">",
+  "root": "<div style=\"width: 390px; min-height: 10825px; box-sizing: border-box; display: flex; flex-direction: column; font-family: 'Inter Tight', system-ui, sans-serif; color: [[text]]; font-size: 17px; line-height: 1.6; background: [[surface-white]]\">",
   "current": {},
-  "props": "{\"$preview\":{\"width\":390,\"height\":10600}}",
+  "props": "{\"$preview\":{\"width\":390,\"height\":10825}}",
   "code": "class Component extends DCLogic {\n  renderVals() {\n    return {};\n  }\n}\n"
  },
  "Mentions-charte-telephone": {
   "title": "Mentions légales – nouvelle charte – téléphone",
   "background": "[[surface-white]]",
-  "root": "<div style=\"width: 390px; min-height: 2100px; box-sizing: border-box; display: flex; flex-direction: column; font-family: 'Source Sans 3', system-ui, sans-serif; color: [[text]]; font-size: 17px; line-height: 1.6; background: [[surface-white]]\">",
+  "root": "<div style=\"width: 390px; min-height: 1576px; box-sizing: border-box; display: flex; flex-direction: column; font-family: 'Inter Tight', system-ui, sans-serif; color: [[text]]; font-size: 17px; line-height: 1.6; background: [[surface-white]]\">",
   "current": {},
-  "props": "{\"$preview\":{\"width\":390,\"height\":2100}}",
+  "props": "{\"$preview\":{\"width\":390,\"height\":1576}}",
   "code": "class Component extends DCLogic {\n  renderVals() {\n    return {};\n  }\n}\n"
  }
 }

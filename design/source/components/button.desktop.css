@@ -1,2 +1,2 @@
-.c-button.c-button{align-items: center; justify-content: center; gap: 8px; min-height: 52px; padding: 0 24px; box-sizing: border-box; border: 2px solid [[primary]]; border-radius: 4px; font-family: inherit; font-size: inherit; font-weight: 700; text-decoration: none; cursor: pointer}
+.c-button.c-button{align-items: center; justify-content: center; gap: 8px; min-height: 52px; padding: 0 24px; box-sizing: border-box; border: 1px solid [[primary]]; border-radius: 4px; font-family: inherit; font-size: inherit; font-weight: 600; text-decoration: none; cursor: pointer}
 .c-button__svg1.c-button__svg1{flex: none}

@@ -9,7 +9,7 @@ usage: python3 build_maquettes.py pull <canvas project dir>
 pull reads the *-charte boards and the Ecran-* prototypes downloaded from the canvas
 and writes design/source/. It reports every header or footer that differs from the
 shared one (a hand edit made on one page only); the shared one wins.
-build writes the 32 boards and the 9 prototypes from design/source/, colours from
+build writes the 28 boards and the 9 prototypes from design/source/, colours from
 design/tokens.json. Portrait tablets (768 and 820 px) get the tablet layout: the
 computer pages folded by the rules of DESIGN.md, "Folding".
 link splits the styles of every component (design/source/components/) between the shared
@@ -27,7 +27,7 @@ TOKENS = os.path.join(HERE, "..", "tokens.json")
 
 # board base name -> prototype page key
 PAGES = {
-    "Accueil": "home", "Qui-sommes-nous": "qui", "Equipe": "equipe", "Notre-histoire": "histoire",
+    "Accueil": "home", "Eglise": "eglise",
     "Evenements": "evenements", "Evenement": "evenement", "Predications": "predications",
     "Predication": "predication", "Contact": "contact", "Don": "don", "Entretien": "entretien",
     "Priere": "priere", "Servir": "servir", "Donnees": "donnees", "Conditions": "conditions",
@@ -45,7 +45,7 @@ BODIES = {"desktop": "desktop", "tablet": "tablet", "phone": "phone"}
 # First screen = header + banner (+ the first line of the first block) = the screen height.
 # Boards show it on a typical screen; prototypes on their own; the real site uses 100svh.
 BOARD_SCREEN = {"desktop": 900, "phone": 844}
-HEADER = {"desktop": 92, "tablet": 68, "phone": 64}
+HEADER = {"desktop": 120, "tablet": 88, "phone": 80}  # header height at the top of the page
 
 # Tablet layout (768-979 px): the computer page with these changes
 FOLD = [
@@ -58,6 +58,8 @@ FOLD = [
     ("grid-template-columns: minmax(0, 400px) minmax(0, 1fr)", "grid-template-columns: minmax(0, 2fr) minmax(0, 3fr)"),
     # a portrait photo stacked above its text would fill the screen
     ("aspect-ratio: 4 / 5", "aspect-ratio: 4 / 3"),
+    # the weekly cards are narrow on a tablet: the address goes on its own line
+    (' · <a href="https://maps.google.com/?q=75+rue+du+Chauffour+59300+Valenciennes" style="display: inline-block', '<br><a href="https://maps.google.com/?q=75+rue+du+Chauffour+59300+Valenciennes" style="display: inline-block'),
     # table of contents links are touched, not clicked, on a tablet
     ("min-height: 36px", "min-height: 44px"),
 ]
@@ -256,6 +258,8 @@ def fold(s):
 def page_block(base, bodies):
     dev = "desktop" if bodies == "tablet" else bodies
     s = "  " + read("pages", f"{base}.{dev}.html").strip() + "\n\n  " + read("shell", f"{dev}-footer.html")
+    # the static section links of the home page: the prototype shell carries a live copy
+    s = re.sub(r'\s*(?:<!--(?:(?!-->).)*-->\s*)?<nav class="anchor-nav[^"]*".*?</nav>', "", s, flags=re.S)
     if bodies == "tablet":
         s = fold(s)
     s = re.sub(r'href="([A-Za-z-]+)-charte(?:-telephone)?\.dc\.html"',
@@ -302,13 +306,18 @@ def link():
 
 
 SHELL_PARTS = {"header": ("En-tête", "Logo et menu ; sur téléphone et tablette, le bouton « Menu » ouvre un menu plein écran."),
-               "footer": ("Pied de page", "Bleu nuit : adresse, liens du site, réseaux, mentions légales et crédit.")}
+               "footer": ("Pied de page", "Gris clair : logo, adresse et horaires, réseaux, mentions légales et crédit.")}
 SAMPLE_PAD = 24
 
 
-def component_samples(name):
-    """First instance of a component on each device, in page order, and how often it is used."""
-    out, count, pages = {}, 0, set()
+SAMPLE_GAP = '<div style="height: 16px"></div>'
+
+
+def component_samples(name, variant=None):
+    """First instance of a component on each device, in page order, and how often it is used.
+    With `variant` (an inline property, such as background), the first instance of each value of it,
+    so a component with several models shows them all."""
+    out, seen, count, pages = {}, {}, 0, set()
     for dev in DEVICES:
         for base in PAGES:
             body = read("pages", f"{base}.{dev}.html")
@@ -316,12 +325,31 @@ def component_samples(name):
                 if f"c-{name}" in comp.classes_of(n):
                     count += dev == "desktop"
                     pages.add(base)
+                    key = dict(comp.decls(comp.attr(n, "style"))).get(variant) if variant else None
+                    if key in seen.setdefault(dev, []) or (not variant and seen[dev]):
+                        continue
+                    seen[dev].append(key)
                     sample = body[n.start:n.end].replace("[[first-screen]]", f"{BOARD_SCREEN[dev] - HEADER[dev]}px")
                     # desktop and phone samples share the board: keep their ids apart
                     sample = re.sub(r'\b(id|for|aria-labelledby|aria-describedby)="([^"{]+)"',
                                     lambda m: f'{m.group(1)}="' + " ".join(f"{dev[0]}-{i}" for i in m.group(2).split()) + '"', sample)
-                    out.setdefault(dev, sample)
+                    out[dev] = out[dev] + SAMPLE_GAP + sample if dev in out else sample
     return out, count, len(pages)
+
+
+def nested_components(name, samples):
+    """Other components drawn inside the samples (a button in a card): their boards need their styles too."""
+    found = []
+    for sample in samples.values():
+        for n in comp.parse(sample):
+            for c in comp.classes_of(n):
+                if c.startswith("c-") and "__" not in c and c != f"c-{name}" and c[2:] not in found:
+                    found.append(c[2:])
+    return found
+
+
+def own_class(name, cls):
+    return cls == f"c-{name}" or cls.startswith(f"c-{name}__")
 
 
 def scoped_css(dev, rules_text):
@@ -335,14 +363,14 @@ def component_board(name, title, text, samples, widths, usage, height, css):
     base = read("shell", "desktop-helmet.html").replace("@@BG@@", "[[surface-white]]")
     helmet = base.replace("</style>", "/* components */\n" + css + "/* end components */\n</style>", 1)
     col = lambda dev, w, size, sample: (
-        f'<section style="flex: none"><h2 style="margin: 0 0 16px; font-family: \'Outfit\', system-ui, sans-serif; font-size: 20px; color: [[secondary]]">'
+        f'<section style="flex: none"><h2 style="margin: 0 0 16px; font-family: \'Inter Tight\', system-ui, sans-serif; font-size: 20px; color: [[secondary]]">'
         f'{"Ordinateur" if dev == "desktop" else "Téléphone"}</h2>'
         f'<div class="dev-{dev}" data-sample="{dev}" style="box-sizing: content-box; width: {w}px; padding: {pad}px; background: [[border]]; '
         f'border-radius: 6px; font-size: {size}px; line-height: 1.6">{sample}<!--/sample--></div></section>')
     return (f'<!doctype html>\n<html lang="fr">\n<head>\n<meta charset="utf-8">\n<title>{title} – composant</title>\n'
             f'<script src="./support.js"></script>\n</head>\n<body>\n<x-dc>\n<helmet>{helmet}</helmet>\n'
-            f'<div style="box-sizing: border-box; width: {width}px; padding: 48px; background: [[surface-white]]; font-family: \'Source Sans 3\', system-ui, sans-serif; color: [[text]]">\n'
-            f'  <h1 style="margin: 0 0 8px; font-family: \'Outfit\', system-ui, sans-serif; font-size: 40px; line-height: 1.1; color: [[secondary]]">{title}</h1>\n'
+            f'<div style="box-sizing: border-box; width: {width}px; padding: 48px; background: [[surface-white]]; font-family: \'Inter Tight\', system-ui, sans-serif; color: [[text]]">\n'
+            f'  <h1 style="margin: 0 0 8px; font-family: \'Inter Tight\', system-ui, sans-serif; font-size: 40px; line-height: 1.1; color: [[secondary]]">{title}</h1>\n'
             f'  <p style="margin: 0 0 8px; max-width: 880px; font-size: 18px; line-height: 1.6">{text}</p>\n'
             f'  <p style="margin: 0 0 32px; font-size: 15px; color: [[text-muted]]">{usage} Modifiez cet exemple : toutes les pages qui utilisent ce composant suivent.</p>\n'
             f'  <div style="display: flex; gap: 80px; align-items: flex-start">\n    '
@@ -364,9 +392,11 @@ def component_boards():
         board_text, w = component_board(part, title, text, samples, (1440, 390), "Partagé par toutes les pages.", h, css)
         out[f"Composant-{part}"] = (board_text, w, h)
     for c in catalog:
-        samples, count, pages = component_samples(c["name"])
-        css = "".join(scoped_css(dev, open(os.path.join(folder, f"{c['name']}.{dev}.css"), encoding="utf-8").read())
-                      for dev in DEVICES if os.path.exists(os.path.join(folder, f"{c['name']}.{dev}.css")))
+        samples, count, pages = component_samples(c["name"], c.get("variant"))
+        # nested components first, so the board's own component wins where both style an element
+        css = "".join(scoped_css(dev, open(os.path.join(folder, f"{part}.{dev}.css"), encoding="utf-8").read())
+                      for part in nested_components(c["name"], samples) + [c["name"]]
+                      for dev in DEVICES if os.path.exists(os.path.join(folder, f"{part}.{dev}.css")))
         usage = f"Utilisé {count} fois sur {pages} page{'s' if pages > 1 else ''} (version ordinateur)."
         h = heights.get(c["name"], 900)
         board_text, w = component_board(c["name"], c["title"], c["text"], samples, tuple(c["width"]), usage, h, css)
@@ -405,17 +435,19 @@ def pull_components(canvas, warnings):
             continue
         helmet = re.search(r"/\* components \*/\n(.*?)/\* end components \*/", after, re.S).group(1)
         rules = {dev: {} for dev in DEVICES}
+        # only the board's own component: a nested one (a button in a card) is edited on its own board
         for m in re.finditer(r"\.dev-(\w+) \.(c-[\w-]+)\.\2\{([^}]*)\}", helmet):
-            rules[m.group(1)][m.group(2)] = comp.decls(m.group(3))
+            if own_class(part, m.group(2)):
+                rules[m.group(1)][m.group(2)] = comp.decls(m.group(3))
         for dev in DEVICES:
             old = re.search(rf'data-sample="{dev}"[^>]*>(.*?)<!--/sample-->', before, re.S).group(1)
             new = re.search(rf'data-sample="{dev}"[^>]*>(.*?)<!--/sample-->', after, re.S).group(1)
-            olds = [n for n in comp.parse(old) if any(c.startswith("c-") for c in comp.classes_of(n))]
-            news = [n for n in comp.parse(new) if any(c.startswith("c-") for c in comp.classes_of(n))]
+            olds = [n for n in comp.parse(old) if any(own_class(part, c) for c in comp.classes_of(n))]
+            news = [n for n in comp.parse(new) if any(own_class(part, c) for c in comp.classes_of(n))]
             if len(olds) != len(news):
                 warnings.append(f"{name}: the {dev} sample changed shape; only its styles are kept")
             for o, n in zip(olds, news):
-                cls = next(c for c in comp.classes_of(n) if c.startswith("c-"))
+                cls = next(c for c in comp.classes_of(n) if own_class(part, c))
                 was = dict(comp.decls(comp.attr(o, "style")))
                 added = [(p, v) for p, v in comp.decls(comp.attr(n, "style")) if was.get(p) != v]
                 if added and cls in rules[dev]:
@@ -429,7 +461,7 @@ def pull_components(canvas, warnings):
 
 
 def variant(out, tokens, name, label):
-    """Colour variant: the 32 boards with another tokens.json, as <Page>-<name>[-telephone].dc.html."""
+    """Colour variant: the boards with another tokens.json, as <Page>-<name>[-telephone].dc.html."""
     global TOKENS
     TOKENS = tokens
     meta = json.load(open(os.path.join(SOURCE, "boards.json"), encoding="utf-8"))
