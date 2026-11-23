@@ -84,7 +84,7 @@
   "background": "[[surface-white]]",
   "root": "<div style=\"font-family: 'Inter Tight', system-ui, sans-serif; color: [[text]]; font-size: 18px; line-height: 1.6; background: [[surface-white]]; min-height: 100vh\">",
   "current": {},
-  "props": "{\"$preview\":{\"width\":1440,\"height\":1906}}",
+  "props": "{\"$preview\":{\"width\":1440,\"height\":1866}}",
   "code": "class Component extends DCLogic {\n  renderVals() {\n    return {};\n  }\n}\n"
  },
  "Priere-charte": {
@@ -92,7 +92,7 @@
   "background": "[[surface-white]]",
   "root": "<div style=\"font-family: 'Inter Tight', system-ui, sans-serif; color: [[text]]; font-size: 18px; line-height: 1.6; background: [[surface-white]]; min-height: 100vh\">",
   "current": {},
-  "props": "{\"$preview\":{\"width\":1440,\"height\":1654}}",
+  "props": "{\"$preview\":{\"width\":1440,\"height\":1647}}",
   "code": "class Component extends DCLogic {\n  renderVals() {\n    return {};\n  }\n}\n"
  },
  "Servir-charte": {
@@ -100,7 +100,7 @@
   "background": "[[surface-white]]",
   "root": "<div style=\"font-family: 'Inter Tight', system-ui, sans-serif; color: [[text]]; font-size: 18px; line-height: 1.6; background: [[surface-white]]; min-height: 100vh\">",
   "current": {},
-  "props": "{\"$preview\":{\"width\":1440,\"height\":2496}}",
+  "props": "{\"$preview\":{\"width\":1440,\"height\":2330}}",
   "code": "class Component extends DCLogic {\n  renderVals() {\n    return {};\n  }\n}\n"
  },
  "Donnees-charte": {
@@ -194,25 +194,25 @@
  "Entretien-charte-telephone": {
   "title": "Demande d'entretien – nouvelle charte – téléphone",
   "background": "[[surface-white]]",
-  "root": "<div style=\"width: 390px; min-height: 2055px; box-sizing: border-box; display: flex; flex-direction: column; font-family: 'Inter Tight', system-ui, sans-serif; color: [[text]]; font-size: 17px; line-height: 1.6; background: [[surface-white]]\">",
+  "root": "<div style=\"width: 390px; min-height: 2064px; box-sizing: border-box; display: flex; flex-direction: column; font-family: 'Inter Tight', system-ui, sans-serif; color: [[text]]; font-size: 17px; line-height: 1.6; background: [[surface-white]]\">",
   "current": {},
-  "props": "{\"$preview\":{\"width\":390,\"height\":2055}}",
+  "props": "{\"$preview\":{\"width\":390,\"height\":2064}}",
   "code": "class Component extends DCLogic {\n  renderVals() {\n    return {};\n  }\n}\n"
  },
  "Priere-charte-telephone": {
   "title": "Demande de prière – nouvelle charte – téléphone",
   "background": "[[surface-white]]",
-  "root": "<div style=\"width: 390px; min-height: 1664px; box-sizing: border-box; display: flex; flex-direction: column; font-family: 'Inter Tight', system-ui, sans-serif; color: [[text]]; font-size: 17px; line-height: 1.6; background: [[surface-white]]\">",
+  "root": "<div style=\"width: 390px; min-height: 1679px; box-sizing: border-box; display: flex; flex-direction: column; font-family: 'Inter Tight', system-ui, sans-serif; color: [[text]]; font-size: 17px; line-height: 1.6; background: [[surface-white]]\">",
   "current": {},
-  "props": "{\"$preview\":{\"width\":390,\"height\":1664}}",
+  "props": "{\"$preview\":{\"width\":390,\"height\":1679}}",
   "code": "class Component extends DCLogic {\n  renderVals() {\n    return {};\n  }\n}\n"
  },
  "Servir-charte-telephone": {
   "title": "Servir à l'église – nouvelle charte – téléphone",
   "background": "[[surface-white]]",
-  "root": "<div style=\"width: 390px; min-height: 3204px; box-sizing: border-box; display: flex; flex-direction: column; font-family: 'Inter Tight', system-ui, sans-serif; color: [[text]]; font-size: 17px; line-height: 1.6; background: [[surface-white]]\">",
+  "root": "<div style=\"width: 390px; min-height: 2515px; box-sizing: border-box; display: flex; flex-direction: column; font-family: 'Inter Tight', system-ui, sans-serif; color: [[text]]; font-size: 17px; line-height: 1.6; background: [[surface-white]]\">",
   "current": {},
-  "props": "{\"$preview\":{\"width\":390,\"height\":3204}}",
+  "props": "{\"$preview\":{\"width\":390,\"height\":2515}}",
   "code": "class Component extends DCLogic {\n  renderVals() {\n    return {};\n  }\n}\n"
  },
  "Donnees-charte-telephone": {
